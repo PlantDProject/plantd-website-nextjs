@@ -37,6 +37,12 @@ h6 {
   font-family: "Nunito Sans", sans-serif !important;
 }
 
+.popover-links {
+  color : black !important;
+  padding : 6px 18px !important; 
+  font-weight: 400 !important;
+}
+
 .bg-config,
 .headbg {
   background-size: cover;
@@ -364,6 +370,7 @@ a.nav-link.activate {
 .btn-soft-primary {
   background-color: #40ba67 !important;
   color: #fff !important;
+  transition : 0.5s ease !important;
 }
 
 .btn-soft-primary .open > .dropdown-toggle.btn-primary,
@@ -374,8 +381,8 @@ a.nav-link.activate {
 .btn-soft-primary:hover,
 .btn-soft-primary:not(:disabled):not(.disabled):active,
 .btn-soft-primary:not(:disabled):not(.disabled):active:focus {
-  color: #40ba67;
-  background: #fff;
+  color: #40ba67 !important;
+  background: #fff !important;
   border-color: #40ba67;
 }
 
@@ -462,6 +469,10 @@ a.nav-link.activate {
   margin-bottom: 0;
   transition: 0.5s ease-in-out;
   top: 40px !important;
+}
+
+.nav-sticky {
+  top : 0 !important;
 }
 
 .contact-btn-close,
