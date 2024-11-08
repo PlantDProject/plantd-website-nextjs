@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 const Footer = () => {
     const [appLink, setAppLink] = useState('');
-    const isSpecialPage =
-        typeof window !== 'undefined' &&
-        (window.location.pathname.includes('projects') ||
-            window.location.pathname.includes('giveaways') ||
-            window.location.pathname.includes('about'));
+    // const isSpecialPage =
+    //     typeof window !== 'undefined' &&
+    //     (window.location.pathname.includes('projects') ||
+    //         window.location.pathname.includes('giveaways') ||
+    //         window.location.pathname.includes('about'));
 
     useEffect(() => {
         if (window.location.hostname === 'plantd.life') {
