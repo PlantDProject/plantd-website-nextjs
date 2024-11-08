@@ -9,6 +9,8 @@
     --white: #ffffff; /* White */
     --black: #000000; /* Black */
     --grey: #495057; /* Black */
+    --dark : #141414;
+    --dark-grey : #989898;
 }
 
 * {
@@ -19,23 +21,24 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.title {
+.title-color {
     color: var(--white);
 }
 
-/* PC Screen Size */
-
-@media (max-width: 1140.98px) {
-    .navbar-nav li a {
-        font-size: 12px !important;
-    }
+.text-green {
+    color: var(--primary-color);
 }
+
+.btn-soft-primary {
+    background-color: #40ba67 !important;
+    color: #fff !important;
+    border-radius: 30px !important;
+}
+
+/* PC Screen Size */
 
 /* PC Screen Size */
 
 /* Small Screens */
-
-@media (min-width: 200px) and (max-width: 991.5px) {
-}
 
 /* Small Screens */

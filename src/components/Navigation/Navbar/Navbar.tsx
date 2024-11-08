@@ -11,10 +11,17 @@ const Navbar = () => {
     const [isAtTop, setIsAtTop] = React.useState<boolean>(true);
     const [show, setShow] = React.useState<boolean>(true);
 
-    const onScroll = React.useCallback(() => {
-        const { scrollY } = window;
-        console.log('scrollY', scrollY);
-        setIsAtTop(window.scrollY === 0);
+    React.useEffect(() => {
+        if (window.innerWidth < 991) setShow(false);
+    }, []);
+
+    React.useEffect(() => {
+        window.addEventListener('resize', () => {
+            console.log(window.innerWidth);
+            if (window.innerWidth < 991) {
+                if (show) setShow(false);
+            } else setShow(true);
+        });
     }, []);
 
     React.useEffect(() => {
@@ -24,6 +31,12 @@ const Navbar = () => {
         return () => {
             window.removeEventListener('scroll', onScroll, {});
         };
+    }, []);
+
+    const onScroll = React.useCallback(() => {
+        const { scrollY } = window;
+        console.log('scrollY', scrollY);
+        setIsAtTop(window.scrollY === 0);
     }, []);
 
     const getItem = (title: string, navigateTo: string, isNew: boolean = false, showArrow: boolean = false) => {
@@ -40,12 +53,44 @@ const Navbar = () => {
         );
     };
 
+    const redirectTo = (path: string) => {
+        switch (path) {
+            case 'projects':
+                if (window.innerWidth < 991 && !showProjectsDropdown) {
+                    setShowProjectsDropdown(true);
+                    setShowGiveawaysDropdown(false);
+                    return;
+                }
+                window.location.replace('/projects');
+                break;
+            case 'about':
+                if (window.innerWidth < 991 && !showGiveawaysDropdown) {
+                    setShowProjectsDropdown(false);
+                    setShowGiveawaysDropdown(true);
+                    return;
+                }
+                window.location.replace('/about');
+                break;
+        }
+    };
+
+    const headerLogo = () => {
+        const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
+        const dark = 'https://test.plantd.life/images/plantdimg/logo-dark.png';
+
+        if (window.innerWidth < 991) return dark;
+
+        if (isAtTop) return light;
+
+        return dark;
+    };
+
     return (
         <div className="container-fluid px-lg-5 px-2">
             <nav className={`navbar navbar-expand-lg fixed-top bg-body-tertiary py-0 smooth ${isAtTop ? 'custom-nav' : ''}`}>
-                <div className="container-fluid px-lg-5">
+                <div className="container-fluid px-lg-5 py-3 py-lg-0 px-2">
                     <Link className="navbar-brand" href="/">
-                        <img src="https://test.plantd.life/images/plantdimg/logo-dark.png" width="50%" />
+                        <img src={headerLogo()} width="50%" />
                     </Link>
                     <button
                         className="navbar-toggler"
@@ -60,12 +105,15 @@ const Navbar = () => {
                             setShow((prev) => !prev);
                         }}
                     >
-                        <span className="navbar-toggler-icon"></span>
+                        <i className="fa fa-bars" aria-hidden="true"></i>
                     </button>
-                    <div className={`${show ? 'show' : 'collapse'} navbar-collapse`} id="navbarText">
+                    <div className={`show ${show ? 'addHeight' : ''} custom-collapsible navbar-collapse`} id="navbarText">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0 navbar-menu">
                             <li className={`nav-item ${isAtTop ? 'color-white' : 'color-black'}`} onMouseEnter={() => setShowGiveawaysDropdown(true)} onMouseLeave={() => setShowGiveawaysDropdown(false)}>
-                                {getLink('About Us', '#', false, true)}
+                                <Link className="nav-link" href="#" onClick={() => redirectTo('about')}>
+                                    About Us
+                                    <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
+                                </Link>
                                 <ul className={`dropdown-menu ${showGiveawaysDropdown ? 'show' : ''}`} id="aboutDropdown">
                                     {AboutUs?.map((item: DropdownData, index) => {
                                         return (
@@ -80,7 +128,10 @@ const Navbar = () => {
                             </li>
 
                             <li className={`nav-item ${isAtTop ? 'color-white' : 'color-black'}`} onMouseEnter={() => setShowProjectsDropdown(true)} onMouseLeave={() => setShowProjectsDropdown(false)}>
-                                {getLink('Projects', '#', false, true)}
+                                <Link className="nav-link" href="#" onClick={() => redirectTo('projects')}>
+                                    Projects
+                                    <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
+                                </Link>
                                 <ul className={`dropdown-menu ${showProjectsDropdown ? 'show' : ''}`} id="projectsDropdown">
                                     {ProjectsList?.map((item: DropdownData, index) => {
                                         return (
@@ -100,7 +151,7 @@ const Navbar = () => {
                             {getItem('Giveaways', '/giveaways')}
                         </ul>
 
-                        <ul className="mb-0 ps-2">
+                        <ul className="mb-0 ps-lg-2 ps-0">
                             <li className="nav-item">
                                 <Link className="btn primary-btn" href="#">
                                     Sign Up Now

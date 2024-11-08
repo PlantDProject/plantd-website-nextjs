@@ -1,12 +1,114 @@
 .bg-home {
     position: relative;
-    background-color: #fff;
+    background-color: var(--white);
     padding: 210px 0 0;
-}
-
-.bg-home {
     background-image: url('https://test.plantd.life/images/plantdimg/giveawayhead.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 0px 30px 25px black inset;
+    box-shadow: 0px 0px 30px 25px var(--black) inset;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.giveawayHead .title-sub-heading {
+    width: 60%;
+    margin: auto;
+}
+
+.bg-dark-grey {
+    background-color: var(--dark) !important;
+}
+
+.w-90 {
+    width: 90%;
+    border-radius: 12px;
+}
+
+.w-95 {
+    width: 95%;
+    border-radius: 12px;
+}
+
+.image-bg {
+    border-radius: 15px;
+    background-image: url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.eventdate-div {
+    right: 20px;
+    top: 20px;
+    width: 90px;
+}
+
+.eventdate-div,
+.eventenddate {
+    box-shadow: 0 0 5px var(--dark-grey);
+    padding: 8px 0;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.ty-img {
+    width: 230px;
+    border-radius: 12px;
+    vertical-align: middle;
+}
+
+.eventshare-div {
+    right: 20px;
+    bottom: 20px;
+    box-shadow: 0 0 4px #989898;
+    background: var(--dark);
+    padding: 8px 10px 4px;
+    border-radius: 6px;
+}
+
+.eventshare-div i.fa {
+    color: var(--primary-color) !important;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (min-width: 1500px) {
+    .bg-home {
+        padding: 150px 0 0 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .giveawayHead .title-sub-heading, .scanmob {
+        width: 90%;
+    }
+    .ty-img {
+        width: 200px !important;
+    }
+}
+
+@media (max-width: 575.86px) {
+    .eventdate-div {
+        position: static !important;
+        right: 5px;
+        top: 60px;
+        padding: 8px 0;
+        width: 70px;
+        margin-bottom: 10px;
+    }
+    .eventdate-div p {
+        font-size: 12px !important;
+    }
+    .eventdate-div h3 {
+        font-size: 16px !important;
+    }
+    .ty-img {
+        width: 180px !important;
+    }
+    .eventshare-div {
+        right: 5px;
+        top: 10px;
+        bottom: unset;
+    }
 }
