@@ -12,7 +12,7 @@ const Navbar = () => {
     const [show, setShow] = React.useState<boolean>(true);
 
     React.useEffect(() => {
-        if (window.innerWidth < 991) setShow(false);
+        if (window && window.innerWidth < 991) setShow(false);
     }, []);
 
     React.useEffect(() => {
@@ -56,7 +56,7 @@ const Navbar = () => {
     const redirectTo = (path: string) => {
         switch (path) {
             case 'projects':
-                if (window.innerWidth < 991 && !showProjectsDropdown) {
+                if (window && window.innerWidth < 991 && !showProjectsDropdown) {
                     setShowProjectsDropdown(true);
                     setShowGiveawaysDropdown(false);
                     return;
@@ -64,7 +64,7 @@ const Navbar = () => {
                 window.location.replace('/projects');
                 break;
             case 'about':
-                if (window.innerWidth < 991 && !showGiveawaysDropdown) {
+                if (window && window.innerWidth < 991 && !showGiveawaysDropdown) {
                     setShowProjectsDropdown(false);
                     setShowGiveawaysDropdown(true);
                     return;
