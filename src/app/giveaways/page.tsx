@@ -1,6 +1,6 @@
-import './giveaways/giveaway.css';
+import './giveaway.css';
 
-export default function Home() {
+export default function Giveaways() {
     return (
         <>
             <section className="bg-home " id="home">
@@ -10,7 +10,7 @@ export default function Home() {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="thank-content text-center">
-                                        <h1 className="title mb-5 text-center">HomePage</h1>
+                                        <h1 className="title mb-5 text-center">Plantd Giveaway List</h1>
                                     </div>
                                 </div>
                             </div>
@@ -18,7 +18,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <div style={{height : 2000, backgroundColor : "#000"}}></div>
+            <div style={{ height: 2000, backgroundColor: '#000' }}></div>
         </>
     );
 }

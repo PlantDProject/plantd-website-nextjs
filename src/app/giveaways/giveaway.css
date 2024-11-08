@@ -1,0 +1,12 @@
+.bg-home {
+    position: relative;
+    background-color: #fff;
+    padding: 210px 0 0;
+}
+
+.bg-home {
+    background-image: url('https://test.plantd.life/images/plantdimg/giveawayhead.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 30px 25px black inset;
+}
