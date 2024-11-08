@@ -1,6 +1,7 @@
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '@/components/Navigation/Navbar/Navbar';
+import Footer from '@/components/Navigation/Footer/Footer';
 
 export default function RootLayout({
     children,
@@ -15,6 +16,7 @@ export default function RootLayout({
             <body>
                 <Navbar />
                 {children}
+                <Footer />
             </body>
         </html>
     );

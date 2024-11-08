@@ -17,6 +17,10 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 body {
     font-family: 'Nunito Sans', sans-serif;
 }

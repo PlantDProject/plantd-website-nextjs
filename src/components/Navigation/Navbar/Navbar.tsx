@@ -20,7 +20,9 @@ const Navbar = () => {
             console.log(window.innerWidth);
             if (window.innerWidth < 991) {
                 if (show) setShow(false);
-            } else setShow(true);
+            } else {
+                setShow(true);
+            }
         });
     }, []);
 
@@ -78,7 +80,7 @@ const Navbar = () => {
         const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
         const dark = 'https://test.plantd.life/images/plantdimg/logo-dark.png';
 
-        if (window.innerWidth < 991) return dark;
+        // if (isMobile) return dark;
 
         if (isAtTop) return light;
 
