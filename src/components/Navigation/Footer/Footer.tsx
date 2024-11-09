@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import './Footer.css';
-import { width } from '@fortawesome/free-solid-svg-icons/fa0';
 
 const Footer = () => {
     return (
