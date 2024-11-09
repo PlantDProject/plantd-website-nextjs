@@ -17,6 +17,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.footer-container h4{
+    font-weight: 700;
+}
 
 .footer-logo {
     flex: 1;
@@ -52,13 +55,13 @@
     line-height: 1.6;
 }
 
-.footer-links ul {
+.footer-link ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-links li {
-    margin-bottom: 5px;
+.footer-link li {
+    margin-bottom: 8px;
 }
 
 .footer-links a {
@@ -80,9 +83,15 @@
 }
 
 .social-icons a {
-    color: #fff;
+    color: #000 !important;
     font-size: 20px;
-    margin-right: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
 }
 
 .footer-bottom {
@@ -92,6 +101,9 @@
     border-top: 1px solid #333;
     padding-top: 10px;
 }
+.foot-app-icon .app-store {
+    margin-right: 10px;
+}
 
 .usefullinks a img {
     border-radius: 50px;
@@ -100,4 +112,51 @@
 
 .f-18 {
     font-size: 18px;
+}
+
+@media (max-width: 991.89px) {
+    .f-15 {
+        font-size: 12px !important;
+    }
+    .footer-info img{
+        width: 60%;
+    }
+}
+@media (max-width: 767.89px) {
+    .footer-container{
+        text-align: center;
+    }
+    .f-15 {
+        font-size: 15px !important;
+    }
+    .footer-info img{
+        width: unset;
+        margin: auto;
+    }
+    .foot-app-icon .app-store {
+        display: flex;
+        justify-content: end;
+        margin-right: 10px;
+    }
+    .foot-app-icon .app-store  {
+        margin-right: 5px;
+    }
+    .foot-app-icon .play-store {
+        margin-left: 5px;
+    }
+    .foot-app-icon {
+        justify-content: center;
+    }
+    .useful-link-div{
+        display: unset !important;
+    }
+    .footer-link li {
+        margin-bottom: 4px;
+    }
+    .list-unstyled {
+        margin-bottom: 6px !important;
+    }
+    .footer-info img{
+        width: 50%;
+    }
 }
