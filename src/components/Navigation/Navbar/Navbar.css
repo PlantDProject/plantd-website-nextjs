@@ -100,13 +100,18 @@
 }
 
 .custom-collapsible {
-    max-height : 0px;
-    overflow : hidden;
+    max-height: 0px;
+    overflow: hidden;
     transition: max-height 0.5s ease-in-out;
 }
 
 .custom-collapsible.addHeight {
-    max-height : 600px;
+    max-height: 600px;
+}
+
+.nav-item > .btn {
+    font-size: 14px;
+    padding : 6px 16px
 }
 /* Dropdown items */
 

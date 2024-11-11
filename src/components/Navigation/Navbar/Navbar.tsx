@@ -76,11 +76,11 @@ const Navbar = () => {
         }
     };
 
-    const headerLogo = () => {
+    const headerLogo = (isMobile: boolean = false) => {
         const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
         const dark = 'https://test.plantd.life/images/plantdimg/logo-dark.png';
 
-        // if (isMobile) return dark;
+        if (isMobile) return dark;
 
         if (isAtTop) return light;
 
@@ -92,7 +92,8 @@ const Navbar = () => {
             <nav className={`navbar navbar-expand-lg fixed-top bg-body-tertiary py-0 smooth ${isAtTop ? 'custom-nav' : ''}`}>
                 <div className="container-fluid px-lg-5 py-3 py-lg-0 px-2">
                     <Link className="navbar-brand" href="/">
-                        <img src={headerLogo()} width="50%" />
+                        <img className="d-none d-lg-block" src={headerLogo()} width="50%" />
+                        <img className="d-lg-none" src={headerLogo(true)} width="50%" />
                     </Link>
                     <button
                         className="navbar-toggler"
