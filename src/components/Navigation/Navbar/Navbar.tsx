@@ -35,7 +35,6 @@ const Navbar = () => {
     }, []);
 
     const onScroll = React.useCallback(() => {
-        const { scrollY } = window;
         setIsAtTop(window.scrollY === 0);
     }, []);
 

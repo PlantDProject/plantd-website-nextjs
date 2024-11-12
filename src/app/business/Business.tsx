@@ -39,17 +39,12 @@ const Business = () => {
     const CTA = () => {
         return (
             <div className="lets-talk d-flex my-4 justify-center">
-                <Link className="primary-btn btn-rounded" href="#form">
+                <Link className="btn primary-btn btn-rounded" href="#form">
                     Let's Talk
                 </Link>
             </div>
         );
     };
-
-    const animals = [
-        { key: 'cat', label: 'Cat' },
-        { key: 'dog', label: 'Dog' },
-    ];
 
     return (
         <>
@@ -240,11 +235,24 @@ const Business = () => {
                                             Other
                                         </SelectItem>
                                     </Select>
+
+                                    {formData.source === 'Other' && (
+                                        <Input
+                                            classNames={{
+                                                inputWrapper: ['px-0'],
+                                            }}
+                                            type="text"
+                                            label="Other"
+                                            value={formData.organisation}
+                                            labelPlacement="outside"
+                                            onValueChange={(e) => handleChange(e, 'organisation')}
+                                        />
+                                    )}
                                 </div>
                             </div>
 
                             <div className="lets-talk d-flex my-4 justify-center">
-                                <div className="primary-btn btn-rounded" onClick={() => {}}>
+                                <div className="btn primary-btn btn-rounded" onClick={() => {}}>
                                     Submit
                                 </div>
                             </div>

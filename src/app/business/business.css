@@ -210,7 +210,8 @@
 }
 
 .select-dropdown > ul > li:focus-visible,
-custom-select:focus-visible {
+.custom-select:focus-visible,
+.textarea-custom:focus-visible {
     outline: none;
 }
 
