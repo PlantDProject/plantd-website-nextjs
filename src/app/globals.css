@@ -9,8 +9,11 @@
     --white: #ffffff; /* White */
     --black: #000000; /* Black */
     --grey: #495057; /* Black */
-    --dark : #141414;
-    --dark-grey : #989898;
+    --dark: #141414;
+    --grey-bg: #1d1d1d;
+    --dark-grey: #989898;
+    --text-off-white: #f0f0f0;
+    --translucent-white: #ffffff80;
 }
 
 * {
@@ -23,20 +26,47 @@ a {
 
 body {
     font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--dark) !important;
 }
 
 .title-color {
     color: var(--white);
 }
 
+.text-white {
+    color: var(--white) !important;
+}
 .text-green {
     color: var(--primary-color);
 }
 
 .btn-soft-primary {
-    background-color: #40ba67 !important;
-    color: #fff !important;
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
     border-radius: 30px !important;
+}
+
+.w-90 {
+    width: 90% !important;
+    border-radius: 12px;
+}
+
+.w-95 {
+    width: 95% !important;
+    border-radius: 12px;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.btn-rounded {
+    padding: 20px 100px !important;
+    border-radius: 56px !important;
+}
+
+input:focus-visible, select:focus-visible {
+    outline: none;
 }
 
 /* PC Screen Size */
@@ -46,3 +76,35 @@ body {
 /* Small Screens */
 
 /* Small Screens */
+
+/* Scrollbar */
+
+/* Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--text-off-white);
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 14px;
+    border: 3px solid var(--primary);
+}
+
+/* Scrollbar */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+}

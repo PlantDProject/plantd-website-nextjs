@@ -1,4 +1,9 @@
+import { Metadata } from 'next';
 import './giveaway.css';
+
+export const metadata: Metadata = {
+    title: 'Giveaways',
+};
 
 export default function Giveaways() {
     return (
@@ -10,7 +15,7 @@ export default function Giveaways() {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="thank-content text-center">
-                                        <h1 className="title title-color mb-5 text-center">Plantd Giveaway List</h1>
+                                        <h1 className="title title-color mb-5 text-center fs-40">Plantd Giveaway List</h1>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +47,7 @@ export default function Giveaways() {
                             </div>
 
                             <div className="position-absolute eventshare-div">
-                                <i className="fa fa-files-o text-primary" aria-hidden="true"></i>
+                                <i className="fa fa-files-o text-primary text-white" aria-hidden="true"></i>
                             </div>
 
                             <h3 className="title-heading text-white text-center">Chhath Mahaparv</h3>

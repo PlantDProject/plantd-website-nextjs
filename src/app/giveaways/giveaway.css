@@ -9,7 +9,8 @@
 }
 
 .title {
-    font-size: 50px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .giveawayHead .title-sub-heading {
@@ -19,16 +20,6 @@
 
 .bg-dark-grey {
     background-color: var(--dark) !important;
-}
-
-.w-90 {
-    width: 90%;
-    border-radius: 12px;
-}
-
-.w-95 {
-    width: 95%;
-    border-radius: 12px;
 }
 
 .image-bg {
@@ -68,7 +59,6 @@
 }
 
 .eventshare-div i.fa {
-    color: var(--primary-color) !important;
     font-size: 22px;
     cursor: pointer;
 }

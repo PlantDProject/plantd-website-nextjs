@@ -17,7 +17,6 @@ const Navbar = () => {
 
     React.useEffect(() => {
         window.addEventListener('resize', () => {
-            console.log(window.innerWidth);
             if (window.innerWidth < 991) {
                 if (show) setShow(false);
             } else {
@@ -37,7 +36,6 @@ const Navbar = () => {
 
     const onScroll = React.useCallback(() => {
         const { scrollY } = window;
-        console.log('scrollY', scrollY);
         setIsAtTop(window.scrollY === 0);
     }, []);
 
@@ -95,19 +93,7 @@ const Navbar = () => {
                         <img className="d-none d-lg-block" src={headerLogo()} width="50%" />
                         <img className="d-lg-none" src={headerLogo(true)} width="50%" />
                     </Link>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarText"
-                        aria-controls="navbarText"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                        onClick={() => {
-                            console.log(show);
-                            setShow((prev) => !prev);
-                        }}
-                    >
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" onClick={() => setShow((prev) => !prev)}>
                         <i className="fa fa-bars" aria-hidden="true"></i>
                     </button>
                     <div className={`show ${show ? 'addHeight' : ''} custom-collapsible navbar-collapse`} id="navbarText">

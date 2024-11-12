@@ -2,14 +2,14 @@ import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '@/components/Navigation/Navbar/Navbar';
 import Footer from '@/components/Navigation/Footer/Footer';
-//👇 Import Open Sans font
-import { Nunito_Sans } from 'next/font/google'
+import { nunitoSans } from '@/utils/fonts';
+import { Metadata } from 'next';
 
-//👇 Configure our font object
-const nunitoSans = Nunito_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-})
+export const metadata: Metadata = {
+    title: 'Tree Planting Initiative by PLANTD',
+    description: 'Fight Climate Change with Plantd and Join the Movement to plant 1 Billion Trees!',
+    metadataBase: new URL('https://plantd.life'),
+};
 
 export default function RootLayout({
     children,

@@ -7,34 +7,34 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer className="footer-container">
-            <div className="container-fluid footer" data-nosnippet="true">
+            <div className="container-fluid footer text-white" data-nosnippet="true">
                 <div className="row w-90 mx-auto">
                     <div className="col-md-4 footer-info">
                         <img src="https://test.plantd.life/images/plantdimg/logo-white.png" alt="plantd featured logo" className="foot-logo" />
                         <p className="mt-lg-4 mt-md-2 mt-4 f-15 mb-2 foot-para">Plantd is just a seedling – young, fun and exciting. We’re capturing the best of both worlds in a movement to help our members GO green to MAKE green.</p>
                     </div>
                     <div className="col-md-4 contact-info">
-                        <div className="mt-4">
-                            <h4 className="f-18 mb-lg-4">Contact us</h4>
+                        <div className="">
+                            <h4 className="f-18 m-0">Contact us</h4>
                             <span className="f-15 fw-700">Email: </span>
                             <Link href="mailto:info@plantd.life" className="f-15 text-white">
                                 info@plantd.life
                             </Link>
                             <h4 className="f-18 mt-lg-4 mb-lg-4 mt-4">Download App</h4>
                             <div className="foot-app-icon d-flex mb-md-0 mb-4">
-                                <Link className='app-store' href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{width: "30%"}}>
+                                <Link className="app-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '30%' }}>
                                     <img src="https://test.plantd.life/images/plantdimg/App-Store-White-1.png" alt="App Store" className="" />
                                 </Link>
-                                <Link className='play-store' href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{width: "30%"}}>
+                                <Link className="play-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '30%' }}>
                                     <img src="https://test.plantd.life/images/plantdimg/Google-Play-White-1.png" alt="Google Play" className="" />
                                 </Link>
                             </div>
                         </div>
                     </div>
                     <div className="col-md-4">
-                        <h4 className="f-18 mb-lg-4">Useful links</h4>
-                        <div className="useful-link-div d-flex justify-content-between">
-                            <ul className="list-unstyled footer-link ">
+                        <h4 className="f-18 mb-0">Useful links</h4>
+                        <div className="useful-link-div d-flex justify-content-start">
+                            <ul className="list-unstyled footer-link mt-lg-3 mt-md-1 mt-3 me-md-5 ">
                                 <li>
                                     <Link href="/about" className="f-15 text-white">
                                         About us
@@ -57,7 +57,7 @@ const Footer = () => {
                                 </li>
                             </ul>
 
-                            <ul className="list-unstyled footer-link ">
+                            <ul className="list-unstyled footer-link mt-lg-3 mt-md-1 ">
                                 <li>
                                     <Link href="/policies" className="text-white f-15">
                                         Policies
