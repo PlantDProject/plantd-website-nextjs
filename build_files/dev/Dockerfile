@@ -7,7 +7,7 @@ RUN npm install . --legacy-peer-deps
 
 COPY . /app/
 
-RUN npm run build
+RUN npm run build:dev
 RUN ls -a
 
 EXPOSE 3000
