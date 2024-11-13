@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  pre_build: 
+    commands: 
+      - aws --version
+      - echo Logging into ECR
+      - docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev
+      - echo ECR Login Success
+      - ECR_IMAGE_URI=563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=main-website-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+  build: 
+    on-failure: ABORT
+    commands: 
+      - docker build -t plantd-main-website-nextjs-dev -f build_files/dev/Dockerfile .
+      - docker tag plantd-main-website-nextjs-dev:latest $ECR_IMAGE_URI:latest $ECR_IMAGE_URI:$IMAGE_TAG
+  post_build:
+    on-failure: ABORT
+    commands: 
+      - docker push $ECR_IMAGE_URI:latest
+      - docker push $ECR_IMAGE_URI:$IMAGE_TAG
+      - printf '[{"name":"main-website","imageUri":"%s"}]' $ECR_IMAGE_URI:$IMAGE_TAG > imagedefinitions.json
+      - cat imagedefinitions.json
+      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://imagedefinitions.json
+  
