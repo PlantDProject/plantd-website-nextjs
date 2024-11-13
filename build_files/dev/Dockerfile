@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM 563699815156.dkr.ecr.ap-south-1.amazonaws.com/node-20
 
 WORKDIR /app
 
