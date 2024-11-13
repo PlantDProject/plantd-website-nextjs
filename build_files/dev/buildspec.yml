@@ -20,7 +20,5 @@ phases:
     commands: 
       - docker push $ECR_IMAGE_URI:latest
       - docker push $ECR_IMAGE_URI:$IMAGE_TAG
-      - printf '{"name":"main-website","imageUri":"%s"}' $ECR_IMAGE_URI:$IMAGE_TAG > imagedefinitions.json
-      - cat imagedefinitions.json
-      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://imagedefinitions.json
+      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://dev-task-def.json
   
