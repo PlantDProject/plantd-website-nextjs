@@ -7,9 +7,9 @@ phases:
       - echo Logging into ECR
       - docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev
       - echo ECR Login Success
-      - $ECR_IMAGE_URI=563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev
-      - $COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - $IMAGE_TAG=main-website-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+      - ECR_IMAGE_URI=563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=main-website-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build: 
     on-failure: ABORT
     commands: 
