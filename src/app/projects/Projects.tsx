@@ -12,7 +12,7 @@ interface ProjectsInterface {
     slug: string;
 }
 
-interface StatsInterface {
+export interface StatsInterface {
     value: string;
     content: string;
     emoji: string;
