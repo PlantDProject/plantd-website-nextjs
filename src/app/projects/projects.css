@@ -37,6 +37,14 @@
     width: 80%;
 }
 
+/* Projects Details */
+
+.stats-container {
+    background-image: url('https://plantd.life/images/plantdimg/headbg.jpg');
+}
+
+/* Projects Details */
+
 @media (max-width: 1000px) {
     .bg-home {
         padding: 10rem 0;
