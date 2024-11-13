@@ -20,5 +20,5 @@ phases:
     commands: 
       - docker push $ECR_IMAGE_URI:latest
       - docker push $ECR_IMAGE_URI:$IMAGE_TAG
-      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://dev-task-def.json
+      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://build_files/dev/dev-task-def.json
   
