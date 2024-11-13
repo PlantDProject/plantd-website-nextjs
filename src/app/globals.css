@@ -84,7 +84,16 @@ select:focus-visible {
 }
 
 .fs-18 {
-    font-size: 18px;
+    font-size: px;
+}
+
+@media (max-width: 991px) {
+    .fs-20 {
+        font-size: 17px;
+    }
+    .fs-50 {
+        font-size: 30px;
+    }
 }
 
 /* PC Screen Size */

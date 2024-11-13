@@ -43,10 +43,32 @@
     background-image: url('https://plantd.life/images/plantdimg/headbg.jpg');
 }
 
+.start-planting:hover {
+    border: 1px solid var(--primary-color);
+}
+
+.list-type-disc {
+    list-style-type: disc;
+}
+
+.carousel-img-width {
+    width: 75%;
+}
+
 /* Projects Details */
 
-@media (max-width: 1000px) {
+@media (max-width: 991px) {
     .bg-home {
         padding: 10rem 0;
+    }
+    .carousel-img-width {
+        width: 100%;
+    }
+    .project-facts {
+        font-size: 17px;
+    }
+    
+    .project-facts span {
+        font-size: 20px;
     }
 }

@@ -63,7 +63,7 @@ const Projects = ({ projectsList }: any) => {
                                 }}
                             >
                                 <div className="row justify-content-center align-items-center">
-                                    <div className={`col-6 ${isEven(index) ? 'order-0' : 'order-1'}`}>
+                                    <div className={`col-12 my-4 col-lg-6 ${isEven(index) ? 'order-0' : 'order-1'}`}>
                                         <h3 className="text-dark hover-green my-3 fw-bold">{items?.title}</h3>
                                         {items?.stats.map((e: StatsInterface, i: number) => {
                                             return (
@@ -73,7 +73,7 @@ const Projects = ({ projectsList }: any) => {
                                             );
                                         })}
                                     </div>
-                                    <div className={`col-6 ${isEven(index) ? 'order-1' : 'order-0'}`}>
+                                    <div className={`col-6 d-none d-lg-block ${isEven(index) ? 'order-1' : 'order-0'}`}>
                                         <img className="project-image mx-auto" src={items?.image} alt={items?.name} />
                                     </div>
                                 </div>
@@ -83,12 +83,12 @@ const Projects = ({ projectsList }: any) => {
                 </section>
             </div>
             <section className="section-green py-5 mt-5">
-                <div className="container flex-nowrap align-center justify-between">
-                    <div className="col-6 text-center">
-                        <h2 className="align-items-center text-white justify-center d-flex h-100">Get Started Now</h2>
+                <div className="container flex-lg-nowrap align-center justify-between">
+                    <div className="col-12 col-lg-6 text-center">
+                        <h2 className="align-items-center text-white justify-center d-flex h-100 mb-0 fw-bold">Get Started Now</h2>
                     </div>
 
-                    <div className="col-6 align-items-center justify-center d-flex">
+                    <div className="col-12 col-lg-6 align-items-center justify-center d-flex">
                         <Link className="app-store me-3 " href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank">
                             <img src="https://test.plantd.life/images/plantdimg/App-Store-White-1.png" alt="App Store" className="ms-auto" width="60%" />
                         </Link>
