@@ -1,5 +1,6 @@
 'use client';
 
+import { StatsInterface } from '../Projects';
 import '../projects.css';
 import SimpleSlider from './Slider';
 
@@ -42,7 +43,7 @@ export default function Project({ data }: any) {
             <section>
                 <div className="stats-container py-5">
                     <div className="w-90 mx-auto d-flex flex-wrap">
-                        {data?.stats?.map((stats, index) => {
+                        {data?.stats?.map((stats: StatsInterface, index: number) => {
                             return (
                                 <div className="px-4 mt-lg-0 mt-md-0 mt-4 col-lg-3 col-md-6 text-white text-center" key={index}>
                                     <h3 className="fw-bold">
