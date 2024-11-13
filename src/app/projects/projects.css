@@ -17,6 +17,10 @@
     }
 }
 
+.project-cards {
+    cursor: pointer;
+}
+
 .home-center {
     position: relative;
     z-index: 2;

@@ -76,12 +76,12 @@ select:focus-visible {
 }
 
 .fs-50 {
-    font-size : 50px;
+    font-size: 50px;
     font-weight: bold;
 }
 
 .fs-20 {
-    font-size : 20px;
+    font-size: 20px;
 }
 
 /* PC Screen Size */
@@ -122,4 +122,16 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
     -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+section.section-green {
+    background-color: var(--primary-color-dark);
+}
+
+.hover-green {
+    transition: 0.3s ease;
+}
+.hover-green:hover {
+    color: var(--primary-color-dark) !important;
 }
