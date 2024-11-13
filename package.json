@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "env-cmd -f .env.dev next build",
+    "build": "env-cmd -f .env.local next build",
+    "build:dev": "env-cmd -f .env.dev next build",
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write ."
