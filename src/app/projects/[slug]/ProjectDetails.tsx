@@ -2,8 +2,8 @@
 
 import '../projects.css';
 
-export default function Projects({data} : any) {
-    console.log("DATA", data)
+export default function Projects({ data }: any) {
+    console.log('DATA', data);
     return (
         <div style={{ backgroundColor: '#f6f7fb!important' }}>
             <section className="bg-home" id="home">
