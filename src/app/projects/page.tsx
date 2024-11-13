@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-    let data = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
-    let response = await data.json();
+    const data = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
+    const response = await data.json();
     const projectsList = response?.projectList?.items || [];
 
     return <Projects projectsList={projectsList} />;
