@@ -13,8 +13,8 @@ phases:
   build: 
     on-failure: ABORT
     commands: 
-      - docker build -t plantd-main-website-nextjs-dev -f build_files/dev/Dockerfile .
-      - docker tag plantd-main-website-nextjs-dev:latest $ECR_IMAGE_URI:latest $ECR_IMAGE_URI:$IMAGE_TAG
+      - docker build -t $ECR_IMAGE_URI:latest -f build_files/dev/Dockerfile .
+      - docker tag $ECR_IMAGE_URI:latest $ECR_IMAGE_URI:$IMAGE_TAG
   post_build:
     on-failure: ABORT
     commands: 
