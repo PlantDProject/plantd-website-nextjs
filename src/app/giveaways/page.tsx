@@ -7,14 +7,14 @@ export const metadata: Metadata = {
 
 export default function Giveaways() {
     return (
-        <div style={{ backgroundColor: '#000' }}>
+        <>
             <section className="bg-home " id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container-fluid w-95">
                             <div className="row align-items-center">
                                 <div className="col-12">
-                                    <div className="thank-content text-center">
+                                    <div className="text-center">
                                         <h1 className="title title-color mb-5 text-center fs-40">Plantd Giveaway List</h1>
                                     </div>
                                 </div>
@@ -61,6 +61,6 @@ export default function Giveaways() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     );
 }

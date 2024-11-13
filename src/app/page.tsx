@@ -9,7 +9,7 @@ export default function Home() {
                         <div className="container-fluid w-95">
                             <div className="row align-items-center">
                                 <div className="col-12">
-                                    <div className="thank-content text-center">
+                                    <div className="text-center">
                                         <h1 className="title mb-5 text-center">HomePage</h1>
                                     </div>
                                 </div>

@@ -1,0 +1,40 @@
+.bg-home {
+    padding: 17rem 0;
+    position: relative;
+    background-color: var(--white);
+    background-image: url('https://plantd.life/images/plantdimg/projectHeadBanner.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--black);
+        opacity: 0.5;
+    }
+}
+
+.home-center {
+    position: relative;
+    z-index: 2;
+}
+.project-facts {
+    font-size: 20px;
+}
+
+.project-facts span {
+    font-size: 24px;
+}
+
+.project-image {
+    width: 80%;
+}
+
+@media (max-width: 1000px) {
+    .bg-home {
+        padding: 10rem 0;
+    }
+}

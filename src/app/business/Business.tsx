@@ -5,11 +5,6 @@ import './business.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-    title: 'Invoices | Acme Dashboard',
-};
 
 const Business = () => {
     const [formData, setFormData] = useState<any>({
@@ -19,8 +14,8 @@ const Business = () => {
         organisation: '',
         tellUsMore: '',
         source: '',
+        other: '',
     });
-    console.log('FORM DATA', formData);
 
     const handleChange = (e: any, name: string) => {
         let value = e;
@@ -243,9 +238,9 @@ const Business = () => {
                                             }}
                                             type="text"
                                             label="Other"
-                                            value={formData.organisation}
+                                            value={formData.other}
                                             labelPlacement="outside"
-                                            onValueChange={(e) => handleChange(e, 'organisation')}
+                                            onValueChange={(e) => handleChange(e, 'other')}
                                         />
                                     )}
                                 </div>

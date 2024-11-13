@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tree Planting Initiative by PLANTD',
     description: 'Fight Climate Change with Plantd and Join the Movement to plant 1 Billion Trees!',
     metadataBase: new URL('https://plantd.life'),
+    openGraph: { title: 'Testing' },
 };
 
 export default function RootLayout({

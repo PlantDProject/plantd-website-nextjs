@@ -6,6 +6,7 @@
 
 :root {
     --primary-color: #40ba67; /* Light green */
+    --primary-color-dark: #006300; /* Light green */
     --white: #ffffff; /* White */
     --black: #000000; /* Black */
     --grey: #495057; /* Black */
@@ -40,6 +41,10 @@ body {
     color: var(--primary-color);
 }
 
+.text-green-dark {
+    color: var(--primary-color-dark);
+}
+
 .btn-soft-primary {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
@@ -65,8 +70,18 @@ body {
     border-radius: 56px !important;
 }
 
-input:focus-visible, select:focus-visible {
+input:focus-visible,
+select:focus-visible {
     outline: none;
+}
+
+.fs-50 {
+    font-size : 50px;
+    font-weight: bold;
+}
+
+.fs-20 {
+    font-size : 20px;
 }
 
 /* PC Screen Size */
