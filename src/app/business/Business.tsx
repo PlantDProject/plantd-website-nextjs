@@ -34,7 +34,7 @@ const Business = () => {
     const CTA = () => {
         return (
             <div className="lets-talk d-flex my-4 justify-center">
-                <Link className="btn primary-btn btn-rounded" href="#form">
+                <Link className="btn primary-btn btn-rounded custom-btn" href="#form">
                     Let's Talk
                 </Link>
             </div>
@@ -42,7 +42,7 @@ const Business = () => {
     };
 
     return (
-        <>
+        <div className="business-container">
             <section className="top-container">
                 <video autoPlay muted loop className="video custom-video">
                     <source src="/videos/header-1.mov" type="video/mp4" />
@@ -106,9 +106,10 @@ const Business = () => {
             </section>
 
             <section>
-                <div className="w-90 mx-auto p-5 my-5 business-cards d-flex align-center text-white">
+                <div className="w-90 mx-auto py-5 px-3 px-md-5 my-5 business-cards d-flex align-center text-white">
                     <div className="wavy-section">
-                        <img src="/images/business/have-something.png" className="wavy-bg" />
+                        <img src="/images/business/have-something.png" className="wavy-bg d-none d-lg-block" />
+                        <img src="/images/business/have-something-sm.png" className="wavy-bg d-block d-lg-none" />
                         <div className="d-flex justify-center">
                             <h3 className={`my-5 ${poppinsBold.className}`}>
                                 <img src="/images/business/have-something-border.png" className="wavy-bg-heading" />
@@ -119,7 +120,8 @@ const Business = () => {
                             </h3>
                         </div>
                         <p className={`wavy-section-p w-90 mx-auto px-5 py-4 text-center text-white ${poppinsMedium.className}`}>
-                            <img src="/images/business/rectangle.png" className="wavy-rectangle" />
+                            <img src="/images/business/rectangle.png" className="wavy-rectangle d-none d-lg-block" />
+                            <img src="/images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />
                             If your business has a custom solution in mind, we're here to help bring it to life. Reach out for a free consultation, and together we can build a tailored partnership that aligns with your sustainability goals. Whether it’s a unique carbon offset strategy, targeted reforestation efforts, or specialized project support, we’ll work closely with you to create a solution
                             that maximizes your impact. Let’s collaborate to propel your climate action initiatives and drive meaningful change for a more sustainable future.
                         </p>
@@ -198,6 +200,7 @@ const Business = () => {
                                             input: 'textarea-custom',
                                             inputWrapper: ['px-0', 'py-0'],
                                         }}
+                                        minRows={5}
                                         name="tellUsMore"
                                         label="Tell Us More"
                                         value={formData.tellUsMore}
@@ -247,7 +250,7 @@ const Business = () => {
                             </div>
 
                             <div className="lets-talk d-flex my-4 justify-center">
-                                <div className="btn primary-btn btn-rounded" onClick={() => {}}>
+                                <div className="btn primary-btn btn-rounded custom-btn" onClick={() => {}}>
                                     Submit
                                 </div>
                             </div>
@@ -255,7 +258,7 @@ const Business = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 
