@@ -1,5 +1,6 @@
 'use client';
 
+import { isEven } from '@/utils/helpers';
 import './projects.css';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -19,9 +20,6 @@ export interface StatsInterface {
 }
 
 const Projects = ({ projectsList }: any) => {
-    const isEven = (n: number) => {
-        return n % 2 == 0;
-    };
 
     return (
         <div style={{ backgroundColor: '#f6f7fb!important' }}>
