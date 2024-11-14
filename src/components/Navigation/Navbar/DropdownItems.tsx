@@ -13,10 +13,10 @@ export const AboutUs: DropdownData[] = [
 
 
 export const ProjectsList: DropdownData[] = [
-    { title: 'Reforestation in Senegal', redirection: './projects/projectDetail?senegal-farming-and-reforestation' },
-    { title: 'Reforestation in Texas', redirection: './projects/projectDetail?long-leaf-pine-reforestation' },
-    { title: 'Reforestation in Louisiana', redirection: '../projects/projectDetail?louisiana-natural-disasters' },
-    { title: 'Reforestation in California', redirection: '../projects/projectDetail?california-rim-wildfire' },
-    { title: 'Reforestation in the Honduras', redirection: '../projects/projectDetail?climate-action-honduras' },
-    { title: 'Reforestation in the Philippines', redirection: '../projects/projectDetail?climate-action-philippines' },
+    { title: 'Reforestation in Senegal', redirection: '/projects/senegal-farming-and-reforestation' },
+    { title: 'Reforestation in Texas', redirection: '/projects/long-leaf-pine-reforestation' },
+    { title: 'Reforestation in Louisiana', redirection: '/projects/louisiana-natural-disasters' },
+    { title: 'Reforestation in California', redirection: '/projects/california-rim-wildfire' },
+    { title: 'Reforestation in the Honduras', redirection: '/projects/climate-action-honduras' },
+    { title: 'Reforestation in the Philippines', redirection: '/projects/climate-action-philippines' },
 ];

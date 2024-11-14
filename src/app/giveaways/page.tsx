@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import './giveaway.css';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Giveaways',
@@ -53,9 +54,9 @@ export default function Giveaways() {
                             <h3 className="title-heading text-white text-center">Chhath Mahaparv</h3>
                             <img src="https://qa.getplantd.com/images/480x548.png" className="my-2 ty-img mx-auto" alt="Chhath Mahaparv img" />
                             <div>
-                                <a href="/giveawaydetail?chhath-mahaparv" className="btn btn-sm btn-soft-primary btn-rounded abc detailBtn">
+                                <Link href="giveaways/chhath-mahaparv" className="btn btn-sm btn-soft-primary btn-rounded py-2 px-5">
                                     View Details
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -60,7 +60,7 @@ const Navbar = () => {
                     setShowGiveawaysDropdown(false);
                     return;
                 }
-                window.location.replace('/projects');
+                window.location.assign('/projects');
                 break;
             case 'about':
                 if (window && window.innerWidth < 991 && !showGiveawaysDropdown) {
@@ -68,7 +68,7 @@ const Navbar = () => {
                     setShowGiveawaysDropdown(true);
                     return;
                 }
-                window.location.replace('/about');
+                window.location.assign('/about');
                 break;
         }
     };
@@ -133,9 +133,9 @@ const Navbar = () => {
                                 </ul>
                             </li>
 
-                            {getItem('Blogs', '#')}
-                            {getItem('Contact Us', '#')}
-                            {getItem('Contribute', '#', true)}
+                            {getItem('Blogs', '/blogs')}
+                            {getItem('Contact Us', '/contact-us')}
+                            {getItem('Contribute', '/contribute', true)}
                             {getItem('Giveaways', '/giveaways')}
                         </ul>
 
