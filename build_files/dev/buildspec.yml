@@ -21,6 +21,9 @@ phases:
       - docker push $ECR_IMAGE_URI:latest
       - docker push $ECR_IMAGE_URI:$IMAGE_TAG
       - node build_files/dev/generate_task_def.js $ECR_IMAGE_URI $IMAGE_TAG
-      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://build_files/dev/dev-task-def.json
-      - aws ecs update-service --cluster plantd-main-website-dev --service main-website --force-new-deployment
+      - REGISTER_RESPONSE=$(aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://build_files/dev/dev-task-def.json | node -e "
+        const input = require('fs').readFileSync(0, 'utf8');
+        const json = JSON.parse(input);
+        console.log(json.taskDefinition.taskDefinitionArn)")
+      - aws ecs update-service --cluster plantd-main-website-dev --service main-website --task-definition $REGISTER_RESPONSE --desired-count 1 --force-new-deployment &> /dev/null
   
