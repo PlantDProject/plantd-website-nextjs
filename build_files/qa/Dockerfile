@@ -7,9 +7,9 @@ RUN npm install . --legacy-peer-deps
 
 COPY . /app/
 
-RUN npm run build:dev
+RUN npm run build:qa
 RUN ls -a
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start:qa"]
