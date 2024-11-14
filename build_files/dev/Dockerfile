@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM 563699815156.dkr.ecr.ap-south-1.amazonaws.com/node-20
 
 WORKDIR /app
 
@@ -7,9 +7,9 @@ RUN npm install . --legacy-peer-deps
 
 COPY . /app/
 
-RUN npm run build
+RUN npm run build:dev
 RUN ls -a
 
 EXPOSE 3000
 
-CMD ["npm", "start:dev"]
+CMD ["npm", "start"]

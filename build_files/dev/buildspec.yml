@@ -13,14 +13,14 @@ phases:
   build: 
     on-failure: ABORT
     commands: 
-      - docker build -t plantd-main-website-nextjs-dev -f build_files/dev/Dockerfile .
-      - docker tag plantd-main-website-nextjs-dev:latest $ECR_IMAGE_URI:latest $ECR_IMAGE_URI:$IMAGE_TAG
+      - docker build -t $ECR_IMAGE_URI:latest -f build_files/dev/Dockerfile .
+      - docker tag $ECR_IMAGE_URI:latest $ECR_IMAGE_URI:$IMAGE_TAG
   post_build:
     on-failure: ABORT
     commands: 
       - docker push $ECR_IMAGE_URI:latest
       - docker push $ECR_IMAGE_URI:$IMAGE_TAG
-      - printf '[{"name":"main-website","imageUri":"%s"}]' $ECR_IMAGE_URI:$IMAGE_TAG > imagedefinitions.json
-      - cat imagedefinitions.json
-      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://imagedefinitions.json
+      - REGISTER_RESPONSE=$(aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://build_files/dev/dev-task-def.json)
+      - echo $REGISTER_RESPONSE
+      - aws ecs update-service --cluster plantd-main-website-dev --service main-website --force-new-deployment
   
