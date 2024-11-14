@@ -3,35 +3,16 @@
     "containerDefinitions": [
         {
             "name": "main-website",
-            "image": "563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev:latest",
+            "image": "563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev:test",
             "cpu": 0,
-            "portMappings": [
-                {
-                    "name": "main-website-3000-tcp",
-                    "containerPort": 3000,
-                    "hostPort": 3000,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                }
-            ],
+            "portMappings": [{ "name": "main-website-3000-tcp", "containerPort": 3000, "hostPort": 3000, "protocol": "tcp", "appProtocol": "http" }],
             "essential": true,
             "environment": [],
             "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
             "ulimits": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "/ecs/plantd-main-website-dev",
-                    "mode": "non-blocking",
-                    "awslogs-create-group": "true",
-                    "max-buffer-size": "25m",
-                    "awslogs-region": "ap-south-1",
-                    "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
-            },
+            "logConfiguration": { "logDriver": "awslogs", "options": { "awslogs-group": "/ecs/plantd-main-website-dev", "mode": "non-blocking", "awslogs-create-group": "true", "max-buffer-size": "25m", "awslogs-region": "ap-south-1", "awslogs-stream-prefix": "ecs" }, "secretOptions": [] },
             "systemControls": []
         }
     ],
@@ -40,13 +21,8 @@
     "networkMode": "awsvpc",
     "volumes": [],
     "placementConstraints": [],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
+    "requiresCompatibilities": ["FARGATE"],
     "cpu": "512",
     "memory": "1024",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    }
+    "runtimePlatform": { "cpuArchitecture": "X86_64", "operatingSystemFamily": "LINUX" }
 }
