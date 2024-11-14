@@ -1,37 +1,41 @@
 {
-  "name": "plantd-website",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "dev:dev": "env-cmd -f .env.dev next dev",
-    "build": "env-cmd -f .env.local next build",
-    "build:dev": "env-cmd -f .env.dev next build",
-    "build:qa": "env-cmd -f .env.qa next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prettier": "prettier --write ."
-  },
-  "dependencies": {
-    "@nextui-org/react": "^2.4.8",
-    "apollo-server-micro": "^3.13.0",
-    "bootstrap": "^5.3.3",
-    "env-cmd": "^10.1.0",
-    "framer-motion": "^11.11.11",
-    "next": "15.0.2",
-    "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028",
-    "react-slick": "^0.30.2"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/react-slick": "^0.23.13",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.2",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+    "name": "plantd-website",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "env-cmd -f .env.development next dev",
+        "build:dev": "env-cmd -f .env.development next build",
+        "start:dev": "env-cmd -f .env.development next start",
+      
+        "build:qa": "env-cmd -f .env.test next build",
+        "start:qa": "env-cmd -f .env.test next start",
+      
+        "build:prod": "env-cmd -f .env.production next build",
+        "start:prod": "env-cmd -f .env.production next start",
+      
+        "lint": "next lint",
+        "prettier": "prettier --write ."
+      },      
+    "dependencies": {
+        "@nextui-org/react": "^2.4.8",
+        "apollo-server-micro": "^3.13.0",
+        "bootstrap": "^5.3.3",
+        "env-cmd": "^10.1.0",
+        "framer-motion": "^11.11.11",
+        "next": "15.0.2",
+        "react": "19.0.0-rc-02c0e824-20241028",
+        "react-dom": "19.0.0-rc-02c0e824-20241028",
+        "react-slick": "^0.30.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@types/react-slick": "^0.23.13",
+        "eslint": "^8",
+        "eslint-config-next": "15.0.2",
+        "postcss": "^8",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
+    }
 }
