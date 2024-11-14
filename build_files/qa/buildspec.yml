@@ -26,7 +26,7 @@ phases:
       - docker push $ECR_IMAGE_URI:latest
       - docker push $ECR_IMAGE_URI:$IMAGE_TAG
       - node build_files/qa/generate_task_def.js $ECR_IMAGE_URI $IMAGE_TAG
-      - REGISTER_RESPONSE=$(aws ecs register-task-definition --family $TASK_DEFINITION_FAMILY --cli-input-json file://build_files/dev/task_def.json | node -e "
+      - REGISTER_RESPONSE=$(aws ecs register-task-definition --family $TASK_DEFINITION_FAMILY --cli-input-json file://build_files/qa/task_def.json | node -e "
         const input = require('fs').readFileSync(0, 'utf8');
         const json = JSON.parse(input);
         console.log(json.taskDefinition.taskDefinitionArn)")
