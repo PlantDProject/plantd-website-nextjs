@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-    const data = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
+    const data = await fetch(`https://admin-dev.getplantd.com/configurations/get_project_data`);
     const response = await data.json();
     const projectsList = response?.projectList?.items || [];
 
