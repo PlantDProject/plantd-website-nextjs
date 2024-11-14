@@ -21,7 +21,6 @@ phases:
       - docker push $ECR_IMAGE_URI:latest
       - docker push $ECR_IMAGE_URI:$IMAGE_TAG
       - node build_files/dev/generate_task_def.js $ECR_IMAGE_URI $IMAGE_TAG
-      - REGISTER_RESPONSE=$(aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://build_files/dev/dev-task-def.json)
-      - $REGISTER_RESPONSE
+      - aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://build_files/dev/dev-task-def.json
       - aws ecs update-service --cluster plantd-main-website-dev --service main-website --force-new-deployment
   

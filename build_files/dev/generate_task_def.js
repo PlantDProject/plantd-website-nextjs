@@ -8,6 +8,4 @@ let fileInformation = JSON.parse(fs.readFileSync(filePath).toString())
 
 fileInformation["containerDefinitions"][0]["image"] = `${image}:${tag}`
 
-console.log(fileInformation)
-
 fs.writeFileSync(filePath, JSON.stringify(fileInformation))
