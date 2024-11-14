@@ -12,4 +12,4 @@ RUN ls -a
 
 EXPOSE 3000
 
-CMD ["npm", "start:dev"]
+CMD ["npm", "run", "start:dev"]
