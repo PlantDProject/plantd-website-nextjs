@@ -33,18 +33,6 @@ export default async function Giveaways() {
     const data = await response.json();
     const events = data?.data?.getEventsForWebsite?.events;
     const onGoingEvents = events?.filter((event: any) => event?.eventStatus === 'Ongoing' && event?.status === 'true');
-    const completedEvents = events?.filter((event: any) => event?.eventStatus === 'Completed' && event?.status === 'true');
-
-    const getDay = (date: string) => {
-        var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        let day = weekday[new Date(`${date}`).getDay()];
-        console.log('DAY', day);
-        return day;
-    };
-    const getDate = (date: string) => {
-        let edate = date.split(',');
-        return edate[0].split(' ');
-    };
 
     return (
         <>
@@ -78,17 +66,8 @@ export default async function Giveaways() {
                     {onGoingEvents.length > 0 &&
                         onGoingEvents?.map((event: any, index: number) => {
                             return (
-                                <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{backgroundImage: isEven(index) ? `url('https://test.plantd.life/images/plantdimg/projectbg.jpg')` : `url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg')`}}>
+                                <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{ backgroundImage: isEven(index) ? `url('https://test.plantd.life/images/plantdimg/projectbg.jpg')` : `url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg')` }}>
                                     <div className="col-12 py-3 position-relative">
-                                        <div className="position-absolute eventdate-div">
-                                            <p className="f-15 text-white mb-0">{getDay(event?.eventDate)}</p>
-                                            <h3 className="text-white m-0 fw-bold">
-                                                {getDate(event?.eventDate)[0]}
-                                                <br />
-                                                {getDate(event?.eventDate)[1].toUpperCase()}
-                                            </h3>
-                                        </div>
-
                                         <div className="position-absolute eventshare-div">
                                             <i className="fa fa-files-o text-primary text-white" aria-hidden="true"></i>
                                         </div>

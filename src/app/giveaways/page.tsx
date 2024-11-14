@@ -37,13 +37,11 @@ export default async function Giveaways() {
     const completedEvents = events?.filter((event: any) => event?.eventStatus === 'Completed' && event?.status === 'true');
 
     const getDay = (date: string) => {
-        var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        let day = weekday[new Date(`${date}`).getDay()];
-        console.log('DAY', day);
-        return day;
+        const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return weekday[new Date(`${date}`).getDay()];
     };
     const getDate = (date: string) => {
-        let edate = date.split(',');
+        const edate = date.split(',');
         return edate[0].split(' ');
     };
 
@@ -76,8 +74,8 @@ export default async function Giveaways() {
                                     </div>
                                 </PopoverTrigger>
                                 <PopoverContent>
-                                    <div className="px-1 bg-dark py-2">
-                                        <div className="text-small text-white">link copied</div>
+                                    <div className="px-1 bg-light px-2 br-20">
+                                        <div className="text-small fs-10 text-green">link copied</div>
                                     </div>
                                 </PopoverContent>
                             </Popover>
