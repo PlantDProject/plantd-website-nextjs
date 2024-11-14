@@ -10,7 +10,7 @@ export default function Home() {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="text-center">
-                                        <h1 className="title mb-5 text-center">HomePage Update check</h1>
+                                        <h1 className="title mb-5 text-center">HomePage</h1>
                                     </div>
                                 </div>
                             </div>
