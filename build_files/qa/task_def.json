@@ -8,7 +8,7 @@
             "portMappings": [{ "name": "main-website-3000-tcp", "containerPort": 3000, "hostPort": 3000, "protocol": "tcp", "appProtocol": "http" }]
         }
     ],
-    "cpu": "512",
-    "memory": "1024",
+    "cpu": "1024",
+    "memory": "2048",
     "runtimePlatform": { "cpuArchitecture": "X86_64", "operatingSystemFamily": "LINUX" }
 }
