@@ -25,5 +25,6 @@ phases:
         const input = require('fs').readFileSync(0, 'utf8');
         const json = JSON.parse(input);
         console.log(json.taskDefinition.taskDefinitionArn)")
-      - aws ecs update-service --cluster plantd-main-website-dev --service main-website --task-definition $REGISTER_RESPONSE --desired-count 1 --force-new-deployment &> /dev/null
+      - echo $REGISTER_RESPONSE
+      - aws ecs update-service --cluster plantd-main-website-dev --service main-website --task-definition $REGISTER_RESPONSE --desired-count 1 --force-new-deployment
   
