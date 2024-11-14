@@ -1,31 +1,36 @@
 version: 0.2
+env:
+  variables:
+    REGION: "ap-south-1"
+    ECR_IMAGE_URI: "563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-qa"
+    TASK_DEFINITION_FAMILY: "plantd-main-website-qa"
+
 
 phases:
   pre_build: 
     commands: 
       - aws --version
       - echo Logging into ECR
-      - docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev
+      - docker login -u AWS -p $(aws ecr get-login-password --region $REGION) $ECR_IMAGE_URI
       - echo ECR Login Success
-      - ECR_IMAGE_URI=563699815156.dkr.ecr.ap-south-1.amazonaws.com/plantd-main-website-nextjs-dev
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=main-website-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build: 
     on-failure: ABORT
     commands: 
-      - docker build -t $ECR_IMAGE_URI:latest -f build_files/dev/Dockerfile .
+      - docker build -t $ECR_IMAGE_URI:latest -f build_files/qa/Dockerfile .
       - docker tag $ECR_IMAGE_URI:latest $ECR_IMAGE_URI:$IMAGE_TAG
   post_build:
     on-failure: ABORT
     commands: 
       - docker push $ECR_IMAGE_URI:latest
       - docker push $ECR_IMAGE_URI:$IMAGE_TAG
-      - node build_files/dev/generate_task_def.js $ECR_IMAGE_URI $IMAGE_TAG
-      - REGISTER_RESPONSE=$(aws ecs register-task-definition --family plantd-main-website-dev --cli-input-json file://build_files/dev/dev-task-def.json | node -e "
+      - node build_files/qa/generate_task_def.js $ECR_IMAGE_URI $IMAGE_TAG
+      - REGISTER_RESPONSE=$(aws ecs register-task-definition --family $TASK_DEFINITION_FAMILY --cli-input-json file://build_files/dev/task_def.json | node -e "
         const input = require('fs').readFileSync(0, 'utf8');
         const json = JSON.parse(input);
         console.log(json.taskDefinition.taskDefinitionArn)")
       - echo $REGISTER_RESPONSE
-      - aws ecs update-service --cluster plantd-main-website-dev --service main-website --task-definition $REGISTER_RESPONSE --desired-count 1 --force-new-deployment
+      - aws ecs update-service --cluster $TASK_DEFINITION_FAMILY --service main-website --task-definition $REGISTER_RESPONSE --desired-count 1 --force-new-deployment
       - aws cloudfront create-invalidation --distribution-id EU8QYCIWXXNE2 --paths '/*'
   
