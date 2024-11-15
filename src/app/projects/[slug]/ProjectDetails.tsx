@@ -4,14 +4,7 @@ import Link from 'next/link';
 import { StatsInterface } from '../Projects';
 import '../projects.css';
 import SimpleSlider from './Slider';
-
-interface IFrameRendererProps {
-    iframeHtml: string;
-}
-
-const IFrameRenderer: React.FC<IFrameRendererProps> = ({ iframeHtml }) => {
-    return <div dangerouslySetInnerHTML={{ __html: iframeHtml }} />;
-};
+import { IFrameRenderer } from '@/utils/helpers';
 
 export default function Project({ data }: any) {
     return (
