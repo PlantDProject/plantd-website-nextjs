@@ -4,11 +4,19 @@ import '../giveaway.css';
 import { IFrameRenderer, getImgUri, light } from '@/utils/helpers';
 import CountdownTimer from './CountdownTimer';
 import Link from 'next/link';
+import CustomModal from '@/components/Navigation/Modal/modal';
+import { useState } from 'react';
 
 const GiveawayDetail = ({ eventData, winnersList }: any) => {
     console.log('0 > ', winnersList);
     const eventdate = new Date(eventData?.eventDate);
     const isCompleted = eventdate < new Date();
+    const [isOpen, setIsOpen] = useState(false);
+    const sweepData = <IFrameRenderer iframeHtml={eventData?.sweepstakeRules} />
+
+        const onClose = () => {
+            setIsOpen(false)
+        }
 
     const getTimeDate = (type: string) => {
         const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -221,8 +229,9 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                         {/* Sweepstake Rules */}
 
                         <div className="lets-talk d-flex my-4 justify-center ">
-                            <div className="text-green text-decoration-underline">Sweepstakes Rules</div>
+                            <a onClick={()=> setIsOpen(true)} className="text-green text-decoration-underline cursor-pointer">Sweepstakes Rules</a>
                         </div>
+                        <CustomModal isOpen={isOpen} modalType='sweepstake' sweepData={sweepData} onClose={onClose} />
 
                         {/* Sweepstake Rules */}
                     </div>
