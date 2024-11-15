@@ -1,13 +1,13 @@
 'use client';
 
 import '../giveaway.css';
-import { IFrameRenderer, getDate, getDay, light } from '@/utils/helpers';
+import { IFrameRenderer, light } from '@/utils/helpers';
 import CountdownTimer from './CountdownTimer';
 import Link from 'next/link';
 
 const GiveawayDetail = ({ eventData }: any) => {
     const eventdate = new Date(eventData?.eventDate);
-    let isCompleted = eventdate < new Date();
+    const isCompleted = eventdate < new Date();
 
     const getTimeDate = (type: string) => {
         const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
