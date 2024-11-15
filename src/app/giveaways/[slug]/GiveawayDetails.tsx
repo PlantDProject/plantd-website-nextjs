@@ -87,7 +87,7 @@ const GiveawayDetail = ({ eventData }: any) => {
                                     <h4 className="fw-normal text-white mb-4 mt-4 mt-lg-0">TIME REMAINING</h4>
                                     <CountdownTimer time={eventData?.eventDate} />
                                     <div className="lets-talk d-flex my-4 justify-center">
-                                        <Link className="btn primary-btn btn-rounded custom-btn py-1 px-3 how-to-enter-btn" href="#form">
+                                        <Link className="btn primary-btn btn-rounded custom-btn py-1 px-3 how-to-enter-btn" href="#howToEnter">
                                             How to Enter?
                                         </Link>
                                     </div>
@@ -107,7 +107,7 @@ const GiveawayDetail = ({ eventData }: any) => {
 
                         {/* How To Enter Section */}
 
-                        <section className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 py-lg-5 py-md-4 py-3 px-lg-5 px-md-3 px-1">
+                        <section className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 py-lg-5 py-md-4 py-3 px-lg-5 px-md-3 px-1" id="howToEnter">
                             <h2 className="title mb-5 text-center fs-40 my-5 text-green how-to-enter">How to Enter?</h2>
                             <ol className="timeline">
                                 <li className="timeline-item ">
@@ -118,10 +118,10 @@ const GiveawayDetail = ({ eventData }: any) => {
                                     </div>
                                     <div className="foot-app-icon justify-content-start d-flex mb-md-0 mb-4 mt-2">
                                         <Link className="play-store me-2" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '150px' }}>
-                                            <img src="https://test.plantd.life/images/plantdimg/Google-Play-White-1.png" alt="Google Play" className="" />
+                                            <img src="https://plantd.life/images/plantdimg/playstore-dark.png" alt="Google Play" className="" />
                                         </Link>
                                         <Link className="app-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '150px' }}>
-                                            <img src="https://test.plantd.life/images/plantdimg/App-Store-White-1.png" alt="App Store" className="" />
+                                            <img src="https://plantd.life/images/plantdimg/appstore-dark.png" alt="App Store" className="" />
                                         </Link>
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
@@ -141,7 +141,7 @@ const GiveawayDetail = ({ eventData }: any) => {
                                 <li className="timeline-item ">
                                     <div className="timeline-item-number fs-30">3</div>
                                     <div className="col-lg-6 col-12">
-                                        <div className="fs-22 text-white text-left pb-lg-3 pb-2">Subscribe to enter our 4 AirPods 4 Winners!</div>
+                                        <div className="fs-22 text-white text-left pb-lg-3 pb-2">Subscribe to enter our {eventData?.eventTitle}</div>
                                         <div className="fs-22 text-green text-left pb-lg-3 pb-0">Submit your 10 chances to win. All it takes is one click!</div>
                                     </div>
                                     <div className="foot-app-icon d-flex mb-md-0 mb-4"></div>
@@ -178,11 +178,13 @@ const GiveawayDetail = ({ eventData }: any) => {
 
                         {/* Enter now button */}
 
-                        <div className="lets-talk d-flex my-4 justify-center">
-                            <Link className="btn primary-btn btn-rounded custom-btn py-1 px-3" href={`https://app.plantd.life/MW/GiveawayDetail?eventId=${eventData?.eventId}`}>
-                                Enter Now
-                            </Link>
-                        </div>
+                        {!isCompleted && (
+                            <div className="lets-talk d-flex my-4 justify-center">
+                                <Link className="btn primary-btn btn-rounded custom-btn py-1 px-3" href={`https://app.plantd.life/MW/GiveawayDetail?eventId=${eventData?.eventId}`}>
+                                    Enter Now
+                                </Link>
+                            </div>
+                        )}
 
                         {/* Enter now button */}
 
