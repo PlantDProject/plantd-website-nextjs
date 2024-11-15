@@ -84,7 +84,19 @@ select:focus-visible {
 }
 
 .fs-18 {
-    font-size: px;
+    font-size: 18px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-30 {
+    font-size: 30px;
 }
 
 @media (max-width: 991px) {
@@ -95,6 +107,14 @@ select:focus-visible {
         font-size: 30px;
     }
 }
+
+
+@media (max-width: 575.86px) {
+    .fs-22 {
+        font-size: 20px;
+    }
+}
+
 
 /* PC Screen Size */
 
@@ -146,4 +166,9 @@ section.section-green {
 }
 .hover-green:hover {
     color: var(--primary-color-dark) !important;
+}
+
+.videoAudioHeight {
+    height: 240px !important;
+    width: 100%;
 }

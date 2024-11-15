@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Business | Plantd',
-    openGraph: { title: 'Boosyness' },
+    openGraph: { title: 'Business | Plantd' },
 };
 
 export default function Page() {
