@@ -8,6 +8,11 @@ export const nunitoSans = Nunito_Sans({
     display: 'swap',
 });
 
+export const poppinsNormal = Poppins({
+    subsets: ['latin'],
+    display: 'swap',
+    weight: '200'
+});
 export const poppinsMedium = Poppins({
     subsets: ['latin'],
     display: 'swap',
