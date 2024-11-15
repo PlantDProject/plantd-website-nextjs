@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import './giveaway.css';
 import Link from 'next/link';
 import { GET_ALL_EVENTS } from '@/utils/GRAPHQL';
-import { defaultOGImage, isEven } from '@/utils/helpers';
+import { defaultOGImage, getDate, getDay, isEven } from '@/utils/helpers';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 
 const description = 'Welcome to Plantd All Access! Here you can enter for a chance to win awesome Experiences. Check in daily to see what’s new.';
@@ -35,15 +35,6 @@ export default async function Giveaways() {
     const events = data?.data?.getEventsForWebsite?.events;
     const onGoingEvents = events?.filter((event: any) => event?.eventStatus === 'Ongoing' && event?.status === 'true');
     const completedEvents = events?.filter((event: any) => event?.eventStatus === 'Completed' && event?.status === 'true');
-
-    const getDay = (date: string) => {
-        const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        return weekday[new Date(`${date}`).getDay()];
-    };
-    const getDate = (date: string) => {
-        const edate = date.split(',');
-        return edate[0].split(' ');
-    };
 
     const eventCards = (event: any, index: number, isOnGoing: boolean = false) => {
         return (

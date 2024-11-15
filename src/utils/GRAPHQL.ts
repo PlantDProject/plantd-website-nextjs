@@ -14,3 +14,16 @@ export const GET_ALL_EVENTS = `query GetEventsForWebsite($status: String!, $page
       }
     }
   }`;
+
+export const GET_EVENT_BY_ID = `query getEventByIdForWebsite($eventSlug: String!){
+    getEventByIdForWebsite(eventSlug: $eventSlug) {
+        eventId,
+        eventDescription,
+        eventTitle,
+        imageUrl,
+        videoUrl,
+        eventThumbnail,
+        eventDate,
+        sweepstakeRules,
+    }
+  }`;

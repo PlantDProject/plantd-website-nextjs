@@ -1,90 +1,57 @@
 import { Metadata } from 'next';
-import '../giveaway.css';
-import Link from 'next/link';
-import { GET_ALL_EVENTS } from '@/utils/GRAPHQL';
-import { defaultOGImage, isEven } from '@/utils/helpers';
+import GiveawayDetails from './GiveawayDetails';
+import { GET_EVENT_BY_ID } from '@/utils/GRAPHQL';
+import { defaultOGImage } from '@/utils/helpers';
 
-const description = 'Welcome to Plantd All Access! Here you can enter for a chance to win awesome Experiences. Check in daily to see what’s new.';
-export const metadata: Metadata = {
-    title: 'Giveaways',
-    description,
-    openGraph: { title: 'Giveaways', description, images: defaultOGImage },
-};
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+    const { slug } = await params;
 
-const variables = {
-    status: 'COMPLETED',
-    searchText: '',
-    page: 1,
-    size: 1000,
-};
-
-export default async function Giveaways() {
     const response = await fetch(`${process.env.API_URL}/graphql`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            query: GET_ALL_EVENTS,
-            variables,
+            query: GET_EVENT_BY_ID,
+            variables: { eventSlug: slug },
         }),
     });
 
     const data = await response.json();
-    const events = data?.data?.getEventsForWebsite?.events;
-    const onGoingEvents = events?.filter((event: any) => event?.eventStatus === 'Ongoing' && event?.status === 'true');
+    const e = data?.data?.getEventByIdForWebsite;
 
-    return (
-        <>
-            <section className="bg-home " id="home">
-                <div className="home-center">
-                    <div className="home-desc-center">
-                        <div className="container-fluid w-95">
-                            <div className="row align-items-center">
-                                <div className="col-12">
-                                    <div className="text-center">
-                                        <h1 className="title title-color mb-5 text-center fs-40">Plantd Giveaway List</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    return {
+        title: `Plantd | ${e?.eventTitle}`,
+        description: e?.eventTitle,
+        openGraph: {
+            title: `Plantd | ${e?.eventTitle}`,
+            description: e?.eventTitle,
+            images: e?.eventThumbnail || defaultOGImage,
+        },
+        twitter: {
+            card: e?.eventThumbnail || defaultOGImage,
+            title: `Plantd | ${e?.eventTitle}`,
+            description: e?.eventTitle,
+            images: e?.eventThumbnail || defaultOGImage,
+        },
+    };
+}
 
-            <section className="pt-5 bg-black giveawayHead">
-                <div className="container-fluid w-90">
-                    <h3 className="title-sub-heading title-color text-center fw-600">
-                        Welcome to Plantd All Access! Here you can enter for a chance to win awesome Experiences. Check in daily to see what’s new.
-                        <br /> <span className="text-green">Don’t Miss Out!</span>
-                    </h3>
-                </div>
-            </section>
+export default async function Page({ params }: any) {
+    const { slug } = await params;
 
-            <section className="pt-5 bg-black">
-                <div className="container-fluid bg-dark-grey w-90 p-lg-5 p-md-4 px-1 py-4">
-                    {onGoingEvents.length > 0 &&
-                        onGoingEvents?.map((event: any, index: number) => {
-                            return (
-                                <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{ backgroundImage: isEven(index) ? `url('https://test.plantd.life/images/plantdimg/projectbg.jpg')` : `url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg')` }}>
-                                    <div className="col-12 py-3 position-relative">
-                                        <div className="position-absolute eventshare-div">
-                                            <i className="fa fa-files-o text-primary text-white" aria-hidden="true"></i>
-                                        </div>
+    const response = await fetch(`${process.env.API_URL}/graphql`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            query: GET_EVENT_BY_ID,
+            variables: { eventSlug: slug },
+        }),
+    });
 
-                                        <h3 className="title-heading text-white text-center fw-bold">{event?.eventName}</h3>
-                                        <img src={event?.imageUrl} className="my-2 ty-img mx-auto" alt="Chhath Mahaparv img" />
-                                        <div>
-                                            <Link href={`giveaways/${event?.eventSlug}`} className="btn btn-sm btn-soft-primary btn-rounded py-2 px-5">
-                                                View Details
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                </div>
-            </section>
-        </>
-    );
+    const data = await response.json();
+
+    return <GiveawayDetails eventData={data?.data?.getEventByIdForWebsite} />;
 }

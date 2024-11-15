@@ -4,6 +4,7 @@ import React from 'react';
 import './Navbar.css';
 import { AboutUs, DropdownData, ProjectsList } from './DropdownItems';
 import Link from 'next/link';
+import { dark, light } from '@/utils/helpers';
 
 const Navbar = () => {
     const [showGiveawaysDropdown, setShowGiveawaysDropdown] = React.useState<boolean>(false);
@@ -74,9 +75,7 @@ const Navbar = () => {
     };
 
     const headerLogo = (isMobile: boolean = false) => {
-        const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
-        const dark = 'https://test.plantd.life/images/plantdimg/logo-dark.png';
-
+        
         if (isMobile) return dark;
 
         if (isAtTop) return light;

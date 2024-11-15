@@ -66,6 +66,86 @@
     border-radius: 20px;
 }
 
+.countdown span.value {
+    display: inline-block;
+    width: 66px;
+    box-shadow: 0 0 2px #6d6c6c;
+    backdrop-filter: blur(5px);
+    background: linear-gradient(to left top, #242424, #242424 66%, #eee 240%);
+    padding: 25px 0;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.countdown {
+    margin: 0 15px;
+}
+
+/* Giveaway timeline - How to enter */
+
+.timeline {
+    position: relative;
+    padding-left: 0px;
+}
+
+.timeline-item {
+    padding-bottom: 40px;
+    position: relative;
+    padding-left: 70px;
+    border-left: 6px solid var(--grey);
+}
+
+.timeline-item:last-child {
+    border-left: 6px solid transparent;
+}
+.timeline-item-number {
+    position: absolute;
+    left: -36px;
+    top: 0;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 10px 24px;
+    color: var(--white);
+}
+.timeline-time {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+.timeline-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.timeline-content {
+    font-size: 16px;
+    color: #555;
+}
+.timeline-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+.timeline-link:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+.timeline-link svg {
+    margin-left: 8px;
+    width: 14px;
+    height: 14px;
+}
+
+/* Giveaway timeline - How to enter */
+
 @media (min-width: 1500px) {
     .bg-home {
         padding: 150px 0 0 0;
@@ -80,22 +160,28 @@
     .ty-img {
         width: 200px !important;
     }
+    .timeline {
+        margin-left: 30px;
+    }
 }
 
 @media (max-width: 575.86px) {
+    .timeline {
+        margin-left: 20px;
+    }
     .eventdate-div {
         position: static !important;
         right: 5px;
         top: 60px;
         padding: 8px 0;
-        width: 70px;
-        margin-bottom: 10px;
+        width: 100px;
+        margin: 20px 0;
     }
     .eventdate-div p {
-        font-size: 12px !important;
+        font-size: 16px !important;
     }
     .eventdate-div h3 {
-        font-size: 16px !important;
+        font-size: 24px !important;
     }
     .ty-img {
         width: 180px !important;
@@ -104,5 +190,39 @@
         right: 5px;
         top: 10px;
         bottom: unset;
+    }
+    .timeline-item-number {
+        left: -22px;
+        padding: 8px 15px;
+        font-size: 15px;
+    }
+
+    .timeline-item {
+        border-left: 3px solid var(--grey);
+        padding-left: 30px;
+    }
+
+    .countdown span.value {
+        width: 60px;
+        padding: 20px 0;
+        font-size: 20px;
+    }
+
+    .countdown {
+        margin: 0 5px;
+    }
+    .how-to-enter-btn {
+        font-size: 14px;
+    }
+    .how-to-enter {
+        font-size: 25px;
+    }
+    .play-store,
+    .app-store {
+        width: 100px !important;
+    }
+
+    .ends-on {
+        font-size : 20px
     }
 }
