@@ -1,5 +1,4 @@
 // components/Modal.js
-import { useState } from 'react';
 import './modal.css'
 
 interface Props {
