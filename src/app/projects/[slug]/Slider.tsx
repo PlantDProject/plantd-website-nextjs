@@ -8,7 +8,7 @@ export default function SimpleSlider({ assets }: any) {
         fade: true,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 100,
+        autoplaySpeed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
     };

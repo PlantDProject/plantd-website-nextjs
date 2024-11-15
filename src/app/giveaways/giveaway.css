@@ -144,6 +144,16 @@
     height: 14px;
 }
 
+#howToEnter {
+    scroll-margin-top : 60px
+}
+
+.view-details:hover {
+    background-color: var(--white) !important;
+    color: var(--primary-color) !important;
+
+}
+
 /* Giveaway timeline - How to enter */
 
 @media (min-width: 1500px) {

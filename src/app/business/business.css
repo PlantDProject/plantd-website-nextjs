@@ -3,9 +3,6 @@
     position: relative;
     padding: 180px 0 0;
     border-radius: 15px;
-    /* background-image: url('/images/bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;*/
     &:before {
         content: '';
         position: absolute;
@@ -136,14 +133,20 @@
 
 /* Form CSS */
 
+#form {
+    scroll-margin-top : 150px;
+}
+
 .business-form {
     position: relative;
     padding: 180px 0 0;
     border-radius: 15px;
-    background-image: url('/images/business/form-bg.png');
+    background-image: url('/next-images/business/form-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 32px;
     &:before {
+        border-radius: 32px;
         content: '';
         position: absolute;
         top: 0;
@@ -270,7 +273,7 @@
     }
 
     .custom-btn {
-        padding : 10px 50px !important
+        padding: 10px 50px !important;
     }
 }
 
