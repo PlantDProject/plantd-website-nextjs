@@ -42,7 +42,7 @@ const Business = () => {
     };
 
     return (
-        <div className="business-container">
+        <div className="business-container pb-1">
             <section className="top-container">
                 <video autoPlay muted loop className="video custom-video">
                     <source src="/next-videos/header-1.mov" type="video/mp4" />
