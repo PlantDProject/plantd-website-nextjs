@@ -45,7 +45,7 @@ const Business = () => {
         <div className="business-container">
             <section className="top-container">
                 <video autoPlay muted loop className="video custom-video">
-                    <source src="/videos/header-1.mov" type="video/mp4" />
+                    <source src="/next-videos/header-1.mov" type="video/mp4" />
                 </video>
                 <div className="header-text">
                     <h1 className={`business-title title-color ${poppinsBold.className}`}>
@@ -74,10 +74,10 @@ const Business = () => {
                     </div>
 
                     <div className="col-12 col-lg-6 order-1 order-lg-3 ms-auto mx-auto">
-                        <img src="/images/business/business-first-section.png" className="img-fluid" />
+                        <img src="/next-images/business/business-first-section.png" className="img-fluid" />
                     </div>
 
-                    <img src="/images/translucent-logo.png" className="first-section-img" />
+                    <img src="/next-images/translucent-logo.png" className="first-section-img" />
                 </div>
             </section>
 
@@ -88,7 +88,7 @@ const Business = () => {
                         <h3 className={poppinsBold.className}>Climate Action Credits</h3>
                     </div>
                     <div className="col-12 col-lg-6 order-1 order-lg-0 me-auto">
-                        <img src="/images/business/business-second-section.png" className="img-fluid" />
+                        <img src="/next-images/business/business-second-section.png" className="img-fluid" />
                     </div>
                     <div className="col-12 col-lg-5 order-2 order-lg-2">
                         <span className="d-none d-lg-block green-line cards" />
@@ -100,7 +100,7 @@ const Business = () => {
 
                         {CTA()}
 
-                        <img src="/images/translucent-logo.png" className="second-section-img" />
+                        <img src="/next-images/translucent-logo.png" className="second-section-img" />
                     </div>
                 </div>
             </section>
@@ -108,11 +108,11 @@ const Business = () => {
             <section>
                 <div className="w-90 mx-auto py-5 px-3 px-md-5 my-5 business-cards d-flex align-center text-white">
                     <div className="wavy-section">
-                        <img src="/images/business/have-something.png" className="wavy-bg d-none d-lg-block" />
-                        <img src="/images/business/have-something-sm.png" className="wavy-bg d-block d-lg-none" />
+                        <img src="/next-images/business/have-something.png" className="wavy-bg d-none d-lg-block" />
+                        <img src="/next-images/business/have-something-sm.png" className="wavy-bg d-block d-lg-none" />
                         <div className="d-flex justify-center">
                             <h3 className={`my-5 ${poppinsBold.className}`}>
-                                <img src="/images/business/have-something-border.png" className="wavy-bg-heading" />
+                                <img src="/next-images/business/have-something-border.png" className="wavy-bg-heading" />
                                 Have
                                 <br />
                                 something else
@@ -120,8 +120,8 @@ const Business = () => {
                             </h3>
                         </div>
                         <p className={`wavy-section-p w-90 mx-auto px-5 py-4 text-center text-white ${poppinsMedium.className}`}>
-                            <img src="/images/business/rectangle.png" className="wavy-rectangle d-none d-lg-block" />
-                            <img src="/images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />
+                            <img src="/next-images/business/rectangle.png" className="wavy-rectangle d-none d-lg-block" />
+                            <img src="/next-images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />
                             If your business has a custom solution in mind, we're here to help bring it to life. Reach out for a free consultation, and together we can build a tailored partnership that aligns with your sustainability goals. Whether it’s a unique carbon offset strategy, targeted reforestation efforts, or specialized project support, we’ll work closely with you to create a solution
                             that maximizes your impact. Let’s collaborate to propel your climate action initiatives and drive meaningful change for a more sustainable future.
                         </p>
