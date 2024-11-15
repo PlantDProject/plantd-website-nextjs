@@ -5,6 +5,7 @@ import './business.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
+import ContactForm from '@/components/Navigation/ContactForm/ContactForm';
 
 const Business = () => {
     const [formData, setFormData] = useState<any>({
@@ -138,123 +139,7 @@ const Business = () => {
                             Let's Talk
                         </h3>
 
-                        <form>
-                            <div className="row">
-                                <div className={`inputClass d-flex flex-column col-12 col-md-6 ${poppinsMedium.className}`}>
-                                    <Input
-                                        classNames={{
-                                            inputWrapper: ['px-0'],
-                                        }}
-                                        type="text"
-                                        label="Name"
-                                        labelPlacement="outside"
-                                        value={formData.name}
-                                        onValueChange={(e) => handleChange(e, 'name')}
-                                    />
-                                </div>
-                                <div className={`inputClass d-flex flex-column col-12 col-md-6 ${poppinsMedium.className}`}>
-                                    <Input
-                                        classNames={{
-                                            inputWrapper: ['px-0'],
-                                        }}
-                                        type="email"
-                                        label="Email Address"
-                                        value={formData.email}
-                                        labelPlacement="outside"
-                                        onValueChange={(e) => handleChange(e, 'email')}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className={`inputClass border-0 d-flex flex-column col-12 col-md-6 ${poppinsMedium.className}`}>
-                                    <Input
-                                        classNames={{
-                                            inputWrapper: ['px-0'],
-                                        }}
-                                        type="text"
-                                        label="Phone Number"
-                                        value={formData.phoneNumber}
-                                        labelPlacement="outside"
-                                        onValueChange={(e) => handleChange(e, 'phoneNumber')}
-                                    />
-                                </div>
-                                <div className={`inputClass d-flex flex-column col-12 col-md-6 ${poppinsMedium.className}`}>
-                                    <Input
-                                        classNames={{
-                                            inputWrapper: ['px-0'],
-                                        }}
-                                        type="text"
-                                        label="Organisation"
-                                        value={formData.organisation}
-                                        labelPlacement="outside"
-                                        onValueChange={(e) => handleChange(e, 'organisation')}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className={`inputClass d-flex flex-column col-12 col-md-6 ${poppinsMedium.className}`}>
-                                    <Textarea
-                                        classNames={{
-                                            input: 'textarea-custom',
-                                            inputWrapper: ['px-0', 'py-0'],
-                                        }}
-                                        minRows={5}
-                                        name="tellUsMore"
-                                        label="Tell Us More"
-                                        value={formData.tellUsMore}
-                                        labelPlacement="outside"
-                                        onValueChange={(e) => handleChange(e, 'tellUsMore')}
-                                        className=""
-                                        variant="underlined"
-                                    />
-                                </div>
-                                <div className={`inputClass d-flex flex-column col-12 col-md-6 ${poppinsMedium.className}`}>
-                                    <Select
-                                        classNames={{
-                                            trigger: 'px-3 py-3 custom-select d-flex justify-between',
-                                            listbox: 'select-dropdown',
-                                        }}
-                                        labelPlacement={'outside-left'}
-                                        label="How did you hear about us?"
-                                        onSelectionChange={(e) => handleChange(e, 'source')}
-                                    >
-                                        <SelectItem key="Friends/Family" value="Friends/Family">
-                                            Friends/Family
-                                        </SelectItem>
-                                        <SelectItem key="Email Marketing" value="Email Marketing">
-                                            Email Marketing
-                                        </SelectItem>
-                                        <SelectItem key="Social" value="Social">
-                                            Social
-                                        </SelectItem>
-                                        <SelectItem key="Other" value="Other">
-                                            Other
-                                        </SelectItem>
-                                    </Select>
-
-                                    {formData.source === 'Other' && (
-                                        <Input
-                                            classNames={{
-                                                inputWrapper: ['px-0'],
-                                            }}
-                                            type="text"
-                                            label="Other"
-                                            value={formData.other}
-                                            labelPlacement="outside"
-                                            onValueChange={(e) => handleChange(e, 'other')}
-                                        />
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className="lets-talk d-flex my-4 justify-center">
-                                <div className="btn primary-btn btn-rounded custom-btn" onClick={() => {}}>
-                                    Submit
-                                </div>
-                            </div>
-                        </form>
+                        <ContactForm buttonName='Submit'/>
                     </div>
                 </div>
             </section>
