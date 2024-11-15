@@ -165,7 +165,7 @@ const Fundraiser = () => {
             </section>
 
             <section id='fundraiser-contact-form' className='pb-5'>
-                <div className="w-90 mx-auto p-3 p-md-5 mt-0 business-cards business-form  text-white">
+                <div className="w-90 mx-auto p-3 p-md-5 mt-0 business-cards business-form text-white">
                     <div className="row align-items-center">
                         <div className="col-lg-4">
                             <h1 className='fw-800'>Contact Us</h1>

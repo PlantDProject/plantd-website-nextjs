@@ -1,0 +1,10 @@
+.phoneInput input {
+  padding: 10px 15px 10px 30px !important;
+}
+
+/* mobile number prefix  */
+.prefix {
+    position: absolute;
+    bottom: 31px;
+    left: 20px;
+}
