@@ -1,11 +1,12 @@
 'use client';
 
 import '../giveaway.css';
-import { IFrameRenderer, light } from '@/utils/helpers';
+import { IFrameRenderer, getImgUri, light } from '@/utils/helpers';
 import CountdownTimer from './CountdownTimer';
 import Link from 'next/link';
 
-const GiveawayDetail = ({ eventData }: any) => {
+const GiveawayDetail = ({ eventData, winnersList }: any) => {
+    console.log('0 > ', winnersList);
     const eventdate = new Date(eventData?.eventDate);
     const isCompleted = eventdate < new Date();
 
@@ -53,7 +54,7 @@ const GiveawayDetail = ({ eventData }: any) => {
 
             <section className="bg-black py-5">
                 <div className="row justify-content-center align-items-center text-center w-90 m-auto image-bg bg-dark-grey">
-                    <div className="col-12 py-3 my-5 position-relative w-90 py-lg-5 py-md-4 py-3 px-lg-5 px-md-3 px-1" style={{ backgroundImage: `url('https://test.plantd.life/images/plantdimg/gaDetail.jpg')` }}>
+                    <div className="col-12 py-3 my-5 position-relative w-90 py-lg-5 py-md-4 py-3 px-lg-5 px-md-3 px-1 img-bg">
                         {/* Giveaway Title  */}
 
                         <h1 className="title text-white mb-4">{eventData?.eventTitle}</h1>
@@ -64,8 +65,8 @@ const GiveawayDetail = ({ eventData }: any) => {
                             {/* Giveaway Video  */}
 
                             <div className="col-lg-5 col-12">
-                                <video poster={eventData?.imageUrl} controls className="videoAudioHeight">
-                                    <source src={eventData?.videoUrl} type="video/mp4" />
+                                <video poster={getImgUri(eventData?.imageUrl)} controls className="videoAudioHeight">
+                                    <source src={getImgUri(eventData?.videoUrl)} type="video/mp4" />
                                 </video>
                             </div>
 
@@ -80,6 +81,13 @@ const GiveawayDetail = ({ eventData }: any) => {
                                         <div className="col-12 fs-24 text-green text-center">
                                             {getTimeDate('date')} {getTimeDate('month')} {getTimeDate('year')}
                                         </div>
+                                        {winnersList?.length > 0 && (
+                                            <div className="lets-talk d-flex my-4 justify-center">
+                                                <Link className="btn primary-btn btn-rounded custom-btn py-1 px-3 how-to-enter-btn" href="#winners">
+                                                    Show winner/s
+                                                </Link>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ) : (
@@ -99,7 +107,7 @@ const GiveawayDetail = ({ eventData }: any) => {
 
                         {/* Giveaway Description  */}
 
-                        <div className="fs-22 text-left text-white px-3">
+                        <div className="fs-22 text-left text-white px-3 mt-5">
                             <IFrameRenderer iframeHtml={eventData?.eventDescription} />
                         </div>
 
@@ -187,6 +195,28 @@ const GiveawayDetail = ({ eventData }: any) => {
                         )}
 
                         {/* Enter now button */}
+
+                        {/* Winners Section */}
+
+                        {isCompleted && (
+                            <div id="winners">
+                                <h3 className="text-white my-4">Winner / s</h3>
+                                <div className="row justify-around">
+                                    {winnersList?.map((e: any, i: string) => {
+                                        return (
+                                            <div key={i} className="col-12 col-md-4 d-flex align-items-center justify-center flex-column">
+                                                <img src="https://plantd.life/images/plantdimg/userIcon.png" width={150} alt="Winner Dummy Image"></img>
+                                                <p className="fs-22 text-white mt-3">
+                                                    {e?.user?.firstName} {e?.user?.lastName}
+                                                </p>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Winners Section */}
 
                         {/* Sweepstake Rules */}
 

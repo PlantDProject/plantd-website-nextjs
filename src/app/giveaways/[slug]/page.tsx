@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import GiveawayDetails from './GiveawayDetails';
-import { GET_EVENT_BY_ID } from '@/utils/GRAPHQL';
+import { GET_EVENT_BY_ID, GET_EVENT_WINNERS } from '@/utils/GRAPHQL';
 import { defaultOGImage } from '@/utils/helpers';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 export default async function Page({ params }: any) {
     const { slug } = await params;
 
-    const response = await fetch(`${process.env.API_URL}/graphql`, {
+    const responseEventData = await fetch(`${process.env.API_URL}/graphql`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,20 @@ export default async function Page({ params }: any) {
         }),
     });
 
-    const data = await response.json();
+    const eventData = await responseEventData.json();
 
-    return <GiveawayDetails eventData={data?.data?.getEventByIdForWebsite} />;
+    const responseWinners = await fetch(`${process.env.API_URL}/graphql`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            query: GET_EVENT_WINNERS,
+            variables: { eventId: eventData?.data?.getEventByIdForWebsite?.eventId, searchText: '' },
+        }),
+    });
+
+    const winnersList = await responseWinners.json();
+
+    return <GiveawayDetails eventData={eventData?.data?.getEventByIdForWebsite} winnersList={winnersList?.data?.websiteGetWinners} />;
 }

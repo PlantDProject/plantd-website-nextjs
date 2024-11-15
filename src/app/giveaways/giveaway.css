@@ -144,17 +144,27 @@
     height: 14px;
 }
 
-#howToEnter {
-    scroll-margin-top : 60px
+#howToEnter{
+    scroll-margin-top: 60px;
+}
+
+#winners {
+    scroll-margin-top: 200px;
 }
 
 .view-details:hover {
     background-color: var(--white) !important;
     color: var(--primary-color) !important;
-
 }
 
 /* Giveaway timeline - How to enter */
+
+.img-bg {
+    background-image: url('https://test.plantd.life/images/plantdimg/gaDetail.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 @media (min-width: 1500px) {
     .bg-home {
@@ -233,6 +243,6 @@
     }
 
     .ends-on {
-        font-size : 20px
+        font-size: 20px;
     }
 }
