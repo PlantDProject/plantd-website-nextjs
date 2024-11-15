@@ -1,11 +1,11 @@
 'use client';
 import './fundraiser.css';
-import React, { useState } from 'react';
+import React from 'react';
 import ContactForm from '@/components/Navigation/ContactForm/ContactForm';
 import Slider from 'react-slick';
 
 const Fundraiser = () => {
-    var settings = {
+    const settings = {
         dots: false,
         infinite: true,
         speed: 500,
