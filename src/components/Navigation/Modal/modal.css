@@ -1,0 +1,10 @@
+.modal-lg {
+    --bs-modal-width: 90vw !important;
+}
+.close{
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    z-index: 1000;
+    cursor: pointer;
+}
