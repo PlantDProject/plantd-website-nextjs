@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
+import '../ContactForm/contact-form.css'
 
 interface Props {
   buttonName: string
@@ -61,18 +62,18 @@ const ContactForm: React.FC<Props> = ({buttonName}) => {
             </div>
 
             <div className="row">
-                <div className={`inputClass border-0 d-flex flex-column col-12 col-md-6 `}>
+                <div className={`inputClass phoneInput border-0 d-flex flex-column col-12 col-md-6 position-relative`}>
                     <Input
                         classNames={{
                             inputWrapper: ['px-0'],
                         }}
                         type="text"
                         label="Phone Number"
-                        prefix='+1'
                         value={formData.phoneNumber}
                         labelPlacement="outside"
                         onValueChange={(e) => handleChange(e, 'phoneNumber')}
                     />
+                    <span className='prefix'>+1</span>
                 </div>
                 <div className={`inputClass d-flex flex-column col-12 col-md-6 `}>
                     <Input
