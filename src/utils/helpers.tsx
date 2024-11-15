@@ -25,5 +25,11 @@ export const IFrameRenderer: React.FC<IFrameRendererProps> = ({ iframeHtml }) =>
     return <div dangerouslySetInnerHTML={{ __html: iframeHtml }} />;
 };
 
+export const getImgUri = (uri: string) => {
+    if (uri?.includes('https')) return uri;
+
+    return `${process.env.API_URL}${uri}`
+};
+
 export const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
 export const dark = 'https://test.plantd.life/images/plantdimg/logo-dark.png';

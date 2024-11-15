@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "env-cmd -f .env.development next dev",
         "dev:qa": "env-cmd -f .env.test next dev",
+        "dev:prod": "env-cmd -f .env.production next dev",
         "build:dev": "env-cmd -f .env.development next build",
         "start:dev": "env-cmd -f .env.development next start",
         "build:qa": "env-cmd -f .env.test next build",

@@ -5,6 +5,7 @@ import './business.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
+import CustomModal from '@/components/Navigation/Modal/modal';
 
 const Business = () => {
     const [formData, setFormData] = useState<any>({
@@ -16,6 +17,12 @@ const Business = () => {
         source: '',
         other: '',
     });
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onClose = ()=>{
+        setIsOpen(false)
+    }
+
 
     const handleChange = (e: any, name: string) => {
         let value = e;
@@ -250,14 +257,16 @@ const Business = () => {
                             </div>
 
                             <div className="lets-talk d-flex my-4 justify-center">
-                                <div className="btn primary-btn btn-rounded custom-btn" onClick={() => {}}>
+                                <div className="btn primary-btn btn-rounded custom-btn" onClick={() => {setIsOpen(true)}}>
                                     Submit
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </section>
+            <CustomModal isOpen={isOpen} modalType='resultModal' onClose={onClose}/>
         </div>
     );
 };

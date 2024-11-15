@@ -27,3 +27,17 @@ export const GET_EVENT_BY_ID = `query getEventByIdForWebsite($eventSlug: String!
         sweepstakeRules,
     }
   }`;
+
+export const GET_EVENT_WINNERS = `query GetWinners($eventId: String!, $searchText: String) {
+  websiteGetWinners(eventId: $eventId, listEventWinners: { searchText: $searchText }) {
+      epId
+      status
+      date
+      isWinner
+      rank
+      user {
+          firstName
+          lastName
+      }
+  }
+}`;

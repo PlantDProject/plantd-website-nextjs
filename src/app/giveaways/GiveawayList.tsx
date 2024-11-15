@@ -2,7 +2,7 @@
 
 import './giveaway.css';
 import Link from 'next/link';
-import { getDate, getDay, isEven } from '@/utils/helpers';
+import { getDate, getDay, getImgUri, isEven } from '@/utils/helpers';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 
 interface EventProps {
@@ -32,7 +32,7 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
                         </h3>
                     </div>
                     <h3 className="title-heading text-white text-center fw-bold">{event?.eventName}</h3>
-                    <img src={event?.imageUrl} className="my-2 ty-img mx-auto" alt="Chhath Mahaparv img" />
+                    <img src={getImgUri(event?.imageUrl)} className="my-2 ty-img mx-auto" alt="Chhath Mahaparv img" />
                     <div>
                         <Link href={`giveaways/${event?.eventSlug}`} className="btn btn-sm btn-soft-primary btn-rounded py-2 px-5 view-details">
                             View Details
@@ -44,7 +44,8 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
                             <Popover placement="top">
                                 <PopoverTrigger
                                     onClick={() => {
-                                        navigator.clipboard.writeText(event?.eventSlug);
+                                        const uri = `${process.env.WEBSITE_URL}/giveaways/${event?.eventSlug}`
+                                        navigator.clipboard.writeText(uri);
                                     }}
                                 >
                                     <div className="position-absolute eventshare-div">
