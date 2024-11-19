@@ -11,7 +11,6 @@ interface Props {
 
 const CustomModal: React.FC<Props> = ({ isOpen, modalType, onClose, sweepData }) => {
   if (!isOpen) return null; // Don't render modal if it's closed
-  console.log(sweepData)
 
   return (
 

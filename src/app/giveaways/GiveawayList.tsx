@@ -44,7 +44,7 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
                             <Popover placement="top">
                                 <PopoverTrigger
                                     onClick={() => {
-                                        const uri = `${process.env.WEBSITE_URL}/giveaways/${event?.eventSlug}`
+                                        const uri = `${process.env.WEBSITE_URL}/giveaways/${event?.eventSlug}`;
                                         navigator.clipboard.writeText(uri);
                                     }}
                                 >
@@ -85,7 +85,7 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
 
             <section className="pt-5 bg-black giveawayHead">
                 <div className="container-fluid w-90">
-                    <h3 className="title-sub-heading title-color text-center fw-600">
+                    <h3 className="title-sub-heading title-color text-center fw-300">
                         Welcome to Plantd All Access! Here you can enter for a chance to win awesome Experiences. Check in daily to see what’s new.
                         <br /> <span className="text-green">Don’t Miss Out!</span>
                     </h3>

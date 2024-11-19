@@ -1,7 +1,7 @@
 'use client';
+import CustomForm from '@/components/ContactForm/ContactForm';
 import './fundraiser.css';
 import React from 'react';
-import ContactForm from '@/components/Navigation/ContactForm/ContactForm';
 import Slider from 'react-slick';
 
 const Fundraiser = () => {
@@ -177,7 +177,7 @@ const Fundraiser = () => {
                         <div className="col-lg-8">
                             <div className="form-container mx-auto py-4 px-4 px-md-5">
                                 <h3 className={`mb-4`} id="form">Fundraise with Plantd</h3>
-                                <ContactForm buttonName="Let's Fundraise" />
+                                <CustomForm formOrigin="fundraiser" />
                             </div>
                         </div>
                     </div>

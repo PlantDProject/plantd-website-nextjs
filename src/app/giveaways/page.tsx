@@ -34,8 +34,6 @@ export default async function Page() {
     const events = data?.data?.getEventsForWebsite?.events;
     const onGoingEvents = events?.filter((event: any) => event?.eventStatus === 'Ongoing' && event?.status === 'true');
     const completedEvents = events?.filter((event: any) => event?.eventStatus === 'Completed' && event?.status === 'true');
-    console.log('ongoing', onGoingEvents);
-    console.log('completedEvents', completedEvents);
 
     return <Giveaways onGoingEvents={onGoingEvents} completedEvents={completedEvents} />;
 }
