@@ -3,7 +3,7 @@
 import { poppinsBold, poppinsMedium } from '@/utils/fonts';
 import './business.css';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import CustomForm from '@/components/ContactForm/ContactForm';
 
 const Business = () => {

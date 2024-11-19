@@ -5,11 +5,6 @@ import Link from 'next/link';
 import { getDate, getDay, getImgUri, isEven } from '@/utils/helpers';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 
-interface EventProps {
-    onGoingEvents: EventObject[];
-    completedEvents: EventObject[];
-}
-
 interface EventObject {
     eventName: string;
     eventDate: string;
@@ -18,7 +13,7 @@ interface EventObject {
     eventSlug: string;
 }
 
-export default function Giveaways({ onGoingEvents, completedEvents }: EventProps) {
+export default function Giveaways({ onGoingEvents, completedEvents }: any) {
     const eventCards = (event: any, index: number, isOnGoing: boolean = false) => {
         return (
             <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{ backgroundImage: isEven(index) ? `url('https://test.plantd.life/images/plantdimg/projectbg.jpg')` : `url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg')` }}>
