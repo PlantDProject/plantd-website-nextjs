@@ -95,7 +95,6 @@ function useCustomForm(formOrigin: string) {
                 throw new Error(errorData.error || 'Submission failed');
             }
 
-            const data = await response.json();
             // Clear form or perform other success actions here
             setFormData(formDataFormat);
         } catch (error: any) {
