@@ -32,5 +32,5 @@ phases:
         console.log(json.taskDefinition.taskDefinitionArn)")
       - echo $REGISTER_RESPONSE
       - aws ecs update-service --cluster $TASK_DEFINITION_FAMILY --service main-website --task-definition $REGISTER_RESPONSE --desired-count 1 --force-new-deployment
-      - aws cloudfront create-invalidation --distribution-id EU8QYCIWXXNE2 --paths '/*'
+      - aws cloudfront create-invalidation --distribution-id E2TRM3BAPUQU01 --paths '/*'
   
