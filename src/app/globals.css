@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:400,600,700&amp;display=swap);
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,300,400,600,700&amp;display=swap);
 
 :root {
     --primary-color: #40ba67; /* Light green */
@@ -19,6 +19,7 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+    font-weight: 300;
 }
 
 a {
@@ -66,19 +67,27 @@ body {
 
 .fw-normal {
     font-weight: 400;
-  }
-  
-  .fw-600 {
-    font-weight: 600;
-  }
-  
-  .fw-800 {
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-100 {
+    font-weight: 100 !important;
+}
+
+.fw-800 {
     font-weight: 800;
-  }
-  
-  .fw-900 {
+}
+
+.fw-900 {
     font-weight: 900;
-  }
+}
 
 .btn-rounded {
     padding: 20px 100px !important;
@@ -125,7 +134,7 @@ select:focus-visible {
 .fs-14 {
     font-size: 14px;
 }
-.position-relative{
+.position-relative {
     position: relative;
 }
 @media (max-width: 991px) {
@@ -137,13 +146,11 @@ select:focus-visible {
     }
 }
 
-
 @media (max-width: 575.86px) {
     .fs-22 {
         font-size: 20px;
     }
 }
-
 
 /* PC Screen Size */
 

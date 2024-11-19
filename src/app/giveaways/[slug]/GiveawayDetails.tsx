@@ -8,7 +8,6 @@ import CustomModal from '@/components/Navigation/Modal/modal';
 import { useState } from 'react';
 
 const GiveawayDetail = ({ eventData, winnersList }: any) => {
-    console.log('0 > ', winnersList);
     const eventdate = new Date(eventData?.eventDate);
     const isCompleted = eventdate < new Date();
     const [isOpen, setIsOpen] = useState(false);

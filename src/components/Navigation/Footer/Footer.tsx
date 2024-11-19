@@ -3,10 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import './Footer.css';
+import { poppinsNormal } from '@/utils/fonts';
 
 const Footer = () => {
     return (
-        <footer className="footer-container">
+        <footer className={`footer-container ${poppinsNormal} fw-300`}>
             <div className="container-fluid footer text-white" data-nosnippet="true">
                 <div className="row w-90 mx-auto">
                     <div className="col-md-4 footer-info">

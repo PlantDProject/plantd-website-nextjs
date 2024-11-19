@@ -59,7 +59,7 @@
 
 @media (max-width: 991px) {
     .bg-home {
-        padding: 10rem 0;
+        padding: 14rem 0 8rem 0;
     }
     .carousel-img-width {
         width: 100%;
@@ -67,7 +67,7 @@
     .project-facts {
         font-size: 17px;
     }
-    
+
     .project-facts span {
         font-size: 20px;
     }
