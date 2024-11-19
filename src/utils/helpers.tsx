@@ -1,6 +1,18 @@
-export const regexPhoneNumber = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
-export const regexEmail = /^[\w.%+-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
-export const regexName = /^[a-zA-Z][a-zA-Z ]*$/;
+const regexPhoneNumber = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+const regexEmail = /^[\w.%+-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
+const regexName = /^[a-zA-Z][a-zA-Z ]*$/;
+
+export const isNameValid = (e: string) => {
+    return regexName.test(e);
+};
+
+export const isEmailValid = (e: string) => {
+    return regexEmail.test(e);
+};
+
+export const isPhoneNumberValid = (e: number) => {
+    return regexPhoneNumber.test(e);
+};
 
 export const defaultOGImage = 'https://plantd.life/images/plantdimg/plantdRecOg.jpg';
 
@@ -28,7 +40,7 @@ export const IFrameRenderer: React.FC<IFrameRendererProps> = ({ iframeHtml }) =>
 export const getImgUri = (uri: string) => {
     if (uri?.includes('https')) return uri;
 
-    return `${process.env.API_URL}${uri}`
+    return `${process.env.API_URL}${uri}`;
 };
 
 export const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
