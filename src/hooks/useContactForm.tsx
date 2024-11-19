@@ -6,7 +6,7 @@ const formDataFormat = {
     phone: '',
     organization: '',
     message: '',
-    heard_from: '',
+    heard_from: new Set([]),
     other: '',
 };
 function useCustomForm(formOrigin: string) {
@@ -24,36 +24,33 @@ function useCustomForm(formOrigin: string) {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const handleSelectChange = (e: any) => {
+        setFormData((prev: any) => ({ ...prev, heard_from: e }));
+        setFormDataErr((prev: any) => {
+            return { ...prev, other: false, heard_from : false };
+        });
+    };
+
     const handleChange = (e: any, name: string) => {
-        let value = e;
 
         // Limit phone number input length to 10
         if (name === 'phone' && (isNaN(e) || e.length > 10)) return;
 
-        // Special handling for 'heard_from' field
-        if (name === 'heard_from') {
-            value = e?.currentKey;
-        }
-
         // Update the form data
         setFormData((prev: any) => {
-            return { ...prev, [name]: value };
+            return { ...prev, [name]: e };
         });
 
         // Reset the error for the current field when it changes
         setFormDataErr((prev: any) => {
             return { ...prev, [name]: false };
         });
-
-        if (name === 'heard_from') {
-            setFormDataErr((prev: any) => {
-                return { ...prev, other: false };
-            });
-        }
     };
 
     const validateForm = () => {
-        const { name, email, phone, organization, message, heard_from, other } = formData;
+        const { name, email, phone, organization, message, other } = formData;
+
+        const heard_from_array = [...formData.heard_from];
 
         const errors = {
             name: !isNameValid(name),
@@ -61,8 +58,8 @@ function useCustomForm(formOrigin: string) {
             phone: !isPhoneNumberValid(phone),
             organization: !organization,
             message: !message,
-            heard_from: !heard_from,
-            other: heard_from === 'Other' && !other,
+            heard_from: heard_from_array.length === 0,
+            other: heard_from_array[0] === 'Other' && !other,
         };
 
         setFormDataErr(errors);
@@ -72,7 +69,9 @@ function useCustomForm(formOrigin: string) {
     const submitForm = async () => {
         if (!validateForm()) return;
 
-        const dataObject: any = { ...formData, phone: `+1${formData.phone}`, form_origin: formOrigin };
+        const dataObject: any = { ...formData, heard_from: [...formData.heard_from][0], phone: `+1${formData.phone}`, form_origin: formOrigin };
+
+        console.log(dataObject);
 
         if (dataObject.heard_from !== 'other') delete dataObject['other'];
 
@@ -97,11 +96,11 @@ function useCustomForm(formOrigin: string) {
 
             // Clear form or perform other success actions here
             setFormData(formDataFormat);
+            setShowModal(true);
         } catch (error: any) {
             console.error('Error submitting form:', error.message);
         } finally {
             setIsSubmitting(false);
-            setShowModal(true);
         }
     };
 
@@ -113,6 +112,7 @@ function useCustomForm(formOrigin: string) {
         submitForm,
         showModal,
         setShowModal,
+        handleSelectChange,
     };
 }
 

@@ -2,7 +2,7 @@ import './giveaways/giveaway.css';
 
 export default function Home() {
     return (
-        <>
+        <div>
             <section className="bg-home " id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
@@ -18,7 +18,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <div style={{height : 2000, backgroundColor : "#000"}}></div>
-        </>
+            <div style={{ height: 2000, backgroundColor: '#000' }}></div>
+        </div>
     );
 }

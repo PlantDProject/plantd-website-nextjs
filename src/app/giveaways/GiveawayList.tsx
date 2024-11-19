@@ -35,25 +35,23 @@ export default function Giveaways({ onGoingEvents, completedEvents }: any) {
                     </div>
 
                     {isOnGoing && (
-                        <>
-                            <Popover placement="top">
-                                <PopoverTrigger
-                                    onClick={() => {
-                                        const uri = `${process.env.WEBSITE_URL}/giveaways/${event?.eventSlug}`;
-                                        navigator.clipboard.writeText(uri);
-                                    }}
-                                >
-                                    <div className="position-absolute eventshare-div">
-                                        <i className="fa fa-files-o text-green" aria-hidden="true"></i>
-                                    </div>
-                                </PopoverTrigger>
-                                <PopoverContent>
-                                    <div className="px-1 bg-light px-2 br-20">
-                                        <div className="text-small fs-10 text-green">link copied</div>
-                                    </div>
-                                </PopoverContent>
-                            </Popover>
-                        </>
+                        <Popover placement="top">
+                            <PopoverTrigger
+                                onClick={() => {
+                                    const uri = `${process.env.WEBSITE_URL}/giveaways/${event?.eventSlug}`;
+                                    navigator.clipboard.writeText(uri);
+                                }}
+                            >
+                                <div className="position-absolute eventshare-div">
+                                    <i className="fa fa-files-o text-green" aria-hidden="true"></i>
+                                </div>
+                            </PopoverTrigger>
+                            <PopoverContent>
+                                <div className="px-1 bg-light px-2 br-20">
+                                    <div className="text-small fs-10 text-green">link copied</div>
+                                </div>
+                            </PopoverContent>
+                        </Popover>
                     )}
                 </div>
             </div>
@@ -61,7 +59,7 @@ export default function Giveaways({ onGoingEvents, completedEvents }: any) {
     };
 
     return (
-        <>
+        <div>
             <section className="bg-home " id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
@@ -98,6 +96,6 @@ export default function Giveaways({ onGoingEvents, completedEvents }: any) {
             <section className="pt-4 bg-black">
                 <div className="container-fluid bg-dark-grey w-90 p-lg-5 p-md-4 px-1 py-4">{completedEvents?.length > 0 && completedEvents?.map((event: any, index: number) => eventCards(event, index))}</div>
             </section>
-        </>
+        </div>
     );
 }

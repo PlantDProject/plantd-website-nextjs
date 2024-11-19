@@ -11,11 +11,11 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
     const eventdate = new Date(eventData?.eventDate);
     const isCompleted = eventdate < new Date();
     const [isOpen, setIsOpen] = useState(false);
-    const sweepData = <IFrameRenderer iframeHtml={eventData?.sweepstakeRules} />
+    const sweepData = <IFrameRenderer iframeHtml={eventData?.sweepstakeRules} />;
 
-        const onClose = () => {
-            setIsOpen(false)
-        }
+    const onClose = () => {
+        setIsOpen(false);
+    };
 
     const getTimeDate = (type: string) => {
         const week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -38,7 +38,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
         }
     };
     return (
-        <>
+        <div>
             {/* Top Section */}
 
             <section className="bg-home " id="home">
@@ -228,15 +228,17 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                         {/* Sweepstake Rules */}
 
                         <div className="lets-talk d-flex my-4 justify-center ">
-                            <a onClick={()=> setIsOpen(true)} className="text-green text-decoration-underline cursor-pointer">Sweepstakes Rules</a>
+                            <a onClick={() => setIsOpen(true)} className="text-green text-decoration-underline cursor-pointer">
+                                Sweepstakes Rules
+                            </a>
                         </div>
-                        <CustomModal isOpen={isOpen} modalType='sweepstake' sweepData={sweepData} onClose={onClose} />
+                        <CustomModal isOpen={isOpen} modalType="sweepstake" sweepData={sweepData} onClose={onClose} />
 
                         {/* Sweepstake Rules */}
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 

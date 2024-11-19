@@ -41,6 +41,8 @@
 
 .stats-container {
     background-image: url('https://plantd.life/images/plantdimg/headbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .start-planting:hover {

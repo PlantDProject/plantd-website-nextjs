@@ -10,7 +10,7 @@ interface CustomFormProps {
 }
 
 function CustomForm({ formOrigin }: CustomFormProps) {
-    const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, setShowModal } = useCustomForm(formOrigin);
+    const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, setShowModal, handleSelectChange } = useCustomForm(formOrigin);
 
     const handleSubmit = () => {
         if (isSubmitting) return;
@@ -28,7 +28,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
     };
 
     return (
-        <>
+        <div>
             <form>
                 <div className="row">
                     {/* Name input */}
@@ -126,7 +126,8 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                             }}
                             labelPlacement={'outside-left'}
                             label="How did you hear about us? *"
-                            onSelectionChange={(e) => handleChange(e, 'heard_from')}
+                            selectedKeys={formData.heard_from}
+                            onSelectionChange={handleSelectChange}
                         >
                             <SelectItem key="Friends/Family" value="Friends/Family">
                                 Friends/Family
@@ -144,8 +145,8 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                         {formDataErr.heard_from && <small className="pt-2 text-danger">Please select how you heard about us</small>}
 
                         {/* Conditional input for 'Other' option */}
-                        {formData.heard_from === 'Other' && (
-                            <>
+                        {[...formData.heard_from][0] === 'Other' && (
+                            <div>
                                 <Input
                                     classNames={{
                                         inputWrapper: ['px-0'],
@@ -156,7 +157,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                                     onValueChange={(e) => handleChange(e, 'other')}
                                 />
                                 {formDataErr.other && <small className="pt-2 text-danger">Please specify how you heard about us</small>}
-                            </>
+                            </div>
                         )}
                     </div>
                 </div>
@@ -169,7 +170,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                 </div>
             </form>
             {businessSuccessModal()}
-        </>
+        </div>
     );
 }
 
