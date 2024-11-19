@@ -5,13 +5,13 @@ import Link from 'next/link';
 import { getDate, getDay, getImgUri, isEven } from '@/utils/helpers';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 
-interface EventObject {
-    eventName: string;
-    eventDate: string;
-    eventTitle: string;
-    imageUrl: string;
-    eventSlug: string;
-}
+// interface EventObject {
+//     eventName: string;
+//     eventDate: string;
+//     eventTitle: string;
+//     imageUrl: string;
+//     eventSlug: string;
+// }
 
 export default function Giveaways({ onGoingEvents, completedEvents }: any) {
     const eventCards = (event: any, index: number, isOnGoing: boolean = false) => {

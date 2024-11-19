@@ -10,7 +10,7 @@ export const isEmailValid = (e: string) => {
     return regexEmail.test(e);
 };
 
-export const isPhoneNumberValid = (e: number) => {
+export const isPhoneNumberValid = (e: string) => {
     return regexPhoneNumber.test(e);
 };
 
