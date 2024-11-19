@@ -4,18 +4,9 @@ import { poppinsBold, poppinsMedium } from '@/utils/fonts';
 import './business.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import CustomModal from '@/components/Navigation/Modal/modal';
 import CustomForm from '@/components/ContactForm/ContactForm';
 
 const Business = () => {
-    // Modal open state
-    const [isOpen, setIsOpen] = useState(false);
-
-    // Function to close the modal
-    const onClose = () => {
-        setIsOpen(false);
-    };
-
     // Button component to navigate to the form section
     const CTA = () => {
         return (
