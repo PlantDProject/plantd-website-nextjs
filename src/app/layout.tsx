@@ -4,7 +4,6 @@ import Navbar from '@/components/Navigation/Navbar/Navbar';
 import Footer from '@/components/Navigation/Footer/Footer';
 import { poppinsNormal } from '@/utils/fonts';
 import { Metadata } from 'next';
-import Loading from './loading';
 
 export const metadata: Metadata = {
     title: 'Tree Planting Initiative by PLANTD',
