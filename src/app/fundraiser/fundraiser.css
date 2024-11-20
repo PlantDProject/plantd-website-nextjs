@@ -1,7 +1,6 @@
 .bg-home {
     position: relative;
     padding: 170px 0 0;
-    /* background-image: url('https://test.plantd.life/images/plantdimg/giveawayhead.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -55,12 +54,14 @@
 .sliderDiv{
     border: 1px solid #989898;
     display: flex !important;
+    /* align-items: center; */
     padding: 5px;
     border-radius: 20px;
+    height: 160px;
 }
 .sliderDiv img{
     width: 120px;
-    height: 140px;
+    /* height: 140px; */
     border-radius: 12px;
 }
 .slick-slide>div {padding: 0 5px;}
@@ -69,11 +70,9 @@
 .business-form {
     position: relative;
     /* padding: 180px 0 0; */
-    border-radius: 15px;
     background-image: linear-gradient(rgb(0 0 0 / .6), rgb(0 0 0 / .6)),url('/next-images/business/form-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 20px;
     &:before {
         content: '';
         position: absolute;
@@ -99,7 +98,7 @@
     position: absolute;
     top: 0;
     z-index: 0;
-    opacity: 0.9;
+    opacity: 0.7;
     border-radius: 20px;
     width: 100px;
 }
@@ -108,6 +107,7 @@
     .fundraiser-mob-head {
         display: unset;
     }
+    
     .fundraiser-web-head, .fundraiser-contact br {
         display: none;
     }
@@ -130,10 +130,9 @@
     }
     .business-cards p {
         margin: 0;
-        text-align: justify;
+        /* text-align: justify; */
         font-size: 15px !important;
         line-height: 22px;
-        padding: 20px 10px !important;
     }
     .img-fluid {
         width: 100%;
@@ -147,7 +146,29 @@
 @media (max-width: 600px) {
 }
 
-@media (max-width: 450px) {
+@media (max-width: 368px) {
+    .sliderDiv img{
+        width: 70px;
+    }
+    .sliderDiv{
+        /* flex-direction: column; */
+        height: 130px;
+    }
+    .sliderDiv p{
+        font-size: 8px !important;
+    }
+}
+@media (max-width: 315px) {
+    .sliderDiv img{
+ display: none !important;
+    }
+    .sliderDiv{
+        /* flex-direction: column; */
+        height: 100px;
+    }
+    .sliderDiv p{
+        font-size: 8px !important;
+    }
 }
 
 @media (min-width: 1500px) {

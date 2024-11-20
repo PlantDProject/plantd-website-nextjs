@@ -89,6 +89,12 @@ body {
     font-weight: 100 !important;
 }
 
+.fw-700 {
+    font-weight: 700;
+}
+.fw-800 {
+    font-weight: 800;
+}
 .fw-800 {
     font-weight: 800;
 }
@@ -157,6 +163,9 @@ select:focus-visible {
 @media (max-width: 575.86px) {
     .fs-22 {
         font-size: 20px;
+    }
+    .fs-20 {
+        font-size: 15px;
     }
 }
 

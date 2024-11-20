@@ -8,7 +8,7 @@
     position: relative;
     padding: 180px 0 0;
     border-radius: 15px;
-    background-image: url('/next-images/business/form-bg.png');
+    background-image: linear-gradient(rgb(0 0 0 / .9), rgb(0 0 0 / .9)),url('/next-images/business/form-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 32px;
@@ -20,8 +20,6 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: var(--black);
-        opacity: 0.6;
     }
 }
 
@@ -50,6 +48,18 @@
     border: 1px solid var(--grey);
     padding: 10px 15px;
     border-radius: 12px;
+    margin-top: 5px;
+}
+.inputClass input.phoneNumber {
+    padding: 10px 15px;
+    border-radius: 0px 12px 12px 0px;
+}
+
+.plus-input {
+    padding: 10px 15px;
+    background-color: var(--grey-bg);
+    border: 1px solid var(--grey);
+    border-radius: 12px 0px 0px 12px;
     margin-top: 5px;
 }
 
