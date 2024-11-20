@@ -23,7 +23,7 @@ const Business = () => {
             {/* Main container for the business section */}
             <section className="top-container">
                 {/* Video background */}
-                <video autoPlay muted loop playsInline className="video custom-video">
+                <video autoPlay muted loop className="video custom-video">
                     <source src="/next-videos/header-1.mov" type="video/mp4" />
                 </video>
                 <div className="header-text">
