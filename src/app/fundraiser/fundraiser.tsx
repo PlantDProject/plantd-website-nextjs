@@ -71,8 +71,8 @@ const Fundraiser = () => {
                                     </div>
                                     <div className='col-12 mt-4' style={{ maxWidth: "100%", overflow: 'hidden' }}>
                                         <Slider {...settings}>
-                                            <div className='sliderDiv'>
-                                                <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="" />
+                                            <a className='sliderDiv' href='test.plantd.life/contribute?project=senegal'>
+                                                <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
                                                 <div className='ms-2'>
                                                     <p className='text-green fs-12 mb-1'>Senegal Farming & Reforestation</p>
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>100,000+</span> Trees will be planted.🌳</p>
@@ -80,34 +80,34 @@ const Fundraiser = () => {
                                                     {/* <p className='text-white fs-10 mb-1'><span className='text-green'>2,500</span> Number of women planting through all projects.🙎</p> */}
                                                     {/* <p className='text-white fs-10 mb-0'><span className='text-green'>1</span> Hectare of land will be allocated to each group, consisting of 25 women per group.🏞</p> */}
                                                 </div>
-                                            </div>
-                                            <div className='sliderDiv'>
-                                                <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="" />
+                                            </a>
+                                            <a className='sliderDiv' href='/contribute?project=texas'>
+                                                <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
                                                 <div className='ms-2'>
                                                     <p className='text-green fs-12 mb-1'>Longleaf Pine Reforestation</p>
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>9,000</span> Jobs will be provided.💼</p>
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>500,000+</span> Trees will be planted.🌳</p>
                                                     {/* <p className='text-white fs-10 mb-1'><span className='text-green'>875+</span> Acres will be restored.🌳</p> */}
                                                 </div>
-                                            </div>
-                                            <div className='sliderDiv'>
-                                                <img src="/images/fundraiser/Natural_Disaster_Reforestation.png" alt="" />
+                                            </a>
+                                            <a className='sliderDiv' href='/contribute?project=texas'>
+                                                <img src="/images/fundraiser/Natural_Disaster_Reforestation.png" alt="Natural_Disaster_Reforestation Img" />
                                                 <div className='ms-2'>
                                                     <p className='text-green fs-12 mb-1'>Natural Disaster Reforestation</p>
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>4</span> Different tree species will be planted including Loblolly Pine, Slash Pine, Shortleaf Pine & Longleaf Pine.🌳</p>
                                                     {/* <p className='text-white fs-10 mb-1'><span className='text-green'>2M+</span> Trees will be planted.🌳</p> */}
                                                 </div>
-                                            </div>
-                                            <div className='sliderDiv'>
-                                                <img src="/images/fundraiser/Rim_Wildfire_Restoration.png" alt="" />
+                                            </a>
+                                            <a className='sliderDiv' href='/contribute?project=california'>
+                                                <img src="/images/fundraiser/Rim_Wildfire_Restoration.png" alt="Rim_Wildfire_Restoration Img" />
                                                 <div className='ms-2'>
                                                     <p className='text-green fs-12 mb-1'>Rim Wildfire Restoration</p>
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>4</span> Different tree species will be planted including Douglas Fir, Incense Cedar, Ponderosa Pine & Sugar Pine.🌳</p>
                                                     {/* <p className='text-white fs-10 mb-1'><span className='text-green'>627,000</span> Trees will be planted.🌳</p> */}
                                                 </div>
-                                            </div>
-                                            <div className='sliderDiv'>
-                                                <img src="/images/fundraiser/Honduras_Project.png" alt="" />
+                                            </a>
+                                            <a className='sliderDiv' href='/contribute?project=honduras'>
+                                                <img src="/images/fundraiser/Honduras_Project.png" alt="Honduras_Project Img" />
                                                 <div className='ms-2'>
                                                     <p className='text-green fs-12 mb-1'>Honduras Reforestation</p>
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>48%</span> Of Hondurans live below the poverty line, as of 2018.😧</p>
@@ -115,9 +115,9 @@ const Fundraiser = () => {
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>4M</span> Trees produced, planted, and protected.🌳</p>
                                                     {/* <p className='text-white fs-10 mb-1'><span className='text-green'>190+</span> Employees empowered with fair wages.💼</p> */}
                                                 </div>
-                                            </div>
-                                            <div className='sliderDiv'>
-                                                <img src="/images/fundraiser/Philippines_Project.png" alt="" />
+                                            </a>
+                                            <a className='sliderDiv' href='/contribute?project=philippines'>
+                                                <img src="/images/fundraiser/Philippines_Project.png" alt="Philippines_Project Img" />
                                                 <div className='ms-2'>
                                                     <p className='text-green fs-12 mb-1'>Philippines Reforestation</p>
                                                     <p className='text-white fs-10 mb-1'><span className='text-green'>17%</span> Of the population live below the poverty line.😧</p>
@@ -125,7 +125,7 @@ const Fundraiser = () => {
                                                     {/* <p className='text-white fs-10 mb-1'><span className='text-green'>20,000</span> Seedlings per month produced across 2 planting sites.🌳</p> */}
                                                     {/* <p className='text-white fs-10 mb-1'><span className='text-green'>40%</span> Employees empowered with fair wages.💼</p> */}
                                                 </div>
-                                            </div>
+                                            </a>
 
                                         </Slider>
                                     </div>
