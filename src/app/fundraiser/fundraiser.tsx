@@ -37,6 +37,7 @@ const Fundraiser = () => {
     return (
         <div style={{ backgroundColor: '#1d1d1d !important' }}>
             <section className="bg-home bg-second-dark pb-5" id="home">
+                <h1>Deployment Test</h1>
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container">
