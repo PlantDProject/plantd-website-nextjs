@@ -71,8 +71,6 @@ function useCustomForm(formOrigin: string) {
 
         const dataObject: any = { ...formData, other: formData.other, heard_from: [...formData.heard_from][0], phone: `+1${formData.phone}`, form_origin: formOrigin };
 
-        console.log(dataObject);
-
         if (dataObject.heard_from !== 'Other') delete dataObject['other'];
 
         const API_URL = 'https://d0f1vjnskd.execute-api.ap-south-1.amazonaws.com/main/contact-us';

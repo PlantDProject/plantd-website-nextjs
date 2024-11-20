@@ -1,9 +1,8 @@
 'use client';
 import CustomForm from '@/components/ContactForm/ContactForm';
 import './fundraiser.css';
-import React, { useState } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
-import CustomModal from '@/components/Navigation/Modal/modal';
 
 const Fundraiser = () => {
 
