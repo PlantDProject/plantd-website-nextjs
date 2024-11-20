@@ -21,8 +21,8 @@ function CustomForm({ formOrigin }: CustomFormProps) {
         setShowModal(false);
     };
 
-    const businessSuccessModal = () => {
-        if (formOrigin === 'fundraiser') return;
+    const successModal = () => {
+        // if (formOrigin === 'fundraiser') return;
 
         return <CustomModal isOpen={showModal} modalType="resultModal" onClose={closeModal} />;
     };
@@ -69,14 +69,14 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                             classNames={{
                                 inputWrapper: ['px-0'],
                                 innerWrapper: ['d-flex', 'align-items-center'],
-                                input: ['mb-0'],
+                                input: ['mb-0 phoneNumber'],
                             }}
                             type="text"
                             label="Phone Number *"
                             value={formData.phone}
                             labelPlacement="outside"
                             onValueChange={(e) => handleChange(e, 'phone')}
-                            startContent={<div className="me-2 p-2">+1</div>}
+                            startContent={<div className="plus-input">+1</div>}
                         />
                         {formDataErr.phone && <small className="pt-2 text-danger">{formData.phone === '' ? 'Phone number is required' : 'Phone number must be exactly 10 digits'}</small>}
                     </div>
@@ -152,7 +152,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                                         inputWrapper: ['px-0'],
                                     }}
                                     type="text"
-                                    label="Tell us more..."
+                                    label="Other..."
                                     value={formData.other}
                                     onValueChange={(e) => handleChange(e, 'other')}
                                 />
@@ -169,7 +169,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                     </div>
                 </div>
             </form>
-            {businessSuccessModal()}
+            {successModal()}
         </div>
     );
 }

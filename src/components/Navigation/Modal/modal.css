@@ -1,5 +1,6 @@
 .modal-lg {
     --bs-modal-width: 90vw !important;
+
 }
 .close{
     position: absolute;
