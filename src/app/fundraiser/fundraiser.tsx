@@ -168,7 +168,7 @@ const Fundraiser = () => {
             <section className='py-5'>
                 <div className="container w-95">
                     <img src="images/fundraiser/structure.webp" className='structureWeb' width="95%" style={{ margin: "auto" }} alt="organization-structure-description img" />
-                    <img src="images/fundraiser/structureMob.png" className='structureMob' width="95%" style={{ margin: "auto" }} alt="organization-structure-description img" />
+                    <img src="images/fundraiser/structureMob.webp" className='structureMob' width="95%" style={{ margin: "auto" }} alt="organization-structure-description img" />
                 </div>
             </section>
 
