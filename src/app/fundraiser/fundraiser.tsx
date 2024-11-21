@@ -1,10 +1,21 @@
 'use client';
 import CustomForm from '@/components/ContactForm/ContactForm';
 import './fundraiser.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
-
+import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
+import {initPostHog, trackPosthogEvent} from '@/utils/posthog';
 const Fundraiser = () => {
+
+    useEffect(()=>{
+        initMixpanel();
+        initPostHog();
+    },[])
+
+    const trackEvent = (e:any)=>{
+        trackMixpanelEvent(e);
+        trackPosthogEvent(e);
+    }
 
     const settings = {
         dots: false,
@@ -71,59 +82,46 @@ const Fundraiser = () => {
                                     </div>
                                     <div className='col-12 mt-4' style={{ maxWidth: "100%", overflow: 'hidden' }}>
                                         <Slider {...settings}>
-                                            <a className='sliderDiv' href='test.plantd.life/contribute?project=senegal'>
+                                            <a className='sliderDiv' href='/contribute.html?project=senegal' onClick={()=> trackEvent('Senegal Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
                                                 <div className='ms-2'>
-                                                    <p className='text-green fs-12 mb-1'>Senegal Farming & Reforestation</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>100,000+</span> Trees will be planted.🌳</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>26</span> Different species of tress to be planted across all projects.🌳</p>
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>2,500</span> Number of women planting through all projects.🙎</p> */}
-                                                    {/* <p className='text-white fs-10 mb-0'><span className='text-green'>1</span> Hectare of land will be allocated to each group, consisting of 25 women per group.🏞</p> */}
+                                                    <p className='text-green fs-14 fw-800 mb-1'>Senegal Farming & Reforestation</p>
+                                                    <p className='text-white fs-12 mb-1'><span className='text-green'>2,500</span> Number of women planting through all projects.🙎</p>
                                                 </div>
                                             </a>
-                                            <a className='sliderDiv' href='/contribute?project=texas'>
+                                            <a className='sliderDiv' href='/contribute?project=texas' onClick={()=> trackEvent('Texas Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
                                                 <div className='ms-2'>
-                                                    <p className='text-green fs-12 mb-1'>Longleaf Pine Reforestation</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>9,000</span> Jobs will be provided.💼</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>500,000+</span> Trees will be planted.🌳</p>
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>875+</span> Acres will be restored.🌳</p> */}
+                                                    <p className='text-green fs-14 fw-800 mb-1'>Longleaf Pine Reforestation</p>
+                                                    <p className='text-white fs-12 mb-1'><span className='text-green'>9,000</span> Jobs will be provided.💼</p>
                                                 </div>
                                             </a>
-                                            <a className='sliderDiv' href='/contribute?project=texas'>
+                                            <a className='sliderDiv' href='/contribute?project=louisiana' onClick={()=> trackEvent('Louisiana Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Natural_Disaster_Reforestation.png" alt="Natural_Disaster_Reforestation Img" />
                                                 <div className='ms-2'>
-                                                    <p className='text-green fs-12 mb-1'>Natural Disaster Reforestation</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>4</span> Different tree species will be planted including Loblolly Pine, Slash Pine, Shortleaf Pine & Longleaf Pine.🌳</p>
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>2M+</span> Trees will be planted.🌳</p> */}
+                                                    <p className='text-green fs-14 fw-800 mb-1'>Natural Disaster Reforestation</p>
+                                                    <p className='text-white fs-12 mb-1'><span className='text-green'>2M+</span> Trees will be planted.🌳</p>
                                                 </div>
                                             </a>
-                                            <a className='sliderDiv' href='/contribute?project=california'>
+                                            <a className='sliderDiv' href='/contribute?project=california' onClick={()=> trackEvent('California Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Rim_Wildfire_Restoration.png" alt="Rim_Wildfire_Restoration Img" />
                                                 <div className='ms-2'>
-                                                    <p className='text-green fs-12 mb-1'>Rim Wildfire Restoration</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>4</span> Different tree species will be planted including Douglas Fir, Incense Cedar, Ponderosa Pine & Sugar Pine.🌳</p>
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>627,000</span> Trees will be planted.🌳</p> */}
+                                                    <p className='text-green fs-14 fw-800 mb-1'>Rim Wildfire Restoration</p>
+                                                    <p className='text-white fs-12 mb-1'><span className='text-green'>627,000</span> Trees will be planted.🌳</p>
                                                 </div>
                                             </a>
-                                            <a className='sliderDiv' href='/contribute?project=honduras'>
+                                            <a className='sliderDiv' href='/contribute?project=honduras' onClick={()=> trackEvent('Honduras Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Honduras_Project.png" alt="Honduras_Project Img" />
                                                 <div className='ms-2'>
-                                                    <p className='text-green fs-12 mb-1'>Honduras Reforestation</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>48%</span> Of Hondurans live below the poverty line, as of 2018.😧</p>
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>1.26M</span> Hectares of forest destroyed over the span of 20 years.🌳</p> */}
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>4M</span> Trees produced, planted, and protected.🌳</p>
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>190+</span> Employees empowered with fair wages.💼</p> */}
+                                                    <p className='text-green fs-14 fw-800 mb-1'>Honduras Reforestation</p>
+                                                    <p className='text-white fs-12 mb-1'><span className='text-green'>190+</span> Employees empowered with fair wages.💼</p>
                                                 </div>
                                             </a>
-                                            <a className='sliderDiv' href='/contribute?project=philippines'>
+                                            <a className='sliderDiv' href='/contribute?project=philippines' onClick={()=> trackEvent('Philippines Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Philippines_Project.png" alt="Philippines_Project Img" />
                                                 <div className='ms-2'>
-                                                    <p className='text-green fs-12 mb-1'>Philippines Reforestation</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>17%</span> Of the population live below the poverty line.😧</p>
-                                                    <p className='text-white fs-10 mb-1'><span className='text-green'>47,000</span> Hectares of forest are destroyed each year.🌳</p>
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>20,000</span> Seedlings per month produced across 2 planting sites.🌳</p> */}
-                                                    {/* <p className='text-white fs-10 mb-1'><span className='text-green'>40%</span> Employees empowered with fair wages.💼</p> */}
+                                                    <p className='text-green fs-14 fw-800 mb-1'>Philippines Reforestation</p>
+                                                    <p className='text-white fs-12 mb-1'><span className='text-green'>17%</span> Of the population live below the poverty line.😧</p>
                                                 </div>
                                             </a>
 
@@ -155,7 +153,7 @@ const Fundraiser = () => {
                                 company, we are fighting to ensure that we leave behind a greener tomorrow. Fundraise with
                                 Plantd to support your cause and do your part against climate change and deforestation.
                             </p>
-                            <a href="#fundraiser-contact-form"
+                            <a href="#fundraiser-contact-form" onClick={()=> trackEvent('Apply button clicked')}
                                 className="btn btn-soft-primary btn-round d-flex justify-content-center my-4  mx-auto"
                                 style={{ width: "180px", padding:"10px 0px" }}>Apply</a>
                         </div>
@@ -170,7 +168,7 @@ const Fundraiser = () => {
             <section className='py-5'>
                 <div className="container w-95">
                     <img src="images/fundraiser/structure.webp" className='structureWeb' width="95%" style={{ margin: "auto" }} alt="organization-structure-description img" />
-                    <img src="images/fundraiser/structureMob.png" className='structureMob' width="95%" style={{ margin: "auto" }} alt="organization-structure-description img" />
+                    <img src="images/fundraiser/structureMob.webp" className='structureMob' width="95%" style={{ margin: "auto" }} alt="organization-structure-description img" />
                 </div>
             </section>
 
