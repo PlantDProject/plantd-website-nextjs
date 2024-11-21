@@ -1,14 +1,12 @@
 const regexPhoneNumber = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
-const regexEmail = /^[\w.%+-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
-const regexName = /^[a-zA-Z][a-zA-Z ]*$/;
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const regexName = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
 
-export const isNameValid = (e: string) => {
-    return regexName.test(e);
+// Validators (implement these according to your needs)
+export const isNameValid = (name: string) => {
+    return name && name.trim().length > 0 && regexName.test(name);
 };
-
-export const isEmailValid = (e: string) => {
-    return regexEmail.test(e);
-};
+export const isEmailValid = (email: string) => regexEmail.test(email);
 
 export const isPhoneNumberValid = (e: string) => {
     return regexPhoneNumber.test(e);

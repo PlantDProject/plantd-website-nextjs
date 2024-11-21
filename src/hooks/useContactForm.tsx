@@ -1,3 +1,4 @@
+import { isEmailValid, isNameValid, isPhoneNumberValid } from '@/utils/helpers';
 import { useState } from 'react';
 
 const formDataFormat = {
@@ -113,10 +114,5 @@ function useCustomForm(formOrigin: string) {
         handleSelectChange,
     };
 }
-
-// Validators (implement these according to your needs)
-const isNameValid = (name: string) => name && name.trim().length > 0;
-const isEmailValid = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-const isPhoneNumberValid = (phone: string) => /^\d{10}$/.test(phone);
 
 export default useCustomForm;

@@ -43,7 +43,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                             value={formData.name}
                             onValueChange={(e) => handleChange(e, 'name')}
                         />
-                        {formDataErr.name && <small className="pt-2 text-danger">Name is required</small>}
+                        {formDataErr.name && <small className="pt-2 text-danger">{formData.name.trim().length > 0 ? 'Please enter valid name' : 'Name is required'}</small>}
                     </div>
 
                     {/* Email input */}

@@ -202,3 +202,17 @@
         padding: 15px 20px;
     }
 }
+
+
+@media (max-width: 360px) {
+    .business-title {
+        font-size: 35px;
+    }
+    .business-cards h3 {
+        font-size: 25px;
+    }
+    .wavy-section h3 {
+        line-height: 25px;
+        padding: 15px 20px;
+    }
+}
