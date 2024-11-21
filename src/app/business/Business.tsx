@@ -21,9 +21,10 @@ const Business = () => {
     return (
         <div className="business-container pb-1">
             {/* Main container for the business section */}
+
             <section className="top-container">
                 {/* Video background */}
-                <video autoPlay muted loop playsInline className="video custom-video" preload='auto'>
+                <video autoPlay muted loop playsInline className="video custom-video" preload="auto">
                     <source src="/next-videos/header-1.mov" type="video/mp4" />
                 </video>
                 <div className="header-text">
@@ -125,8 +126,9 @@ const Business = () => {
                         {/* Description for custom solutions */}
                         <p className={`wavy-section-p w-90 mx-auto px-5 py-4 text-center text-white ${poppinsMedium.className}`}>
                             <img src="/next-images/business/rectangle.png" className="wavy-rectangle d-none d-lg-block" />
-                            <img src="/next-images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />If your business has a custom solution in mind, we're here to help bring it to life. Reach out for a free consultation, and together we can build a tailored partnership that aligns with your sustainability goals. Whether it’s a unique carbon offset strategy, targeted
-                            reforestation efforts, or specialized project support, we’ll work closely with you to create a solution that maximizes your impact. Let’s collaborate to propel your climate action initiatives and drive meaningful change for a more sustainable future.{' '}
+                            <img src="/next-images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />
+                            If your business has a custom solution in mind, we're here to help bring it to life. Reach out for a free consultation, and together we can build a tailored partnership that aligns with your sustainability goals. Whether it’s a unique carbon offset strategy, targeted reforestation efforts, or specialized project support, we’ll work closely with you to create a solution
+                            that maximizes your impact. Let’s collaborate to propel your climate action initiatives and drive meaningful change for a more sustainable future.{' '}
                         </p>
 
                         {/* Call-to-Action Button */}
