@@ -22,8 +22,6 @@ export default function Project({ data }: any) {
         }
     };
 
-    console.log("data", data)
-
     return (
         <div style={{ backgroundColor: '#f6f7fb !important' }}>
             <section className="bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
