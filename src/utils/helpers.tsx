@@ -4,7 +4,7 @@ const regexName = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
 
 // Validators (implement these according to your needs)
 export const isNameValid = (name: string) => {
-    return name && name.trim().length > 0 && regexName.test(name);
+    return name && name.trim().length > 0 && regexName.test(name.trim());
 };
 export const isEmailValid = (email: string) => regexEmail.test(email);
 
