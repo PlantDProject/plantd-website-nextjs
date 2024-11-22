@@ -3,23 +3,18 @@ import useCustomForm from '@/hooks/useContactForm';
 import { poppinsMedium } from '@/utils/fonts';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
 import './contactForm.css';
-import CustomModal from '../Navigation/Modal/modal';
-import { initMixpanel, trackMixpanelEvent } from '@/utils/mixpanel';
-import { initPostHog, trackPosthogEvent } from '@/utils/posthog';
+import { initMixpanel } from '@/utils/mixpanel';
+import { initPostHog } from '@/utils/posthog';
+import { trackEvent } from '@/utils/helpers';
 
 // Define props type
 interface CustomFormProps {
     formOrigin: string; // Explicitly typing formOrigin as string
-    modal: Function;
+    modal?: any;
 }
 
 function CustomForm({ formOrigin, modal }: CustomFormProps) {
-    const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, setShowModal, handleSelectChange } = useCustomForm(formOrigin);
-
-    const trackEvent = (e: any, data?: any) => {
-        trackMixpanelEvent(e, data);
-        trackPosthogEvent(e, data);
-    };
+    const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, handleSelectChange } = useCustomForm(formOrigin);
 
     useEffect(() => {
         initMixpanel();
@@ -27,7 +22,7 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
     }, [showModal]);
 
     useEffect(() => {
-        modal(showModal);
+        if (modal) modal(showModal);
     }, [showModal]);
 
     const handleSubmit = () => {
@@ -35,16 +30,6 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
         if (isSubmitting) return;
         submitForm();
     };
-
-    const closeModal = () => {
-        setShowModal(false);
-        trackEvent('Success Modal Closed');
-    };
-
-    // const successModal = () => {
-    //     // if (formOrigin === 'fundraiser') return;
-    //     return <CustomModal isOpen={true} modalType="resultModal" onClose={closeModal} />;
-    // };
 
     return (
         <div>
@@ -188,7 +173,6 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
                     </div>
                 </div>
             </form>
-            {/* {successModal()} */}
         </div>
     );
 }

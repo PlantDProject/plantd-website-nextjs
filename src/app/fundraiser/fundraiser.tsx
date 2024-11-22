@@ -3,19 +3,15 @@ import CustomForm from '@/components/ContactForm/ContactForm';
 import './fundraiser.css';
 import React, { useEffect } from 'react';
 import Slider from 'react-slick';
-import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
-import {initPostHog, trackPosthogEvent} from '@/utils/posthog';
+import {initMixpanel} from '@/utils/mixpanel';
+import {initPostHog} from '@/utils/posthog';
+import { trackEvent } from '@/utils/helpers';
 const Fundraiser = () => {
 
     useEffect(()=>{
         initMixpanel();
         initPostHog();
     },[])
-
-    const trackEvent = (e:any)=>{
-        trackMixpanelEvent(e);
-        trackPosthogEvent(e);
-    }
 
     const settings = {
         dots: false,

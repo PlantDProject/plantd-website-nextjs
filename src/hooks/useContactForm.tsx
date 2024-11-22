@@ -1,7 +1,7 @@
-import { isEmailValid, isNameValid, isPhoneNumberValid } from '@/utils/helpers';
+import { isEmailValid, isNameValid, isPhoneNumberValid, trackEvent } from '@/utils/helpers';
 import { useEffect, useState } from 'react';
-import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
-import { initPostHog, trackPosthogEvent } from '@/utils/posthog';
+import { initMixpanel } from '@/utils/mixpanel';
+import { initPostHog } from '@/utils/posthog';
 
 interface FormDataError {
     name?: boolean;
@@ -11,7 +11,7 @@ interface FormDataError {
     message?: boolean;
     heard_from?: boolean;
     other?: boolean;
-  }
+}
 
 const formDataFormat = {
     name: '',
@@ -23,7 +23,6 @@ const formDataFormat = {
     other: '',
 };
 function useCustomForm(formOrigin: string) {
-    
     const [formData, setFormData] = useState<any>(formDataFormat);
     const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -37,32 +36,26 @@ function useCustomForm(formOrigin: string) {
         other: false,
     });
 
-    const trackEvent = (e:any, data?:any)=>{
-        trackMixpanelEvent(e, data);
-        trackPosthogEvent(e, data);
-    }
-
-    useEffect(()=>{
+    useEffect(() => {
         initMixpanel();
         initPostHog();
         (Object.keys(formDataErr) as (keyof FormDataError)[]).forEach((field) => {
             if (formDataErr[field]) {
-              trackEvent(`Error in ${field} Field`);
+                trackEvent(`Error in ${field} Field`);
             }
-          });
-    },[formDataErr])
+        });
+    }, [formDataErr]);
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSelectChange = (e: any) => {
         setFormData((prev: any) => ({ ...prev, heard_from: e }));
         setFormDataErr((prev: any) => {
-            return { ...prev, other: false, heard_from : false };
+            return { ...prev, other: false, heard_from: false };
         });
     };
 
     const handleChange = (e: any, name: string) => {
-
         // Limit phone number input length to 10
         if (name === 'phone' && (isNaN(e) || e.length > 10)) return;
 
@@ -119,16 +112,16 @@ function useCustomForm(formOrigin: string) {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                trackEvent("Form Submission Failed")
+                trackEvent('Form Submission Failed');
                 throw new Error(errorData.error || 'Submission failed');
             }
-            trackEvent("Form Submitted Successfully",{dataObject})
+            trackEvent('Form Submitted Successfully', { dataObject });
             // Clear form or perform other success actions here
             setFormData(formDataFormat);
             setShowModal(true);
-            trackEvent("Success Modal Opened")
+            trackEvent('Success Modal Opened');
         } catch (error: any) {
-            trackEvent("Error In Form Submission Api", error.message)
+            trackEvent('Error In Form Submission Api', error.message);
             console.error('Error submitting form:', error.message);
         } finally {
             setIsSubmitting(false);
