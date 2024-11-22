@@ -144,10 +144,7 @@ const Business = () => {
                         </h3>
 
                         {/* Contact Form */}
-                        <CustomForm
-                            formOrigin="business"
-                            modal={setShowModal}
-                        />
+                        <CustomForm formOrigin="business" modal={setShowModal} />
                     </div>
                 </div>
             </section>
@@ -158,7 +155,6 @@ const Business = () => {
                     setShowModal(false);
                 }}
             />
-            ;
         </div>
     );
 };
