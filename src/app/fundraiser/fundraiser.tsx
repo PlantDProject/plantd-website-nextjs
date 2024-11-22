@@ -181,9 +181,9 @@ const Fundraiser = () => {
                         <div className="col-lg-4 mb-lg-0 mb-4">
                             <h1 className="fw-800 text-white">Contact Us</h1>
                             <p className="fs-20 text-white fundraiser-contact text-white">
-                                Questions? Concerns? Feedback?
+                                Questions? Concerns? Feedback?{" "}
                                 <br />
-                                We’d love to hear from you!
+                                 We’d love to hear from you!
                             </p>
                         </div>
                         <div className="col-lg-8">
