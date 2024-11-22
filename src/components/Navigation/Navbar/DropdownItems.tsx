@@ -1,22 +1,56 @@
 export interface DropdownData {
-    title: string;
-    redirection: string;
+    name: string;
+    slug: string;
+    bannerImage: string;
 }
 
-export const AboutUs: DropdownData[] = [
-    { title: 'Make an Impact Together', redirection: '../about/make-an-impact-together' },
-    { title: 'Our Green initiative App', redirection: '../about/our-green-initiative-app' },
-    { title: 'Reduce Your Carbon Footprint', redirection: '../about/reduce-your-carbon-footprint' },
-    { title: 'Never Underestimate The Power of a Seed', redirection: '../about/never-underestimate-the-power-of-a-seed' },
-    { title: 'Ambassadors', redirection: 'https://ambassador.plantd.life/' },
+export const aboutUsData: DropdownData[] = [
+    {
+        name: 'Make an Impact Together',
+        slug: 'make-an-impact-together',
+        bannerImage: '/next-images/menu/about-1.png',
+    },
+    {
+        name: 'Reduce your Carbon Footprint',
+        slug: 'reduce-your-carbon-footprint',
+        bannerImage: '/next-images/menu/about-2.png',
+    },
+    {
+        name: 'Newer Underestimate The Power Of a Seed',
+        slug: 'never-underestimate-the-power-of-a-seed',
+        bannerImage: '/next-images/menu/about-3.png',
+    },
+    {
+        name: 'Our Green Initiative',
+        slug: 'our-green-initiative-app',
+        bannerImage: '/next-images/menu/about-4.png',
+    },
 ];
 
-
-export const ProjectsList: DropdownData[] = [
-    { title: 'Reforestation in Senegal', redirection: '/projects/senegal-farming-and-reforestation' },
-    { title: 'Reforestation in Texas', redirection: '/projects/long-leaf-pine-reforestation' },
-    { title: 'Reforestation in Louisiana', redirection: '/projects/louisiana-natural-disasters' },
-    { title: 'Reforestation in California', redirection: '/projects/california-rim-wildfire' },
-    { title: 'Reforestation in the Honduras', redirection: '/projects/climate-action-honduras' },
-    { title: 'Reforestation in the Philippines', redirection: '/projects/climate-action-philippines' },
+export const solutionsData: DropdownData[] = [
+    {
+        name: 'For Individuals',
+        slug: '/individuals',
+        bannerImage: '/next-images/menu/solutions/individual.png',
+    },
+    {
+        name: 'Sustainable Fundraising',
+        slug: '/fundraisers',
+        bannerImage: '/next-images/menu/solutions/fundraiser.png',
+    },
+    {
+        name: 'Become an Ambassador',
+        slug: '/',
+        bannerImage: '/next-images/menu/solutions/ambassador.png',
+    },
+    {
+        name: 'For Business',
+        slug: '/business',
+        bannerImage: '/next-images/menu/solutions/business.png',
+    },
+    {
+        name: 'Plant Globally',
+        slug: '/',
+        bannerImage: '/next-images/menu/solutions/global.png',
+    },
 ];

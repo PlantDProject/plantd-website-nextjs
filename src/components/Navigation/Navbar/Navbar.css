@@ -1,37 +1,42 @@
-/* Navigation Menu */
+/* =========================== */
+/* Navigation Menu Styles */
+/* =========================== */
 
+/* Custom Navigation Bar */
 .custom-nav {
     top: 40px;
     background-color: transparent !important;
 }
 
 .navbar.smooth {
-    transition: 0.3s ease;
+    transition: 0.3s ease; /* Smooth transition effect for navbar */
 }
 
-.navbar-menu li.color-black > a {
-    color: var(--black);
-}
-
-.navbar-menu li.color-white > a {
-    color: var(--white);
-}
-
+/* Navigation Menu Items */
 .navbar-menu li.nav-item {
     margin: 0 10px;
     font-size: 15px;
 }
 
+.navbar-menu li.color-black > a {
+    color: var(--black); /* Black text for navbar items */
+}
+
+.navbar-menu li.color-white > a {
+    color: var(--white); /* White text for navbar items */
+}
+
 .navbar-menu a.nav-link {
     position: relative;
-    padding: 25px 8px;
+    padding: 25px 0px; /* Padding for navbar links */
 }
 
 .navbar-menu a.nav-link:hover,
 .navbar-menu a.nav-link.active {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Highlight active or hovered links */
 }
 
+/* Primary Button Style */
 .primary-btn {
     background-color: var(--primary-color);
     color: var(--white);
@@ -43,6 +48,14 @@
     background-color: var(--white);
 }
 
+/* Navbar Toggler */
+.navbar-toggler {
+    color: var(--white) !important;
+    border: 0 !important;
+    background: var(--primary-color); /* Button background color */
+}
+
+/* "New Tab" Indicator */
 .new-tab {
     position: absolute;
     top: 15px;
@@ -55,54 +68,117 @@
     font-weight: 600;
 }
 
-.navbar-toggler {
-    color: var(--white) !important;
-    border: 0 !important;
-    background: var(--primary-color);
+/* =========================== */
+/* Dropdown Menu Styles */
+/* =========================== */
+
+/* Dropdown Container */
+.center-dropdown {
+    position: absolute;
+    display: none;
+    left: 50%; /* Center align the dropdown */
+    transform: translateX(-50%);
+    min-width: 300px; /* Dropdown width */
+    top: 100%; /* Below the parent */
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+    justify-content: space-evenly; /* Even spacing for dropdown items */
 }
-/* Navigation Menu */
 
-/* Dropdown items */
-
+/* Dropdown Menu */
 .dropdown-menu {
     box-shadow: 0 0 3px rgb(60 72 88 / 0.15);
     border: none;
+    width: 100vw;
+    background-color: #1d1d1d80;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+}
+
+/* Dropdown List Items */
+.dropdown-menu li {
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+    border-radius: 12px;
+    background-color: #37363680; /* Hover background */
+    cursor: unset;
+}
+
+.dropdown-menu li.btn-blog:hover {
+    background-color: transparent !important;
+}
+
+.dropdown-menu li.btn-blog:hover a {
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+}
+
+.dropdown-menu li.btn-blog a:hover {
+    background-color: var(--white) !important;
+    color: var(--primary-color) !important;
 }
 
 .dropdown-menu li a {
     padding: 6px 18px;
     transition: 0.3s ease;
+    text-wrap: auto;
+    color: var(--white);
 }
 
-.dropdown-menu li a:hover {
-    color: var(--primary-color);
-    background-color: var(--white);
+/* Special Blog Button */
+.dropdown-menu li.btn-blog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-menu li:hover a {
+    color: var(--white);
+    background-color: transparent;
 }
 
 .dropdown-menu li a:active,
 .dropdown-menu li a:focus,
 .dropdown-menu li a:focus-visible {
-    background-color: var(--white);
+    background-color: transparent;
     outline: none;
 }
 
-.dropdown-menu:after {
+/* Dropdown Arrow Indicator */
+.arrow-dropdown:after {
     content: '';
     position: absolute;
-    top: -6px;
-    left: 30px;
+    border-radius: 0 0 0 3px;
+    bottom: -7px;
     box-sizing: border-box;
     border: 7px solid var(--grey);
-    border-color: #fff0 #fff0 #fff #fff;
+    border-color: #fff0 #fff0 #1d1d1d80 #1d1d1d80;
     transform: rotate(135deg);
-    -webkit-box-shadow: -2px 2px 2px -1px rgb(60 72 88 / 0.15);
     box-shadow: -2px 2px 2px -1px rgb(60 72 88 / 0.15);
+    left: 40%;
 }
+
+/* Dropdown Images */
+.dropdown-img img {
+    border-radius: 12px;
+    aspect-ratio: 3 / 2; /* Maintains a 3:2 ratio */
+}
+
+/* =========================== */
+/* Collapsible Styles */
+/* =========================== */
 
 .custom-collapsible {
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out; /* Smooth toggle animation */
 }
 
 .custom-collapsible.addHeight {
@@ -111,17 +187,21 @@
 
 .nav-item > .btn {
     font-size: 14px;
-    padding : 6px 16px
+    padding: 6px 16px;
 }
-/* Dropdown items */
+
+/* =========================== */
+/* Responsive Styles */
+/* =========================== */
 
 @media (max-width: 1140.98px) {
     .navbar-nav li a {
-        font-size: 12px !important;
+        font-size: 12px !important; /* Smaller font size for nav links */
     }
 }
 
 @media (max-width: 991px) {
+    /* Navigation Menu Adjustments */
     .custom-nav {
         top: 0px;
         background-color: var(--white) !important;
@@ -148,6 +228,7 @@
         color: var(--black);
     }
 
+    /* Adjust New Tab Indicator */
     .new-tab {
         top: 0;
         right: unset;
@@ -155,6 +236,7 @@
         font-size: 6px;
     }
 
+    /* Navbar Toggler */
     .navbar-toggler {
         font-size: 24px;
         padding: 8px 12px;
