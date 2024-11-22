@@ -22,6 +22,8 @@ export default function Project({ data }: any) {
         }
     };
 
+    console.log("data", data)
+
     return (
         <div style={{ backgroundColor: '#f6f7fb !important' }}>
             <section className="bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
@@ -102,7 +104,7 @@ export default function Project({ data }: any) {
                     )}
 
                     <div className="lets-talk d-flex my-4 justify-center">
-                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href="/contribute">
+                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`/contribute?project=${data?.slug}`}>
                             Start Planting
                         </Link>
                     </div>

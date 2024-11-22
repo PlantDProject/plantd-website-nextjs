@@ -3,44 +3,33 @@ import useCustomForm from '@/hooks/useContactForm';
 import { poppinsMedium } from '@/utils/fonts';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
 import './contactForm.css';
-import CustomModal from '../Navigation/Modal/modal';
-import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
-import {initPostHog, trackPosthogEvent} from '@/utils/posthog';
+import { initMixpanel } from '@/utils/mixpanel';
+import { initPostHog } from '@/utils/posthog';
+import { trackEvent } from '@/utils/helpers';
 
 // Define props type
 interface CustomFormProps {
     formOrigin: string; // Explicitly typing formOrigin as string
+    modal?: any;
 }
 
-function CustomForm({ formOrigin }: CustomFormProps) {
-    const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, setShowModal, handleSelectChange } = useCustomForm(formOrigin);
+function CustomForm({ formOrigin, modal }: CustomFormProps) {
+    const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, handleSelectChange } = useCustomForm(formOrigin);
 
-    const trackEvent = (e:any, data?:any)=>{
-        trackMixpanelEvent(e, data);
-        trackPosthogEvent(e, data);
-    }
-
-    useEffect(()=>{
+    useEffect(() => {
         initMixpanel();
         initPostHog();
-    },[showModal])
+    }, [showModal]);
+
+    useEffect(() => {
+        if (modal) modal(showModal);
+    }, [showModal]);
 
     const handleSubmit = () => {
-        trackEvent("Submit Button Clicked",{formData})
+        trackEvent('Submit Button Clicked', { formData });
         if (isSubmitting) return;
         submitForm();
     };
-
-    const closeModal = () => {
-        setShowModal(false);
-        trackEvent("Success Modal Closed")
-    };
-
-    const successModal = () => {
-        // if (formOrigin === 'fundraiser') return;
-        return <CustomModal isOpen={showModal} modalType="resultModal" onClose={closeModal} />;
-    };
-
 
     return (
         <div>
@@ -184,7 +173,6 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                     </div>
                 </div>
             </form>
-            {successModal()}
         </div>
     );
 }

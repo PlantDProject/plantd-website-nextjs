@@ -3,11 +3,13 @@
 import { poppinsBold, poppinsMedium } from '@/utils/fonts';
 import './business.css';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import CustomForm from '@/components/ContactForm/ContactForm';
+import CustomModal from '@/components/Navigation/Modal/modal';
 
 const Business = () => {
     // Button component to navigate to the form section
+    const [showModal, setShowModal] = useState(false);
     const CTA = () => {
         return (
             <div className="lets-talk d-flex my-4 justify-center">
@@ -37,7 +39,6 @@ const Business = () => {
                     <p className={`header-subtext ${poppinsMedium.className}`}>Our B2B solutions enable businesses to offset their carbon footprint by planting trees worldwide while supporting diverse carbon offset projects. With our One-to-One model, a tree is planted for every product or service sold, empowering companies to take meaningful climate action.</p>
                 </div>
             </section>
-
             <section>
                 {/* Main section for One-to-One model */}
                 <div className="w-90 mx-auto p-4 p-lg-5 my-5 business-cards d-flex flex-column flex-lg-row align-center text-white flex-wrap">
@@ -68,7 +69,6 @@ const Business = () => {
                     <img src="/next-images/translucent-logo.png" className="first-section-img" />
                 </div>
             </section>
-
             <section>
                 {/* Main section for Climate Action Credits */}
                 <div className="w-90 mx-auto p-4 p-lg-5 my-5 business-cards d-flex flex-column flex-lg-row align-center text-white flex-wrap">
@@ -103,7 +103,6 @@ const Business = () => {
                     </div>
                 </div>
             </section>
-
             <section>
                 {/* Section with an alternative offer (Have Something Else in Mind) */}
                 <div className="w-90 mx-auto py-5 px-3 px-md-5 my-5 business-cards d-flex align-center text-white">
@@ -136,7 +135,6 @@ const Business = () => {
                     </div>
                 </div>
             </section>
-
             <section>
                 {/* Section with contact form */}
                 <div className="w-90 mx-auto p-3 p-md-5 my-5 business-cards business-form d-flex align-center text-white">
@@ -147,10 +145,17 @@ const Business = () => {
                         </h3>
 
                         {/* Contact Form */}
-                        <CustomForm formOrigin="business" />
+                        <CustomForm formOrigin="business" modal={setShowModal} />
                     </div>
                 </div>
             </section>
+            <CustomModal
+                isOpen={showModal}
+                modalType="resultModal"
+                onClose={() => {
+                    setShowModal(false);
+                }}
+            />
         </div>
     );
 };
