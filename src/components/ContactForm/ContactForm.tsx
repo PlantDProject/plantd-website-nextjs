@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
 import useCustomForm from '@/hooks/useContactForm';
 import { poppinsMedium } from '@/utils/fonts';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
 import './contactForm.css';
 import CustomModal from '../Navigation/Modal/modal';
-import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
-import {initPostHog, trackPosthogEvent} from '@/utils/posthog';
+import {trackMixpanelEvent} from '@/utils/mixpanel';
+import {trackPosthogEvent} from '@/utils/posthog';
 
 // Define props type
 interface CustomFormProps {
@@ -19,12 +18,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
         trackMixpanelEvent(e, data);
         trackPosthogEvent(e, data);
     }
-
-    useEffect(()=>{
-        initMixpanel();
-        initPostHog();
-    },[showModal])
-
+    
     const handleSubmit = () => {
         trackEvent("Submit Button Clicked",{formData})
         if (isSubmitting) return;

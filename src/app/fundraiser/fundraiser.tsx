@@ -1,16 +1,10 @@
 'use client';
 import CustomForm from '@/components/ContactForm/ContactForm';
 import './fundraiser.css';
-import React, { useEffect } from 'react';
 import Slider from 'react-slick';
-import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
-import {initPostHog, trackPosthogEvent} from '@/utils/posthog';
+import {trackMixpanelEvent} from '@/utils/mixpanel';
+import {trackPosthogEvent} from '@/utils/posthog';
 const Fundraiser = () => {
-
-    useEffect(()=>{
-        initMixpanel();
-        initPostHog();
-    },[])
 
     const trackEvent = (e:any)=>{
         trackMixpanelEvent(e);
@@ -64,7 +58,7 @@ const Fundraiser = () => {
                             <div className="row reverseRow">
                                 <div className="col-lg-7 d-grid justify-content-center mt-lg-0 mt-4">
                                     <h2 className="title mb-4 text-white fundraiser-web-head">Support your cause while<br /> supporting
-                                        our <span className="text-green">Planet</span>!
+                                        our <span className="text-green title">Planet</span>!
                                     </h2>
                                     <div className="row d-flex align-items-center">
                                         <div className="col-lg-6 col-12">
@@ -130,7 +124,7 @@ const Fundraiser = () => {
                                 </div>
                                 <div className="col-lg-5 d-grid align-items-center">
                                     <h2 className="title mb-4 text-white fundraiser-mob-head">Support your cause while<br /> supporting
-                                        our <span className="text-green">Planet</span>!
+                                        our <span className="text-green title">Planet</span>!
                                     </h2>
                                     <img src="/images/fundraiser/FLH1.webp" width="100%" alt="fundraiser-left-head img" />
                                 </div>

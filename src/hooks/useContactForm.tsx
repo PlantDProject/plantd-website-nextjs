@@ -1,7 +1,8 @@
+'use client'
 import { isEmailValid, isNameValid, isPhoneNumberValid } from '@/utils/helpers';
 import { useEffect, useState } from 'react';
-import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
-import { initPostHog, trackPosthogEvent } from '@/utils/posthog';
+import {trackMixpanelEvent} from '@/utils/mixpanel';
+import { trackPosthogEvent } from '@/utils/posthog';
 
 interface FormDataError {
     name?: boolean;
@@ -43,8 +44,6 @@ function useCustomForm(formOrigin: string) {
     }
 
     useEffect(()=>{
-        initMixpanel();
-        initPostHog();
         (Object.keys(formDataErr) as (keyof FormDataError)[]).forEach((field) => {
             if (formDataErr[field]) {
               trackEvent(`Error in ${field} Field`);
