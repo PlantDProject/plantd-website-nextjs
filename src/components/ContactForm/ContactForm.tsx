@@ -4,43 +4,47 @@ import { poppinsMedium } from '@/utils/fonts';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
 import './contactForm.css';
 import CustomModal from '../Navigation/Modal/modal';
-import {initMixpanel, trackMixpanelEvent} from '@/utils/mixpanel';
-import {initPostHog, trackPosthogEvent} from '@/utils/posthog';
+import { initMixpanel, trackMixpanelEvent } from '@/utils/mixpanel';
+import { initPostHog, trackPosthogEvent } from '@/utils/posthog';
 
 // Define props type
 interface CustomFormProps {
     formOrigin: string; // Explicitly typing formOrigin as string
+    modal: Function;
 }
 
-function CustomForm({ formOrigin }: CustomFormProps) {
+function CustomForm({ formOrigin, modal }: CustomFormProps) {
     const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, setShowModal, handleSelectChange } = useCustomForm(formOrigin);
 
-    const trackEvent = (e:any, data?:any)=>{
+    const trackEvent = (e: any, data?: any) => {
         trackMixpanelEvent(e, data);
         trackPosthogEvent(e, data);
-    }
+    };
 
-    useEffect(()=>{
+    useEffect(() => {
         initMixpanel();
         initPostHog();
-    },[showModal])
+    }, [showModal]);
+
+    useEffect(() => {
+        modal(showModal);
+    }, [showModal]);
 
     const handleSubmit = () => {
-        trackEvent("Submit Button Clicked",{formData})
+        trackEvent('Submit Button Clicked', { formData });
         if (isSubmitting) return;
         submitForm();
     };
 
     const closeModal = () => {
         setShowModal(false);
-        trackEvent("Success Modal Closed")
+        trackEvent('Success Modal Closed');
     };
 
-    const successModal = () => {
-        // if (formOrigin === 'fundraiser') return;
-        return <CustomModal isOpen={showModal} modalType="resultModal" onClose={closeModal} />;
-    };
-
+    // const successModal = () => {
+    //     // if (formOrigin === 'fundraiser') return;
+    //     return <CustomModal isOpen={true} modalType="resultModal" onClose={closeModal} />;
+    // };
 
     return (
         <div>
@@ -184,7 +188,7 @@ function CustomForm({ formOrigin }: CustomFormProps) {
                     </div>
                 </div>
             </form>
-            {successModal()}
+            {/* {successModal()} */}
         </div>
     );
 }

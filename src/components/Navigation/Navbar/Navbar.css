@@ -25,7 +25,6 @@
 .navbar-menu a.nav-link {
     position: relative;
     padding: 25px 8px;
-    font-weight: normal !important;
 }
 
 .navbar-menu a.nav-link:hover,
