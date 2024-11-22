@@ -77,7 +77,7 @@ const Fundraiser = () => {
                                     </div>
                                     <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
                                         <Slider {...settings}>
-                                            <a className="sliderDiv" href="/contribute.html?project=senegal" onClick={() => trackEvent('Senegal Project Card Clicked')}>
+                                            <a className="sliderDiv" href="/contribute.html?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Senegal Farming & Reforestation</p>
@@ -86,7 +86,7 @@ const Fundraiser = () => {
                                                     </p>
                                                 </div>
                                             </a>
-                                            <a className="sliderDiv" href="/contribute?project=texas" onClick={() => trackEvent('Texas Project Card Clicked')}>
+                                            <a className="sliderDiv" href="/contribute?project=long-leaf-pine-reforestation" onClick={() => trackEvent('Texas Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Longleaf Pine Reforestation</p>
@@ -95,7 +95,7 @@ const Fundraiser = () => {
                                                     </p>
                                                 </div>
                                             </a>
-                                            <a className="sliderDiv" href="/contribute?project=louisiana" onClick={() => trackEvent('Louisiana Project Card Clicked')}>
+                                            <a className="sliderDiv" href="/contribute?project=louisiana-natural-disasters" onClick={() => trackEvent('Louisiana Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Natural_Disaster_Reforestation.png" alt="Natural_Disaster_Reforestation Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Natural Disaster Reforestation</p>
@@ -104,7 +104,7 @@ const Fundraiser = () => {
                                                     </p>
                                                 </div>
                                             </a>
-                                            <a className="sliderDiv" href="/contribute?project=california" onClick={() => trackEvent('California Project Card Clicked')}>
+                                            <a className="sliderDiv" href="/contribute?project=california-rim-wildfire" onClick={() => trackEvent('California Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Rim_Wildfire_Restoration.png" alt="Rim_Wildfire_Restoration Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Rim Wildfire Restoration</p>
@@ -113,7 +113,7 @@ const Fundraiser = () => {
                                                     </p>
                                                 </div>
                                             </a>
-                                            <a className="sliderDiv" href="/contribute?project=honduras" onClick={() => trackEvent('Honduras Project Card Clicked')}>
+                                            <a className="sliderDiv" href="/contribute?project=climate-action-honduras" onClick={() => trackEvent('Honduras Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Honduras_Project.png" alt="Honduras_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Honduras Reforestation</p>
@@ -122,7 +122,7 @@ const Fundraiser = () => {
                                                     </p>
                                                 </div>
                                             </a>
-                                            <a className="sliderDiv" href="/contribute?project=philippines" onClick={() => trackEvent('Philippines Project Card Clicked')}>
+                                            <a className="sliderDiv" href="/contribute?project=climate-action-philippines" onClick={() => trackEvent('Philippines Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Philippines_Project.png" alt="Philippines_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Philippines Reforestation</p>
