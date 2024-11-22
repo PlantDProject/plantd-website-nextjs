@@ -77,7 +77,7 @@ const Fundraiser = () => {
                                     </div>
                                     <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
                                         <Slider {...settings}>
-                                            <a className="sliderDiv" href="/contribute.html?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
+                                            <a className="sliderDiv" href="/contribute?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Senegal Farming & Reforestation</p>
