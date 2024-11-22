@@ -114,7 +114,7 @@ const Navbar = () => {
                                     {AboutUs?.map((item: DropdownData, index) => {
                                         return (
                                             <li key={index}>
-                                                <Link href={item?.redirection} className="dropdown-item">
+                                                <Link href={item?.redirection} className="dropdown-item fw-300">
                                                     {item?.title}
                                                 </Link>
                                             </li>
@@ -132,7 +132,7 @@ const Navbar = () => {
                                     {ProjectsList?.map((item: DropdownData, index) => {
                                         return (
                                             <li key={index}>
-                                                <Link href={item?.redirection} className="dropdown-item">
+                                                <Link href={item?.redirection} className="dropdown-item fw-300">
                                                     {item?.title}
                                                 </Link>
                                             </li>
@@ -149,7 +149,7 @@ const Navbar = () => {
 
                         <ul className="mb-0 ps-lg-2 ps-0">
                             <li className="nav-item">
-                                <Link className="btn primary-btn" href="#">
+                                <Link className="btn primary-btn" href="sign-up">
                                     Sign Up Now
                                 </Link>
                             </li>

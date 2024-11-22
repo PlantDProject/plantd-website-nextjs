@@ -3,11 +3,13 @@
 import { poppinsBold, poppinsMedium } from '@/utils/fonts';
 import './business.css';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import CustomForm from '@/components/ContactForm/ContactForm';
+import CustomModal from '@/components/Navigation/Modal/modal';
 
 const Business = () => {
     // Button component to navigate to the form section
+    const [showModal, setShowModal] = useState(false);
     const CTA = () => {
         return (
             <div className="lets-talk d-flex my-4 justify-center">
@@ -23,7 +25,7 @@ const Business = () => {
             {/* Main container for the business section */}
             <section className="top-container">
                 {/* Video background */}
-                <video autoPlay muted loop playsInline className="video custom-video" preload='auto'>
+                <video autoPlay muted loop playsInline className="video custom-video" preload="auto">
                     <source src="/next-videos/header-1.mov" type="video/mp4" />
                 </video>
                 <div className="header-text">
@@ -36,7 +38,6 @@ const Business = () => {
                     <p className={`header-subtext ${poppinsMedium.className}`}>Our B2B solutions enable businesses to offset their carbon footprint by planting trees worldwide while supporting diverse carbon offset projects. With our One-to-One model, a tree is planted for every product or service sold, empowering companies to take meaningful climate action.</p>
                 </div>
             </section>
-
             <section>
                 {/* Main section for One-to-One model */}
                 <div className="w-90 mx-auto p-4 p-lg-5 my-5 business-cards d-flex flex-column flex-lg-row align-center text-white flex-wrap">
@@ -67,7 +68,6 @@ const Business = () => {
                     <img src="/next-images/translucent-logo.png" className="first-section-img" />
                 </div>
             </section>
-
             <section>
                 {/* Main section for Climate Action Credits */}
                 <div className="w-90 mx-auto p-4 p-lg-5 my-5 business-cards d-flex flex-column flex-lg-row align-center text-white flex-wrap">
@@ -102,7 +102,6 @@ const Business = () => {
                     </div>
                 </div>
             </section>
-
             <section>
                 {/* Section with an alternative offer (Have Something Else in Mind) */}
                 <div className="w-90 mx-auto py-5 px-3 px-md-5 my-5 business-cards d-flex align-center text-white">
@@ -125,8 +124,9 @@ const Business = () => {
                         {/* Description for custom solutions */}
                         <p className={`wavy-section-p w-90 mx-auto px-5 py-4 text-center text-white ${poppinsMedium.className}`}>
                             <img src="/next-images/business/rectangle.png" className="wavy-rectangle d-none d-lg-block" />
-                            <img src="/next-images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />If your business has a custom solution in mind, we're here to help bring it to life. Reach out for a free consultation, and together we can build a tailored partnership that aligns with your sustainability goals. Whether it’s a unique carbon offset strategy, targeted
-                            reforestation efforts, or specialized project support, we’ll work closely with you to create a solution that maximizes your impact. Let’s collaborate to propel your climate action initiatives and drive meaningful change for a more sustainable future.{' '}
+                            <img src="/next-images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />
+                            If your business has a custom solution in mind, we're here to help bring it to life. Reach out for a free consultation, and together we can build a tailored partnership that aligns with your sustainability goals. Whether it’s a unique carbon offset strategy, targeted reforestation efforts, or specialized project support, we’ll work closely with you to create a solution
+                            that maximizes your impact. Let’s collaborate to propel your climate action initiatives and drive meaningful change for a more sustainable future.{' '}
                         </p>
 
                         {/* Call-to-Action Button */}
@@ -134,7 +134,6 @@ const Business = () => {
                     </div>
                 </div>
             </section>
-
             <section>
                 {/* Section with contact form */}
                 <div className="w-90 mx-auto p-3 p-md-5 my-5 business-cards business-form d-flex align-center text-white">
@@ -145,10 +144,17 @@ const Business = () => {
                         </h3>
 
                         {/* Contact Form */}
-                        <CustomForm formOrigin="business" />
+                        <CustomForm formOrigin="business" modal={setShowModal} />
                     </div>
                 </div>
             </section>
+            <CustomModal
+                isOpen={showModal}
+                modalType="resultModal"
+                onClose={() => {
+                    setShowModal(false);
+                }}
+            />
         </div>
     );
 };
