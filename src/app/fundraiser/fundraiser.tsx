@@ -159,7 +159,7 @@ const Fundraiser = () => {
                             <p className="fs-20 text-white position-relative" style={{ zIndex: '1000' }}>
                                 At Plantd, we recognize that we can help you raise money for your organization, all while helping the environment at the same time! As an environmentally focused sustainability company, we are fighting to ensure that we leave behind a greener tomorrow. Fundraise with Plantd to support your cause and do your part against climate change and deforestation.
                             </p>
-                            <a href="#fundraiser-contact-form" onClick={() => trackEvent('Apply button clicked')} className="btn btn-soft-primary btn-round d-flex justify-content-center my-4  mx-auto" style={{ width: '180px', padding: '10px 0px' }}>
+                            <a href="#form" onClick={() => trackEvent('Apply button clicked')} className="btn btn-soft-primary btn-round d-flex justify-content-center my-4  mx-auto" style={{ width: '180px', padding: '10px 0px' }}>
                                 Apply
                             </a>
                         </div>
