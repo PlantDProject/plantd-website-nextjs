@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,300,400,600,700&amp;display=swap);
-
 :root {
     --primary-color: #40ba67; /* Light green */
     --primary-color-dark: #006300; /* Light green */
@@ -17,17 +15,8 @@
     --translucent-white: #ffffff80;
 }
 
-* {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-}
-
 a {
     text-decoration: none !important;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
 }
 
 .title-color {
@@ -90,17 +79,14 @@ body {
 }
 
 .fw-700 {
-    font-weight: 700;
+    font-weight: 700 !important;
 }
 .fw-800 {
-    font-weight: 800;
-}
-.fw-800 {
-    font-weight: 800;
+    font-weight: 800 !important;
 }
 
 .fw-900 {
-    font-weight: 900;
+    font-weight: 900 !important;
 }
 
 .btn-rounded {

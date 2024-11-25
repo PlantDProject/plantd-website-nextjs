@@ -72,7 +72,7 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
                         <Input
                             classNames={{
                                 inputWrapper: ['px-0'],
-                                innerWrapper: ['d-flex', 'align-items-center'],
+                                innerWrapper: ['d-flex'],
                                 input: ['mb-0 phoneNumber'],
                             }}
                             type="text"
