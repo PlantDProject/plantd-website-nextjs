@@ -23,7 +23,7 @@ export default function Project({ data }: any) {
     };
 
     return (
-        <div style={{ backgroundColor: '#f6f7fb !important' }}>
+        <div className="dark-bg">
             <section className="bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
@@ -42,8 +42,8 @@ export default function Project({ data }: any) {
 
             <section className="mt-4 container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4 d-flex flex-lg-nowrap">
                 <div className="col-12 col-lg-6 pt-lg-4 p-0">
-                    <h2 className="text-green-dark fw-bold">About</h2>
-                    <p className="fs-20 mt-2">{data?.about}</p>
+                    <h2 className="text-green fw-bold">About</h2>
+                    <p className="fs-20 mt-2 text-light">{data?.about}</p>
                 </div>
                 <div className="col-12 col-lg-6 py-5">
                     <SimpleSlider assets={data?.imageItems} />
@@ -52,8 +52,8 @@ export default function Project({ data }: any) {
 
             <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4">
                 <div className="col-12 pt-lg-4 p-0">
-                    <h2 className="text-green-dark fw-bold">The importance of this project:</h2>
-                    <div className="fs-20 mt-2">
+                    <h2 className="text-green fw-bold">The importance of this project:</h2>
+                    <div className="fs-20 mt-2 text-light">
                         <IFrameRenderer iframeHtml={data?.importance} />
                     </div>
                 </div>
@@ -68,7 +68,7 @@ export default function Project({ data }: any) {
                                     <h3 className="fw-bold">
                                         {stats?.value} {stats?.emoji}
                                     </h3>
-                                    <p className="fs-18 mb-0">{stats?.content}</p>
+                                    <p className="fs-18 mb-0 text-light">{stats?.content}</p>
                                 </div>
                             );
                         })}
@@ -76,23 +76,23 @@ export default function Project({ data }: any) {
                 </div>
             </section>
 
-            <section className="mt-4 container-fluid w-90 row justify-content-between mx-auto align-items-start mb-4 d-flex flex-lg-nowrap">
+            <section className="mt-4 container-fluid w-90 row justify-content-between mx-auto align-items-start pb-4 d-flex flex-lg-nowrap">
                 <div className="col-12 col-lg-6 pt-lg-4 p-0">
                     {data?.communityBenefits && (
                         <div>
-                            <h2 className="text-green-dark fw-bold">Community Benefits:</h2>
-                            <p className="fs-20 mt-2 pe-lg-4">{data?.communityBenefits}</p>
+                            <h2 className="text-green fw-bold">Community Benefits:</h2>
+                            <p className="fs-20 mt-2 pe-lg-4 text-light">{data?.communityBenefits}</p>
                         </div>
                     )}
 
                     {data?.impacts && (
                         <div>
-                            <h2 className="text-green-dark fw-bold">Impacts & Benefits:</h2>
-                            <h3 className="text-green-dark fw-bold">Project benefits include:</h3>
+                            <h2 className="text-green fw-bold">Impacts & Benefits:</h2>
+                            <h3 className="text-green fw-bold">Project benefits include:</h3>
                             <ul className="list-type-disc">
                                 {data?.impacts?.map((impacts: string, index: number) => {
                                     return (
-                                        <li className="fs-20" key={index}>
+                                        <li className="fs-20 text-light" key={index}>
                                             {impacts}
                                         </li>
                                     );
@@ -113,14 +113,14 @@ export default function Project({ data }: any) {
             </section>
 
             {data?.issuesToBeAddressed && (
-                <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4">
+                <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center pb-4">
                     <div className="col-12 pt-lg-4">
-                        <h2 className="text-green-dark fw-bold">Issues to be Addressed:</h2>
+                        <h2 className="text-green fw-bold">Issues to be Addressed:</h2>
 
                         <ul className="list-type-disc">
                             {data?.issuesToBeAddressed?.map((issues: string, index: number) => {
                                 return (
-                                    <li className="fs-20" key={index}>
+                                    <li className="fs-20 text-light" key={index}>
                                         {issues}
                                     </li>
                                 );

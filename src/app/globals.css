@@ -37,6 +37,10 @@ body {
 .text-white {
     color: var(--white) !important;
 }
+
+.text-light {
+    color : var(--text-off-white);
+}
 .text-green {
     color: var(--primary-color);
 }
@@ -50,6 +54,12 @@ body {
     color: var(--white) !important;
     border-radius: 30px !important;
 }
+
+.dark-bg {
+    background-color: var(--dark) !important;
+}
+
+
 
 .w-50 {
     width: 50%;
@@ -218,7 +228,7 @@ section.section-green {
     transition: 0.3s ease;
 }
 .hover-green:hover {
-    color: var(--primary-color-dark) !important;
+    color: var(--primary-color) !important;
 }
 
 .videoAudioHeight {

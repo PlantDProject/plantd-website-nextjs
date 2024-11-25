@@ -8,6 +8,10 @@
     background-color: transparent !important;
 }
 
+.bg-black {
+    background-color: var(--black);
+}
+
 .navbar.smooth {
     transition: 0.3s ease; /* Smooth transition effect for navbar */
 }
@@ -50,7 +54,7 @@
 
 /* Navbar Toggler */
 .navbar-toggler {
-    color: var(--white) !important;
+    color: var(--black) !important;
     border: 0 !important;
     background: var(--primary-color); /* Button background color */
 }
@@ -93,7 +97,7 @@
     box-shadow: 0 0 3px rgb(60 72 88 / 0.15);
     border: none;
     width: 100vw;
-    background-color: #1d1d1d80;
+    background-color: #40bb672b;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 12px;
@@ -129,7 +133,7 @@
     padding: 6px 18px;
     transition: 0.3s ease;
     text-wrap: auto;
-    color: var(--white);
+    color: var(--black);
 }
 
 /* Special Blog Button */
@@ -182,12 +186,21 @@
 }
 
 .custom-collapsible.addHeight {
-    max-height: 600px;
+    max-height: calc(100vh - 90px);
+    overflow-y: scroll;
 }
+
+.custom-collapsible.addHeight::-webkit-scrollbar {
+    display: none;
+  }
 
 .nav-item > .btn {
     font-size: 14px;
     padding: 6px 16px;
+}
+
+.navbar-brand > img {
+    max-width : 100px
 }
 
 /* =========================== */
@@ -204,13 +217,17 @@
     /* Navigation Menu Adjustments */
     .custom-nav {
         top: 0px;
-        background-color: var(--white) !important;
+        background-color: var(--black) !important;
     }
 
     .navbar-collapse {
         padding: 0 20px;
     }
 
+    .navbar-menu li.btn-blog a {
+        width: 100%;
+    }
+    
     .navbar-nav li a {
         color: #000;
         margin: 0;
@@ -225,7 +242,7 @@
     }
 
     .navbar-menu li.color-white > a {
-        color: var(--black);
+        color: var(--white);
     }
 
     /* Adjust New Tab Indicator */
@@ -241,4 +258,14 @@
         font-size: 24px;
         padding: 8px 12px;
     }
+    
+    .navbar-nav .dropdown-menu {
+        position: relative !important;
+    }
+    
+    .arrow-dropdown:after {
+        bottom : -15px;
+        left: 15px;
+    }
+    
 }
