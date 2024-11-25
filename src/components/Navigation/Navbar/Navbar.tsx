@@ -14,7 +14,7 @@ const Navbar = () => {
     const [showSolutionsDropdown, setShowSolutionsDropdown] = React.useState<boolean>(false);
     const [showBlogsDropdown, setShowBlogsDropdown] = React.useState<boolean>(false);
     const [isAtTop, setIsAtTop] = React.useState<boolean>(true);
-    const [show, setShow] = React.useState<boolean>(true);
+    const [show, setShow] = React.useState<boolean>(false);
     const [projectList, setProjectList] = React.useState<any>([]);
     const [blogList, setBlogList] = React.useState<any>([]);
     const pathName = usePathname();
@@ -28,17 +28,17 @@ const Navbar = () => {
             const projectsData = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
             const projectRes = await projectsData.json();
             setProjectList(projectRes?.projectList?.items || []);
-        } catch {}
+        } catch { }
 
         try {
             const blogData = await fetch(`https://plantd.life/blogs/wp-json/wp/v2/posts`);
             const blogRes = await blogData.json();
             const firstFive = blogRes.slice(0, 5);
             setBlogList(firstFive);
-        } catch {}
+        } catch { }
     };
     React.useEffect(() => {
-        if (window && window.innerWidth < 991) setShow(false);
+        if (window && window.innerWidth > 991) setShow(true);
         setShowAboutUsDropdown(false);
         setShowProjectsDropdown(false);
     }, [pathName]);
@@ -49,7 +49,7 @@ const Navbar = () => {
     }, [show])
 
     React.useEffect(() => {
-        if (window && window.innerWidth < 991) setShow(false);
+        if (window && window.innerWidth > 991) setShow(true);
     }, []);
 
     React.useEffect(() => {
@@ -145,16 +145,16 @@ const Navbar = () => {
                                 <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showAboutUsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="aboutDropdown">
                                     {aboutUsData?.map((item: any, index: number) => {
                                         return (
-                                            <li className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
+                                            <Link href={`/about/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
                                                     <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <Link href={`/about/${item?.slug}`} className="text-white dropdown-item m-0 ms-0 fw-300">
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
                                                         {item?.name}
-                                                    </Link>
+                                                    </p>
                                                 </div>
-                                            </li>
+                                            </Link>
                                         );
                                     })}
                                 </ul>
@@ -168,16 +168,16 @@ const Navbar = () => {
                                 <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showProjectsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="projectsDropdown">
                                     {projectList?.map((item: any, index: number) => {
                                         return (
-                                            <li className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
-                                            <div className="col-2 col-lg-5 dropdown-img">
+                                            <Link href={`/projects/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
+                                                <div className="col-2 col-lg-5 dropdown-img">
                                                     <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <Link href={`/projects/${item?.slug}`} className="text-white dropdown-item m-0 ms-0 fw-300">
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
                                                         {item?.name}
-                                                    </Link>
+                                                    </p>
                                                 </div>
-                                            </li>
+                                            </Link>
                                         );
                                     })}
                                 </ul>
@@ -191,16 +191,16 @@ const Navbar = () => {
                                 <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showSolutionsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="projectsDropdown">
                                     {solutionsData?.map((item: any, index: number) => {
                                         return (
-                                            <li className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
+                                            <Link href={`/solutions/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
                                                     <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <Link href={`/solutions/${item?.slug}`} className="text-white dropdown-item m-0 ms-0 fw-300">
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
                                                         {item?.name}
-                                                    </Link>
+                                                    </p>
                                                 </div>
-                                            </li>
+                                            </Link>
                                         );
                                     })}
                                     <li className="col-4"></li>
@@ -208,26 +208,27 @@ const Navbar = () => {
                             </li>
 
                             <li className={`nav-item color-white`} onMouseEnter={() => setShowBlogsDropdown(true)} onMouseLeave={() => setShowBlogsDropdown(false)}>
-                                <Link className={`nav-link ${showBlogsDropdown ? 'arrow-dropdown' : ''} arrow-dropdown ${isActive('/blogs') ? 'active' : ''}`} href="#" onClick={() => redirectTo('projects')}>
+                                <Link className={`nav-link ${showBlogsDropdown ? 'arrow-dropdown' : ''} ${isActive('/blogs') ? 'active' : ''}`} href="#" onClick={() => redirectTo('projects')}>
                                     Blogs
                                     <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
                                 </Link>
                                 <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showBlogsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="projectsDropdown">
                                     {blogList?.map((item: any, index: number) => {
                                         return (
-                                            <li className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
+
+                                            <Link href={`/blogs/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
                                                     <img src={item?.yoast_head_json?.og_image[0]?.url} alt={item?.title?.rendered} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <Link href={`/blogs/${item?.slug}`} className="text-white dropdown-item m-0 ms-0 fw-300">
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
                                                         {item?.title?.rendered}
-                                                    </Link>
+                                                    </p>
                                                 </div>
-                                            </li>
+                                            </Link>
                                         );
                                     })}
-                                    <li className="col-4 btn-blog">
+                                    <li className="col-4 btn-blog d-flex justify-center">
                                         <Link className="btn primary-btn text-light" href="/blogs">
                                             More Blogs
                                         </Link>
