@@ -60,7 +60,7 @@ export default function Giveaways({ onGoingEvents, completedEvents }: any) {
 
     return (
         <div>
-            <section className="bg-home " id="home">
+            <section className="bg-home giveaway-bg-home" id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container-fluid w-95">
