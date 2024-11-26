@@ -14,8 +14,6 @@ const Homepage = ({ projectsList }: any) => {
     //     initPostHog(); // Initialize PostHog for event tracking
     // }, []);
 
-    console.log("projectLisy", projectsList)
-
     // Settings for the image slider component
     const settings = {
         dots: false, // Disables dot navigation
@@ -56,7 +54,7 @@ const Homepage = ({ projectsList }: any) => {
     };
 
     return (
-        <div style={{ backgroundColor: '#1d1d1d !important' }}>
+        <div className='bg-dark-grey'>
             {/* Main Hero Section */}
             <section className="bg-home bg-second-dark pb-5" id="home">
                 <div className="home-center">
@@ -88,7 +86,7 @@ const Homepage = ({ projectsList }: any) => {
                                         <Slider {...settings}>
                                             {/* Project Card 1 */}
                                             <a className="sliderDiv" href="/contribute?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
-                                                <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
+                                                <img src="/next-images/homepage/homeprojectimg.webp" alt="Senegal_Reforestation_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Senegal Farming & Reforestation</p>
                                                     <p className="text-white fs-12 mb-1">
@@ -118,7 +116,7 @@ const Homepage = ({ projectsList }: any) => {
                                         Support your cause while
                                         <br /> supporting our <span className="text-green">Planet</span>!
                                     </h2>
-                                    <img src="/images/fundraiser/FLH1.webp" width="100%" alt="fundraiser-left-head img" />
+                                    <img src="/next-images/homepage/homeprojectimg.webp" width="100%" alt="fundraiser-left-head img" />
                                 </div>
                             </div>
                         </div>
