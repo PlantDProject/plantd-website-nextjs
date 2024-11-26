@@ -24,7 +24,7 @@ export default function Project({ data }: any) {
 
     return (
         <div style={{ backgroundColor: '#f6f7fb !important' }}>
-            <section className="bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
+            <section className="bg-home project-bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container-fluid w-95">
@@ -50,7 +50,7 @@ export default function Project({ data }: any) {
                 </div>
             </section>
 
-            <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4">
+            <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center pb-4">
                 <div className="col-12 pt-lg-4 p-0">
                     <h2 className="text-green-dark fw-bold">The importance of this project:</h2>
                     <div className="fs-20 mt-2">
@@ -102,7 +102,7 @@ export default function Project({ data }: any) {
                     )}
 
                     <div className="lets-talk d-flex my-4 justify-center">
-                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`/contribute?project=${data?.slug}`}>
+                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`https://test.plantd.life/contribute?project=${data?.slug}`}>
                             Start Planting
                         </Link>
                     </div>
@@ -113,7 +113,7 @@ export default function Project({ data }: any) {
             </section>
 
             {data?.issuesToBeAddressed && (
-                <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4">
+                <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center pb-4">
                     <div className="col-12 pt-lg-4">
                         <h2 className="text-green-dark fw-bold">Issues to be Addressed:</h2>
 

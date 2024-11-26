@@ -33,9 +33,6 @@
 .header-text {
     z-index: 1;
     position: relative;
-}
-
-.header-text {
     width: 95%;
     margin: auto;
 }
@@ -101,6 +98,10 @@
     width: 100%;
 }
 
+.custom-btn {
+    z-index: 999;
+}
+
 .wavy-section,
 .wavy-section-p,
 .wavy-section h3 {
@@ -149,7 +150,7 @@
     }
     .business-cards p {
         margin: 0;
-        text-align: justify;
+        text-align: center;
         font-size: 15px !important;
         line-height: 22px;
         padding: 20px 10px !important;
@@ -201,12 +202,23 @@
         line-height: 25px;
         padding: 15px 20px;
     }
+    .header-text {
+        width: 85%;
+    }
+}
+
+@media (max-width: 400px) {
+    .business-title {
+        font-size : 35px;
+        line-height: 50px;
+    }
 }
 
 
 @media (max-width: 360px) {
     .business-title {
-        font-size: 35px;
+        font-size : 31px;
+        line-height: 40px;
     }
     .business-cards h3 {
         font-size: 25px;
