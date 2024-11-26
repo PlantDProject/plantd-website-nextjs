@@ -1,21 +1,13 @@
 'use client';
 import CustomForm from '@/components/ContactForm/ContactForm'; // Importing custom form component
 import './fundraiser.css'; // Importing CSS styles specific to this page
-import React, { useEffect, useState } from 'react'; // Importing necessary React hooks
+import React, { useState } from 'react'; // Importing necessary React hooks
 import Slider from 'react-slick'; // Importing Slider component for image carousel
-import { initMixpanel } from '@/utils/mixpanel'; // Importing Mixpanel analytics initialization
-import { initPostHog } from '@/utils/posthog'; // Importing PostHog analytics initialization
 import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
 import CustomModal from '@/components/Navigation/Modal/modal'; // Importing custom modal component
 
 // Fundraiser Component
 const Fundraiser = () => {
-    // Initialize analytics services when component is mounted
-    useEffect(() => {
-        initMixpanel(); // Initialize Mixpanel for analytics
-        initPostHog(); // Initialize PostHog for event tracking
-    }, []);
-
     // State to manage visibility of modal
     const [showModal, setShowModal] = useState(false);
 
@@ -88,8 +80,7 @@ const Fundraiser = () => {
 
                                     {/* Project Cards Carousel */}
                                     <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
-                                        <Slider {...settings}>
-                                            {/* Project Card 1 */}
+                                    <Slider {...settings}>
                                             <a className="sliderDiv" href="/contribute?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
                                                 <div className="ms-2">
@@ -99,8 +90,6 @@ const Fundraiser = () => {
                                                     </p>
                                                 </div>
                                             </a>
-                                            {/* Other project cards follow in similar structure */}
-                                            {/* Project Card 2 */}
                                             <a className="sliderDiv" href="/contribute?project=long-leaf-pine-reforestation" onClick={() => trackEvent('Texas Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
                                                 <div className="ms-2">
@@ -110,7 +99,42 @@ const Fundraiser = () => {
                                                     </p>
                                                 </div>
                                             </a>
-                                            {/* More project cards... */}
+                                            <a className="sliderDiv" href="/contribute?project=louisiana-natural-disasters" onClick={() => trackEvent('Louisiana Project Card Clicked')}>
+                                                <img src="/images/fundraiser/Natural_Disaster_Reforestation.png" alt="Natural_Disaster_Reforestation Img" />
+                                                <div className="ms-2">
+                                                    <p className="text-green fs-14 fw-800 mb-1">Natural Disaster Reforestation</p>
+                                                    <p className="text-white fs-12 mb-1">
+                                                        <span className="text-green">2M+</span> Trees will be planted.🌳
+                                                    </p>
+                                                </div>
+                                            </a>
+                                            <a className="sliderDiv" href="/contribute?project=california-rim-wildfire" onClick={() => trackEvent('California Project Card Clicked')}>
+                                                <img src="/images/fundraiser/Rim_Wildfire_Restoration.png" alt="Rim_Wildfire_Restoration Img" />
+                                                <div className="ms-2">
+                                                    <p className="text-green fs-14 fw-800 mb-1">Rim Wildfire Restoration</p>
+                                                    <p className="text-white fs-12 mb-1">
+                                                        <span className="text-green">627,000</span> Trees will be planted.🌳
+                                                    </p>
+                                                </div>
+                                            </a>
+                                            <a className="sliderDiv" href="/contribute?project=climate-action-honduras" onClick={() => trackEvent('Honduras Project Card Clicked')}>
+                                                <img src="/images/fundraiser/Honduras_Project.png" alt="Honduras_Project Img" />
+                                                <div className="ms-2">
+                                                    <p className="text-green fs-14 fw-800 mb-1">Honduras Reforestation</p>
+                                                    <p className="text-white fs-12 mb-1">
+                                                        <span className="text-green">190+</span> Employees empowered with fair wages.💼
+                                                    </p>
+                                                </div>
+                                            </a>
+                                            <a className="sliderDiv" href="/contribute?project=climate-action-philippines" onClick={() => trackEvent('Philippines Project Card Clicked')}>
+                                                <img src="/images/fundraiser/Philippines_Project.png" alt="Philippines_Project Img" />
+                                                <div className="ms-2">
+                                                    <p className="text-green fs-14 fw-800 mb-1">Philippines Reforestation</p>
+                                                    <p className="text-white fs-12 mb-1">
+                                                        <span className="text-green">17%</span> Of the population live below the poverty line.😧
+                                                    </p>
+                                                </div>
+                                            </a>
                                         </Slider>
                                     </div>
                                 </div>
