@@ -1,29 +1,32 @@
+// Importing necessary components and styles
 'use client';
 
-import Link from 'next/link';
-import { StatsInterface } from '../Projects';
-import '../projects.css';
-import SimpleSlider from './Slider';
-import { IFrameRenderer } from '@/utils/helpers';
+import Link from 'next/link'; // Link component from Next.js for navigation
+import { StatsInterface } from '../Projects'; // Interface for project stats
+import '../projects.css'; // Importing styles for the component
+import SimpleSlider from './Slider'; // Slider component for displaying images
+import { IFrameRenderer } from '@/utils/helpers'; // Custom helper to render iframe content
 
 export default function Project({ data }: any) {
+    // Function to dynamically set the column width based on the number of stats
     const getColWidth = (length: number) => {
         switch (length) {
             case 1:
-                return 'col-lg-12';
+                return 'col-lg-12'; // Full width for a single stat
             case 2:
-                return 'col-lg-6';
+                return 'col-lg-6'; // Half width for two stats
             case 3:
-                return 'col-lg-4';
+                return 'col-lg-4'; // One-third width for three stats
             case 4:
-                return 'col-lg-3';
+                return 'col-lg-3'; // One-fourth width for four stats
             default:
-                break;
+                break; // Default case when there are more than four stats
         }
     };
 
     return (
         <div className="dark-bg">
+            {/* Banner section with background image */}
             <section className="bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
@@ -31,7 +34,7 @@ export default function Project({ data }: any) {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="text-center">
-                                        <h1 className="title title-color mb-18 text-center fs-50">{data?.title}</h1>
+                                        <h1 className="title title-color mb-18 text-center fs-50">{data?.title}</h1> {/* Project title */}
                                     </div>
                                 </div>
                             </div>
@@ -40,25 +43,28 @@ export default function Project({ data }: any) {
                 </div>
             </section>
 
+            {/* About section displaying project description and images */}
             <section className="mt-4 container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4 d-flex flex-lg-nowrap">
                 <div className="col-12 col-lg-6 pt-lg-4 p-0">
                     <h2 className="text-green fw-bold">About</h2>
-                    <p className="fs-20 mt-2 text-light">{data?.about}</p>
+                    <p className="fs-20 mt-2 text-light">{data?.about}</p> {/* Project description */}
                 </div>
                 <div className="col-12 col-lg-6 py-5">
-                    <SimpleSlider assets={data?.imageItems} />
+                    <SimpleSlider assets={data?.imageItems} /> {/* Image slider component */}
                 </div>
             </section>
 
+            {/* Section displaying the importance of the project */}
             <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4">
                 <div className="col-12 pt-lg-4 p-0">
                     <h2 className="text-green fw-bold">The importance of this project:</h2>
                     <div className="fs-20 mt-2 text-light">
-                        <IFrameRenderer iframeHtml={data?.importance} />
+                        <IFrameRenderer iframeHtml={data?.importance} /> {/* Render iframe content for importance */}
                     </div>
                 </div>
             </section>
 
+            {/* Stats section displaying key project statistics */}
             <section>
                 <div className="stats-container py-5">
                     <div className="w-90 mx-auto d-flex flex-wrap justify-center">
@@ -66,9 +72,9 @@ export default function Project({ data }: any) {
                             return (
                                 <div className={`px-4 mt-lg-0 mt-md-0 mt-4  col-md-6 text-white text-center ${getColWidth(data?.stats?.length)}`} key={index}>
                                     <h3 className="fw-bold">
-                                        {stats?.value} {stats?.emoji}
+                                        {stats?.value} {stats?.emoji} {/* Display stat value and emoji */}
                                     </h3>
-                                    <p className="fs-18 mb-0 text-light">{stats?.content}</p>
+                                    <p className="fs-18 mb-0 text-light">{stats?.content}</p> {/* Stat content */}
                                 </div>
                             );
                         })}
@@ -76,8 +82,10 @@ export default function Project({ data }: any) {
                 </div>
             </section>
 
+            {/* Section showing community benefits, impacts, and project details */}
             <section className="mt-4 container-fluid w-90 row justify-content-between mx-auto align-items-start pb-4 d-flex flex-lg-nowrap">
                 <div className="col-12 col-lg-6 pt-lg-4 p-0">
+                    {/* Display community benefits if available */}
                     {data?.communityBenefits && (
                         <div>
                             <h2 className="text-green fw-bold">Community Benefits:</h2>
@@ -85,6 +93,7 @@ export default function Project({ data }: any) {
                         </div>
                     )}
 
+                    {/* Display impacts and benefits of the project */}
                     {data?.impacts && (
                         <div>
                             <h2 className="text-green fw-bold">Impacts & Benefits:</h2>
@@ -93,7 +102,7 @@ export default function Project({ data }: any) {
                                 {data?.impacts?.map((impacts: string, index: number) => {
                                     return (
                                         <li className="fs-20 text-light" key={index}>
-                                            {impacts}
+                                            {impacts} {/* List of impacts */}
                                         </li>
                                     );
                                 })}
@@ -101,17 +110,21 @@ export default function Project({ data }: any) {
                         </div>
                     )}
 
+                    {/* Call to action for users to contribute to the project */}
                     <div className="lets-talk d-flex my-4 justify-center">
                         <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`/contribute?project=${data?.slug}`}>
                             Start Planting
                         </Link>
                     </div>
                 </div>
+
+                {/* Display iframe content for the project */}
                 <div className="col-12 col-lg-6 pt-lg-5 pb-5 p-0">
-                    <IFrameRenderer iframeHtml={data?.iframe} />
+                    <IFrameRenderer iframeHtml={data?.iframe} /> {/* Render iframe content */}
                 </div>
             </section>
 
+            {/* Issues to be addressed section if available */}
             {data?.issuesToBeAddressed && (
                 <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center pb-4">
                     <div className="col-12 pt-lg-4">
@@ -121,7 +134,7 @@ export default function Project({ data }: any) {
                             {data?.issuesToBeAddressed?.map((issues: string, index: number) => {
                                 return (
                                     <li className="fs-20 text-light" key={index}>
-                                        {issues}
+                                        {issues} {/* List of issues to be addressed */}
                                     </li>
                                 );
                             })}

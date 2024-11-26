@@ -1,11 +1,14 @@
 .bg-home {
+    /* Sets padding for the section and defines its relative position for layering */
     padding: 17rem 0;
     position: relative;
+    /* Sets the background color and an image for the banner */
     background-color: var(--white);
     background-image: url('https://plantd.life/images/plantdimg/projectHeadBanner.webp');
     background-repeat: no-repeat;
     background-size: cover;
     &:before {
+        /* Adds an overlay effect over the background image */
         content: '';
         position: absolute;
         top: 0;
@@ -13,64 +16,79 @@
         bottom: 0;
         left: 0;
         background-color: var(--black);
-        opacity: 0.5;
+        opacity: 0.5; /* Darkens the overlay for better readability of content */
     }
 }
 
 .project-cards {
+    /* Adds a pointer cursor to indicate interactivity */
     cursor: pointer;
 }
 
 .home-center {
+    /* Ensures the content is positioned above the background layers */
     position: relative;
     z-index: 2;
 }
+
 .project-facts {
+    /* Sets font size for project facts details */
     font-size: 20px;
 }
 
 .project-facts span {
+    /* Enlarges specific text elements within project facts */
     font-size: 24px;
 }
 
 .project-image {
+    /* Restricts project image width for better layout consistency */
     width: 80%;
 }
 
 /* Projects Details */
 
 .stats-container {
+    /* Sets a background image and ensures it covers the container without repeating */
     background-image: url('https://plantd.life/images/plantdimg/headbg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .start-planting:hover {
+    /* Adds a border on hover for emphasis */
     border: 1px solid var(--primary-color);
 }
 
 .list-type-disc {
+    /* Applies a disc-style bullet point to list items */
     list-style-type: disc;
 }
 
 .carousel-img-width {
+    /* Restricts carousel image width to fit within layout boundaries */
     width: 75%;
 }
 
 /* Projects Details */
 
+/* Media query for screens smaller than 991px */
 @media (max-width: 991px) {
     .bg-home {
+        /* Adjusts padding for smaller screens to optimize spacing */
         padding: 14rem 0 8rem 0;
     }
     .carousel-img-width {
+        /* Ensures carousel images adapt to smaller screen sizes */
         width: 100%;
     }
     .project-facts {
+        /* Reduces font size for better readability on small screens */
         font-size: 17px;
     }
 
     .project-facts span {
+        /* Reduces specific text elements' size for small screens */
         font-size: 20px;
     }
 }
