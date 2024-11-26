@@ -71,11 +71,11 @@ function useCustomForm(formOrigin: string) {
             if (firstDotIndex !== -1) {
                 e = e.substring(0, firstDotIndex + 1) + e.substring(firstDotIndex + 1).replace(/\./g, '');
             }
-        };
+        }
         //ignore spaces
         if (name === 'phone' || name === 'email') {
             e = e.replace(/\s/, '').trim()
-        };
+        }
         // Update the form data
         setFormData((prev: any) => {
             return { ...prev, [name]: e };
