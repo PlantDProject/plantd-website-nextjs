@@ -3,8 +3,6 @@ import useCustomForm from '@/hooks/useContactForm';
 import { poppinsMedium } from '@/utils/fonts';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
 import './contactForm.css';
-import { initMixpanel } from '@/utils/mixpanel';
-import { initPostHog } from '@/utils/posthog';
 import { trackEvent } from '@/utils/helpers';
 
 // Define props type
@@ -15,11 +13,6 @@ interface CustomFormProps {
 
 function CustomForm({ formOrigin, modal }: CustomFormProps) {
     const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, handleSelectChange } = useCustomForm(formOrigin);
-
-    useEffect(() => {
-        initMixpanel();
-        initPostHog();
-    }, [showModal]);
 
     useEffect(() => {
         if (modal) modal(showModal);
