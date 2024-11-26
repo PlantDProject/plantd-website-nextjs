@@ -4,7 +4,7 @@ import React from 'react';
 import './Navbar.css';
 import { aboutUsData, solutionsData } from './DropdownItems'; // Data for the dropdown menus
 import Link from 'next/link';
-import { dark, light } from '@/utils/helpers'; // Helper functions for handling light/dark themes (unused in current code)
+import { light } from '@/utils/helpers'; // Helper functions for handling light/dark themes (unused in current code)
 import { usePathname } from 'next/navigation'; // Hook to get the current pathname
 import { redirect } from 'next/navigation'; // Helper to redirect programmatically
 
@@ -32,6 +32,7 @@ const Navbar = () => {
             const projectRes = await projectsData.json();
             setProjectList(projectRes?.projectList?.items || []); // Set the fetched project data
         } catch (error) {
+            console.log(error);
             // Handle error (currently does nothing)
         }
 
@@ -42,6 +43,7 @@ const Navbar = () => {
             const firstFive = blogRes.slice(0, 5); // Get the first five blog posts
             setBlogList(firstFive); // Set the fetched blog data
         } catch (error) {
+            console.log(error);
             // Handle error (currently does nothing)
         }
     };
@@ -123,24 +125,28 @@ const Navbar = () => {
                     return;
                 }
                 redirect('/about');
+                break;
             case 'projects':
                 if (window && window.innerWidth < 991 && !showProjectsDropdown) {
                     setShowProjectsDropdown(true);
                     return;
                 }
                 redirect('/projects');
+                break;
             case 'solutions':
                 if (window && window.innerWidth < 991 && !showProjectsDropdown) {
                     setShowSolutionsDropdown(true);
                     return;
                 }
                 redirect('/solutions');
+                break;
             case 'blogs':
                 if (window && window.innerWidth < 991 && !showAboutUsDropdown) {
                     setShowBlogsDropdown(true);
                     return;
                 }
                 redirect('/about');
+                break;
         }
     };
 
@@ -189,7 +195,7 @@ const Navbar = () => {
                                 <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showAboutUsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="aboutDropdown">
                                     {aboutUsData?.map((item: any, index: number) => (
                                         <Link href={`/about/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
-                                               <div className="col-2 col-lg-5 dropdown-img">
+                                            <div className="col-2 col-lg-5 dropdown-img">
                                                 <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                             </div>
                                             <div className="col-9 col-lg-7">
