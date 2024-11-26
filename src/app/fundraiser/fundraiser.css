@@ -1,158 +1,201 @@
+/* Main background section for the homepage */
 .bg-home {
-    position: relative;
-    padding: 170px 0 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #1d1d1d !important;
+    position: relative; /* Set the element's position to relative for positioning child elements */
+    padding: 170px 0 0; /* Add padding to the top, leaving no padding on the bottom */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-size: cover; /* Ensure background image covers the entire area */
+    background-color: #1d1d1d !important; /* Set the background color to dark grey */
 }
 
+/* Title styling */
 .title {
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 40px; /* Set font size */
+    font-weight: bold; /* Make the font bold */
 }
 
+/* Sub-heading style for the giveaway header */
 .giveawayHead .title-sub-heading {
-    width: 60%;
-    margin: auto;
+    width: 60%; /* Limit the width of the sub-heading */
+    margin: auto; /* Center the sub-heading horizontally */
 }
 
+/* Dark grey background with a custom variable */
 .bg-dark-grey {
-    background-color: var(--dark) !important;
-}
-.eventdate-div {
-    right: 20px;
-    top: 20px;
-    width: 90px;
+    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
 }
 
+/* Styling for event date container */
+.eventdate-div {
+    right: 20px; /* Position the container 20px from the right */
+    top: 20px; /* Position the container 20px from the top */
+    width: 90px; /* Set a fixed width for the date container */
+}
+
+/* Event date container and event end date style */
 .eventdate-div,
 .eventenddate {
-    box-shadow: 0 0 5px var(--dark-grey);
-    padding: 8px 0;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
+    box-shadow: 0 0 5px var(--dark-grey); /* Add a subtle shadow with dark grey color */
+    padding: 8px 0; /* Add vertical padding */
+    border-radius: 10px; /* Round the corners */
+    backdrop-filter: blur(5px); /* Apply a blur effect to the background */
 }
 
+/* Image styling for thank you images */
 .ty-img {
-    width: 230px;
-    border-radius: 12px;
-    vertical-align: middle;
+    width: 230px; /* Set the image width */
+    border-radius: 12px; /* Round the corners of the image */
+    vertical-align: middle; /* Align the image vertically in the middle */
 }
 
+/* Event sharing section styling */
 .eventshare-div {
-    right: 20px;
-    bottom: 20px;
-    box-shadow: 0 0 4px #989898;
-    background: var(--dark);
-    padding: 8px 10px 4px;
-    border-radius: 6px;
+    right: 20px; /* Position the event share container 20px from the right */
+    bottom: 20px; /* Position the event share container 20px from the bottom */
+    box-shadow: 0 0 4px #989898; /* Apply a shadow with a grey color */
+    background: var(--dark); /* Set background to dark color */
+    padding: 8px 10px 4px; /* Add padding around the content */
+    border-radius: 6px; /* Round the corners */
 }
 
+/* Icon styling inside the event share container */
 .eventshare-div i.fa {
-    font-size: 22px;
-    cursor: pointer;
+    font-size: 22px; /* Set the icon size */
+    cursor: pointer; /* Change cursor to pointer when hovering over the icon */
 }
-.sliderDiv{
-    border: 1px solid #989898;
-    display: flex !important;
-    /* align-items: center; */
-    padding: 5px;
-    border-radius: 20px;
-    height: 140px;
+
+/* Styling for the slider container */
+.sliderDiv {
+    border: 1px solid #989898; /* Add a border around the slider */
+    display: flex !important; /* Use flexbox layout */
+    padding: 5px; /* Add padding inside the container */
+    border-radius: 20px; /* Round the corners */
+    height: 140px; /* Set a fixed height for the slider */
 }
-.sliderDiv img{
-    width: 120px;
-    /* height: 140px; */
-    border-radius: 12px;
+
+/* Styling for images inside the slider */
+.sliderDiv img {
+    width: 120px; /* Set the width of the images inside the slider */
+    border-radius: 12px; /* Round the corners of the images */
 }
-.sliderDiv:focus-visible{
+
+/* Remove outline when the slider div is focused */
+.sliderDiv:focus-visible {
     outline: none;
 }
-.slick-slide>div {padding: 0 5px;}
-/* Form CSS */ 
 
+/* Padding adjustment for slick slide items */
+.slick-slide > div {
+    padding: 0 5px; /* Add horizontal padding between slider items */
+}
+
+/* Mobile-specific styling for fundraiser section */
 .fundraiser-mob-head, .structureMob {
-    display: none;
-}
-.fundraise-abs {
-    position: absolute;
-    top: 0;
-    z-index: 0;
-    opacity: 0.7;
-    border-radius: 20px;
-    width: 100px;
+    display: none; /* Hide these elements by default */
 }
 
+/* Fundraiser background image on mobile */
+.fundraise-abs {
+    position: absolute; /* Position the image absolutely */
+    top: 0; /* Place it at the top of the parent element */
+    z-index: 0; /* Send it to the background */
+    opacity: 0.7; /* Make the background image slightly transparent */
+    border-radius: 20px; /* Round the corners */
+    width: 100px; /* Set the width of the image */
+}
+
+/* Mobile-specific styles for screen widths below 992px */
 @media (max-width: 991.89px) {
     .fundraiser-mob-head {
-        display: unset;
+        display: unset; /* Show the mobile fundraiser heading */
     }
     
+    /* Hide the web version of the fundraiser heading and contact breaks */
     .fundraiser-web-head, .fundraiser-contact br {
         display: none;
     }
+
+    /* Set img-fluid width to 50% and center it */
     .img-fluid {
         width: 50%;
         margin: 30px auto;
     }
+
+    /* Reverse row order for smaller screens */
     .reverseRow {
         display: flex;
         flex-direction: column-reverse !important;
     }
 }
 
+/* Mobile-specific styles for screen widths below 768px */
 @media (max-width: 768px) {
-    .structureWeb{
+    /* Hide the desktop version of structure */
+    .structureWeb {
         display: none;
     }
-    .structureMob{
+
+    /* Show mobile version of structure */
+    .structureMob {
         display: unset;
     }
+
+    /* Adjust font size for business cards */
     .business-cards p {
         margin: 0;
-        /* text-align: justify; */
         font-size: 15px !important;
-        line-height: 22px;
+        line-height: 22px; /* Adjust line height for better readability */
     }
+
+    /* Set img-fluid width to 100% and center it */
     .img-fluid {
         width: 100%;
         margin: 30px auto;
     }
+
+    /* Adjust padding for custom buttons */
     .custom-btn {
-        padding: 10px 50px !important;
+        padding: 10px 50px !important; /* Add more padding */
     }
 }
 
+/* Custom styles for very small screens (below 600px) */
 @media (max-width: 600px) {
+    /* No custom changes at this size */
 }
 
+/* Custom styles for extra small screens (below 372px) */
 @media (max-width: 372px) {
-    .sliderDiv img{
+    /* Reduce the size of slider images */
+    .sliderDiv img {
         width: 70px;
     }
-    .sliderDiv{
-        /* flex-direction: column; */
-        height: 110px;
+
+    /* Adjust slider div height for small screens */
+    .sliderDiv {
+        height: 110px; /* Smaller height */
     }
-    .sliderDiv p{
-        font-size: 8px !important;
-    }
-}
-@media (max-width: 315px) {
-    /* .sliderDiv img{
- display: none !important;
-    } */
-    .sliderDiv{
-        /* flex-direction: column; */
-        height: 100px;
-    }
-    .sliderDiv p{
-        font-size: 7px !important;
+
+    /* Reduce font size for slider text */
+    .sliderDiv p {
+        font-size: 8px !important; /* Make text smaller */
     }
 }
 
+/* Custom styles for extremely small screens (below 315px) */
+@media (max-width: 315px) {
+    /* Adjust slider div height and text font size */
+    .sliderDiv {
+        height: 100px; /* Smaller height */
+    }
+
+    .sliderDiv p {
+        font-size: 7px !important; /* Make text even smaller */
+    }
+}
+
+/* Custom styles for large screens (above 1500px) */
 @media (min-width: 1500px) {
     .bg-home {
-        padding: 150px 0 0 0;
+        padding: 150px 0 0 0; /* Adjust top padding for larger screens */
     }
 }

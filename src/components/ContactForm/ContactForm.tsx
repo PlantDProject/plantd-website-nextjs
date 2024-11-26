@@ -56,7 +56,7 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
                             classNames={{
                                 inputWrapper: ['px-0'],
                             }}
-                            type="email"
+                            type="text"
                             label="Email Address *"
                             value={formData.email}
                             labelPlacement="outside"
