@@ -5,9 +5,9 @@ import Homepage from './homepage/Homepage';
 const description = 'See our Projects all over the world in our journey as we plant 1 Billion Trees through our Reforestation Contribution App';
 
 export const metadata: Metadata = {
-    title: 'Projects List | Plantd',
+    title: 'Home | Plantd',
     description,
-    openGraph: { title: 'Projects List', description, images: defaultOGImage },
+    openGraph: { title: 'Plantd Home', description, images: defaultOGImage },
 };
 
 export default async function Page() {

@@ -17,11 +17,6 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
     const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, handleSelectChange } = useCustomForm(formOrigin);
 
     useEffect(() => {
-        initMixpanel();
-        initPostHog();
-    }, [showModal]);
-
-    useEffect(() => {
         if (modal) modal(showModal);
     }, [showModal]);
 
