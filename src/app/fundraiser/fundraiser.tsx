@@ -59,7 +59,7 @@ const Fundraiser = () => {
     };
 
     return (
-        <div style={{ backgroundColor: '#1d1d1d !important' }}>
+        <div className='bg-dark-grey'>
             {/* Main Hero Section */}
             <section className="bg-home bg-second-dark pb-5" id="home">
                 <div className="home-center">
