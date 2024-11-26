@@ -11,15 +11,18 @@ const Navbar = () => {
     const [showGiveawaysDropdown, setShowGiveawaysDropdown] = React.useState<boolean>(false);
     const [showProjectsDropdown, setShowProjectsDropdown] = React.useState<boolean>(false);
     const [isAtTop, setIsAtTop] = React.useState<boolean>(true);
-    const [show, setShow] = React.useState<boolean>(true);
+    const [show, setShow] = React.useState<boolean>(false);
     const pathName = usePathname();
 
     React.useEffect(() => {
-        if (window && window.innerWidth < 991) setShow(false);
+        if (window) setIsAtTop(window.scrollY === 0);
+        if (window && window.innerWidth > 991) setShow(true);
+        else setShow(false);
     }, [pathName]);
 
     React.useEffect(() => {
-        if (window && window.innerWidth < 991) setShow(false);
+        if (window && window.innerWidth > 991) setShow(true);
+        else setShow(false);
     }, []);
 
     React.useEffect(() => {

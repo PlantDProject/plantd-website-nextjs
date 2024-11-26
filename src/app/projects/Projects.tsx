@@ -23,7 +23,7 @@ const Projects = ({ projectsList }: any) => {
 
     return (
         <div style={{ backgroundColor: '#f6f7fb!important' }}>
-            <section className="bg-home" id="home">
+            <section className="bg-home project-bg-home" id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container-fluid w-95">
@@ -41,7 +41,7 @@ const Projects = ({ projectsList }: any) => {
 
             <div className="container-fluid w-90">
                 <section className="">
-                    <p className="fs-20 mt-5 mb-lg-5 mb-4 mx-lg-5 mx-0 fw-300">Plantd’s Mission is to be able to plant One Billion Trees to be able to make an impact in fighting climate change. We have made and continue to make efforts to support different reforestation projects all over the world. Take a look at some of the ongoing climate change actions worldwide.</p>
+                    <p className="fs-20 mt-5 mb-lg-5 mb-4 mx-lg-5 mx-0">Plantd’s Mission is to be able to plant One Billion Trees to be able to make an impact in fighting climate change. We have made and continue to make efforts to support different reforestation projects all over the world. Take a look at some of the ongoing climate change actions worldwide.</p>
                 </section>
 
                 <section className="">

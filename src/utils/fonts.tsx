@@ -11,7 +11,7 @@ import { Poppins } from 'next/font/google';
 export const poppinsNormal = Poppins({
     subsets: ['latin'],
     display: 'swap',
-    weight: '100'
+    weight: ['100','500']
 });
 export const poppinsMedium = Poppins({
     subsets: ['latin'],
