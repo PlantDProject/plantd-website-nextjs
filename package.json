@@ -12,6 +12,8 @@
         "start:qa": "env-cmd -f .env.test next start",
         "build:prod": "env-cmd -f .env.production next build",
         "start:prod": "env-cmd -f .env.production next start",
+        "build:staging": "env-cmd -f .env.staging next build",
+        "start:staging": "env-cmd -f .env.staging next start",
         "lint": "next lint",
         "prettier": "prettier --write ."
     },
