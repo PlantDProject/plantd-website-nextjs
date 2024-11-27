@@ -1,16 +1,6 @@
 'use client'
 import { isEmailValid, isNameValid, isPhoneNumberValid, trackEvent } from '@/utils/helpers';
-import { useEffect, useState } from 'react';
-
-interface FormDataError {
-    name?: boolean;
-    email?: boolean;
-    phone?: boolean;
-    organization?: boolean;
-    message?: boolean;
-    heard_from?: boolean;
-    other?: boolean;
-}
+import { useState } from 'react';
 
 const formDataFormat = {
     name: '',
