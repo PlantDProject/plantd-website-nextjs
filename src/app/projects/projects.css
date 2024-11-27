@@ -59,10 +59,8 @@
 
 /* Projects Details */
 
+
 @media (max-width: 991px) {
-    .bg-home {
-        padding: 14rem 0 8rem 0;
-    }
     .carousel-img-width {
         width: 100%;
     }
@@ -72,5 +70,11 @@
 
     .project-facts span {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-bg-home {
+        padding: 14rem 0 8rem 0;
     }
 }
