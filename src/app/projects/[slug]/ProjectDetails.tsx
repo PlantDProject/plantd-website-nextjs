@@ -6,7 +6,7 @@ import '../projects.css';
 import SimpleSlider from './Slider';
 import { IFrameRenderer } from '@/utils/helpers';
 
-export default function Project({ params , data }: any) {
+export default async function Project({ params , data }: any) {
     const { slug } = await params;
     const getColWidth = (length: number) => {
         switch (length) {
