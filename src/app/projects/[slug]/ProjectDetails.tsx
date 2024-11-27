@@ -5,7 +5,6 @@ import { StatsInterface } from '../Projects';
 import '../projects.css';
 import SimpleSlider from './Slider';
 import { IFrameRenderer } from '@/utils/helpers';
-import { redirect } from 'next/navigation';
 
 export default function Project({ data }: any) {
     const getColWidth = (length: number) => {
