@@ -59,7 +59,6 @@ const Navbar = () => {
     const getLink = (title: string, navigateTo: string, isNew: boolean = false, showArrow: boolean = false) => {
         let e = navigateTo
         if (navigateTo.includes('/blogs')){
-            console.log(e)
             e = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blogs`
         }
         return (
