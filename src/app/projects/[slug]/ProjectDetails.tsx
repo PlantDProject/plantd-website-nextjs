@@ -6,8 +6,7 @@ import '../projects.css';
 import SimpleSlider from './Slider';
 import { IFrameRenderer } from '@/utils/helpers';
 
-export default function Project({ params , data }: any) {
-    const { slug } = await params;
+export default function Project({ data }: any) {
     const getColWidth = (length: number) => {
         switch (length) {
             case 1:
@@ -103,7 +102,7 @@ export default function Project({ params , data }: any) {
                     )}
 
                     <div className="lets-talk d-flex my-4 justify-center">
-                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`/contribute?project=${slug}`}>
+                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`https://test.plantd.life/contribute?project=${data?.slug}`}>
                             Start Planting
                         </Link>
                     </div>

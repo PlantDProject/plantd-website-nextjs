@@ -23,6 +23,7 @@ const Business = () => {
     return (
         <div className="business-container pb-1">
             {/* Main container for the business section */}
+
             <section className="top-container">
                 {/* Video background */}
                 <video autoPlay muted loop playsInline className="video custom-video" preload="auto">
