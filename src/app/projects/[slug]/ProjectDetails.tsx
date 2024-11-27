@@ -102,7 +102,7 @@ export default function Project({ data }: any) {
                     )}
 
                     <div className="lets-talk d-flex my-4 justify-center">
-                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`https://test.plantd.life/contribute?project=${data?.slug}`}>
+                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`/contribute?project=${data?.slug}`}>
                             Start Planting
                         </Link>
                     </div>
