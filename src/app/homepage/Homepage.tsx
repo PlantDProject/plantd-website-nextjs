@@ -5,6 +5,16 @@ import Slider from 'react-slick'; // Importing Slider component for image carous
 // import { initMixpanel } from '@/utils/mixpanel'; // Importing Mixpanel analytics initialization
 // import { initPostHog } from '@/utils/posthog'; // Importing PostHog analytics initialization
 import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
+
+interface ProjectsInterface {
+    title: string;
+    about: string;
+    name: string;
+    bannerImage: string;
+    slug: string;
+}
 
 // Fundraiser Component
 const Homepage = ({ projectsList }: any) => {
@@ -13,19 +23,11 @@ const Homepage = ({ projectsList }: any) => {
         dots: false, // Disables dot navigation
         infinite: true, // Enables infinite scrolling
         speed: 500, // Set transition speed
-        slidesToShow: 2, // Number of slides to show at once
+        slidesToShow: 3, // Number of slides to show at once
         centerMode: true, // Center the active slide
         slidesToScroll: 1, // Scroll one slide at a time
         arrows: false, // Disables navigation arrows
         responsive: [
-            {
-                breakpoint: 1400, // Adjust settings for screens smaller than 1400px
-                settings: {
-                    slidesToShow: 1, // Show only 1 slide at a time
-                    slidesToScroll: 1, // Scroll 1 slide at a time
-                    infinite: true, // Keep infinite scrolling
-                },
-            },
             {
                 breakpoint: 991, // Adjust settings for screens smaller than 991px
                 settings: {
@@ -89,7 +91,6 @@ const Homepage = ({ projectsList }: any) => {
                 <div className="container w-95 home-about-section">
                     <div className="row justify-content-center py-lg-5 py-4 detail-container" data-aos="fade-up">
                         <div className="col-lg-10 col-12 text-center">
-                            <div className="position-relative" style={{ zIndex: '100' }} />
                             <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
                                 What is <span className="text-green">Plantd?</span>
                             </h2>
@@ -109,30 +110,31 @@ const Homepage = ({ projectsList }: any) => {
             <section className="pt-4">
                 <div className="container w-95" style={{ backgroundColor: '#1d1d1d' }}>
                     <div className="row justify-content-center py-lg-5 py-4 detail-container" data-aos="fade-up">
-                        <div className="col-lg-10 col-12 text-center">
-                            <div className="position-relative" style={{ zIndex: '100' }} />
+                        <div className="col-lg-10 col-12 text-center d-grid justify-content-center">
                             <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
                                 Our Projects
                             </h2>
-
-                            <Slider {...settings}>
-                                {/* Project Card 1 */}
-                                <a className="sliderDiv" href="/contribute?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
-                                    <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
-                                </a>
-                                {/* Other project cards follow in similar structure */}
-                                {/* Project Card 2 */}
-                                <a className="sliderDiv" href="/contribute?project=long-leaf-pine-reforestation" onClick={() => trackEvent('Texas Project Card Clicked')}>
-                                    <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
-                                </a>
-                                <a className="sliderDiv" href="/contribute?project=long-leaf-pine-reforestation" onClick={() => trackEvent('Texas Project Card Clicked')}>
-                                    <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
-                                </a>
-                                <a className="sliderDiv" href="/contribute?project=long-leaf-pine-reforestation" onClick={() => trackEvent('Texas Project Card Clicked')}>
-                                    <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
-                                </a>
-                                {/* More project cards... */}
-                            </Slider>
+                            <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                                <Slider {...settings}>
+                                    {projectsList?.map((items: ProjectsInterface, index: number) => {
+                                        return (
+                                            <div
+                                                key={index}
+                                                onClick={() => {
+                                                    // trackEvent(`${items?.title} swiped`);
+                                                    redirect(`/contribute?project=${items?.slug}`)
+                                                    return;
+                                                }}
+                                            >
+                                                <div className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .2), rgb(0 0 0 / .23)), url(${items.bannerImage})` }}>
+                                                    <p className="text-green fs-14 fw-800 mb-1">{items?.title}</p>
+                                                    <p className="text-white fs-12 mb-1">{items?.about}</p>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </Slider>
+                            </div>
                         </div>
                     </div>
                 </div>

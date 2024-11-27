@@ -10,7 +10,6 @@ import CustomModal from '@/components/Navigation/Modal/modal'; // Importing cust
 
 // Fundraiser Component
 const Fundraiser = () => {
-
     // State to manage visibility of modal
     const [showModal, setShowModal] = useState(false);
 
@@ -83,7 +82,7 @@ const Fundraiser = () => {
 
                                     {/* Project Cards Carousel */}
                                     <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
-                                    <Slider {...settings}>
+                                        <Slider {...settings}>
                                             <a className="sliderDiv" href="/contribute?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
                                                 <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
                                                 <div className="ms-2">

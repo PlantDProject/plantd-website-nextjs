@@ -45,22 +45,22 @@
 }
 
 /* Styling for the slider container */
-.sliderDiv {
-    border: 1px solid #989898; /* Add a border around the slider */
-    display: flex !important; /* Use flexbox layout */
-    padding: 5px; /* Add padding inside the container */
+.home-projects-slider {
+    padding: 10px; /* Add padding inside the container */
     border-radius: 20px; /* Round the corners */
-    height: 140px; /* Set a fixed height for the slider */
+    height: 360px; /* Set a fixed height for the slider */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: left;
 }
 
-/* Styling for images inside the slider */
-.sliderDiv img {
-    width: 120px; /* Set the width of the images inside the slider */
-    border-radius: 12px; /* Round the corners of the images */
-}
 
 /* Remove outline when the slider div is focused */
-.sliderDiv:focus-visible {
+.home-projects-slider:focus-visible {
     outline: none;
 }
 
@@ -104,30 +104,10 @@
 
 /* Custom styles for extra small screens (below 372px) */
 @media (max-width: 372px) {
-    /* Reduce the size of slider images */
-    .sliderDiv img {
-        width: 70px;
-    }
 
-    /* Adjust slider div height for small screens */
-    .sliderDiv {
-        height: 110px; /* Smaller height */
-    }
-
-    /* Reduce font size for slider text */
-    .sliderDiv p {
-        font-size: 8px !important; /* Make text smaller */
-    }
 }
 
 /* Custom styles for extremely small screens (below 315px) */
 @media (max-width: 315px) {
-    /* Adjust slider div height and text font size */
-    .sliderDiv {
-        height: 100px; /* Smaller height */
-    }
 
-    .sliderDiv p {
-        font-size: 7px !important; /* Make text even smaller */
-    }
 }
