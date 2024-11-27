@@ -1,6 +1,19 @@
-export const regexPhoneNumber = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
-export const regexEmail = /^[\w.%+-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
-export const regexName = /^[a-zA-Z][a-zA-Z ]*$/;
+import { trackMixpanelEvent } from './mixpanel';
+import { trackPosthogEvent } from './posthog';
+
+const regexPhoneNumber = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+const regexEmail = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
+const regexName = /^[a-zA-Z.]+(?: [a-zA-Z.]+)*$/;
+
+// Validators (implement these according to your needs)
+export const isNameValid = (name: string) => {
+    return name && name.trim().length > 0 && regexName.test(name.trim());
+};
+export const isEmailValid = (email: string) => regexEmail.test(email);
+
+export const isPhoneNumberValid = (e: string) => {
+    return regexPhoneNumber.test(e);
+};
 
 export const defaultOGImage = 'https://plantd.life/images/plantdimg/plantdRecOg.jpg';
 
@@ -28,8 +41,13 @@ export const IFrameRenderer: React.FC<IFrameRendererProps> = ({ iframeHtml }) =>
 export const getImgUri = (uri: string) => {
     if (uri?.includes('https')) return uri;
 
-    return `${process.env.API_URL}${uri}`
+    return `${process.env.API_URL}${uri}`;
 };
 
 export const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
 export const dark = 'https://test.plantd.life/images/plantdimg/logo-dark.png';
+
+export const trackEvent = (e: any, data: any = {}) => {
+    trackMixpanelEvent(e, data);
+    trackPosthogEvent(e, data);
+};

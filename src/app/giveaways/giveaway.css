@@ -1,4 +1,4 @@
-.bg-home {
+.giveaway-bg-home {
     position: relative;
     background-color: var(--white);
     padding: 210px 0 0;
@@ -167,7 +167,7 @@
 }
 
 @media (min-width: 1500px) {
-    .bg-home {
+    .giveaway-bg-home {
         padding: 150px 0 0 0;
     }
 }

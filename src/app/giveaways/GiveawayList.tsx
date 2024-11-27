@@ -5,20 +5,15 @@ import Link from 'next/link';
 import { getDate, getDay, getImgUri, isEven } from '@/utils/helpers';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 
-interface EventProps {
-    onGoingEvents: EventObject[];
-    completedEvents: EventObject[];
-}
+// interface EventObject {
+//     eventName: string;
+//     eventDate: string;
+//     eventTitle: string;
+//     imageUrl: string;
+//     eventSlug: string;
+// }
 
-interface EventObject {
-    eventName: string;
-    eventDate: string;
-    eventTitle: string;
-    imageUrl: string;
-    eventSlug: string;
-}
-
-export default function Giveaways({ onGoingEvents, completedEvents }: EventProps) {
+export default function Giveaways({ onGoingEvents, completedEvents }: any) {
     const eventCards = (event: any, index: number, isOnGoing: boolean = false) => {
         return (
             <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{ backgroundImage: isEven(index) ? `url('https://test.plantd.life/images/plantdimg/projectbg.jpg')` : `url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg')` }}>
@@ -40,25 +35,23 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
                     </div>
 
                     {isOnGoing && (
-                        <>
-                            <Popover placement="top">
-                                <PopoverTrigger
-                                    onClick={() => {
-                                        const uri = `${process.env.WEBSITE_URL}/giveaways/${event?.eventSlug}`
-                                        navigator.clipboard.writeText(uri);
-                                    }}
-                                >
-                                    <div className="position-absolute eventshare-div">
-                                        <i className="fa fa-files-o text-green" aria-hidden="true"></i>
-                                    </div>
-                                </PopoverTrigger>
-                                <PopoverContent>
-                                    <div className="px-1 bg-light px-2 br-20">
-                                        <div className="text-small fs-10 text-green">link copied</div>
-                                    </div>
-                                </PopoverContent>
-                            </Popover>
-                        </>
+                        <Popover placement="top">
+                            <PopoverTrigger
+                                onClick={() => {
+                                    const uri = `${process.env.WEBSITE_URL}/giveaways/${event?.eventSlug}`;
+                                    navigator.clipboard.writeText(uri);
+                                }}
+                            >
+                                <div className="position-absolute eventshare-div">
+                                    <i className="fa fa-files-o text-green" aria-hidden="true"></i>
+                                </div>
+                            </PopoverTrigger>
+                            <PopoverContent>
+                                <div className="px-1 bg-light px-2 br-20">
+                                    <div className="text-small fs-10 text-green">link copied</div>
+                                </div>
+                            </PopoverContent>
+                        </Popover>
                     )}
                 </div>
             </div>
@@ -66,8 +59,8 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
     };
 
     return (
-        <>
-            <section className="bg-home " id="home">
+        <div>
+            <section className="bg-home giveaway-bg-home" id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container-fluid w-95">
@@ -85,7 +78,7 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
 
             <section className="pt-5 bg-black giveawayHead">
                 <div className="container-fluid w-90">
-                    <h3 className="title-sub-heading title-color text-center fw-600">
+                    <h3 className="title-sub-heading title-color text-center fw-300">
                         Welcome to Plantd All Access! Here you can enter for a chance to win awesome Experiences. Check in daily to see what’s new.
                         <br /> <span className="text-green">Don’t Miss Out!</span>
                     </h3>
@@ -103,6 +96,6 @@ export default function Giveaways({ onGoingEvents, completedEvents }: EventProps
             <section className="pt-4 bg-black">
                 <div className="container-fluid bg-dark-grey w-90 p-lg-5 p-md-4 px-1 py-4">{completedEvents?.length > 0 && completedEvents?.map((event: any, index: number) => eventCards(event, index))}</div>
             </section>
-        </>
+        </div>
     );
 }

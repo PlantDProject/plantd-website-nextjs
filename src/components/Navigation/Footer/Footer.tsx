@@ -3,10 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import './Footer.css';
+import { poppinsNormal } from '@/utils/fonts';
 
 const Footer = () => {
     return (
-        <footer className="footer-container">
+        <footer className={`footer-container ${poppinsNormal} fw-300`}>
             <div className="container-fluid footer text-white" data-nosnippet="true">
                 <div className="row w-90 mx-auto">
                     <div className="col-md-4 footer-info">
@@ -81,16 +82,16 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="social-icons mt-md-3 mb-md-0 mt-4 mb-2">
-                            <Link href="https://facebook.com" className="text-white me-2">
+                            <Link href="https://www.facebook.com/plantdmovement/" target="_blank" className="text-white me-2">
                                 <i className="fa fa-facebook"></i>
                             </Link>
-                            <Link href="https://instagram.com" className="text-white me-2">
+                            <Link href="https://www.instagram.com/plantd/" target="_blank" className="text-white me-2">
                                 <i className="fa fa-instagram"></i>
                             </Link>
-                            <Link href="https://twitter.com" className="text-white me-2">
+                            <Link href="https://twitter.com/plantdmovement" target="_blank" className="text-white me-2">
                                 <i className="fa fa-twitter"></i>
                             </Link>
-                            <Link href="https://linkedin.com" className="text-white">
+                            <Link href="https://www.linkedin.com/company/plantd-life/" target="_blank" className="text-white">
                                 <i className="fa fa-linkedin"></i>
                             </Link>
                         </div>

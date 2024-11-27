@@ -1,4 +1,4 @@
-.bg-home {
+.project-bg-home {
     padding: 17rem 0;
     position: relative;
     background-color: var(--white);
@@ -41,6 +41,8 @@
 
 .stats-container {
     background-image: url('https://plantd.life/images/plantdimg/headbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .start-planting:hover {
@@ -57,18 +59,22 @@
 
 /* Projects Details */
 
+
 @media (max-width: 991px) {
-    .bg-home {
-        padding: 10rem 0;
-    }
     .carousel-img-width {
         width: 100%;
     }
     .project-facts {
         font-size: 17px;
     }
-    
+
     .project-facts span {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-bg-home {
+        padding: 14rem 0 8rem 0;
     }
 }

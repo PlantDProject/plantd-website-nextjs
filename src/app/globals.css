@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:400,600,700&amp;display=swap);
-
 :root {
     --primary-color: #40ba67; /* Light green */
     --primary-color-dark: #006300; /* Light green */
@@ -17,16 +15,8 @@
     --translucent-white: #ffffff80;
 }
 
-* {
-    font-family: 'Poppins', sans-serif;
-}
-
 a {
     text-decoration: none !important;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
 }
 
 .title-color {
@@ -50,6 +40,14 @@ body {
     border-radius: 30px !important;
 }
 
+.w-50 {
+    width: 50%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
 .w-90 {
     width: 90% !important;
     border-radius: 12px;
@@ -66,19 +64,30 @@ body {
 
 .fw-normal {
     font-weight: 400;
-  }
-  
-  .fw-600 {
-    font-weight: 600;
-  }
-  
-  .fw-800 {
-    font-weight: 800;
-  }
-  
-  .fw-900 {
-    font-weight: 900;
-  }
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-100 {
+    font-weight: 100 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+.fw-900 {
+    font-weight: 900 !important;
+}
 
 .btn-rounded {
     padding: 20px 100px !important;
@@ -125,7 +134,7 @@ select:focus-visible {
 .fs-14 {
     font-size: 14px;
 }
-.position-relative{
+.position-relative {
     position: relative;
 }
 @media (max-width: 991px) {
@@ -137,13 +146,14 @@ select:focus-visible {
     }
 }
 
-
 @media (max-width: 575.86px) {
     .fs-22 {
         font-size: 20px;
     }
+    .fs-20 {
+        font-size: 15px;
+    }
 }
-
 
 /* PC Screen Size */
 
@@ -200,4 +210,37 @@ section.section-green {
 .videoAudioHeight {
     height: 240px !important;
     width: 100%;
+}
+
+/* Loader CSS */
+
+#globalLoader {
+    position: fixed;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    background-color: var(--black);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.loadingAnimation {
+    animation: 1s ease-in-out infinite growAnimation;
+}
+
+@keyframes growAnimation {
+    0% {
+        width: 60px;
+    }
+    50% {
+        width: 70px;
+    }
+
+    100% {
+        width: 60px;
+    }
 }

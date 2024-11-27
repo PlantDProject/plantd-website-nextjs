@@ -7,9 +7,24 @@ import SimpleSlider from './Slider';
 import { IFrameRenderer } from '@/utils/helpers';
 
 export default function Project({ data }: any) {
+    const getColWidth = (length: number) => {
+        switch (length) {
+            case 1:
+                return 'col-lg-12';
+            case 2:
+                return 'col-lg-6';
+            case 3:
+                return 'col-lg-4';
+            case 4:
+                return 'col-lg-3';
+            default:
+                break;
+        }
+    };
+
     return (
         <div style={{ backgroundColor: '#f6f7fb !important' }}>
-            <section className="bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
+            <section className="bg-home project-bg-home" style={{ backgroundImage: `url(${data?.bannerImage})` }} id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container-fluid w-95">
@@ -35,10 +50,12 @@ export default function Project({ data }: any) {
                 </div>
             </section>
 
-            <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4">
+            <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center pb-4">
                 <div className="col-12 pt-lg-4 p-0">
                     <h2 className="text-green-dark fw-bold">The importance of this project:</h2>
-                    <p className="fs-20 mt-2">{data?.importance}</p>
+                    <div className="fs-20 mt-2">
+                        <IFrameRenderer iframeHtml={data?.importance} />
+                    </div>
                 </div>
             </section>
 
@@ -47,7 +64,7 @@ export default function Project({ data }: any) {
                     <div className="w-90 mx-auto d-flex flex-wrap justify-center">
                         {data?.stats?.map((stats: StatsInterface, index: number) => {
                             return (
-                                <div className="px-4 mt-lg-0 mt-md-0 mt-4 col-lg-3 col-md-6 text-white text-center" key={index}>
+                                <div className={`px-4 mt-lg-0 mt-md-0 mt-4  col-md-6 text-white text-center ${getColWidth(data?.stats?.length)}`} key={index}>
                                     <h3 className="fw-bold">
                                         {stats?.value} {stats?.emoji}
                                     </h3>
@@ -62,14 +79,14 @@ export default function Project({ data }: any) {
             <section className="mt-4 container-fluid w-90 row justify-content-between mx-auto align-items-start mb-4 d-flex flex-lg-nowrap">
                 <div className="col-12 col-lg-6 pt-lg-4 p-0">
                     {data?.communityBenefits && (
-                        <>
+                        <div>
                             <h2 className="text-green-dark fw-bold">Community Benefits:</h2>
-                            <p className="fs-20 mt-2">{data?.communityBenefits}</p>
-                        </>
+                            <p className="fs-20 mt-2 pe-lg-4">{data?.communityBenefits}</p>
+                        </div>
                     )}
 
                     {data?.impacts && (
-                        <>
+                        <div>
                             <h2 className="text-green-dark fw-bold">Impacts & Benefits:</h2>
                             <h3 className="text-green-dark fw-bold">Project benefits include:</h3>
                             <ul className="list-type-disc">
@@ -81,11 +98,11 @@ export default function Project({ data }: any) {
                                     );
                                 })}
                             </ul>
-                        </>
+                        </div>
                     )}
 
                     <div className="lets-talk d-flex my-4 justify-center">
-                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href="/contribute">
+                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`/contribute?project=${data?.slug}`}>
                             Start Planting
                         </Link>
                     </div>
@@ -96,7 +113,7 @@ export default function Project({ data }: any) {
             </section>
 
             {data?.issuesToBeAddressed && (
-                <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center mb-4">
+                <section className="container-fluid w-90 row justify-content-between mx-auto align-items-center pb-4">
                     <div className="col-12 pt-lg-4">
                         <h2 className="text-green-dark fw-bold">Issues to be Addressed:</h2>
 

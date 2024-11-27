@@ -5,15 +5,24 @@ import './Navbar.css';
 import { AboutUs, DropdownData, ProjectsList } from './DropdownItems';
 import Link from 'next/link';
 import { dark, light } from '@/utils/helpers';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
     const [showGiveawaysDropdown, setShowGiveawaysDropdown] = React.useState<boolean>(false);
     const [showProjectsDropdown, setShowProjectsDropdown] = React.useState<boolean>(false);
     const [isAtTop, setIsAtTop] = React.useState<boolean>(true);
-    const [show, setShow] = React.useState<boolean>(true);
+    const [show, setShow] = React.useState<boolean>(false);
+    const pathName = usePathname();
 
     React.useEffect(() => {
-        if (window && window.innerWidth < 991) setShow(false);
+        if (window) setIsAtTop(window.scrollY === 0);
+        if (window && window.innerWidth > 991) setShow(true);
+        else setShow(false);
+    }, [pathName]);
+
+    React.useEffect(() => {
+        if (window && window.innerWidth > 991) setShow(true);
+        else setShow(false);
     }, []);
 
     React.useEffect(() => {
@@ -39,13 +48,17 @@ const Navbar = () => {
         setIsAtTop(window.scrollY === 0);
     }, []);
 
+    const isActive = (path: string) => {
+        return pathName.includes(path);
+    };
+
     const getItem = (title: string, navigateTo: string, isNew: boolean = false, showArrow: boolean = false) => {
         return <li className={`nav-item ${isAtTop ? 'color-white' : 'color-black'}`}>{getLink(title, navigateTo, isNew, showArrow)}</li>;
     };
 
     const getLink = (title: string, navigateTo: string, isNew: boolean = false, showArrow: boolean = false) => {
         return (
-            <Link className="nav-link" href={navigateTo}>
+            <Link className={`nav-link ${isActive(navigateTo) ? 'active' : ''}`} href={navigateTo}>
                 {title}
                 {isNew && <span className="new-tab">New</span>}
                 {showArrow && <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />}
@@ -75,7 +88,6 @@ const Navbar = () => {
     };
 
     const headerLogo = (isMobile: boolean = false) => {
-        
         if (isMobile) return dark;
 
         if (isAtTop) return light;
@@ -105,7 +117,7 @@ const Navbar = () => {
                                     {AboutUs?.map((item: DropdownData, index) => {
                                         return (
                                             <li key={index}>
-                                                <Link href={item?.redirection} className="dropdown-item">
+                                                <Link href={item?.redirection} className="dropdown-item fw-300">
                                                     {item?.title}
                                                 </Link>
                                             </li>
@@ -115,7 +127,7 @@ const Navbar = () => {
                             </li>
 
                             <li className={`nav-item ${isAtTop ? 'color-white' : 'color-black'}`} onMouseEnter={() => setShowProjectsDropdown(true)} onMouseLeave={() => setShowProjectsDropdown(false)}>
-                                <Link className="nav-link" href="#" onClick={() => redirectTo('projects')}>
+                                <Link className={`nav-link ${isActive('/projects') ? 'active' : ''}`} href="#" onClick={() => redirectTo('projects')}>
                                     Projects
                                     <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
                                 </Link>
@@ -123,7 +135,7 @@ const Navbar = () => {
                                     {ProjectsList?.map((item: DropdownData, index) => {
                                         return (
                                             <li key={index}>
-                                                <Link href={item?.redirection} className="dropdown-item">
+                                                <Link href={item?.redirection} className="dropdown-item fw-300">
                                                     {item?.title}
                                                 </Link>
                                             </li>
@@ -140,7 +152,7 @@ const Navbar = () => {
 
                         <ul className="mb-0 ps-lg-2 ps-0">
                             <li className="nav-item">
-                                <Link className="btn primary-btn" href="#">
+                                <Link className="btn primary-btn" href="sign-up">
                                     Sign Up Now
                                 </Link>
                             </li>
