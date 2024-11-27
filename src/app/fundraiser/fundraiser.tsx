@@ -71,10 +71,10 @@ const Fundraiser = () => {
                                         </div>
                                         {/* Images on right */}
                                         <div className="col-lg-3 col-6 mt-lg-0 mt-3">
-                                            <img width="100%" src="/images/fundraiser/FRH2.webp" alt="fundraiser-right-head2 img" />
+                                            <img width="100%" src="next-images/fundraiser/FRH2.webp" alt="fundraiser-right-head2 img" />
                                         </div>
                                         <div className="col-lg-3 col-6 mt-lg-0 mt-3">
-                                            <img width="100%" src="/images/fundraiser/FRH1.webp" alt="fundraiser-right-head1 img" />
+                                            <img width="100%" src="next-images/fundraiser/FRH1.webp" alt="fundraiser-right-head1 img" />
                                         </div>
                                     </div>
 
@@ -82,7 +82,7 @@ const Fundraiser = () => {
                                     <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
                                     <Slider {...settings}>
                                             <a className="sliderDiv" href="/contribute?project=senegal-farming-and-reforestation" onClick={() => trackEvent('Senegal Project Card Clicked')}>
-                                                <img src="/images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
+                                                <img src="next-images/fundraiser/Senegal_Reforestation_Project_Img.png" alt="Senegal_Reforestation_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Senegal Farming & Reforestation</p>
                                                     <p className="text-white fs-12 mb-1">
@@ -91,7 +91,7 @@ const Fundraiser = () => {
                                                 </div>
                                             </a>
                                             <a className="sliderDiv" href="/contribute?project=long-leaf-pine-reforestation" onClick={() => trackEvent('Texas Project Card Clicked')}>
-                                                <img src="/images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
+                                                <img src="next-images/fundraiser/Longleaf_Pine_Reforestation_Project_Img.png" alt="Longleaf_Pine_Reforestation_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Longleaf Pine Reforestation</p>
                                                     <p className="text-white fs-12 mb-1">
@@ -100,7 +100,7 @@ const Fundraiser = () => {
                                                 </div>
                                             </a>
                                             <a className="sliderDiv" href="/contribute?project=louisiana-natural-disasters" onClick={() => trackEvent('Louisiana Project Card Clicked')}>
-                                                <img src="/images/fundraiser/Natural_Disaster_Reforestation.png" alt="Natural_Disaster_Reforestation Img" />
+                                                <img src="next-images/fundraiser/Natural_Disaster_Reforestation.png" alt="Natural_Disaster_Reforestation Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Natural Disaster Reforestation</p>
                                                     <p className="text-white fs-12 mb-1">
@@ -109,7 +109,7 @@ const Fundraiser = () => {
                                                 </div>
                                             </a>
                                             <a className="sliderDiv" href="/contribute?project=california-rim-wildfire" onClick={() => trackEvent('California Project Card Clicked')}>
-                                                <img src="/images/fundraiser/Rim_Wildfire_Restoration.png" alt="Rim_Wildfire_Restoration Img" />
+                                                <img src="next-images/fundraiser/Rim_Wildfire_Restoration.png" alt="Rim_Wildfire_Restoration Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Rim Wildfire Restoration</p>
                                                     <p className="text-white fs-12 mb-1">
@@ -118,7 +118,7 @@ const Fundraiser = () => {
                                                 </div>
                                             </a>
                                             <a className="sliderDiv" href="/contribute?project=climate-action-honduras" onClick={() => trackEvent('Honduras Project Card Clicked')}>
-                                                <img src="/images/fundraiser/Honduras_Project.png" alt="Honduras_Project Img" />
+                                                <img src="next-images/fundraiser/Honduras_Project.png" alt="Honduras_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Honduras Reforestation</p>
                                                     <p className="text-white fs-12 mb-1">
@@ -127,7 +127,7 @@ const Fundraiser = () => {
                                                 </div>
                                             </a>
                                             <a className="sliderDiv" href="/contribute?project=climate-action-philippines" onClick={() => trackEvent('Philippines Project Card Clicked')}>
-                                                <img src="/images/fundraiser/Philippines_Project.png" alt="Philippines_Project Img" />
+                                                <img src="next-images/fundraiser/Philippines_Project.png" alt="Philippines_Project Img" />
                                                 <div className="ms-2">
                                                     <p className="text-green fs-14 fw-800 mb-1">Philippines Reforestation</p>
                                                     <p className="text-white fs-12 mb-1">
@@ -145,7 +145,7 @@ const Fundraiser = () => {
                                         Support your cause while
                                         <br /> supporting our <span className="text-green">Planet</span>!
                                     </h2>
-                                    <img src="/images/fundraiser/FLH1.webp" width="100%" alt="fundraiser-left-head img" />
+                                    <img src="next-images/fundraiser/FLH1.webp" width="100%" alt="fundraiser-left-head img" />
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@ const Fundraiser = () => {
 
             {/* Fundraiser Detail Section */}
             <section className="pt-4">
-                <div className="container w-95 position-relative" style={{ backgroundImage: 'url(images/fundraiser/Fundraiserbg.webp)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', borderRadius: '20px' }}>
+                <div className="container w-95 position-relative" style={{ backgroundImage: 'url(next-images/fundraiser/Fundraiserbg.webp)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', borderRadius: '20px' }}>
                     <div className="row justify-content-center py-lg-5 py-4 detail-container" data-aos="fade-up">
                         <div className="col-lg-10 col-12 text-center">
                             <div className="position-relative" style={{ zIndex: '100' }} />
@@ -170,16 +170,16 @@ const Fundraiser = () => {
                             </a>
                         </div>
                     </div>
-                    <img className="fundraise-abs" src="images/fundraiser/leftLeaf.png" alt="leaf img" style={{ left: 0 }} />
-                    <img className="fundraise-abs" src="images/fundraiser/rightLeaf.png" alt="leaf img" style={{ right: 0 }} />
+                    <img className="fundraise-abs" src="next-images/fundraiser/leftLeaf.png" alt="leaf img" style={{ left: 0 }} />
+                    <img className="fundraise-abs" src="next-images/fundraiser/rightLeaf.png" alt="leaf img" style={{ right: 0 }} />
                 </div>
             </section>
 
             {/* Organization Structure Images */}
             <section className="py-5">
                 <div className="container w-95">
-                    <img src="images/fundraiser/structure.webp" className="structureWeb" width="95%" style={{ margin: 'auto' }} alt="organization-structure-description img" />
-                    <img src="images/fundraiser/structureMob.webp" className="structureMob" width="95%" style={{ margin: 'auto' }} alt="organization-structure-description img" />
+                    <img src="next-images/fundraiser/structure.webp" className="structureWeb" width="95%" style={{ margin: 'auto', borderRadius: '20px' }} alt="organization-structure-description img" />
+                    <img src="next-images/fundraiser/structureMob.webp" className="structureMob" width="95%" style={{ margin: 'auto' }} alt="organization-structure-description img" />
                 </div>
             </section>
 
