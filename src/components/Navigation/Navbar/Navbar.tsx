@@ -57,12 +57,8 @@ const Navbar = () => {
     };
 
     const getLink = (title: string, navigateTo: string, isNew: boolean = false, showArrow: boolean = false) => {
-        let e = navigateTo
-        if (navigateTo.includes('/blogs')){
-            e = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/blogs`
-        }
         return (
-            <Link className={`nav-link ${isActive(navigateTo) ? 'active' : ''}`} href={e}>
+            <Link className={`nav-link ${isActive(navigateTo) ? 'active' : ''}`} href={navigateTo}>
                 {title}
                 {isNew && <span className="new-tab">New</span>}
                 {showArrow && <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />}
