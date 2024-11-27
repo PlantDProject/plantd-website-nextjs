@@ -1,16 +1,6 @@
 'use client'
 import { isEmailValid, isNameValid, isPhoneNumberValid, trackEvent } from '@/utils/helpers';
-import { useEffect, useState } from 'react';
-
-interface FormDataError {
-    name?: boolean;
-    email?: boolean;
-    phone?: boolean;
-    organization?: boolean;
-    message?: boolean;
-    heard_from?: boolean;
-    other?: boolean;
-}
+import { useState } from 'react';
 
 const formDataFormat = {
     name: '',
@@ -34,14 +24,6 @@ function useCustomForm(formOrigin: string) {
         heard_from: false,
         other: false,
     });
-
-    useEffect(() => {
-        (Object.keys(formDataErr) as (keyof FormDataError)[]).forEach((field) => {
-            if (formDataErr[field]) {
-                trackEvent(`Error in ${field} Field`);
-            }
-        });
-    }, []);
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -101,6 +83,8 @@ function useCustomForm(formOrigin: string) {
             heard_from: heard_from_array.length === 0,
             other: heard_from_array[0] === 'Other' && !other,
         };
+
+        trackEvent("Failed Validation Fields", { errorFields: errors })
 
         setFormDataErr(errors);
         return Object.values(errors).every((err) => !err); // Returns true if no errors
