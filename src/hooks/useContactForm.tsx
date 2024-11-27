@@ -41,7 +41,7 @@ function useCustomForm(formOrigin: string) {
                 trackEvent(`Error in ${field} Field`);
             }
         });
-    }, [formDataErr]);
+    }, []);
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
