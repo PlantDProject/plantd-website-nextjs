@@ -15,13 +15,14 @@ const Navbar = () => {
     const pathName = usePathname();
 
     React.useEffect(() => {
+        if (window) setIsAtTop(window.scrollY === 0);
         if (window && window.innerWidth > 991) setShow(true);
-        else setShow(false)
+        else setShow(false);
     }, [pathName]);
 
     React.useEffect(() => {
         if (window && window.innerWidth > 991) setShow(true);
-        else setShow(false)
+        else setShow(false);
     }, []);
 
     React.useEffect(() => {

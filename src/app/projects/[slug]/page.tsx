@@ -34,5 +34,5 @@ export default async function Page({ params }: any) {
 
     const filtered = projectsList.find((item: any) => item.slug === slug);
 
-    return <ProjectDetails data={filtered} />;
+    return <ProjectDetails params={params} data={filtered} />;
 }

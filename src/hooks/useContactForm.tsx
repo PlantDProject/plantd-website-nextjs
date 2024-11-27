@@ -1,16 +1,6 @@
 'use client'
 import { isEmailValid, isNameValid, isPhoneNumberValid, trackEvent } from '@/utils/helpers';
-import { useEffect, useState } from 'react';
-
-interface FormDataError {
-    name?: boolean;
-    email?: boolean;
-    phone?: boolean;
-    organization?: boolean;
-    message?: boolean;
-    heard_from?: boolean;
-    other?: boolean;
-}
+import { useState } from 'react';
 
 const formDataFormat = {
     name: '',
@@ -35,14 +25,6 @@ function useCustomForm(formOrigin: string) {
         other: false,
     });
 
-    useEffect(() => {
-        (Object.keys(formDataErr) as (keyof FormDataError)[]).forEach((field) => {
-            if (formDataErr[field]) {
-                trackEvent(`Error in ${field} Field`);
-            }
-        });
-    }, [formDataErr]);
-
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSelectChange = (e: any) => {
@@ -53,9 +35,29 @@ function useCustomForm(formOrigin: string) {
     };
 
     const handleChange = (e: any, name: string) => {
+        //starting with space is not allowed
+        const ignoreFirstSpace = e.indexOf(' ')
+        if (ignoreFirstSpace == 0) {
+            e = e.trim()
+        }
         // Limit phone number input length to 10
         if (name === 'phone' && (isNaN(e) || e.length > 10)) return;
+        if (name === 'name' && (e.length > 30)) return;
+        if (name === 'email' && (e.length > 50)) return;
 
+
+        if (name === 'name') {
+            e = e.replace(/[^a-zA-Z\s.]/gi, ' ').replace(/\s+/g, ' ')
+            //only one period can be entered
+            const firstDotIndex = e.indexOf('.');
+            if (firstDotIndex !== -1) {
+                e = e.substring(0, firstDotIndex + 1) + e.substring(firstDotIndex + 1).replace(/\./g, '');
+            }
+        }
+        //ignore spaces
+        if (name === 'phone' || name === 'email') {
+            e = e.replace(/\s/, '').trim()
+        }
         // Update the form data
         setFormData((prev: any) => {
             return { ...prev, [name]: e };
@@ -81,6 +83,8 @@ function useCustomForm(formOrigin: string) {
             heard_from: heard_from_array.length === 0,
             other: heard_from_array[0] === 'Other' && !other,
         };
+
+        trackEvent("Failed Validation Fields", { errorFields: errors })
 
         setFormDataErr(errors);
         return Object.values(errors).every((err) => !err); // Returns true if no errors

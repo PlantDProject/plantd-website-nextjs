@@ -2,8 +2,8 @@ import { trackMixpanelEvent } from './mixpanel';
 import { trackPosthogEvent } from './posthog';
 
 const regexPhoneNumber = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
-const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const regexName = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
+const regexEmail = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
+const regexName = /^[a-zA-Z.]+(?: [a-zA-Z.]+)*$/;
 
 // Validators (implement these according to your needs)
 export const isNameValid = (name: string) => {
