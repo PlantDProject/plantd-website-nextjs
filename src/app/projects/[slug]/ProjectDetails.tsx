@@ -5,6 +5,7 @@ import { StatsInterface } from '../Projects';
 import '../projects.css';
 import SimpleSlider from './Slider';
 import { IFrameRenderer } from '@/utils/helpers';
+import { redirect } from 'next/navigation';
 
 export default function Project({ data }: any) {
     const getColWidth = (length: number) => {
@@ -102,7 +103,9 @@ export default function Project({ data }: any) {
                     )}
 
                     <div className="lets-talk d-flex my-4 justify-center">
-                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" href={`/contribute?project=${data?.slug}`}>
+                        <Link className="btn primary-btn btn-rounded custom-btn py-2 px-5 start-planting mb-lg-0" onClick={() => {
+                            redirect(`/contribute?project=${data?.slug}`)
+                        }} href={``}>
                             Start Planting
                         </Link>
                     </div>
