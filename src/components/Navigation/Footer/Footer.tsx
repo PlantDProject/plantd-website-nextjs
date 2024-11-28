@@ -7,7 +7,7 @@ import { poppinsNormal } from '@/utils/fonts';
 
 const Footer = () => {
     return (
-        <footer className={`footer-container ${poppinsNormal} fw-300`}>
+        <footer className={`footer-container ${poppinsNormal.className} fw-300`}>
             <div className="container-fluid footer text-white" data-nosnippet="true">
                 <div className="row w-90 mx-auto">
                     <div className="col-md-4 footer-info">
@@ -60,22 +60,22 @@ const Footer = () => {
 
                             <ul className="list-unstyled footer-link mt-lg-3 mt-md-1 ">
                                 <li>
-                                    <Link href="/policies" className="text-white f-15">
+                                    <Link href="/privacy-policy" className="text-white f-15">
                                         Policies
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/terms" className="text-white f-15">
+                                    <Link href="/terms-and-conditions" className="text-white f-15">
                                         Terms & conditions
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/contact" className="text-white f-15">
+                                    <Link href="/contact-us" className="text-white f-15">
                                         Contact us
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/ambassador" className="text-white f-15">
+                                    <Link href="https://ambassador.plantd.life/" className="text-white f-15">
                                         Become an ambassador
                                     </Link>
                                 </li>
