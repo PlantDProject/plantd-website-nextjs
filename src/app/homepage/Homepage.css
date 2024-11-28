@@ -57,16 +57,50 @@
     justify-content: end;
     text-align: left;
 }
-
+.home-about-slider {
+    padding: 10px; /* Add padding inside the container */
+    border-radius: 20px; /* Round the corners */
+    height: 360px; /* Set a fixed height for the slider */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Remove outline when the slider div is focused */
 .home-projects-slider:focus-visible {
     outline: none;
 }
 
+.gallery-images {
+    height: 400px;
+    vertical-align: middle;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
 /* Padding adjustment for slick slide items */
 .slick-slide > div {
-    padding: 0 5px; /* Add horizontal padding between slider items */
+    padding: 0 5px;
+}
+
+/* gallery images slider css */
+.gallery-slider .slick-slide.slick-active {
+    opacity: 1 !important;
+    transform: scale(1);
+    transition-duration: 1000ms;
+}
+
+.gallery-slider .slick-slide img{
+   display: flex;
+   align-items: center;
+}
+.gallery-slider .slick-slide {
+    opacity: 0.4 !important;
+    transform: scale(0.9);
+    transition-duration: 1000ms;
 }
 
 /* Mobile-specific styles for screen widths below 992px */
@@ -104,10 +138,8 @@
 
 /* Custom styles for extra small screens (below 372px) */
 @media (max-width: 372px) {
-
 }
 
 /* Custom styles for extremely small screens (below 315px) */
 @media (max-width: 315px) {
-
 }

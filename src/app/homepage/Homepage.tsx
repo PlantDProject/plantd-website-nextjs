@@ -49,6 +49,38 @@ const Homepage = ({ projectsList }: any) => {
         ],
     };
 
+    const gallerySetting = {
+        dots: false, // Disables dot navigation
+        infinite: true, // Enables infinite scrolling
+        speed: 500, // Set transition speed
+        slidesToShow: 1, // Number of slides to show at once
+        centerMode: true, // Center the active slide
+        slidesToScroll: 1, // Scroll one slide at a time
+        centerPadding: "250px",
+        arrows: false, // Disables navigation arrows
+        responsive: [
+            {
+                breakpoint: 991, // Adjust settings for screens smaller than 991px
+                settings: {
+                    slidesToShow: 2, // Show 2 slides at a time
+                    slidesToScroll: 1, // Scroll 1 slide at a time
+                    infinite: true, // Keep infinite scrolling
+                    dots: true, // Show navigation dots
+                },
+            },
+            {
+                breakpoint: 767, // Adjust settings for screens smaller than 767px (mobile)
+                settings: {
+                    slidesToShow: 1, // Show only 1 slide at a time
+                    slidesToScroll: 1, // Scroll 1 slide at a time
+                    infinite: true, // Keep infinite scrolling
+                    dots: true, // Show navigation dots
+                },
+            },
+        ],
+    };
+
+
     return (
         <div className="bg-dark-grey">
             {/* Main Hero Section */}
@@ -118,18 +150,67 @@ const Homepage = ({ projectsList }: any) => {
                                 <Slider {...settings}>
                                     {projectsList?.map((items: ProjectsInterface, index: number) => {
                                         return (
-                                            <div
+                                            <Link
                                                 key={index}
-                                                onClick={() => {
-                                                    // trackEvent(`${items?.title} swiped`);
-                                                    redirect(`/contribute?project=${items?.slug}`)
-                                                    return;
-                                                }}
+                                                href={`/contribute?project=${items?.slug}`}
                                             >
-                                                <div className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .2), rgb(0 0 0 / .23)), url(${items.bannerImage})` }}>
+                                                <div className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .4), rgb(0 0 0 / .4)), url(${items.bannerImage})` }}>
                                                     <p className="text-green fs-14 fw-800 mb-1">{items?.title}</p>
                                                     <p className="text-white fs-12 mb-1">{items?.about}</p>
                                                 </div>
+                                            </Link>
+                                        );
+                                    })}
+                                </Slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* About PLantd section */}
+            <section className="pt-4">
+                <div className="container w-95" style={{ backgroundColor: '#1d1d1d' }}>
+                    <div className="row justify-content-center py-lg-5 py-4 detail-container" data-aos="fade-up">
+                        <div className="col-lg-10 col-12 text-center d-grid justify-content-center">
+                            <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
+                                Uniting people for a <span className='text-green'>greener</span> tomorrow
+                            </h2>
+                            <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                                <Slider {...settings}>
+                                    {projectsList?.map((items: ProjectsInterface, index: number) => {
+                                        return (
+                                            <Link
+                                                key={index}
+                                                href={`/contribute?project=${items?.slug}`}
+                                            >
+                                                <div className="ms-2 home-about-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .6), rgb(0 0 0 / .6)), url(${items.bannerImage})` }}>
+                                                    <h2 className="text-white fs-30 fw-800 mb-1">{items?.title}</h2>
+                                                </div>
+                                            </Link>
+                                        );
+                                    })}
+                                </Slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Gallery section */}
+            <section className="mt-4" style={{ backgroundColor: '#1d1d1d' }}>
+                <div className="container-fluid w-95">
+                    <div className="row justify-content-center align-items-center py-lg-5 py-4 detail-container" data-aos="fade-up">
+                        <div className="col-12 text-center d-grid justify-content-center">
+                            <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
+                                Gallery
+                            </h2>
+                            <div className="col-12 mt-4 gallery-slider" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                                <Slider {...gallerySetting}>
+                                    {projectsList?.map((items: ProjectsInterface, index: number) => {
+                                        return (
+                                            <div key={index}>
+                                                <img className='gallery-images' src={items?.bannerImage} alt={items?.bannerImage} />
                                             </div>
                                         );
                                     })}

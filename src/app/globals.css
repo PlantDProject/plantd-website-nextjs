@@ -212,6 +212,10 @@ section.section-green {
     width: 100%;
 }
 
+.slick-slide:focus-visible {
+    outline: none !important;
+}
+
 /* Loader CSS */
 
 #globalLoader {
