@@ -152,7 +152,7 @@ const Navbar = () => {
 
                         <ul className="mb-0 ps-lg-2 ps-0">
                             <li className="nav-item">
-                                <Link className="btn primary-btn" href="sign-up">
+                                <Link className="btn primary-btn" href="/sign-up">
                                     Sign Up Now
                                 </Link>
                             </li>
