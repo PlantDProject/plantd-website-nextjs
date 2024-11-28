@@ -4,7 +4,7 @@ import React from 'react';
 import './Navbar.css';
 import { aboutUsData, solutionsData } from './DropdownItems';
 import Link from 'next/link';
-import { dark, light } from '@/utils/helpers';
+import { light } from '@/utils/helpers';
 import { usePathname } from 'next/navigation';
 import { redirect } from 'next/navigation';
 
@@ -28,14 +28,18 @@ const Navbar = () => {
             const projectsData = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
             const projectRes = await projectsData.json();
             setProjectList(projectRes?.projectList?.items || []);
-        } catch { }
+        } catch {
+            console.log("ERR")
+         }
 
         try {
             const blogData = await fetch(`https://plantd.life/blogs/wp-json/wp/v2/posts`);
             const blogRes = await blogData.json();
             const firstFive = blogRes.slice(0, 5);
             setBlogList(firstFive);
-        } catch { }
+        } catch {
+            console.log("ERR")
+         }
     };
     React.useEffect(() => {
         if (window && window.innerWidth > 991) setShow(true);
