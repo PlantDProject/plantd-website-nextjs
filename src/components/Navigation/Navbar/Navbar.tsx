@@ -60,7 +60,6 @@ const Navbar = () => {
     React.useEffect(() => {
         window.addEventListener('resize', () => {
             if (window.innerWidth < 991) {
-                console.log(window.innerWidth, show)
                 if (show) setShow(false);
             } else {
                 setShow(true);
