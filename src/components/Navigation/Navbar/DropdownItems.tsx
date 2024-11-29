@@ -30,17 +30,17 @@ export const aboutUsData: DropdownData[] = [
 export const solutionsData: DropdownData[] = [
     {
         name: 'For Individuals',
-        slug: '/individuals',
+        slug: '/individual',
         bannerImage: '/next-images/menu/solutions/individual.png',
     },
     {
         name: 'Sustainable Fundraising',
-        slug: '/fundraisers',
+        slug: '/fundraiser',
         bannerImage: '/next-images/menu/solutions/fundraiser.png',
     },
     {
         name: 'Become an Ambassador',
-        slug: '/',
+        slug: '/ambassador',
         bannerImage: '/next-images/menu/solutions/ambassador.png',
     },
     {
@@ -50,7 +50,7 @@ export const solutionsData: DropdownData[] = [
     },
     {
         name: 'Plant Globally',
-        slug: '/',
+        slug: '/contribute',
         bannerImage: '/next-images/menu/solutions/global.png',
     },
 ];

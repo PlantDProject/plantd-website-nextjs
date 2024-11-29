@@ -99,22 +99,38 @@ const Navbar = () => {
     };
 
     const redirectTo = (path: string) => {
+        setShowProjectsDropdown(false);
+        setShowAboutUsDropdown(false);
+        setShowSolutionsDropdown(false)
+        setShowBlogsDropdown(false)
         switch (path) {
             case 'projects':
                 if (window && window.innerWidth < 991 && !showProjectsDropdown) {
                     setShowProjectsDropdown(true);
-                    setShowAboutUsDropdown(false);
                     return;
                 }
                 redirect('/projects');
                 break;
             case 'about':
                 if (window && window.innerWidth < 991 && !showAboutUsDropdown) {
-                    setShowProjectsDropdown(false);
                     setShowAboutUsDropdown(true);
                     return;
                 }
                 redirect('/about');
+                break;
+            case 'solutions':
+                if (window && window.innerWidth < 991 && !showProjectsDropdown) {
+                    setShowSolutionsDropdown(true)
+                    return;
+                }
+                redirect('/solutions');
+                break;
+            case 'blogs':
+                if (window && window.innerWidth < 991 && !showAboutUsDropdown) {
+                    setShowBlogsDropdown(true)
+                    return;
+                }
+                redirect('/blogs');
                 break;
         }
     };
@@ -131,7 +147,7 @@ const Navbar = () => {
                         <ul className="mb-0 ps-lg-2 ps-0 d-block me-4 d-lg-none">
                             <li className="nav-item">
                                 <Link className="btn primary-btn" href="sign-up">
-                                    Sign Up Now
+                                    Start Planting
                                 </Link>
                             </li>
                         </ul>
@@ -162,6 +178,9 @@ const Navbar = () => {
                                             </Link>
                                         );
                                     })}
+
+                                    <div className="col-lg-4 d-none d-lg-block"></div>
+                                    <div className="col-lg-4 d-none d-lg-block"></div>
                                 </ul>
                             </li>
 
@@ -189,14 +208,14 @@ const Navbar = () => {
                             </li>
 
                             <li className={`nav-item color-white`} onMouseEnter={() => setShowSolutionsDropdown(true)} onMouseLeave={() => setShowSolutionsDropdown(false)}>
-                                <Link className={`nav-link ${showSolutionsDropdown ? 'arrow-dropdown' : ''} ${isActive('/solutions') ? 'active' : ''}`} href="#" onClick={() => redirectTo('projects')}>
+                                <Link className={`nav-link ${showSolutionsDropdown ? 'arrow-dropdown' : ''} ${isActive('/solutions') ? 'active' : ''}`} href="#" onClick={() => redirectTo('solutions')}>
                                     Solutions
                                     <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
                                 </Link>
                                 <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showSolutionsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="projectsDropdown">
                                     {solutionsData?.map((item: any, index: number) => {
                                         return (
-                                            <Link href={`/solutions/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
+                                            <Link href={`${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
                                                     <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                                 </div>
@@ -213,7 +232,7 @@ const Navbar = () => {
                             </li>
 
                             <li className={`nav-item color-white`} onMouseEnter={() => setShowBlogsDropdown(true)} onMouseLeave={() => setShowBlogsDropdown(false)}>
-                                <Link className={`nav-link ${showBlogsDropdown ? 'arrow-dropdown' : ''} ${isActive('/blogs') ? 'active' : ''}`} href="#" onClick={() => redirectTo('projects')}>
+                                <Link className={`nav-link ${showBlogsDropdown ? 'arrow-dropdown' : ''} ${isActive('/blogs') ? 'active' : ''}`} href="#" onClick={() => redirectTo('blogs')}>
                                     Blogs
                                     <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
                                 </Link>
@@ -247,7 +266,7 @@ const Navbar = () => {
                         <ul className="mb-0 ps-lg-2 ps-0 d-none d-lg-block">
                             <li className="nav-item">
                                 <Link className="btn primary-btn" href="/sign-up">
-                                    Sign Up Now
+                                    Start Planting
                                 </Link>
                             </li>
                         </ul>
