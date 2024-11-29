@@ -56,7 +56,9 @@
     flex-direction: column;
     justify-content: end;
     text-align: left;
+    position: relative;
 }
+
 .home-about-slider {
     padding: 10px; /* Add padding inside the container */
     border-radius: 20px; /* Round the corners */
@@ -67,18 +69,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #fff;
+    border-radius: 30px;
 }
 
 /* Remove outline when the slider div is focused */
 .home-projects-slider:focus-visible {
     outline: none;
-}
-
-.gallery-images {
-    height: 400px;
-    vertical-align: middle;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
 /* Padding adjustment for slick slide items */
@@ -87,6 +84,11 @@
 }
 
 /* gallery images slider css */
+.gallery-images {
+    width: 100%;
+    border-radius: 20px;
+}
+
 .gallery-slider .slick-slide.slick-active {
     opacity: 1 !important;
     transform: scale(1);
@@ -102,6 +104,65 @@
     transform: scale(0.9);
     transition-duration: 1000ms;
 }
+/* .home-gallery-slider{
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+} */
+
+.link-click-active{
+    pointer-events: unset;
+}
+
+.link-click{
+    pointer-events: none;
+}
+
+.testimonial-div{
+    position: relative;
+    z-index: 0;
+    padding: 50px 0 0 0;
+}
+.testimonial-box{
+    padding: 80px 30px 30px 30px;
+    background-color: #232323;
+    height: 380px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+
+}
+.testimonial-image{
+    position: absolute;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 53px;
+    transform: translate(-50%, -50%);
+    z-index: 9999999 !important;
+}
+.testimonial-desc{
+    height: 250px;
+    overflow-y: auto;
+}
+.testimonial-desc::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 1px !important;
+}
+
+
+/* Mobile-specific styles for screen widths below 1200 */
+@media (max-width: 1199.89px) {
+    .plantBtn{
+        width: 150px !important;
+        padding: 7px 0px !important;
+    }
+}
 
 /* Mobile-specific styles for screen widths below 992px */
 @media (max-width: 991.89px) {
@@ -113,10 +174,14 @@
     br {
         display: none;
     }
+    .plantBtn{
+        width: 260px !important;
+        padding: 14px 0px !important;
+    }
 }
 
 /* Mobile-specific styles for screen widths below 768px */
-@media (max-width: 768px) {
+@media (max-width: 767.89px) {
     /* Set img-fluid width to 100% and center it */
     .img-fluid {
         width: 100%;
@@ -125,6 +190,10 @@
     .header-subtext {
         font-size: 16px;
         line-height: 25px;
+    }
+    .plantBtn{
+        width: 200px !important;
+        padding: 12px 0px !important;
     }
 }
 
@@ -136,10 +205,26 @@
     /* No custom changes at this size */
 }
 
-/* Custom styles for extra small screens (below 372px) */
-@media (max-width: 372px) {
+/* Custom styles for extra small screens (below 480px) */
+@media (max-width: 480px) {
+    .plantBtn{
+        width: 170px !important;
+        padding: 8px 0px !important;
+    }
+}
+
+/* Custom styles for extra small screens (below 420px) */
+@media (max-width: 420px) {
+    .plantBtn{
+        width: 140px !important;
+        padding: 5px 0px !important;
+    }
 }
 
 /* Custom styles for extremely small screens (below 315px) */
-@media (max-width: 315px) {
+@media (max-width: 345px) {
+    .plantBtn{
+        width: 120px !important;
+          padding: 3px 0px !important;
+    }
 }

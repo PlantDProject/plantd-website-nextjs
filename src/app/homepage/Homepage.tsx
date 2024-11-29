@@ -1,10 +1,10 @@
 'use client';
 import './Homepage.css'; // Importing CSS styles specific to this page
-import React from 'react'; // Importing necessary React hooks
+import React, { useEffect, useState } from 'react'; // Importing necessary React hooks
 import Slider from 'react-slick'; // Importing Slider component for image carousel
 // import { initMixpanel } from '@/utils/mixpanel'; // Importing Mixpanel analytics initialization
 // import { initPostHog } from '@/utils/posthog'; // Importing PostHog analytics initialization
-import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
+import { trackEvent, homeAboutData, homeTestimonialData, galleryImagesData } from '@/utils/helpers'; // Importing event tracking helper
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
@@ -15,6 +15,20 @@ interface ProjectsInterface {
     bannerImage: string;
     slug: string;
 }
+interface aboutInterface {
+    image: string;
+    name: string;
+    url: string;
+}
+interface galleryInterface {
+    image: string;
+    alt: string;
+}
+interface testimonialInterface {
+    image: string;
+    name: string;
+    description: string;
+}
 
 // Fundraiser Component
 const Homepage = ({ projectsList }: any) => {
@@ -22,7 +36,6 @@ const Homepage = ({ projectsList }: any) => {
     const settings = {
         dots: false, // Disables dot navigation
         infinite: true, // Enables infinite scrolling
-        speed: 500, // Set transition speed
         slidesToShow: 3, // Number of slides to show at once
         centerMode: true, // Center the active slide
         slidesToScroll: 1, // Scroll one slide at a time
@@ -33,6 +46,7 @@ const Homepage = ({ projectsList }: any) => {
                 settings: {
                     slidesToShow: 2, // Show 2 slides at a time
                     slidesToScroll: 1, // Scroll 1 slide at a time
+                    centerPadding: '30px',
                     infinite: true, // Keep infinite scrolling
                     dots: true, // Show navigation dots
                 },
@@ -42,6 +56,37 @@ const Homepage = ({ projectsList }: any) => {
                 settings: {
                     slidesToShow: 1, // Show only 1 slide at a time
                     slidesToScroll: 1, // Scroll 1 slide at a time
+                    centerPadding: '30px',
+                    infinite: true, // Keep infinite scrolling
+                    dots: true, // Show navigation dots
+                },
+            },
+        ],
+    };
+
+    const testimonialSettings = {
+        dots: false, // Disables dot navigation
+        infinite: false, // Enables infinite scrolling
+        slidesToShow: 3, // Number of slides to show at once
+        slidesToScroll: 1, // Scroll one slide at a time
+        arrows: false, // Disables navigation arrows
+        responsive: [
+            {
+                breakpoint: 991, // Adjust settings for screens smaller than 991px
+                settings: {
+                    slidesToShow: 2, // Show 2 slides at a time
+                    slidesToScroll: 1, // Scroll 1 slide at a time
+                    centerPadding: '30px',
+                    infinite: true, // Keep infinite scrolling
+                    dots: true, // Show navigation dots
+                },
+            },
+            {
+                breakpoint: 767, // Adjust settings for screens smaller than 767px (mobile)
+                settings: {
+                    slidesToShow: 1, // Show only 1 slide at a time
+                    slidesToScroll: 1, // Scroll 1 slide at a time
+                    centerPadding: '30px',
                     infinite: true, // Keep infinite scrolling
                     dots: true, // Show navigation dots
                 },
@@ -52,20 +97,22 @@ const Homepage = ({ projectsList }: any) => {
     const gallerySetting = {
         dots: false, // Disables dot navigation
         infinite: true, // Enables infinite scrolling
-        speed: 500, // Set transition speed
+        autoplay: true,
+        autoplaySpeed: 1500,
+        pauseOnHover: false,
         slidesToShow: 1, // Number of slides to show at once
         centerMode: true, // Center the active slide
         slidesToScroll: 1, // Scroll one slide at a time
-        centerPadding: "250px",
+        centerPadding: '250px',
         arrows: false, // Disables navigation arrows
         responsive: [
             {
                 breakpoint: 991, // Adjust settings for screens smaller than 991px
                 settings: {
-                    slidesToShow: 2, // Show 2 slides at a time
+                    slidesToShow: 1, // Show 2 slides at a time
                     slidesToScroll: 1, // Scroll 1 slide at a time
+                    centerPadding: '30px',
                     infinite: true, // Keep infinite scrolling
-                    dots: true, // Show navigation dots
                 },
             },
             {
@@ -73,13 +120,12 @@ const Homepage = ({ projectsList }: any) => {
                 settings: {
                     slidesToShow: 1, // Show only 1 slide at a time
                     slidesToScroll: 1, // Scroll 1 slide at a time
+                    centerPadding: '30px',
                     infinite: true, // Keep infinite scrolling
-                    dots: true, // Show navigation dots
                 },
             },
         ],
     };
-
 
     return (
         <div className="bg-dark-grey">
@@ -121,7 +167,7 @@ const Homepage = ({ projectsList }: any) => {
             {/* Fundraiser Detail Section */}
             <section className="pt-4">
                 <div className="container w-95 home-about-section">
-                    <div className="row justify-content-center py-lg-5 py-4 detail-container" data-aos="fade-up">
+                    <div className="row justify-content-center py-lg-5 py-4 detail-container">
                         <div className="col-lg-10 col-12 text-center">
                             <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
                                 What is <span className="text-green">Plantd?</span>
@@ -141,8 +187,8 @@ const Homepage = ({ projectsList }: any) => {
             {/* projects section */}
             <section className="pt-4">
                 <div className="container w-95" style={{ backgroundColor: '#1d1d1d' }}>
-                    <div className="row justify-content-center py-lg-5 py-4 detail-container" data-aos="fade-up">
-                        <div className="col-lg-10 col-12 text-center d-grid justify-content-center">
+                    <div className="row justify-content-center py-lg-5 py-4 detail-container">
+                        <div className="col-12 text-center d-grid justify-content-center">
                             <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
                                 Our Projects
                             </h2>
@@ -150,15 +196,16 @@ const Homepage = ({ projectsList }: any) => {
                                 <Slider {...settings}>
                                     {projectsList?.map((items: ProjectsInterface, index: number) => {
                                         return (
-                                            <Link
-                                                key={index}
-                                                href={`/contribute?project=${items?.slug}`}
-                                            >
+                                            // href={`/contribute?project=${items?.slug}`}
+                                            // className={isClicked ? `link-click-active` : `link-click`}
+                                            <div key={index}>
                                                 <div className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .4), rgb(0 0 0 / .4)), url(${items.bannerImage})` }}>
-                                                    <p className="text-green fs-14 fw-800 mb-1">{items?.title}</p>
-                                                    <p className="text-white fs-12 mb-1">{items?.about}</p>
+                                                    <Link href={`/contribute?project=${items?.slug}`} passHref>
+                                                        <p className="text-green fs-20 fw-800 mb-1">{items?.title}</p>
+                                                        <p className="text-white fs-14 mb-1">{items?.about.substring(0, 230)}...</p>
+                                                    </Link>
                                                 </div>
-                                            </Link>
+                                            </div>
                                         );
                                     })}
                                 </Slider>
@@ -171,23 +218,22 @@ const Homepage = ({ projectsList }: any) => {
             {/* About PLantd section */}
             <section className="pt-4">
                 <div className="container w-95" style={{ backgroundColor: '#1d1d1d' }}>
-                    <div className="row justify-content-center py-lg-5 py-4 detail-container" data-aos="fade-up">
-                        <div className="col-lg-10 col-12 text-center d-grid justify-content-center">
+                    <div className="row justify-content-center py-lg-5 py-4 detail-container">
+                        <div className="col-12 text-center d-grid justify-content-center">
                             <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
-                                Uniting people for a <span className='text-green'>greener</span> tomorrow
+                                Uniting people for a <span className="text-green">greener</span> tomorrow
                             </h2>
                             <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
                                 <Slider {...settings}>
-                                    {projectsList?.map((items: ProjectsInterface, index: number) => {
+                                    {homeAboutData?.map((items: aboutInterface, index: number) => {
                                         return (
-                                            <Link
-                                                key={index}
-                                                href={`/contribute?project=${items?.slug}`}
-                                            >
-                                                <div className="ms-2 home-about-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .6), rgb(0 0 0 / .6)), url(${items.bannerImage})` }}>
-                                                    <h2 className="text-white fs-30 fw-800 mb-1">{items?.title}</h2>
+                                            <div key={index}>
+                                                <div className="ms-2 home-about-slider" style={{ backgroundImage: `url(${items?.image})` }}>
+                                                    <Link href={items?.url}>
+                                                        <h2 className="text-white fs-30 fw-800 mb-1">{items?.name}</h2>
+                                                    </Link>
                                                 </div>
-                                            </Link>
+                                            </div>
                                         );
                                     })}
                                 </Slider>
@@ -200,17 +246,19 @@ const Homepage = ({ projectsList }: any) => {
             {/* Gallery section */}
             <section className="mt-4" style={{ backgroundColor: '#1d1d1d' }}>
                 <div className="container-fluid w-95">
-                    <div className="row justify-content-center align-items-center py-lg-5 py-4 detail-container" data-aos="fade-up">
+                    <div className="row justify-content-center align-items-center py-lg-5 py-4 detail-container">
                         <div className="col-12 text-center d-grid justify-content-center">
                             <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
                                 Gallery
                             </h2>
                             <div className="col-12 mt-4 gallery-slider" style={{ maxWidth: '100%', overflow: 'hidden' }}>
                                 <Slider {...gallerySetting}>
-                                    {projectsList?.map((items: ProjectsInterface, index: number) => {
+                                    {galleryImagesData?.map((items: galleryInterface, index: number) => {
                                         return (
                                             <div key={index}>
-                                                <img className='gallery-images' src={items?.bannerImage} alt={items?.bannerImage} />
+                                                <img className="gallery-images" src={items?.image} alt={items?.alt} />
+                                                {/* <div className="ms-2 home-gallery-slider" style={{ backgroundImage: `url(${items?.image})` }}>
+                                                </div> */}
                                             </div>
                                         );
                                     })}
@@ -221,7 +269,31 @@ const Homepage = ({ projectsList }: any) => {
                 </div>
             </section>
 
-            <section className="pt-4"></section>
+            {/*  section */}
+            <section className="pt-4">
+                <div className="container w-95" style={{ backgroundColor: '#1d1d1d', zIndex: 1 }}>
+                    <div className="row justify-content-center py-lg-5 py-4 detail-container">
+                        <div className="col-12 text-center d-grid justify-content-center">
+                            <h2 className="text-white mb-lg-4">What people say?</h2>
+                            <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                                <Slider {...testimonialSettings}>
+                                    {homeTestimonialData?.map((items: testimonialInterface, index: number) => {
+                                        return (
+                                            <div className="testimonial-div" key={index}>
+                                                <div className="testimonial-box">
+                                                    <p className="text-white fs-14 testimonial-desc">{items?.description}</p>
+                                                    <p className="text-green fs-20 fw-700">{items?.name}</p>
+                                                </div>
+                                                <img className="testimonial-image" src={items?.image} alt={items?.image} />
+                                            </div>
+                                        );
+                                    })}
+                                </Slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Modal to show after form submission */}
         </div>
