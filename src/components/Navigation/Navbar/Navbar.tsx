@@ -146,7 +146,7 @@ const Navbar = () => {
                     <div className="d-flex align-items-center">
                         <ul className="mb-0 ps-lg-2 ps-0 d-block me-4 d-lg-none">
                             <li className="nav-item">
-                                <Link className="btn primary-btn" href="sign-up">
+                                <Link className="btn primary-btn" href="/contribute">
                                     Start Planting
                                 </Link>
                             </li>
@@ -265,7 +265,7 @@ const Navbar = () => {
 
                         <ul className="mb-0 ps-lg-2 ps-0 d-none d-lg-block">
                             <li className="nav-item">
-                                <Link className="btn primary-btn" href="/sign-up">
+                                <Link className="btn primary-btn" href="/contribute">
                                     Start Planting
                                 </Link>
                             </li>
