@@ -4,6 +4,7 @@ import { isEven } from '@/utils/helpers';
 import './projects.css';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import CardCarousel from '@/components/Carousel';
 
 interface ProjectsInterface {
     title: string;
@@ -47,6 +48,12 @@ const Projects = ({ projectsList }: any) => {
                 <section className="">
                     <div className="container-fluid w-90">
                         <h2 className="text-green text-center mb-lg-4 mt-1 fw-bold mb-3">Current Projects</h2>
+                    </div>
+                </section>
+
+                <section className="">
+                    <div className="container-fluid w-90">
+                        <CardCarousel cards={projectsList} />
                     </div>
                 </section>
 

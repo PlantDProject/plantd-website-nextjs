@@ -1,0 +1,42 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+  }
+  
+  .cards-wrapper-top {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .card-custom-carousel {
+        width: 300px;
+        margin: 0px 10px;
+        background: rgb(255, 255, 255);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        opacity: 1;
+        transform: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+  }
+
+  .card-custom-carousel {
+    top : 25px !important
+  }
+
+  .card-custom-carousel:last-child {
+    top : 50px !important;
+  }
+
+
+  .card-custom-carousel:first-child {
+    top : 0 !important;
+  }
+  
