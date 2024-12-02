@@ -51,3 +51,57 @@ export const trackEvent = (e: any, data: any = {}) => {
     trackMixpanelEvent(e, data);
     trackPosthogEvent(e, data);
 };
+
+export const galleryImagesData = [
+    { image: `next-images/home/gallery-image1.webp`, alt: 'gallery-image1' },
+    { image: `next-images/home/gallery-image2.webp`, alt: 'gallery-image2' },
+    { image: `next-images/home/gallery-image3.webp`, alt: 'gallery-image3' },
+    { image: `next-images/home/gallery-image4.webp`, alt: 'gallery-image4' },
+    { image: `next-images/home/gallery-image5.webp`, alt: 'gallery-image5' },
+    { image: `next-images/home/gallery-image6.webp`, alt: 'gallery-image6' },
+    { image: `next-images/home/gallery-image7.webp`, alt: 'gallery-image7' },
+    { image: `next-images/home/gallery-image8.webp`, alt: 'gallery-image8' },
+    { image: `next-images/home/gallery-image9.webp`, alt: 'gallery-image9' },
+    { image: `next-images/home/gallery-image10.webp`, alt: 'gallery-image10' },
+    { image: `next-images/home/gallery-image11.webp`, alt: 'gallery-image11' },
+    { image: `next-images/home/gallery-image12.webp`, alt: 'gallery-image12' }
+];
+export const homeAboutData = [
+    { image: `next-images/home/homeAbout1.webp`, name: 'Individual', url: "" },
+    { image: `next-images/home/homeAbout2.webp`, name: 'Businesses', url: "/business" },
+    { image: `next-images/home/homeAbout3.webp`, name: 'Fundraising', url: "/fundraiser" },
+];
+export const homeTestimonialData = [
+    { image: `next-images/home/Elissa.webp`, name: 'Elissa', description: `I joined Plantd because I wanted to
+    make a positive impact on the environment while also having the chance to win
+    exciting giveaways! By being a Plantd subscriber, I know I am helping create a
+    more sustainable future through each and every tree that is planted monthly from
+    my subscription! I highly recommend this app if you are looking for an easy and
+    innovative way to be more environmentally conscious! Do your part!` },
+    { image: `next-images/home/Joelle.webp`, name: 'Joelle', description: `Being a Plantd subscriber has been
+    beyond rewarding knowing I’m contributing to a better future for the next
+    generations to come. It doesn’t have to be difficult to do your part! With
+    Plantd, I can see exactly how my contributions are making the world a better
+    place and it’s such a great feeling.` },
+    { image: `next-images/home/Alex.webp`, name: 'Alex', description: `I have been a Plantd subscriber for
+    about 6 months now and that means 30 trees have been planted on my behalf! I am
+    a big believer in saving the bees, trees and the seas so this subscription is a
+    no brainer! On top of the moral benefits, Plantd offers giveaways! I won a brand
+    new MacBook Pro!` },
+    { image: `next-images/home/Elissa.webp`, name: 'Elissa', description: `I joined Plantd because I wanted to
+    make a positive impact on the environment while also having the chance to win
+    exciting giveaways! By being a Plantd subscriber, I know I am helping create a
+    more sustainable future through each and every tree that is planted monthly from
+    my subscription! I highly recommend this app if you are looking for an easy and
+    innovative way to be more environmentally conscious! Do your part!` },
+    { image: `next-images/home/Joelle.webp`, name: 'Joelle', description: `Being a Plantd subscriber has been
+    beyond rewarding knowing I’m contributing to a better future for the next
+    generations to come. It doesn’t have to be difficult to do your part! With
+    Plantd, I can see exactly how my contributions are making the world a better
+    place and it’s such a great feeling.` },
+    { image: `next-images/home/Alex.webp`, name: 'Alex', description: `I have been a Plantd subscriber for
+    about 6 months now and that means 30 trees have been planted on my behalf! I am
+    a big believer in saving the bees, trees and the seas so this subscription is a
+    no brainer! On top of the moral benefits, Plantd offers giveaways! I won a brand
+    new MacBook Pro!` }
+];

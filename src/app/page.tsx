@@ -1,24 +1,19 @@
-import './giveaways/giveaway.css';
+import { Metadata } from 'next';
+import { defaultOGImage } from '@/utils/helpers';
+import Homepage from './homepage/Homepage';
 
-export default function Home() {
-    return (
-        <div>
-            <section className="bg-home " id="home">
-                <div className="home-center">
-                    <div className="home-desc-center">
-                        <div className="container-fluid w-95">
-                            <div className="row align-items-center">
-                                <div className="col-12">
-                                    <div className="text-center">
-                                        <h1 className="title mb-5 text-center">HomePage</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div style={{ height: 2000, backgroundColor: '#000' }}></div>
-        </div>
-    );
+const description = 'See our Projects all over the world in our journey as we plant 1 Billion Trees through our Reforestation Contribution App';
+
+export const metadata: Metadata = {
+    title: 'Home | Plantd',
+    description,
+    openGraph: { title: 'Plantd Home', description, images: defaultOGImage },
+};
+
+export default async function Page() {
+    const data = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
+    const response = await data.json();
+    const projectsList = response?.projectList?.items || [];
+
+    return <Homepage projectsList={projectsList} />;
 }

@@ -222,6 +222,10 @@ section.section-green {
     width: 100%;
 }
 
+*:focus-visible {
+    outline: none;
+}
+
 /* Loader CSS */
 
 #globalLoader {

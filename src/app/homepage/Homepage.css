@@ -1,0 +1,249 @@
+/* Main background section for the homepage */
+.bg-home {
+    padding: 10rem 0;
+    background-image: url('/next-images/homepage/homeBanner.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Title styling */
+.title {
+    font-size: 44px; /* Set font size */
+    font-weight: bold; /* Make the font bold */
+    line-height: 1.3;
+}
+
+/* Sub-heading style for the giveaway header */
+.title-sub-heading {
+    width: 60%; /* Limit the width of the sub-heading */
+    margin: auto; /* Center the sub-heading horizontally */
+}
+
+/* Dark grey background with a custom variable */
+.bg-dark-grey {
+    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
+}
+
+.header-subtext {
+    font-size: 20px;
+    color: var(--white);
+    line-height: 33px;
+}
+
+.plantBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mobile-card-swiper{
+  display: none !important;
+}
+
+.home-about-section {
+    background-image: url('/next-images/homepage/homeaboutimg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 40px;
+}
+
+/* Styling for the slider container */
+.home-projects-slider {
+    padding: 10px; /* Add padding inside the container */
+    border-radius: 20px; /* Round the corners */
+    height: 400px; /* Set a fixed height for the slider */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: left;
+    position: relative;
+}
+
+.home-about-slider {
+    padding: 10px; /* Add padding inside the container */
+    border-radius: 20px; /* Round the corners */
+    height: 360px; /* Set a fixed height for the slider */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 30px;
+}
+
+/* Remove outline when the slider div is focused */
+.home-projects-slider:focus-visible {
+    outline: none;
+}
+
+/* gallery images slider css */
+.gallery-images {
+    width: 100%;
+    border-radius: 20px;
+}
+.home-gallery-section .gallery-active-img.swiper-slide{
+    transform: scaleY(1) ;
+    transition-duration: 500ms;
+}
+
+.home-gallery-section .gallery-prev-img.swiper-slide, .home-gallery-section .gallery-next-img.swiper-slide{
+  transform: scaleY(0.75);
+  transition-duration: 500ms;
+}
+
+.link-click-active{
+    pointer-events: unset;
+}
+
+.link-click{
+    pointer-events: none;
+}
+
+.testimonial-div{
+    position: relative;
+    z-index: 0;
+    padding: 50px 0 0 0;
+}
+.testimonial-box{
+    padding: 80px 30px 30px 30px;
+    background-color: #232323;
+    height: 380px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+
+}
+.testimonial-image{
+    position: absolute;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 53px;
+    transform: translate(-50%, -50%);
+    z-index: 9999999 !important;
+}
+.testimonial-desc{
+    height: 250px;
+    overflow-y: auto;
+}
+.testimonial-desc::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 1px !important;
+}
+
+
+/* Mobile-specific styles for screen widths below 1200 */
+@media (max-width: 1199.89px) {
+    .plantBtn{
+        width: 150px !important;
+        padding: 7px 0px !important;
+    }
+}
+
+/* Mobile-specific styles for screen widths below 992px */
+@media (max-width: 991.89px) {
+    /* Reverse row order for smaller screens */
+    .reverseRow {
+        display: flex;
+        flex-direction: column-reverse !important;
+    }
+    br {
+        display: none;
+    }
+    .plantBtn{
+        width: 260px !important;
+        padding: 14px 0px !important;
+    }
+}
+
+/* Mobile-specific styles for screen widths below 768px */
+@media (max-width: 767.89px) {
+    /* Set img-fluid width to 100% and center it */
+    .img-fluid {
+        width: 100%;
+        margin: 30px auto;
+    }
+    .header-subtext {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .plantBtn{
+        width: 200px !important;
+        padding: 12px 0px !important;
+    }
+}
+
+/* Custom styles for very small screens (below 600px) */
+@media (max-width: 600px) {
+    .header-subtext {
+        width: 100%;
+    }
+    .testimonial-box{
+        padding: 80px 15px 15px 15px;
+    }
+    .home-pages-section .swiper {
+        width: 280px;
+      }
+    .mobile-card-swiper{
+        display: unset !important;
+      }
+      .web-card-swiper{
+        display: none !important;
+      }
+      .gallery-images {
+        border-radius: 12px;
+    }
+    /* No custom changes at this size */
+}
+
+/* Custom styles for extra small screens (below 480px) */
+@media (max-width: 480px) {
+    .plantBtn{
+        width: 170px !important;
+        padding: 8px 0px !important;
+    }
+}
+
+/* Custom styles for extra small screens (below 420px) */
+@media (max-width: 420px) {
+    .plantBtn{
+        width: 140px !important;
+        padding: 5px 0px !important;
+    }
+}
+/* Custom styles for extra small screens (below 385px) */
+@media (max-width: 385px) {
+    .home-pages-section .swiper {
+        width: 240px;
+      }
+      .home-about-slider{
+        height: 320px !important;
+      }
+}
+
+/* Custom styles for extremely small screens (below 315px) */
+@media (max-width: 345px) {
+    .plantBtn{
+        width: 120px !important;
+          padding: 3px 0px !important;
+    }
+    .home-pages-section .swiper {
+        width: 220px;
+      }
+      .home-about-slider{
+        height: 280px !important;
+      }
+}
+
+
+/* .home-pages-section .swiper {
+    width: 240px;
+    height: 320px;
+  } */

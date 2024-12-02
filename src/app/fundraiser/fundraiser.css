@@ -1,5 +1,5 @@
 /* Main background section for the homepage */
-.bg-home {
+.fundraiser-bg-home {
     position: relative; /* Set the element's position to relative for positioning child elements */
     padding: 170px 0 0; /* Add padding to the top, leaving no padding on the bottom */
     background-repeat: no-repeat; /* Prevent background image from repeating */
@@ -190,12 +190,5 @@
 
     .sliderDiv p {
         font-size: 7px !important; /* Make text even smaller */
-    }
-}
-
-/* Custom styles for large screens (above 1500px) */
-@media (min-width: 1500px) {
-    .bg-home {
-        padding: 150px 0 0 0; /* Adjust top padding for larger screens */
     }
 }
