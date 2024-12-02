@@ -97,7 +97,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-center text-white mt-3">© Plantd Life, Inc 2024</div>
+                <div className="text-center text-white mt-3">© <a className='text-white' href={`${process.env.WEBSITE_URL}/sitemap.xml`}>Plantd Life</a>, Inc 2024</div>
             </div>
         </footer>
     );
