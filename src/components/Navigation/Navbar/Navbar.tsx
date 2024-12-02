@@ -123,7 +123,7 @@ const Navbar = () => {
                     setShowSolutionsDropdown(true)
                     return;
                 }
-                redirect('/solutions');
+                // redirect('/solutions');
                 break;
             case 'blogs':
                 if (window && window.innerWidth < 991 && !showAboutUsDropdown) {
