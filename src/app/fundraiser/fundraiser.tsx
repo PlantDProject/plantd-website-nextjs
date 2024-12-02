@@ -1,10 +1,8 @@
 'use client';
 import CustomForm from '@/components/ContactForm/ContactForm'; // Importing custom form component
 import './fundraiser.css'; // Importing CSS styles specific to this page
-import React, { useEffect, useState } from 'react'; // Importing necessary React hooks
+import React, { useState } from 'react'; // Importing necessary React hooks
 import Slider from 'react-slick'; // Importing Slider component for image carousel
-import { initMixpanel } from '@/utils/mixpanel'; // Importing Mixpanel analytics initialization
-import { initPostHog } from '@/utils/posthog'; // Importing PostHog analytics initialization
 import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
 import CustomModal from '@/components/Navigation/Modal/modal'; // Importing custom modal component
 
