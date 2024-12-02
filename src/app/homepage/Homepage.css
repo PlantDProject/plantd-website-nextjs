@@ -5,7 +5,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.slider-div {
+    max-width: 100%;
+    overflow: hidden;
+}
 /* Title styling */
 .title {
     font-size: 44px; /* Set font size */
@@ -36,6 +39,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.plantBtn,
+.moreBtn {
+    width: 180px;
+    padding: 10px 0px;
+}
+.plantBtn:hover,
+.moreBtn:hover {
+    color: var(--primary-color) !important;
+    background-color: var(--white) !important;
+    transition: 0.3s ease;
+}
 .mobile-card-swiper {
     display: none !important;
 }
@@ -61,6 +75,10 @@
     text-align: left;
     position: relative;
 }
+.home-projects-slider:hover {
+    transform: scale(1.01);
+    transition: 0.3s ease;
+}
 
 .home-about-slider {
     padding: 10px; /* Add padding inside the container */
@@ -76,7 +94,16 @@
     border-radius: 30px;
 }
 
+.home-about-slider:hover h2.pages-heading.text-white {
+    color: var(--primary-color) !important;
+    transition: 0.3s ease;
+}
+
 /* Remove outline when the slider div is focused */
+.swiper-backface-hidden .swiper-slide {
+    transform: unset !important;
+    transition-duration: 0s !important;
+}
 .home-projects-slider:focus-visible {
     outline: none;
 }
@@ -180,6 +207,15 @@
         font-size: 16px;
         line-height: 25px;
     }
+    .mobile-card-swiper {
+        display: unset !important;
+    }
+    .web-card-swiper {
+        display: none !important;
+    }
+    .home-pages-section .swiper {
+        width: 280px;
+    }
     .plantBtn {
         width: 200px !important;
         padding: 12px 0px !important;
@@ -193,15 +229,6 @@
     }
     .testimonial-box {
         padding: 80px 15px 15px 15px;
-    }
-    .home-pages-section .swiper {
-        width: 280px;
-    }
-    .mobile-card-swiper {
-        display: unset !important;
-    }
-    .web-card-swiper {
-        display: none !important;
     }
     .gallery-images {
         border-radius: 12px;
@@ -247,8 +274,3 @@
         height: 280px !important;
     }
 }
-
-/* .home-pages-section .swiper {
-    width: 240px;
-    height: 320px;
-  } */

@@ -2,12 +2,13 @@ import { Metadata } from 'next';
 import { defaultOGImage } from '@/utils/helpers';
 import Homepage from './homepage/Homepage';
 
-const description = 'See our Projects all over the world in our journey as we plant 1 Billion Trees through our Reforestation Contribution App';
+const description = 'Fight Climate Change with Plantd and Join the Movement to plant 1 Billion Trees!';
+const title = 'Tree Planting Initiative by PLANTD';
 
 export const metadata: Metadata = {
-    title: 'Home | Plantd',
+    title,
     description,
-    openGraph: { title: 'Plantd Home', description, images: defaultOGImage },
+    openGraph: { title, description, images: defaultOGImage },
 };
 
 export default async function Page() {

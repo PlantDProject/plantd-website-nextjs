@@ -4,7 +4,6 @@
     padding: 170px 0 0; /* Add padding to the top, leaving no padding on the bottom */
     background-repeat: no-repeat; /* Prevent background image from repeating */
     background-size: cover; /* Ensure background image covers the entire area */
-    background-color: #1d1d1d !important; /* Set the background color to dark grey */
 }
 
 /* Title styling */

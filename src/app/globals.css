@@ -47,6 +47,9 @@ a {
 .dark-bg {
     background-color: var(--dark) !important;
 }
+.grey-bg {
+    background-color: var(--grey-bg) !important;
+}
 
 
 

@@ -1,7 +1,10 @@
 'use client';
 import './Homepage.css'; // Importing CSS styles specific to this page
 import React from 'react'; // Importing necessary React hooks
-import { trackEvent, homeAboutData, homeTestimonialData, galleryImagesData } from '@/utils/helpers'; // Importing event tracking helper
+import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
+import { homeAboutData, homeTestimonialData, galleryImagesData } from './HomepageItems'; // Importing Homepage items
+import { ProjectsInterface, testimonialInterface, galleryInterface, aboutInterface } from './HomepageItems'; // Importing Homepage items
+import { threeCardsBreakpoints, oneCardBreakpoints, staticBreakpoints } from './HomepageItems'; // Importing Homepage items
 import Link from 'next/link';
 import { EffectCards, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,64 +12,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 
-
-interface ProjectsInterface {
-    title: string;
-    about: string;
-    name: string;
-    bannerImage: string;
-    slug: string;
-}
-interface aboutInterface {
-    image: string;
-    name: string;
-    url: string;
-}
-interface galleryInterface {
-    image: string;
-    alt: string;
-}
-interface testimonialInterface {
-    image: string;
-    name: string;
-    description: string;
-}
-
 // Fundraiser Component
 const Homepage = ({ projectsList }: any) => {
-    // Settings for the image slider component
-    const threeCardsBreakpoints = {
-        1200: {
-            slidesPerView: 3.4,
-            spaceBetween: 20,
-        },
-        992: {
-            slidesPerView: 2.4,
-        },
-        768: {
-            slidesPerView: 1.4,
-        },
-        220: {
-            slidesPerView: 1.2,
-            spaceBetween: 10,
-        },
-    };
-    const oneCardBreakpoints = {
-        1200: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
-        },
-        992: {
-            slidesPerView: 1.5,
-        },
-        480: {
-            slidesPerView: 1.3,
-        },
-        220: {
-            slidesPerView: 1.3,
-            spaceBetween: 10,
-        },
-    };
 
     return (
         <div className="bg-dark-grey">
@@ -94,7 +41,7 @@ const Homepage = ({ projectsList }: any) => {
 
                                 {/* Right Side Content */}
                                 <div className="col-lg-5 position-relative">
-                                    <a href="/contribute" onClick={() => trackEvent(`Let's Plant button clicked`)} className="btn btn-soft-primary btn-round d-flex justify-content-center mx-auto plantBtn" style={{ width: '180px', padding: '10px 0px' }}>
+                                    <a href="/contribute" onClick={() => trackEvent(`Let's Plant button clicked`)} className="btn btn-soft-primary btn-round d-flex justify-content-center mx-auto plantBtn">
                                         Let's Plant
                                     </a>
                                     <img src="/next-images/homepage/homeprojectimg.webp" width="100%" alt="fundraiser-left-head img" />
@@ -110,14 +57,14 @@ const Homepage = ({ projectsList }: any) => {
                 <div className="container w-95 home-about-section">
                     <div className="row justify-content-center py-lg-5 py-4 detail-container">
                         <div className="col-lg-10 col-12 text-center">
-                            <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
+                            <h2 className="text-white mb-lg-4 position-relative">
                                 What is <span className="text-green">Plantd?</span>
                             </h2>
-                            <p className="fs-20 text-white position-relative" style={{ zIndex: '1000' }}>
+                            <p className="fs-20 mx-md-0 mx-3 text-white position-relative">
                                 Plantd is your gateway to making a real environmental impact, effortlessly. With just a few clicks, Plantd enables you to plant trees worldwide, directly supporting reforestation efforts across the globe. Our platform connects you with incredible projects committed to combating climate change and restoring forests. Explore all of the transformative initiatives we
                                 have to offer and see the difference your contribution makes.
                             </p>
-                            <a href="/about" onClick={() => trackEvent('More About Plantd button clicked')} className="btn btn-soft-primary btn-round d-flex justify-content-center my-4 mx-auto" style={{ width: '180px', padding: '10px 0px' }}>
+                            <a href="/about" onClick={() => trackEvent('More About Plantd button clicked')} className="btn btn-soft-primary btn-round d-flex justify-content-center my-4 mx-auto moreBtn">
                                 More About Plantd
                             </a>
                         </div>
@@ -127,13 +74,13 @@ const Homepage = ({ projectsList }: any) => {
 
             {/* projects section */}
             <section className="pt-4">
-                <div className="container w-95" style={{ backgroundColor: '#1d1d1d' }}>
+                <div className="container w-95 grey-bg">
                     <div className="row justify-content-center py-lg-5 py-4 detail-container">
                         <div className="col-12 text-center d-grid justify-content-center">
-                            <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
+                            <h2 className="text-white mb-lg-4 position-relative">
                                 Our Projects
                             </h2>
-                            <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                            <div className="col-12 mt-4 slider-div">
                                 <Swiper
                                     spaceBetween={20} // Space between slides
                                     slidesPerView={3.4} // How many slides to show at once
@@ -145,7 +92,7 @@ const Homepage = ({ projectsList }: any) => {
                                     {projectsList?.map((items: ProjectsInterface, index: number) => {
                                         return (
                                             <SwiperSlide key={index}>
-                                                <Link href={`/contribute?project=${items?.slug}`} className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .4), rgb(0 0 0 / .4)), url(${items.bannerImage})` }}>
+                                                <Link href={`/contribute?project=${items?.slug}`} className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(to top, rgb(0 0 0), rgb(0 0 0 / .1)), url(${items.bannerImage})` }}>
                                                     <p className="text-green fs-20 fw-800 mb-1">{items?.title}</p>
                                                     <p className="text-white fs-14 mb-1 project-text">{items?.about}</p>
                                                 </Link>
@@ -161,36 +108,25 @@ const Homepage = ({ projectsList }: any) => {
 
             {/* About PLantd section */}
             <section className="pt-4">
-                <div className="container w-95 home-pages-section" style={{ backgroundColor: '#1d1d1d' }}>
+                <div className="container w-95 home-pages-section grey-bg">
                     <div className="row justify-content-center py-lg-5 py-4 detail-container">
                         <div className="col-12 text-center d-grid justify-content-center">
-                            <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
+                            <h2 className="text-white mb-lg-4 position-relative">
                                 Uniting people for a <span className="text-green">greener</span> tomorrow
                             </h2>
-                            <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                            <div className="col-12 mt-4 slider-div">
                                 <Swiper
                                     spaceBetween={20} // Space between slides
                                     slidesPerView={3} // How many slides to show at once
                                     className='web-card-swiper'
                                     loop={false}
-                                    breakpoints={{
-                                        992: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 20,
-                                            loop: false
-                                        },
-                                        600: {
-                                            slidesPerView: 1.4,
-                                            spaceBetween: 10,
-                                            loop: true
-                                        },
-                                    }}
+                                    breakpoints={staticBreakpoints}
                                 >
                                     {homeAboutData?.map((items: aboutInterface, index: number) => {
                                         return (
                                             <SwiperSlide key={index}>
                                                 <Link href={items?.url} className="ms-2 home-about-slider" style={{ backgroundImage: `url(${items?.image})` }}>
-                                                    <h2 className="text-white fs-30 fw-800 mb-1">{items?.name}</h2>
+                                                    <h2 className="pages-heading text-white fs-30 fw-800 mb-1">{items?.name}</h2>
                                                 </Link>
                                             </SwiperSlide>
                                         );
@@ -222,14 +158,14 @@ const Homepage = ({ projectsList }: any) => {
             </section>
 
             {/* Gallery section */}
-            <section className="mt-4" style={{ backgroundColor: '#1d1d1d' }}>
+            <section className="mt-4 grey-bg">
                 <div className="container-fluid w-95 home-gallery-section">
                     <div className="row justify-content-center align-items-center py-lg-5 py-4 detail-container">
                         <div className="col-12 text-center d-grid justify-content-center">
-                            <h2 className="text-white mb-lg-4 position-relative" style={{ zIndex: '1000' }}>
+                            <h2 className="text-white mb-lg-4 position-relative">
                                 Gallery
                             </h2>
-                            <div className="col-12 mt-4 gallery-slider" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                            <div className="col-12 mt-4 gallery-slider slider-div">
                                 <Swiper
                                     modules={[Autoplay]}
                                     spaceBetween={20} // Space between slides
@@ -264,11 +200,11 @@ const Homepage = ({ projectsList }: any) => {
 
             {/*  section */}
             <section className="pt-4">
-                <div className="container w-95" style={{ backgroundColor: '#1d1d1d', zIndex: 1 }}>
+                <div className="container w-95 grey-bg">
                     <div className="row justify-content-center py-lg-5 py-4 detail-container">
                         <div className="col-12 text-center d-grid justify-content-center">
                             <h2 className="text-white mb-lg-4">What people say?</h2>
-                            <div className="col-12 mt-4" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                            <div className="col-12 mt-4 slider-div">
                                 <Swiper
                                     spaceBetween={20} // Space between slides
                                     slidesPerView={3.5} // How many slides to show at once
