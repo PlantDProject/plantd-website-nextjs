@@ -147,7 +147,7 @@ const Homepage = ({ projectsList }: any) => {
                                             <SwiperSlide key={index}>
                                                 <Link href={`/contribute?project=${items?.slug}`} className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(rgb(0 0 0 / .4), rgb(0 0 0 / .4)), url(${items.bannerImage})` }}>
                                                     <p className="text-green fs-20 fw-800 mb-1">{items?.title}</p>
-                                                    <p className="text-white fs-14 mb-1">{items?.about.substring(0, 210)}...</p>
+                                                    <p className="text-white fs-14 mb-1 project-text">{items?.about}</p>
                                                 </Link>
                                             </SwiperSlide>
                                         );

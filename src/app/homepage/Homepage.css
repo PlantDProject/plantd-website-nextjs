@@ -36,8 +36,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.mobile-card-swiper{
-  display: none !important;
+.mobile-card-swiper {
+    display: none !important;
 }
 
 .home-about-section {
@@ -86,30 +86,31 @@
     width: 100%;
     border-radius: 20px;
 }
-.home-gallery-section .gallery-active-img.swiper-slide{
-    transform: scaleY(1) ;
+.home-gallery-section .gallery-active-img.swiper-slide {
+    transform: scaleY(1);
     transition-duration: 500ms;
 }
 
-.home-gallery-section .gallery-prev-img.swiper-slide, .home-gallery-section .gallery-next-img.swiper-slide{
-  transform: scaleY(0.75);
-  transition-duration: 500ms;
+.home-gallery-section .gallery-prev-img.swiper-slide,
+.home-gallery-section .gallery-next-img.swiper-slide {
+    transform: scaleY(0.75);
+    transition-duration: 500ms;
 }
 
-.link-click-active{
+.link-click-active {
     pointer-events: unset;
 }
 
-.link-click{
+.link-click {
     pointer-events: none;
 }
 
-.testimonial-div{
+.testimonial-div {
     position: relative;
     z-index: 0;
     padding: 50px 0 0 0;
 }
-.testimonial-box{
+.testimonial-box {
     padding: 80px 30px 30px 30px;
     background-color: #232323;
     height: 380px;
@@ -117,9 +118,8 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 20px;
-
 }
-.testimonial-image{
+.testimonial-image {
     position: absolute;
     border-radius: 50px;
     width: 100px;
@@ -129,7 +129,7 @@
     transform: translate(-50%, -50%);
     z-index: 9999999 !important;
 }
-.testimonial-desc{
+.testimonial-desc {
     height: 250px;
     overflow-y: auto;
 }
@@ -138,10 +138,16 @@
     width: 1px !important;
 }
 
+.project-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
 /* Mobile-specific styles for screen widths below 1200 */
 @media (max-width: 1199.89px) {
-    .plantBtn{
+    .plantBtn {
         width: 150px !important;
         padding: 7px 0px !important;
     }
@@ -157,7 +163,7 @@
     br {
         display: none;
     }
-    .plantBtn{
+    .plantBtn {
         width: 260px !important;
         padding: 14px 0px !important;
     }
@@ -174,7 +180,7 @@
         font-size: 16px;
         line-height: 25px;
     }
-    .plantBtn{
+    .plantBtn {
         width: 200px !important;
         padding: 12px 0px !important;
     }
@@ -185,19 +191,19 @@
     .header-subtext {
         width: 100%;
     }
-    .testimonial-box{
+    .testimonial-box {
         padding: 80px 15px 15px 15px;
     }
     .home-pages-section .swiper {
         width: 280px;
-      }
-    .mobile-card-swiper{
+    }
+    .mobile-card-swiper {
         display: unset !important;
-      }
-      .web-card-swiper{
+    }
+    .web-card-swiper {
         display: none !important;
-      }
-      .gallery-images {
+    }
+    .gallery-images {
         border-radius: 12px;
     }
     /* No custom changes at this size */
@@ -205,7 +211,7 @@
 
 /* Custom styles for extra small screens (below 480px) */
 @media (max-width: 480px) {
-    .plantBtn{
+    .plantBtn {
         width: 170px !important;
         padding: 8px 0px !important;
     }
@@ -213,7 +219,7 @@
 
 /* Custom styles for extra small screens (below 420px) */
 @media (max-width: 420px) {
-    .plantBtn{
+    .plantBtn {
         width: 140px !important;
         padding: 5px 0px !important;
     }
@@ -222,26 +228,25 @@
 @media (max-width: 385px) {
     .home-pages-section .swiper {
         width: 240px;
-      }
-      .home-about-slider{
+    }
+    .home-about-slider {
         height: 320px !important;
-      }
+    }
 }
 
 /* Custom styles for extremely small screens (below 315px) */
 @media (max-width: 345px) {
-    .plantBtn{
+    .plantBtn {
         width: 120px !important;
-          padding: 3px 0px !important;
+        padding: 3px 0px !important;
     }
     .home-pages-section .swiper {
         width: 220px;
-      }
-      .home-about-slider{
+    }
+    .home-about-slider {
         height: 280px !important;
-      }
+    }
 }
-
 
 /* .home-pages-section .swiper {
     width: 240px;
