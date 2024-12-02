@@ -6,7 +6,6 @@ import Slider from 'react-slick'; // Importing Slider component for image carous
 import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
 import CustomModal from '@/components/Navigation/Modal/modal'; // Importing custom modal component
 import { projectData, projectDataInterface } from './fundraiserItems';
-import Link from 'next/link';
 
 // Fundraiser Component
 const Fundraiser = () => {
@@ -85,7 +84,7 @@ const Fundraiser = () => {
                                         <Slider {...settings}>
                                             {projectData?.map((items: projectDataInterface, index: number) => {
                                                 return (
-                                                    <Link key={index} className="sliderDiv" href={items?.url} onClick={() => trackEvent(`${items?.name} Card Clicked`)}>
+                                                    <a key={index} className="sliderDiv" href={items?.url} onClick={() => trackEvent(`${items?.name} Card Clicked`)}>
                                                         <img src={items?.image} alt="Senegal_Reforestation_Project Img" />
                                                         <div className="ms-2">
                                                             <p className="text-green fs-14 fw-800 mb-1">{items?.name}</p>
@@ -93,7 +92,7 @@ const Fundraiser = () => {
                                                                 <span className="text-green">{items?.stat}</span> {items?.statData}
                                                             </p>
                                                         </div>
-                                                    </Link>
+                                                    </a>
                                                 );
                                             })}
                                         </Slider>
