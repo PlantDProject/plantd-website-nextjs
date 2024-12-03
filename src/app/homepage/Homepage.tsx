@@ -1,13 +1,15 @@
 'use client';
 import './Homepage.css'; // Importing CSS styles specific to this page
-import React from 'react'; // Importing necessary React hooks
+import React, { useEffect, useState } from 'react'; // Importing necessary React hooks
 import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
 import { homeAboutData, homeTestimonialData, galleryImagesData } from './HomepageItems'; // Importing Homepage items
 import { ProjectsInterface, testimonialInterface, galleryInterface, aboutInterface } from './HomepageItems'; // Importing Homepage items
 import { threeCardsBreakpoints, oneCardBreakpoints, staticBreakpoints } from './HomepageItems'; // Importing Homepage items
 import Link from 'next/link';
+import Loading from '../loading';
 import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -15,6 +17,12 @@ import 'swiper/css/effect-cards';
 
 // Fundraiser Component
 const Homepage = ({ projectsList }: any) => {
+    const [isLoading, setIsLoading] = useState(true)
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 800)
+    }, [])
 
     return (
         <div className="bg-dark-grey">
@@ -32,7 +40,7 @@ const Homepage = ({ projectsList }: any) => {
                                         <br /> to Plant <span className="text-green">1 Billion</span> <br />
                                         <span className="text-green">Trees</span>
                                     </h1>
-                                    <p className="header-subtext fw-600 fs-18">
+                                    <p className="home-header-subtext fw-600 fs-18">
                                         With <span className="text-green">Plantd</span>, planting trees around the
                                         <br /> world is just a few clicks away. Your <br />
                                         contribution helps restore forests and <br />
@@ -83,7 +91,7 @@ const Homepage = ({ projectsList }: any) => {
                             </h2>
                             <div className="col-12 mt-4 slider-div">
                                 <Swiper
-                                modules={[Pagination]}
+                                    modules={[Pagination]}
                                     spaceBetween={20} // Space between slides
                                     slidesPerView={3.4} // How many slides to show at once
                                     parallax={true}
@@ -91,13 +99,13 @@ const Homepage = ({ projectsList }: any) => {
                                     centeredSlides={true}
                                     pagination={{
                                         clickable: false,
-                                      }}
+                                    }}
                                     breakpoints={threeCardsBreakpoints}
                                 >
                                     {projectsList?.map((items: ProjectsInterface, index: number) => {
                                         return (
                                             <SwiperSlide key={index}>
-                                                <Link href={`/contribute?project=${items?.slug}`} className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(to top, rgb(0 0 0), rgb(0 0 0 / .1)), url(${items.bannerImage})` }}>
+                                                <Link href={`/projects/${items?.slug}`} className="ms-2 home-projects-slider" style={{ backgroundImage: `linear-gradient(to top, rgb(0 0 0), rgb(0 0 0 / .1)), url(${items.bannerImage})` }}>
                                                     <p className="text-green fs-20 fw-800 mb-1">{items?.title}</p>
                                                     <p className="text-white fs-14 mb-1 project-text">{items?.about}</p>
                                                 </Link>
@@ -177,9 +185,10 @@ const Homepage = ({ projectsList }: any) => {
                                     slidesPerView={1.5} // How many slides to show at once
                                     parallax={true}
                                     loop={true}
+                                    speed={1000}
                                     centeredSlides={true}
                                     autoplay={{
-                                        delay: 1500,
+                                        delay: 1000,
                                         pauseOnMouseEnter: false
                                     }}
                                     slideActiveClass='gallery-active-img'
@@ -236,6 +245,7 @@ const Homepage = ({ projectsList }: any) => {
                     </div>
                 </div>
             </section>
+            {isLoading && <Loading />}
 
             {/* Modal to show after form submission */}
         </div>
