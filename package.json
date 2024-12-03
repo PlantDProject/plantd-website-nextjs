@@ -28,7 +28,8 @@
         "posthog-js": "^1.187.2",
         "react": "19.0.0-rc-02c0e824-20241028",
         "react-dom": "19.0.0-rc-02c0e824-20241028",
-        "react-slick": "^0.30.2"
+        "react-slick": "^0.30.2",
+        "swiper": "^11.1.15"
     },
     "devDependencies": {
         "@types/mixpanel-browser": "^2.50.2",
