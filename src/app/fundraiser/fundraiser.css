@@ -50,7 +50,7 @@
 .eventshare-div {
     right: 20px; /* Position the event share container 20px from the right */
     bottom: 20px; /* Position the event share container 20px from the bottom */
-    box-shadow: 0 0 4px #989898; /* Apply a shadow with a grey color */
+    box-shadow: 0 0 4px var(--dark-grey); /* Apply a shadow with a grey color */
     background: var(--dark); /* Set background to dark color */
     padding: 8px 10px 4px; /* Add padding around the content */
     border-radius: 6px; /* Round the corners */
@@ -64,7 +64,7 @@
 
 /* Styling for the slider container */
 .sliderDiv {
-    border: 1px solid #989898; /* Add a border around the slider */
+    border: 1px solid var(--dark-grey); /* Add a border around the slider */
     display: flex !important; /* Use flexbox layout */
     padding: 5px; /* Add padding inside the container */
     border-radius: 20px; /* Round the corners */

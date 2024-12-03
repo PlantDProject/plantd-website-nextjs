@@ -51,7 +51,7 @@
 .eventshare-div {
     right: 20px;
     bottom: 20px;
-    box-shadow: 0 0 4px #989898;
+    box-shadow: 0 0 4px var(--dark-grey);
     background: var(--dark);
     padding: 8px 10px 4px;
     border-radius: 6px;
@@ -69,9 +69,9 @@
 .countdown span.value {
     display: inline-block;
     width: 66px;
-    box-shadow: 0 0 2px #6d6c6c;
+    box-shadow: 0 0 2px var(--grey);
     backdrop-filter: blur(5px);
-    background: linear-gradient(to left top, #242424, #242424 66%, #eee 240%);
+    background: linear-gradient(to left top, var(--shadow-dark), var(--shadow-dark) 66%, var(--white) 240%);
     padding: 25px 0;
     border-radius: 12px;
     font-weight: 600;
@@ -110,7 +110,7 @@
 }
 .timeline-time {
     font-size: 14px;
-    color: #888;
+    color: var(--dark-grey);
     margin-bottom: 5px;
 }
 .timeline-title {
@@ -120,23 +120,23 @@
 }
 .timeline-content {
     font-size: 16px;
-    color: #555;
+    color: var(--grey);
 }
 .timeline-link {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
     font-size: 14px;
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    color: var(--dark);
+    background-color: var(--white);
+    border: 1px solid var(---grey);
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
 }
 .timeline-link:hover {
-    background-color: #f0f0f0;
-    color: #007bff;
+    background-color: var(--text-off-white);
+    color: var(--blue);
 }
 .timeline-link svg {
     margin-left: 8px;

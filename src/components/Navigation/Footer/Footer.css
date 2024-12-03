@@ -82,7 +82,7 @@
 }
 
 .social-icons a {
-    color: #000 !important;
+    color: var(--black) !important;
     font-size: 20px;
     display: inline-flex;
     justify-content: center;

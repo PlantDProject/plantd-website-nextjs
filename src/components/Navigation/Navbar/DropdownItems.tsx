@@ -11,6 +11,11 @@ export const aboutUsData: DropdownData[] = [
         bannerImage: '/next-images/menu/about-1.png',
     },
     {
+        name: 'Our Green Initiative',
+        slug: 'our-green-initiative-app',
+        bannerImage: '/next-images/menu/about-4.png',
+    },
+    {
         name: 'Reduce your Carbon Footprint',
         slug: 'reduce-your-carbon-footprint',
         bannerImage: '/next-images/menu/about-2.png',
@@ -19,11 +24,6 @@ export const aboutUsData: DropdownData[] = [
         name: 'Newer Underestimate The Power Of a Seed',
         slug: 'never-underestimate-the-power-of-a-seed',
         bannerImage: '/next-images/menu/about-3.png',
-    },
-    {
-        name: 'Our Green Initiative',
-        slug: 'our-green-initiative-app',
-        bannerImage: '/next-images/menu/about-4.png',
     },
 ];
 

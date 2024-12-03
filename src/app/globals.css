@@ -10,10 +10,15 @@
     --grey: #495057; /* Black */
     --dark: #141414;
     --grey-bg: #1d1d1d;
+    --grey-bg-light: #1d1d1d80;
     --dark-grey: #989898;
     --text-off-white: #f0f0f0;
     --translucent-white: #ffffff80;
     --translucent-white: #ffffff80;
+    --blue : #007bff;
+    --shadow-dark : #242424;
+    --hover-nav : #37363680;
+    --nav-bg : #40bb672b
 }
 
 a {
