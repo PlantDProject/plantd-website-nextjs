@@ -12,6 +12,8 @@
         "start:qa": "env-cmd -f .env.test next start",
         "build:prod": "env-cmd -f .env.production next build",
         "start:prod": "env-cmd -f .env.production next start",
+        "build:staging": "env-cmd -f .env.staging next build",
+        "start:staging": "env-cmd -f .env.staging next start",
         "lint": "next lint",
         "prettier": "prettier --write ."
     },
@@ -26,7 +28,8 @@
         "posthog-js": "^1.187.2",
         "react": "19.0.0-rc-02c0e824-20241028",
         "react-dom": "19.0.0-rc-02c0e824-20241028",
-        "react-slick": "^0.30.2"
+        "react-slick": "^0.30.2",
+        "swiper": "^11.1.15"
     },
     "devDependencies": {
         "@types/mixpanel-browser": "^2.50.2",

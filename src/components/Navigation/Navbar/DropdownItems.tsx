@@ -11,6 +11,11 @@ export const aboutUsData: DropdownData[] = [
         bannerImage: '/next-images/menu/about-1.png',
     },
     {
+        name: 'Our Green Initiative',
+        slug: 'our-green-initiative-app',
+        bannerImage: '/next-images/menu/about-4.png',
+    },
+    {
         name: 'Reduce your Carbon Footprint',
         slug: 'reduce-your-carbon-footprint',
         bannerImage: '/next-images/menu/about-2.png',
@@ -20,27 +25,22 @@ export const aboutUsData: DropdownData[] = [
         slug: 'never-underestimate-the-power-of-a-seed',
         bannerImage: '/next-images/menu/about-3.png',
     },
-    {
-        name: 'Our Green Initiative',
-        slug: 'our-green-initiative-app',
-        bannerImage: '/next-images/menu/about-4.png',
-    },
 ];
 
 export const solutionsData: DropdownData[] = [
     {
         name: 'For Individuals',
-        slug: '/individuals',
+        slug: '/individual',
         bannerImage: '/next-images/menu/solutions/individual.png',
     },
     {
         name: 'Sustainable Fundraising',
-        slug: '/fundraisers',
+        slug: '/fundraiser',
         bannerImage: '/next-images/menu/solutions/fundraiser.png',
     },
     {
         name: 'Become an Ambassador',
-        slug: '/',
+        slug: '/ambassador',
         bannerImage: '/next-images/menu/solutions/ambassador.png',
     },
     {
@@ -50,7 +50,7 @@ export const solutionsData: DropdownData[] = [
     },
     {
         name: 'Plant Globally',
-        slug: '/',
+        slug: '/contribute',
         bannerImage: '/next-images/menu/solutions/global.png',
     },
 ];
