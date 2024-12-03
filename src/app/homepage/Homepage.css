@@ -27,7 +27,7 @@
     background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
 }
 
-.header-subtext {
+.home-header-subtext {
     font-size: 20px;
     color: var(--white);
     line-height: 33px;
@@ -109,18 +109,19 @@
 
 /* gallery images slider css */
 .gallery-images {
-    width: 100%;
+    width: 95%;
+    margin: auto;
     border-radius: 20px;
 }
 .home-gallery-section .gallery-active-img.swiper-slide {
     transform: scaleY(1);
-    transition-duration: 500ms;
+    transition-duration: 700ms;
 }
 
 .home-gallery-section .gallery-prev-img.swiper-slide,
 .home-gallery-section .gallery-next-img.swiper-slide {
     transform: scaleY(0.75);
-    transition-duration: 500ms;
+    transition: 0.2s ease-in;
 }
 
 .link-click-active {
@@ -193,7 +194,7 @@
     br {
         display: none;
     }
-    .header-subtext {
+    .home-header-subtext {
        margin-bottom: 40px;
     }
     .plantBtn {
@@ -228,7 +229,7 @@
         width: 100%;
         margin: 30px auto;
     }
-    .header-subtext {
+    .home-header-subtext {
         font-size: 16px;
         line-height: 25px;
     }
@@ -249,7 +250,7 @@
 
 /* Custom styles for very small screens (below 600px) */
 @media (max-width: 600px) {
-    .header-subtext {
+    .home-header-subtext {
         width: 100%;
     }
     .testimonial-box {
