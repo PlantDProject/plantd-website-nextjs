@@ -60,7 +60,6 @@
     background-size: cover;
     border-radius: 40px;
 }
-
 /* Styling for the slider container */
 .home-projects-slider {
     padding: 10px; /* Add padding inside the container */
@@ -90,7 +89,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #fff;
+    border: 1px solid var(--white);
     border-radius: 30px;
 }
 
@@ -139,7 +138,7 @@
 }
 .testimonial-box {
     padding: 80px 30px 30px 30px;
-    background-color: #232323;
+    background-color: var(--dark);
     height: 380px;
     display: flex !important;
     flex-direction: column;
@@ -172,6 +171,10 @@
     overflow: hidden;
 }
 
+.home-project-section .swiper-pagination {
+    display: none;
+}
+
 /* Mobile-specific styles for screen widths below 1200 */
 @media (max-width: 1199.89px) {
     .plantBtn {
@@ -190,10 +193,32 @@
     br {
         display: none;
     }
+    .header-subtext {
+       margin-bottom: 40px;
+    }
     .plantBtn {
         width: 260px !important;
         padding: 14px 0px !important;
     }
+    .home-project-section .swiper-wrapper{
+        padding-bottom: 45px !important;
+    }
+    .home-project-section .swiper-pagination {
+        display: unset;
+    }
+    .home-project-section .swiper-pagination .swiper-pagination-bullet {
+        background: var(--white);
+        opacity: 1 !important;
+        width: 10px;
+        border-radius: 4px;
+    }
+    
+    .home-project-section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background: var(--primary-color);
+        width: 18px;
+        border-radius: 4px;
+    }
+    
 }
 
 /* Mobile-specific styles for screen widths below 768px */

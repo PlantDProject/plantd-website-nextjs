@@ -91,10 +91,12 @@ export const threeCardsBreakpoints = {
     },
     768: {
         slidesPerView: 1.4,
+        pagination: {clickable: true}
     },
     220: {
         slidesPerView: 1.2,
         spaceBetween: 10,
+        pagination: {clickable: true}
     },
 };
 export const oneCardBreakpoints = {

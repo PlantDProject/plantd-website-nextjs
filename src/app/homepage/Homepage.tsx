@@ -6,10 +6,11 @@ import { homeAboutData, homeTestimonialData, galleryImagesData } from './Homepag
 import { ProjectsInterface, testimonialInterface, galleryInterface, aboutInterface } from './HomepageItems'; // Importing Homepage items
 import { threeCardsBreakpoints, oneCardBreakpoints, staticBreakpoints } from './HomepageItems'; // Importing Homepage items
 import Link from 'next/link';
-import { EffectCards, Autoplay } from 'swiper/modules';
+import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 
 // Fundraiser Component
@@ -74,7 +75,7 @@ const Homepage = ({ projectsList }: any) => {
 
             {/* projects section */}
             <section className="pt-4">
-                <div className="container w-95 grey-bg">
+                <div className="container home-project-section w-95 grey-bg">
                     <div className="row justify-content-center py-lg-5 py-4 detail-container">
                         <div className="col-12 text-center d-grid justify-content-center">
                             <h2 className="text-white mb-lg-4 position-relative">
@@ -82,11 +83,15 @@ const Homepage = ({ projectsList }: any) => {
                             </h2>
                             <div className="col-12 mt-4 slider-div">
                                 <Swiper
+                                modules={[Pagination]}
                                     spaceBetween={20} // Space between slides
                                     slidesPerView={3.4} // How many slides to show at once
                                     parallax={true}
                                     loop={true}
                                     centeredSlides={true}
+                                    pagination={{
+                                        clickable: false,
+                                      }}
                                     breakpoints={threeCardsBreakpoints}
                                 >
                                     {projectsList?.map((items: ProjectsInterface, index: number) => {
