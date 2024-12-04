@@ -121,14 +121,14 @@ const Navbar = () => {
                 redirect('/about');
                 break;
             case 'solutions':
-                if (window && window.innerWidth < 991 && !showProjectsDropdown) {
+                if (window && window.innerWidth < 991 && !showSolutionsDropdown) {
                     setShowSolutionsDropdown(true);
                     return;
                 }
                 // redirect('/solutions');
                 break;
             case 'blogs':
-                if (window && window.innerWidth < 991 && !showAboutUsDropdown) {
+                if (window && window.innerWidth < 991 && !showBlogsDropdown) {
                     setShowBlogsDropdown(true);
                     return;
                 }
