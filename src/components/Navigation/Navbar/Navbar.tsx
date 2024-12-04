@@ -27,23 +27,25 @@ const Navbar = () => {
         try {
             const projectsData = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
             const projectRes = await projectsData.json();
-            setProjectList(projectRes?.projectList?.items || []);
+            console.log('PROJECT', projectRes);
+            const firstSixProjects = projectRes?.projectList?.items?.slice(0, 6);
+            setProjectList(firstSixProjects);
         } catch {
-            console.log("ERR")
-         }
+            console.log('ERR');
+        }
 
         try {
             const blogData = await fetch(`https://plantd.life/blogs/wp-json/wp/v2/posts`);
             const blogRes = await blogData.json();
-            const firstFive = blogRes.slice(0, 5);
-            setBlogList(firstFive);
+            const firstSixBlogs = blogRes.slice(0, 6);
+            setBlogList(firstSixBlogs);
         } catch {
-            console.log("ERR")
-         }
+            console.log('ERR');
+        }
     };
     React.useEffect(() => {
         if (window && window.innerWidth > 991) setShow(true);
-        else setShow(false)
+        else setShow(false);
         setShowAboutUsDropdown(false);
         setShowProjectsDropdown(false);
     }, [pathName]);
@@ -51,7 +53,7 @@ const Navbar = () => {
     React.useEffect(() => {
         if (show && window && window.innerWidth < 991) document.body.style.overflow = 'hidden';
         else document.body.style.overflow = '';
-    }, [show])
+    }, [show]);
 
     React.useEffect(() => {
         if (window && window.innerWidth > 991) setShow(true);
@@ -101,8 +103,8 @@ const Navbar = () => {
     const redirectTo = (path: string) => {
         setShowProjectsDropdown(false);
         setShowAboutUsDropdown(false);
-        setShowSolutionsDropdown(false)
-        setShowBlogsDropdown(false)
+        setShowSolutionsDropdown(false);
+        setShowBlogsDropdown(false);
         switch (path) {
             case 'projects':
                 if (window && window.innerWidth < 991 && !showProjectsDropdown) {
@@ -120,19 +122,29 @@ const Navbar = () => {
                 break;
             case 'solutions':
                 if (window && window.innerWidth < 991 && !showProjectsDropdown) {
-                    setShowSolutionsDropdown(true)
+                    setShowSolutionsDropdown(true);
                     return;
                 }
                 // redirect('/solutions');
                 break;
             case 'blogs':
                 if (window && window.innerWidth < 991 && !showAboutUsDropdown) {
-                    setShowBlogsDropdown(true)
+                    setShowBlogsDropdown(true);
                     return;
                 }
                 redirect('/blogs');
                 break;
         }
+    };
+
+    const getBtn = (path: string, name: string) => {
+        return (
+            <li className="col-4 offset-lg-8 mt-4 col-f btn-blog d-flex justify-center">
+                <Link className="btn primary-btn text-light" href={path}>
+                    More {name}
+                </Link>
+            </li>
+        );
     };
 
     return (
@@ -171,9 +183,7 @@ const Navbar = () => {
                                                     <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
-                                                        {item?.name}
-                                                    </p>
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.name}</p>
                                                 </div>
                                             </Link>
                                         );
@@ -197,13 +207,12 @@ const Navbar = () => {
                                                     <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
-                                                        {item?.name}
-                                                    </p>
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.name}</p>
                                                 </div>
                                             </Link>
                                         );
                                     })}
+                                    {projectList.length > 6 && getBtn('/projects', 'Projects')}
                                 </ul>
                             </li>
 
@@ -212,7 +221,7 @@ const Navbar = () => {
                                     Solutions
                                     <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
                                 </Link>
-                                <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showSolutionsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="projectsDropdown">
+                                <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showSolutionsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="solutionsDropdown">
                                     {solutionsData?.map((item: any, index: number) => {
                                         return (
                                             <Link href={`${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
@@ -220,9 +229,7 @@ const Navbar = () => {
                                                     <img src={item?.bannerImage} alt={item?.name} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
-                                                        {item?.name}
-                                                    </p>
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.name}</p>
                                                 </div>
                                             </Link>
                                         );
@@ -236,27 +243,20 @@ const Navbar = () => {
                                     Blogs
                                     <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
                                 </Link>
-                                <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showBlogsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="projectsDropdown">
+                                <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showBlogsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="blogsDropdown">
                                     {blogList?.map((item: any, index: number) => {
                                         return (
-
                                             <Link href={`/blogs/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
                                                     <img src={item?.yoast_head_json?.og_image[0]?.url} alt={item?.title?.rendered} width="100%" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
-                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">
-                                                        {item?.title?.rendered}
-                                                    </p>
+                                                    <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.title?.rendered}</p>
                                                 </div>
                                             </Link>
                                         );
                                     })}
-                                    <li className="col-4 btn-blog d-flex justify-center">
-                                        <Link className="btn primary-btn text-light" href="/blogs">
-                                            More Blogs
-                                        </Link>
-                                    </li>
+                                    {getBtn('/blogs', 'Blogs')}
                                 </ul>
                             </li>
 
