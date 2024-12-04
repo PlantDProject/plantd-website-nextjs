@@ -51,3 +51,12 @@ export const trackEvent = (e: any, data: any = {}) => {
     trackMixpanelEvent(e, data);
     trackPosthogEvent(e, data);
 };
+
+export const fetchGraphQL = async (query: string, variables: object = {}) => {
+    const response = await fetch(`${process.env.API_URL}/graphql`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query, variables }),
+    });
+    return response.json();
+};

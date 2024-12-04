@@ -2,18 +2,52 @@
 
 import './giveaway.css';
 import Link from 'next/link';
-import { getDate, getDay, getImgUri, isEven } from '@/utils/helpers';
+import { useState, useEffect, useCallback } from 'react';
+import { fetchGraphQL, getDate, getDay, getImgUri, isEven } from '@/utils/helpers';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
+import { GET_PAST_EVENTS } from '@/utils/GRAPHQL';
 
-// interface EventObject {
-//     eventName: string;
-//     eventDate: string;
-//     eventTitle: string;
-//     imageUrl: string;
-//     eventSlug: string;
-// }
+export default function Giveaways({ onGoingEvents, completedEvents: initialCompleted }: any) {
+    const [completedEvents, setCompletedEvents] = useState(initialCompleted);
+    const [page, setPage] = useState(2);
+    const [loading, setLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
 
-export default function Giveaways({ onGoingEvents, completedEvents }: any) {
+    const fetchMoreCompletedEvents = useCallback(async () => {
+        if (loading || !hasMore) return;
+
+        setLoading(true);
+        try {
+            const response = await fetchGraphQL(GET_PAST_EVENTS, { page, size: 10 });
+            const data = response?.data?.getPastEventsForWebsite;
+            if (data?.events?.length) {
+                setCompletedEvents((prev: any) => [...prev, ...data.events]);
+                setPage((prev) => prev + 1);
+                setHasMore(data.totalCount !== completedEvents.length );
+            } else {
+                setHasMore(false);
+            }
+        } catch (error) {
+            console.error('Error fetching more past giveaways:', error);
+        } finally {
+            // setTimeout(() => {
+                setLoading(false);
+            // }, 500);
+        }
+    }, [page, loading, hasMore]);
+
+    const handleScroll = useCallback(() => {
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+        if (scrollHeight - scrollTop <= clientHeight + 50 && hasMore) {
+            fetchMoreCompletedEvents();
+        }
+    }, [fetchMoreCompletedEvents, hasMore]);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [handleScroll]);
+
     const eventCards = (event: any, index: number, isOnGoing: boolean = false) => {
         return (
             <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{ backgroundImage: isEven(index) ? `url('https://test.plantd.life/images/plantdimg/projectbg.jpg')` : `url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg')` }}>
@@ -86,7 +120,7 @@ export default function Giveaways({ onGoingEvents, completedEvents }: any) {
             </section>
 
             <section className="pt-5 bg-black">
-                <div className="container-fluid bg-dark-grey w-90 p-lg-5 p-md-4 px-1 py-4">{onGoingEvents?.length > 0 && onGoingEvents?.map((event: any, index: number) => eventCards(event, index, true))}</div>
+                <div className="container-fluid bg-dark-grey w-90 p-lg-5 p-md-4 px-1 py-4">{onGoingEvents?.map((event: any, index: number) => eventCards(event, index, true))}</div>
             </section>
 
             <section className="pt-4 bg-black">
@@ -94,7 +128,9 @@ export default function Giveaways({ onGoingEvents, completedEvents }: any) {
             </section>
 
             <section className="pt-4 bg-black">
-                <div className="container-fluid bg-dark-grey w-90 p-lg-5 p-md-4 px-1 py-4">{completedEvents?.length > 0 && completedEvents?.map((event: any, index: number) => eventCards(event, index))}</div>
+                <div className="container-fluid bg-dark-grey w-90 p-lg-5 p-md-4 px-1 py-4">
+                    {completedEvents?.map((event: any, index: number) => eventCards(event, index))}
+                </div>
             </section>
         </div>
     );
