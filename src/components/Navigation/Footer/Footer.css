@@ -3,14 +3,6 @@
     padding: 50px 0;
     font-family: Arial, sans-serif;
 }
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
 .footer-section {
     display: flex;
     justify-content: space-between;

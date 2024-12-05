@@ -1,0 +1,447 @@
+/* Main background section for the homepage */
+.individual-bg-home {
+    padding: 10rem 0;
+    background-image: linear-gradient(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.5)), url('/next-images/individual/individualbanner.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*prevent slider horizontal scroll */
+.slider-div {
+    max-width: 100%;
+    overflow: hidden;
+}
+/* Title styling */
+.individual-title {
+    font-size: 50px !important; /* Set font size */
+    font-weight: 400; /* Make the font bold */
+    line-height: 1.3;
+}
+.individual-header-subtext {
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+
+/* Dark grey background with a custom variable */
+.bg-dark-grey {
+    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
+}
+
+.banner-logo {
+    width: 35%;
+    margin: auto;
+}
+
+.scanner-div {
+    display: flex;
+    justify-content: end;
+}
+
+.scanner-div video {
+    width: 90% !important;
+    mix-blend-mode: lighten;
+    margin-right: -10px;
+}
+.individual-bg-home .col-lg-7 {
+    padding-left: 80px;
+}
+
+/* usp section css */
+.usp-slider {
+    background-color: var(--grey-bg);
+    padding: 20px;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    /* height: 270px; */
+}
+.usp-slider.active {
+    padding: 20px;
+    border-radius: 25px 25px 25px 80px;
+    position: relative;
+}
+.usp-slider img {
+    border-radius: 20px;
+}
+.usp-title-head {
+    height: 50px;
+    color: var(--white);
+    text-align: left !important;
+}
+.arrow.active {
+    border-radius: 50px !important;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border: 3px solid var(--dark);
+    /* transition-duration: 0.3s; */
+}
+.arrow {
+    border-radius: 50px !important;
+    background-color: var(--shadow-dark);
+    /* transition-duration: 0.3s; */
+}
+
+.usp-active-div .right-col {
+    background-color: var(--grey-bg);
+    border-radius: 0px 25px 25px 0px;
+}
+.usp-active-div .right-col a h3:hover {
+    color: var(--primary-color) !important;
+}
+.usp-active-div img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px 0px 0px 25px;
+}
+.usp-para {
+    cursor: default;
+}
+.usp-para::before {
+    content: '\f111';
+    font-size: 10px;
+    padding-right: 5px;
+    font-family: FontAwesome;
+}
+.usp-para:hover.usp-para::before {
+    content: '\f061';
+    color: var(--primary-color) !important;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.usp-para:hover {
+    color: var(--primary-color) !important;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+/* signup button css */
+.individual-signup-section {
+    background-image: url('/next-images/individual/signbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 24px 0px;
+    border-radius: 20px;
+}
+.signupBtn,
+.exploreBtn {
+    padding: 10px 15px;
+    border: 1px solid var(--primary-color);
+}
+.signupBtn:hover,
+.exploreBtn:hover {
+    background-color: var(--white) !important;
+    color: var(--primary-color) !important;
+}
+.signupBtn:hover {
+    border: 1px solid var(--primary-color);
+}
+
+/* map section css  */
+.individual-map-section {
+    background-image: url('/next-images/individual/mapbg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    border-radius: 20px;
+}
+.individual-map-section img {
+    width: 70%;
+}
+.individual-app-section,
+.individual-work-section {
+    border-radius: 20px;
+    padding: 50px;
+}
+.app-div {
+    background-color: var(--shadow-dark);
+    border-radius: 25px;
+}
+.app-div img {
+    margin: auto;
+    background-color: var(--grey-bg);
+    padding: 20px;
+    border-radius: 50px;
+}
+.app-div p {
+    padding-top: 15px;
+    color: var(--white);
+    text-align: center;
+}
+
+.app-div img:hover {
+    animation: 3s infinite coinflip;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes coinflip {
+    0%,
+    100% {
+        transform: rotateY(0);
+    }
+    50% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* work section css */
+.individual-work-section .work-div {
+    border-radius: 25px;
+    position: relative;
+    width: 95%;
+    background-color: var(--dark);
+    cursor: pointer;
+    border: 1px solid var(--dark);
+    height: 150px;
+}
+
+.individual-work-section .work-div.active,
+.individual-work-section .work-div:hover {
+    border: 1px solid var(--primary-color);
+    transition: 0.5s ease;
+}
+
+.individual-work-section .work-img {
+    width: 70%;
+    margin: auto;
+}
+
+.individual-work-section .left-count,
+.individual-work-section .right-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    color: var(--white);
+    border-radius: 50px;
+    top: 50px;
+}
+.individual-work-section .left-count {
+    right: -48px;
+}
+.individual-work-section .right-count {
+    left: -48px;
+}
+
+@media (min-width: 1950.86px) {
+    .individual-title {
+        font-size: 78px !important;
+    }
+    .individual-header-subtext {
+        font-size: 65px;
+    }
+}
+
+@media (min-width: 1500.86px) {
+    .individual-title {
+        font-size: 55px !important;
+    }
+    .individual-header-subtext {
+        font-size: 50px;
+    }
+}
+
+/* Mobile-specific styles for screen widths below 992px */
+@media (max-width: 1279.89px) {
+    .individual-title {
+        font-size: 34px !important;
+    }
+    .individual-header-subtext {
+        font-size: 30px;
+    }
+}
+@media (max-width: 991.89px) {
+    /* Reverse row order for smaller screens */
+    .individual-bg-home .col-lg-7 {
+        padding-left: 30px;
+    }
+    .reverseRow {
+        display: flex;
+        flex-direction: column-reverse !important;
+    }
+    .individual-title {
+        font-size: 50px !important;
+    }
+    .individual-header-subtext {
+        font-size: 40px;
+    }
+    .usp-active-div .left-col {
+        display: none;
+    }
+    .usp-active-div .right-col {
+        border-radius: 25px;
+    }
+    .individual-map-section img {
+        width: 100%;
+    }
+    .individual-work-section .work-div {
+        margin: auto;
+    }
+    .individual-work-section .work-img {
+        width: 55%;
+    }
+    .mobile-count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primary-color);
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        color: var(--white);
+        border-radius: 50px;
+        right: 50%;
+        transform: translate(50%, -50%) !important;
+        z-index: 99999;
+    }
+    .swiper-container {
+        padding: 0 10px !important; /* Add padding to avoid overflow on mobile */
+      }
+    .individual-work-section .swiper-pagination .swiper-pagination-bullet {
+        background: var(--white);
+        opacity: 1 !important;
+        width: 10px;
+        border-radius: 4px;
+    }
+    .individual-work-section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background: var(--primary-color);
+        width: 18px;
+        border-radius: 4px;
+    }
+}
+
+/* Mobile-specific styles for screen widths below 768px */
+@media (max-width: 767.89px) {
+    /* Set img-fluid width to 100% and center it */
+    .img-fluid {
+        width: 100%;
+        margin: 30px auto;
+    }
+    .individual-title {
+        font-size: 42px !important;
+    }
+    .individual-header-subtext {
+        font-size: 40px;
+    }
+    .individual-work-section {
+        padding: 20px;
+    }
+}
+
+/* Custom styles for very small screens (below 600px) */
+@media (max-width: 600px) {
+    .individual-title {
+        font-size: 40px !important;
+    }
+    .individual-header-subtext {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 575.86px) {
+    .individual-bg-home .col-lg-7 {
+        padding: 0px 10px;
+        text-align: center !important;
+    }
+    .individual-title {
+        font-size: 34px !important;
+    }
+    .individual-header-subtext {
+        font-size: 30px;
+    }
+    .individual-signup-section span{
+display: block;
+    }
+    .individual-signup-section .signupBtn{
+        margin-top: 10px;
+    }
+    .individual-work-section .work-div {
+        text-align: center;
+    }
+    .individual-work-section .work-div h3 {
+        font-size: 15px;
+    }
+    .individual-work-section .work-div p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 464.86px) {
+    .individual-title {
+        font-size: 28px !important;
+    }
+    .individual-header-subtext {
+        font-size: 20px;
+    }
+    .individual-app-section {
+        padding: 20px;
+    }
+    .individual-work-section .work-img {
+        width: 70%;
+    }
+}
+@media (max-width: 387.86px) {
+    .individual-title {
+        font-size: 22px !important;
+    }
+    .individual-header-subtext {
+        font-size: 20px;
+    }
+    .usp-slider img {
+        border-radius: 15px;
+    }
+}
+
+/* Custom styles for extremely small screens (below 315px) */
+@media (max-width: 345px) {
+    .usp-slider {
+        text-align: left !important;
+    }
+    .app-div p {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 323.86px) {
+    .individual-work-section .work-div h3 {
+        font-size: 12px;
+    }
+    .individual-work-section .work-div p {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 991.86px) and (max-width: 1199.86px) {
+    .app-div p {
+        font-size: 14px !important;
+    }
+    /* .individual-work-section .work-div {
+        height: 180px;
+    } */
+    .individual-work-section .work-img {
+        width: 80%;
+    }
+    .individual-work-section .work-div h3 {
+        font-size: 17px;
+    }
+    .individual-work-section .work-div p {
+        font-size: 14px;
+    }
+    .individual-work-section .left-count,
+    .individual-work-section .right-count {
+        width: 45px;
+        height: 45px;
+    }
+    .individual-work-section .left-count {
+        right: -30px;
+    }
+    .individual-work-section .right-count {
+        left: -30px;
+    }
+}
