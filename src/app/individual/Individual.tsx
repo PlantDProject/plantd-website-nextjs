@@ -20,6 +20,7 @@ import { redirect } from 'next/navigation';
 const Individual = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isMobile, setIsMobile] = useState(false)
+    const [animate, setAnimate] = useState(false)
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeWorkIndex, setActiveWorkIndex] = useState(0);
     const activeCardData = uspData[activeIndex]
@@ -34,8 +35,22 @@ const Individual = () => {
         }, 800)
     }, [])
 
+    useEffect(() => {
+        if (activeCardData) {
+            // Trigger animation when activeCardData changes
+            setAnimate(true);
+
+            // Reset animation after it completes (0.5s animation duration)
+            const timer = setTimeout(() => {
+                setAnimate(false);
+            }, 500);  // Duration should match the animation duration in CSS
+
+            return () => clearTimeout(timer);  // Clean up the timer
+        }
+    }, [activeCardData]);
+
     const activeIndexFunc = (index: number, from: string) => {
-        from === "usp" ? setActiveIndex(index - 1): setActiveWorkIndex(index - 1)
+        from === "usp" ? setActiveIndex(index - 1) : setActiveWorkIndex(index - 1)
     }
 
     const handleVideoClick = () => {
@@ -104,7 +119,7 @@ const Individual = () => {
                                                 <div className={`usp-slider ${isActive ? 'active' : ''}`} onClick={() => activeIndexFunc(items?.id, "usp")}>
                                                     <div className="d-flex justify-content-between align-items-start usp-title-head">
                                                         <IFrameRenderer iframeHtml={items?.name} />
-                                                        <img className={`arrow ${isActive ? 'active' : ''}`} src={`${isActive ? 'next-images/individual/arrow-up-white.webp' : 'next-images/individual/arrow-up.webp'}`} alt="arrow-up img" />
+                                                        <img className={`arrow ${isActive ? `active ${animate ? 'do-animation' : ''}` : ''}`} src={`${isActive ? 'next-images/individual/arrow-up-white.webp' : 'next-images/individual/arrow-up.webp'}`} alt="arrow-up img" />
                                                     </div>
                                                     <hr className="text-white" />
                                                     <img src={items?.image} alt={items?.alt} className="mx-auto d-block" loading="lazy" />
@@ -117,7 +132,7 @@ const Individual = () => {
                         </div>
                         <>
                             {activeCardData &&
-                                <div className="row mt-4 usp-active-div">
+                                <div className={`row mt-4 usp-active-div ${animate ? 'do-animation' : ''}`}>
                                     <div className="col-lg-6 p-0 left-col">
                                         <img src={activeCardData?.image} alt="objective img" />
                                     </div>
@@ -188,7 +203,7 @@ const Individual = () => {
                                             {rightWorkData.map((items: rightWorkInterface, index: number) => {
                                                 const isActive = activeWorkIndex === (index + 3);
                                                 return (
-                                                    <div className={`px-4 py-3 work-div ${items?.id === 5 ? `ms-auto my-4` : ``} ${isActive && `active`}`} key={index} onClick={() => activeIndexFunc(items?.id,'work')}>
+                                                    <div className={`px-4 py-3 work-div ${items?.id === 5 ? `ms-auto my-4` : ``} ${isActive && `active`}`} key={index} onClick={() => activeIndexFunc(items?.id, 'work')}>
                                                         <span className="right-count">{items?.id}</span>
                                                         <div>
                                                             <h3 className="text-white mb-0 fs-20">{items?.title}</h3>
@@ -204,7 +219,7 @@ const Individual = () => {
                             ) : (
                                 <div className="col-12 slider-div">
                                     <Swiper
-                                    modules={[Pagination]}
+                                        modules={[Pagination]}
                                         spaceBetween={10}
                                         slidesPerView={4}
                                         loop={true}
@@ -214,7 +229,7 @@ const Individual = () => {
                                         }}
                                         onSlideChange={(swiper: any) => {
                                             setActiveWorkIndex(swiper.realIndex);
-                                        }}  
+                                        }}
                                         breakpoints={workBreakpoint}
                                     >
                                         {mobileWorkData.map((items: mobileWorkInterface, index: number) => {

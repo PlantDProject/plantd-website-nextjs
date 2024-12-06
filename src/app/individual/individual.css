@@ -22,7 +22,20 @@
     font-weight: 400;
     letter-spacing: 1.2px;
 }
-
+@keyframes fadeIn {
+    from {
+      /* opacity: 0.2; */
+      transform: scale(0.96);
+    }
+    to {
+      /* opacity: 1; */
+      transform: scale(1);
+    }
+  }
+  
+  .do-animation {
+    animation: fadeIn 0.8s ease;
+  }
 /* Dark grey background with a custom variable */
 .bg-dark-grey {
     background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
@@ -302,7 +315,7 @@
     }
     .swiper-container {
         padding: 0 10px !important; /* Add padding to avoid overflow on mobile */
-      }
+    }
     .individual-work-section .swiper-pagination .swiper-pagination-bullet {
         background: var(--white);
         opacity: 1 !important;
@@ -313,6 +326,11 @@
         background: var(--primary-color);
         width: 18px;
         border-radius: 4px;
+    }
+    .signupBtn:hover,
+    .exploreBtn:hover {
+        background-color: var(--primary-color) !important;
+        color: var(--white) !important;
     }
 }
 
@@ -355,10 +373,10 @@
     .individual-header-subtext {
         font-size: 30px;
     }
-    .individual-signup-section span{
-display: block;
+    .individual-signup-section span {
+        display: block;
     }
-    .individual-signup-section .signupBtn{
+    .individual-signup-section .signupBtn {
         margin-top: 10px;
     }
     .individual-work-section .work-div {
@@ -421,9 +439,9 @@ display: block;
     .app-div p {
         font-size: 14px !important;
     }
-    /* .individual-work-section .work-div {
-        height: 180px;
-    } */
+    .usp-active-div img {
+   height: 100%;
+    }
     .individual-work-section .work-img {
         width: 80%;
     }
