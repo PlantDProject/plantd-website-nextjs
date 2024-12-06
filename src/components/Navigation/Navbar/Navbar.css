@@ -178,6 +178,7 @@
 .dropdown-img img {
     border-radius: 12px;
     aspect-ratio: 3 / 2; /* Maintains a 3:2 ratio */
+    object-fit: cover;
 }
 
 /* =========================== */

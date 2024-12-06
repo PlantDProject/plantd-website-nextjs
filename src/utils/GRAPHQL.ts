@@ -1,19 +1,33 @@
-export const GET_ALL_EVENTS = `query GetEventsForWebsite($status: String!, $page: Int!, $size: Int!, $searchText: String!) {
-    getEventsForWebsite(status: $status, page: $page, size: $size, searchText: $searchText) {
-      totalCount
+export const GET_ONGOING_EVENTS = `query getOngoingEventsForWebsite {
+    getOngoingEventsForWebsite {
       events {
-        eventId
-        eventName
         eventDate
-        noOfParticipants
-        eventStatus
-        createdDate
-        status
+        eventId
         eventSlug
+        eventName
         imageUrl
-      }
+        }
     }
-  }`;
+}`
+
+export const GET_PAST_EVENTS = `query getPastEventsForWebsite(
+  $page: Int!,
+  $size: Int!
+) {
+  getPastEventsForWebsite(
+    page: $page,
+    size: $size
+  ) {
+    events {
+      eventDate
+      eventId
+      eventSlug
+      eventName
+      imageUrl
+    }
+    totalCount
+  }
+}`
 
 export const GET_EVENT_BY_ID = `query getEventByIdForWebsite($eventSlug: String!){
     getEventByIdForWebsite(eventSlug: $eventSlug) {
