@@ -246,8 +246,6 @@ const Homepage = ({ projectsList }: any) => {
                 </div>
             </section>
             {isLoading && <Loading />}
-
-            {/* Modal to show after form submission */}
         </div>
     );
 };
