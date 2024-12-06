@@ -16,6 +16,7 @@ import { appPerkBreakpoint, staticBreakpoints, workBreakpoint } from './individu
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { redirect } from 'next/navigation';
+import nextConfig from '../../../next.config';
 
 const Individual = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -37,14 +38,11 @@ const Individual = () => {
 
     useEffect(() => {
         if (activeCardData) {
-            // Trigger animation when activeCardData changes
             setAnimate(true);
-
             // Reset animation after it completes (0.5s animation duration)
             const timer = setTimeout(() => {
                 setAnimate(false);
             }, 500);  // Duration should match the animation duration in CSS
-
             return () => clearTimeout(timer);  // Clean up the timer
         }
     }, [activeCardData]);
@@ -56,17 +54,16 @@ const Individual = () => {
             setActiveWorkIndex(index - 1);
         }
     }
-
     const handleVideoClick = () => {
         trackEvent('Redirect to Plantd App/App Download')
-        redirect("/")
+        redirect(`${nextConfig?.env?.WEBSITE_ENV === 'production' ? `https://app.plantd.life/MW/QR`:`https://app-test.plantd.life/MW/InPage/AppDownload`}`)
     }
 
     return (
         <div className="bg-dark-grey">
 
             {/* Main Hero Section */}
-            <section className="bg-home individual-bg-home bg-second-dark pb-0" id="home">
+            <section className="individual-bg-home bg-second-dark pb-0" id="home">
                 <div className="home-center">
                     <div className="home-desc-center">
                         <div className="container-fluid">
