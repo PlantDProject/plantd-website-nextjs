@@ -195,13 +195,13 @@
         display: none;
     }
     .home-header-subtext {
-       margin-bottom: 40px;
+        margin-bottom: 40px;
     }
     .plantBtn {
         width: 260px !important;
         padding: 14px 0px !important;
     }
-    .home-project-section .swiper-wrapper{
+    .home-project-section .swiper-wrapper {
         padding-bottom: 45px !important;
     }
     .home-project-section .swiper-pagination {
@@ -213,13 +213,17 @@
         width: 10px;
         border-radius: 4px;
     }
-    
+
     .home-project-section .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
         background: var(--primary-color);
         width: 18px;
         border-radius: 4px;
     }
-    
+    .plantBtn:hover,
+    .moreBtn:hover {
+        color: var(--white) !important;
+        background-color: var(--primary-color) !important;
+    }
 }
 
 /* Mobile-specific styles for screen widths below 768px */
