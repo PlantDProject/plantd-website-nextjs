@@ -44,8 +44,7 @@ export const getImgUri = (uri: string) => {
     return `${process.env.API_URL}${uri}`;
 };
 
-export const light = 'https://test.plantd.life/images/plantdimg/logo-white.png';
-export const dark = 'https://test.plantd.life/images/plantdimg/logo-dark.png';
+export const light = '/next-images/logo-white.png';
 
 export const trackEvent = (e: any, data: any = {}) => {
     trackMixpanelEvent(e, data);

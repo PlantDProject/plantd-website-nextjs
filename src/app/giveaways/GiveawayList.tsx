@@ -50,7 +50,7 @@ export default function Giveaways({ onGoingEvents, completedEvents: initialCompl
 
     const eventCards = (event: any, index: number, isOnGoing: boolean = false) => {
         return (
-            <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{ backgroundImage: isEven(index) ? `url('https://test.plantd.life/images/plantdimg/projectbg.jpg')` : `url('https://test.plantd.life/images/plantdimg/giveawaybg.jpg')` }}>
+            <div key={index} className="row justify-content-center align-items-center text-center w-95 m-auto mb-4 image-bg" style={{ backgroundImage: `url('/next-images/giveaways/giveawaybg${isEven(index) ? '1' : '2'}.jpg')` }}>
                 <div className="col-12 py-3 position-relative">
                     <div className="position-absolute eventdate-div">
                         <p className="f-15 text-white mb-0">{getDay(event?.eventDate)}</p>
