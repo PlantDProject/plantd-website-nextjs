@@ -50,7 +50,11 @@ const Individual = () => {
     }, [activeCardData]);
 
     const activeIndexFunc = (index: number, from: string) => {
-        from === "usp" ? setActiveIndex(index - 1) : setActiveWorkIndex(index - 1)
+        if (from === "usp") {
+            setActiveIndex(index - 1);
+        } else {
+            setActiveWorkIndex(index - 1);
+        }
     }
 
     const handleVideoClick = () => {
