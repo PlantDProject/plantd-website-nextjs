@@ -265,9 +265,15 @@ const Navbar = () => {
 
                         <ul className="mb-0 ps-lg-2 ps-0 d-none d-lg-block">
                             <li className="nav-item">
-                                <Link className="btn primary-btn" href="/contribute">
-                                    Start Planting
-                                </Link>
+                                {pathName === '/ambassador' ? (
+                                    <Link className="btn primary-btn px-5" href="https://socialladder.rkiapps.com/ambdash?areaGuid=B5CB4C9C-F1EF-41FF-AAFB-B2A2368B0602">
+                                        Login
+                                    </Link>
+                                ) : (
+                                    <Link className="btn primary-btn" href="/contribute">
+                                        Start Planting
+                                    </Link>
+                                )}
                             </li>
                         </ul>
                     </div>
