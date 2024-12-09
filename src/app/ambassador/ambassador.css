@@ -1,0 +1,64 @@
+/* Main background section for the homepage */
+.ambassador-bg-home {
+    height: 99vh;
+    position: relative;
+    background-color: var(--white);
+    background-image: url('/next-images/ambassador/headbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.amb-title {
+    font-size: 5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.transparent-bg {
+    background-color: transparent;
+    border: 2px solid var(--white);
+    font-size: 20px;
+}
+
+.amb-section p {
+    /* font-size: 18px; */
+}
+
+.amb-subheading {
+    text-transform: uppercase;
+}
+
+.amb-section-image img {
+    border-radius: 25px;
+    transition: 0.3s ease;
+}
+
+.amb-section-image:hover img {
+    transform: scale(1.02);
+}
+
+.amb-cards img {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
+
+@media (max-width: 991.98px) {
+    .amb-title {
+        font-size: 4rem;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 515px) {
+    .amb-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .transparent-bg {
+        margin: 10px auto !important;
+    }
+}

@@ -219,6 +219,10 @@ section.section-green {
     background-color: var(--primary-color-dark);
 }
 
+section.section-light-green {
+    background-color: var(--primary-color);
+}
+
 .hover-green {
     transition: 0.3s ease;
 }
