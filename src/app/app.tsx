@@ -8,7 +8,6 @@ import { poppinsMedium } from '@/utils/fonts';
 import { initMixpanel } from '@/utils/mixpanel';
 import { initPostHog } from '@/utils/posthog';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-import nextConfig from '../../next.config';
 
 export default function App({
     children,
