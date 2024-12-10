@@ -36,10 +36,6 @@
   .do-animation {
     animation: fadeIn 0.8s ease;
   }
-/* Dark grey background with a custom variable */
-.bg-dark-grey {
-    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
-}
 
 .banner-logo {
     width: 35%;

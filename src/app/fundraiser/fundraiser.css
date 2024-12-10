@@ -18,11 +18,6 @@
     margin: auto; /* Center the sub-heading horizontally */
 }
 
-/* Dark grey background with a custom variable */
-.bg-dark-grey {
-    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
-}
-
 /* Styling for event date container */
 .eventdate-div {
     right: 20px; /* Position the container 20px from the right */
