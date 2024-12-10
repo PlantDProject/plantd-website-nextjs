@@ -1,0 +1,57 @@
+.notFound-bg-home {
+    position: relative;
+    background-color: var(--white);
+    background-image: url('https://plantd.life/images/plantdimg/errorbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 30px 25px var(--black) inset;
+    padding: 210px 0 100px 0;
+    /* position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+    height : 100vh;
+    overflow : "hidden" */
+}
+
+.error-center {
+    display: table;
+    width: 100%;
+    height: 80%;
+}
+
+.home-desc-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.error-txt {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.error-head {
+    font-size: 200px;
+    line-height: 1;
+    font-weight: 700;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+@media (max-width: 575.86px) {
+    .error-head {
+        font-size: 130px;
+    }
+
+    .error-txt {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1850.86px) {
+    .error-txt {
+        font-size: 32px;
+    }
+}
