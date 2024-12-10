@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-    const [dataOngoing, dataPast] = await Promise.all([fetchGraphQL(GET_ONGOING_EVENTS), fetchGraphQL(GET_PAST_EVENTS, { page: 1, size: 10 })]);
+    const dataOngoing = await fetchGraphQL(GET_ONGOING_EVENTS);
+    const dataPast = await fetchGraphQL(GET_PAST_EVENTS, { page: 1, size: 10 });
 
     console.log("oNGOING", dataOngoing) 
 
