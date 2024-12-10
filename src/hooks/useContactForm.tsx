@@ -10,6 +10,7 @@ const formDataFormat = {
     message: '',
     heard_from: new Set([]),
     other: '',
+    isChecked: false
 };
 function useCustomForm(formOrigin: string) {
     const [formData, setFormData] = useState<any>(formDataFormat);
@@ -23,6 +24,7 @@ function useCustomForm(formOrigin: string) {
         message: false,
         heard_from: false,
         other: false,
+        isChecked: false
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,11 +37,15 @@ function useCustomForm(formOrigin: string) {
     };
 
     const handleChange = (e: any, name: string) => {
+
         //starting with space is not allowed
-        const ignoreFirstSpace = e.indexOf(' ')
-        if (ignoreFirstSpace == 0) {
-            e = e.trim()
+        if (name !== 'isChecked') {
+            const ignoreFirstSpace = e?.indexOf(' ')
+            if (ignoreFirstSpace == 0) {
+                e = e?.trim()
+            }
         }
+
         // Limit phone number input length to 10
         if (name === 'phone' && (isNaN(e) || e.length > 10)) return;
         if (name === 'name' && (e.length > 30)) return;
@@ -54,13 +60,9 @@ function useCustomForm(formOrigin: string) {
                 e = e.substring(0, firstDotIndex + 1) + e.substring(firstDotIndex + 1).replace(/\./g, '');
             }
         }
-        //ignore spaces
-        if (name === 'phone' || name === 'email') {
-            e = e.replace(/\s/, '').trim()
-        }
-        // Update the form data
+
         setFormData((prev: any) => {
-            return { ...prev, [name]: e };
+            return { ...prev, [name]: e, isChecked: e.target ? e.target.checked : prev.isChecked };
         });
 
         // Reset the error for the current field when it changes
@@ -69,8 +71,12 @@ function useCustomForm(formOrigin: string) {
         });
     };
 
+    // const checkFields = (field: any) => {
+    //     return formOrigin !== 'contactus' && !field
+    // }
+
     const validateForm = () => {
-        const { name, email, phone, organization, message, other } = formData;
+        const { name, email, phone, organization, message, other, isChecked } = formData;
 
         const heard_from_array = [...formData.heard_from];
 
@@ -78,10 +84,11 @@ function useCustomForm(formOrigin: string) {
             name: !isNameValid(name),
             email: !isEmailValid(email),
             phone: !isPhoneNumberValid(phone),
-            organization: !organization,
             message: !message,
-            heard_from: heard_from_array.length === 0,
-            other: heard_from_array[0] === 'Other' && !other,
+            isChecked: !isChecked,
+            organization: formOrigin !== 'contactus' && !organization,
+            heard_from: formOrigin !== 'contactus' && heard_from_array.length === 0,
+            other: formOrigin !== 'contactus' && heard_from_array[0] === 'Other' && !other,
         };
 
         trackEvent("Failed Validation Fields", { errorFields: errors })
@@ -92,11 +99,15 @@ function useCustomForm(formOrigin: string) {
 
     const submitForm = async () => {
         if (!validateForm()) return;
+        const { isChecked, ...restData } = formData;
+        const dataObject: any = { ...restData, other: formData.other, heard_from: [...formData.heard_from][0], phone: `+1${formData.phone}`, form_origin: formOrigin, is_checked: isChecked };
 
-        const dataObject: any = { ...formData, other: formData.other, heard_from: [...formData.heard_from][0], phone: `+1${formData.phone}`, form_origin: formOrigin };
-
+        delete dataObject['is_checked']
         if (dataObject.heard_from !== 'Other') delete dataObject['other'];
-
+        if (formOrigin === 'contactus') {
+            delete dataObject['form_origin']
+            delete dataObject['organization']
+        }
         const API_URL = 'https://d0f1vjnskd.execute-api.ap-south-1.amazonaws.com/main/contact-us';
 
         setIsSubmitting(true);

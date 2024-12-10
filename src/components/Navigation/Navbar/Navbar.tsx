@@ -27,7 +27,6 @@ const Navbar = () => {
         try {
             const projectsData = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
             const projectRes = await projectsData.json();
-            console.log('PROJECT', projectRes);
             const firstSixProjects = projectRes?.projectList?.items?.slice(0, 6);
             setProjectList(firstSixProjects);
         } catch {
