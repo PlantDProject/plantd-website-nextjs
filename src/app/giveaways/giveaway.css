@@ -18,10 +18,6 @@
     margin: auto;
 }
 
-.bg-dark-grey {
-    background-color: var(--dark) !important;
-}
-
 .image-bg {
     border-radius: 15px;
     background-size: cover;

@@ -2,7 +2,7 @@
     padding: 17rem 0;
     position: relative;
     background-color: var(--white);
-    background-image: url('https://plantd.life/images/plantdimg/projectHeadBanner.webp');
+    background-image: url('/next-images/projects/projectHeadBanner.webp');
     background-repeat: no-repeat;
     background-size: cover;
     &:before {
@@ -40,7 +40,7 @@
 /* Projects Details */
 
 .stats-container {
-    background-image: url('https://plantd.life/images/plantdimg/headbg.jpg');
+    background-image: url('/next-images/projects/headbg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
