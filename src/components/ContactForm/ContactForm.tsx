@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import useCustomForm from '@/hooks/useContactForm';
 import { poppinsMedium } from '@/utils/fonts';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
@@ -45,9 +45,7 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
             alert('Please complete the reCAPTCHA.');
             return;
         }
-        else {
-            submitForm();
-        }
+        submitForm();
     };
 
 

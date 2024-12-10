@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { defaultOGImage } from '@/utils/helpers';
 import Homepage from './homepage/Homepage';
 
-const description = 'Fight Climate Change with Plantd and Join the Movement to plant 1 Billion Trees!';
-const title = 'Tree Planting Initiative by PLANTD';
+const description = 'Contribute and Plant One Billion Trees with Plantd';
+const title = 'Plantd Life for One Billion Trees Planted';
 
 export const metadata: Metadata = {
     title,

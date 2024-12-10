@@ -23,7 +23,7 @@ const verifyCaptcha = async (token: string) => {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const { message, captchaToken }: ContactRequest = req.body;
+    const { captchaToken }: ContactRequest = req.body;
 
     // Verify the CAPTCHA token
     const isCaptchaValid = await verifyCaptcha(captchaToken);
