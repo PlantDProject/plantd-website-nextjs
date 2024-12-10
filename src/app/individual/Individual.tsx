@@ -56,7 +56,7 @@ const Individual = () => {
     }
     const handleVideoClick = () => {
         trackEvent('Redirect to Plantd App/App Download')
-        redirect(`${nextConfig?.env?.WEBSITE_ENV === 'production' ? `https://app.plantd.life/MW/QR`:`https://app-test.plantd.life/MW/InPage/AppDownload`}`)
+        redirect(`${nextConfig?.env?.WEBSITE_ENV === 'production' ? `https://app.plantd.life/MW/QR` : `https://app-test.plantd.life/MW/InPage/AppDownload`}`)
     }
 
     return (
@@ -109,8 +109,6 @@ const Individual = () => {
                                     onSlideChange={(swiper: any) => {
                                         setActiveIndex(swiper.realIndex);
                                     }}
-
-
                                     breakpoints={staticBreakpoints}
                                 >
                                     {uspData?.map((items: uspInterface, index: number) => {
@@ -120,10 +118,16 @@ const Individual = () => {
                                                 <div className={`usp-slider ${isActive ? 'active' : ''}`} onClick={() => activeIndexFunc(items?.id, "usp")}>
                                                     <div className="d-flex justify-content-between align-items-start usp-title-head">
                                                         <IFrameRenderer iframeHtml={items?.name} />
-                                                        <img className={`arrow ${isActive ? `active ${animate ? 'do-animation' : ''}` : ''}`} src={`${isActive ? 'next-images/individual/arrow-up-white.webp' : 'next-images/individual/arrow-up.webp'}`} alt="arrow-up img" />
+                                                        {isActive ?
+                                                            <Link href={"/sign-up"}>
+                                                                <img className={`arrow active ${animate ? 'do-animation' : ''}`} src='next-images/individual/arrow-up-white.webp' alt="arrow-up-white img" />
+                                                            </Link>
+                                                            :
+                                                            <img className='arrow' src='next-images/individual/arrow-up.webp' alt="arrow-up img" />
+                                                        }
                                                     </div>
                                                     <hr className="text-white" />
-                                                    <img src={items?.image} alt={items?.alt} className="mx-auto d-block" loading="lazy" />
+                                                    <img src={items?.image} alt={items?.alt} className="mx-auto d-block" />
                                                 </div>
                                             </SwiperSlide>
                                         );
@@ -142,7 +146,7 @@ const Individual = () => {
                                             <Link onClick={() => trackEvent('to-signup')} href="/sign-up" >
                                                 <h3 className="text-white">{activeCardData?.title}</h3>
                                             </Link>
-                                            <hr className="text-dark" />
+                                            <hr className="text-white" />
                                             <p className="text-white mx-4 usp-para">{activeCardData?.firstPoint}</p>
                                             <p className="text-white mx-4 usp-para">{activeCardData?.secondPoint}</p>
                                         </div>
