@@ -62,11 +62,11 @@ const Business = () => {
 
                     {/* Image representing the One-to-One model */}
                     <div className="col-12 col-lg-6 order-1 order-lg-3 ms-auto mx-auto">
-                        <img src="/next-images/business/business-first-section.png" className="img-fluid" />
+                        <img src="/next-images/business/business-first-section.png" alt='business-first-section' className="img-fluid" />
                     </div>
 
                     {/* Transparent Logo Image */}
-                    <img src="/next-images/translucent-logo.png" className="first-section-img" />
+                    <img src="/next-images/translucent-logo.png" alt='translucent-logo' className="first-section-img" />
                 </div>
             </section>
             <section>
@@ -82,7 +82,7 @@ const Business = () => {
 
                     {/* Image representing the Climate Action Credits */}
                     <div className="col-12 col-lg-6 order-1 order-lg-0 me-auto">
-                        <img src="/next-images/business/business-second-section.png" className="img-fluid" />
+                        <img src="/next-images/business/business-second-section.png" alt='business-second-section' className="img-fluid" />
                     </div>
 
                     {/* Text content describing the Climate Action Credits */}
@@ -99,7 +99,7 @@ const Business = () => {
                         {CTA()}
 
                         {/* Transparent Logo Image */}
-                        <img src="/next-images/translucent-logo.png" className="second-section-img" />
+                        <img src="/next-images/translucent-logo.png" alt='translucent-logo' className="second-section-img" />
                     </div>
                 </div>
             </section>
@@ -108,13 +108,13 @@ const Business = () => {
                 <div className="w-90 mx-auto py-5 px-3 px-md-5 my-5 business-cards d-flex align-center text-white">
                     {/* Wavy section background images */}
                     <div className="wavy-section">
-                        <img src="/next-images/business/have-something.png" className="wavy-bg d-none d-lg-block" />
-                        <img src="/next-images/business/have-something-sm.png" className="wavy-bg d-block d-lg-none" />
+                        <img src="/next-images/business/have-something.png" alt='have-something' className="wavy-bg d-none d-lg-block" />
+                        <img src="/next-images/business/have-something-sm.png" alt='have-something-small' className="wavy-bg d-block d-lg-none" />
 
                         {/* Heading with decorative image */}
                         <div className="d-flex justify-center">
                             <h3 className={`my-5 ${poppinsBold.className}`}>
-                                <img src="/next-images/business/have-something-border.png" className="wavy-bg-heading" />
+                                <img src="/next-images/business/have-something-border.png" alt='have-something-border' className="wavy-bg-heading" />
                                 Have
                                 <br />
                                 something else
@@ -124,8 +124,8 @@ const Business = () => {
 
                         {/* Description for custom solutions */}
                         <p className={`wavy-section-p w-90 mx-auto px-5 py-4 text-center text-white ${poppinsMedium.className}`}>
-                            <img src="/next-images/business/rectangle.png" className="wavy-rectangle d-none d-lg-block" />
-                            <img src="/next-images/business/rectangle-sm.png" className="wavy-rectangle d-block d-lg-none" />
+                            <img src="/next-images/business/rectangle.png" alt='rectangle' className="wavy-rectangle d-none d-lg-block" />
+                            <img src="/next-images/business/rectangle-sm.png" alt='rectangle-small' className="wavy-rectangle d-block d-lg-none" />
                             If your business has a custom solution in mind, we're here to help bring it to life. Reach out for a free consultation, and together we can build a tailored partnership that aligns with your sustainability goals. Whether it’s a unique carbon offset strategy, targeted reforestation efforts, or specialized project support, we’ll work closely with you to create a solution
                             that maximizes your impact. Let’s collaborate to propel your climate action initiatives and drive meaningful change for a more sustainable future.{' '}
                         </p>

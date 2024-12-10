@@ -17,7 +17,7 @@ export default function SimpleSlider({ assets }: any) {
             {assets?.map((uri: string, index: number) => {
                 return (
                     <div key={index} className="d-flex justify-center align-items-center">
-                        <img src={uri} className="carousel-img-width" style={{ borderRadius: 22 }} />
+                        <img src={uri} className="carousel-img-width" alt={`slider-image-${index}`} style={{ borderRadius: 22 }} />
                     </div>
                 );
             })}

@@ -48,7 +48,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="text-center">
-                                        <img className="mx-auto" src={light} width="180px" />
+                                        <img className="mx-auto" src={light} alt='logo' width="180px" />
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                         </Link>
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="https://plantd.life/images/plantdimg/scannerimg3.png" />
+                                        <img src="https://plantd.life/images/plantdimg/scannerimg3.png" alt='scanner-image-3'/>
                                     </div>
                                 </li>
                                 <li className="timeline-item ">
@@ -150,7 +150,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                         <div className="fs-22 text-green text-left pb-lg-3 pb-0">Create your account with few quick steps or Sign-in with Google or Apple.</div>
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="https://plantd.life/images/plantdimg/tour1.png" />
+                                        <img src="https://plantd.life/images/plantdimg/tour1.png" alt='tour-image-1'/>
                                     </div>
                                 </li>
                                 <li className="timeline-item ">
@@ -161,7 +161,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                     </div>
                                     <div className="foot-app-icon d-flex mb-md-0 mb-4"></div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="https://plantd.life/images/plantdimg/tour3.png" />
+                                        <img src="https://plantd.life/images/plantdimg/tour3.png" alt='tour-image-3'/>
                                     </div>
                                 </li>
                             </ol>
