@@ -7,6 +7,8 @@ import Footer from '@/components/Navigation/Footer/Footer';
 import { poppinsMedium } from '@/utils/fonts';
 import { initMixpanel } from '@/utils/mixpanel';
 import { initPostHog } from '@/utils/posthog';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import nextConfig from '../../next.config';
 
 export default function App({
     children,
@@ -17,6 +19,9 @@ export default function App({
         initMixpanel();
         initPostHog();
     }, []);
+
+    const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+
     return (
         <html lang="en">
             <head>
@@ -27,7 +32,9 @@ export default function App({
             </head>
             <body className={poppinsMedium.className}>
                 <Navbar />
-                {children}
+                <GoogleReCaptchaProvider reCaptchaKey={`${recaptchaKey}`}>
+                    {children}
+                </GoogleReCaptchaProvider>
                 <Footer />
             </body>
         </html>

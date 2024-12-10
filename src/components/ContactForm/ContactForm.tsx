@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useCustomForm from '@/hooks/useContactForm';
 import { poppinsMedium } from '@/utils/fonts';
 import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
 import './contactForm.css';
 import { trackEvent } from '@/utils/helpers';
 import Link from 'next/link';
-
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+// import Recaptcha from './Recaptcha';
 // Define props type
 interface CustomFormProps {
     formOrigin: string; // Explicitly typing formOrigin as string
@@ -14,16 +15,41 @@ interface CustomFormProps {
 
 function CustomForm({ formOrigin, modal }: CustomFormProps) {
     const { formData, formDataErr, isSubmitting, handleChange, submitForm, showModal, handleSelectChange } = useCustomForm(formOrigin);
-
     useEffect(() => {
         if (modal) modal(showModal);
     }, [showModal]);
 
-    const handleSubmit = () => {
-        trackEvent('Submit Button Clicked', { formData });
-        if (isSubmitting) return;
-        submitForm();
+    const { executeRecaptcha } = useGoogleReCaptcha();
+
+    //captcha verification with submit button
+    const handleVerify = async () => {
+        if (executeRecaptcha) {
+            try {
+                const token = await executeRecaptcha('submit'); // Generate token
+                handleSubmit(token);
+            } catch (error) {
+                trackEvent('Error executing reCAPTCHA', { error });
+                console.error('Error executing reCAPTCHA', error);
+            }
+        } else {
+            console.error('reCAPTCHA is not ready yet');
+            trackEvent('reCAPTCHA is not ready yet');
+        }
     };
+
+    const handleSubmit = (captchaToken: any) => {
+        trackEvent('reCaptcha Verified and Submit Button Clicked', { formData });
+        if (isSubmitting) return;
+
+        if (!captchaToken) {
+            alert('Please complete the reCAPTCHA.');
+            return;
+        }
+        else {
+            submitForm();
+        }
+    };
+
 
     return (
         <div>
@@ -189,7 +215,7 @@ function CustomForm({ formOrigin, modal }: CustomFormProps) {
 
                 {/* Submit Button */}
                 <div className="d-flex justify-center my-3">
-                    <div className={`btn primary-btn btn-rounded custom-btn ${isSubmitting ? 'btn-disabled' : ''}`} onClick={handleSubmit}>
+                    <div className={`btn primary-btn btn-rounded custom-btn ${isSubmitting ? 'btn-disabled' : ''}`} onClick={handleVerify}>
                         {formOrigin === 'fundraiser' ? "Let's Fundraise" : formOrigin === 'contactus' ? 'Send Message' : 'Submit'}
                     </div>
                 </div>
