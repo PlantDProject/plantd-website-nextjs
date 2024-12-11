@@ -33,7 +33,7 @@ const Navbar = () => {
         }
 
         try {
-            const blogRes = await fetchAPI(`https://plantd.life/blogs/wp-json/wp/v2/posts`, false)
+            const blogRes = await fetchAPI(`https://plantd.life/blogs/wp-json/wp/v2/posts`, false);
             const firstSixBlogs = blogRes.slice(0, 6);
             setBlogList(firstSixBlogs);
         } catch {
@@ -118,10 +118,12 @@ const Navbar = () => {
                 redirect('/about');
                 break;
             case 'solutions':
-                if (window && window.innerWidth < 991 && !showSolutionsDropdown) {
-                    setShowSolutionsDropdown(true);
+                if (window && window.innerWidth < 991) {
+                    setShowSolutionsDropdown(!showSolutionsDropdown);
                     return;
                 }
+
+                setShowSolutionsDropdown(true)
                 // redirect('/solutions');
                 break;
             case 'blogs':

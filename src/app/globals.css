@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    background : var(--black);
+}
 :root {
     --primary-color: #40ba67; /* Light green */
     --primary-color-dark: #006300; /* Light green */
