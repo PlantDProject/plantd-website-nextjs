@@ -1,0 +1,28 @@
+/* Main background section for the homepage */
+.policy-bg-home {
+    background-image: url('/next-images/configuration/config-head.jpg');
+    padding: 16rem 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Title styling */
+.policy-title {
+    font-size: 45px; /* Set font size */
+    font-weight: bold; /* Make the font bold */
+    text-align: center;
+}
+
+/* Dark grey background with a custom variable */
+.bg-dark-grey {
+    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
+}
+.policy-section a {
+    color: var(--primary-color);
+}
+/* Mobile-specific styles for screen widths below 992px */
+@media (max-width: 991.89px) {
+    .policy-bg-home {
+        padding: 20rem 0 16rem 0;
+    }
+}
