@@ -9,19 +9,15 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     const response = await fetchGraphQL(GET_EVENT_BY_ID, { eventSlug: slug });
     const e = response?.data?.getEventByIdForWebsite;
 
+    const ogData = { title: `Plantd | ${e?.eventTitle}`, description: e?.eventTitle, images: e?.imageUrl || defaultOGImage };
+
     return {
         title: `Plantd | ${e?.eventTitle}`,
         description: e?.eventTitle,
-        openGraph: {
-            title: `Plantd | ${e?.eventTitle}`,
-            description: e?.eventTitle,
-            images: e?.eventThumbnail || defaultOGImage,
-        },
+        openGraph: ogData,
         twitter: {
-            card: e?.eventThumbnail || defaultOGImage,
-            title: `Plantd | ${e?.eventTitle}`,
-            description: e?.eventTitle,
-            images: e?.eventThumbnail || defaultOGImage,
+            card: e?.imageUrl || defaultOGImage,
+            ...ogData,
         },
     };
 }

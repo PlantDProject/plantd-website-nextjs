@@ -72,7 +72,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                             {/* Giveaway Video  */}
 
                             <div className="col-lg-5 col-12">
-                                <video poster={getImgUri(eventData?.imageUrl)} controls className="videoAudioHeight">
+                                <video poster={getImgUri(eventData?.eventThumbnail)} controls className="videoAudioHeight">
                                     <source src={getImgUri(eventData?.videoUrl)} type="video/mp4" />
                                 </video>
                             </div>
