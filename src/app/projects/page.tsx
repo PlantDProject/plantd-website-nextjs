@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Projects from './Projects';
-import { defaultOGImage } from '@/utils/helpers';
+import { defaultOGImage, fetchAPI } from '@/utils/helpers';
 
 const description = 'See our Projects all over the world in our journey as we plant 1 Billion Trees through our Reforestation Contribution App';
 
@@ -11,9 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-    const data = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
-    const response = await data.json();
-    const projectsList = response?.projectList?.items || [];
+    const data = await fetchAPI(`/configurations/get_project_data`);
+    const projectsList = data?.projectList?.items || [];
 
     return <Projects projectsList={projectsList} />;
 }
