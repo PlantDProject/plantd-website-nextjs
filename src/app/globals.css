@@ -15,10 +15,10 @@
     --text-off-white: #f0f0f0;
     --translucent-white: #ffffff80;
     --translucent-white: #ffffff80;
-    --blue : #007bff;
-    --shadow-dark : #242424;
-    --hover-nav : #03200c91;
-    --nav-bg : #0a3d1a69
+    --blue: #007bff;
+    --shadow-dark: #242424;
+    --hover-nav: #03200c91;
+    --nav-bg: #0a3d1a69;
 }
 
 a {
@@ -34,7 +34,7 @@ a {
 }
 
 .text-light {
-    color : var(--text-off-white);
+    color: var(--text-off-white);
 }
 .text-green {
     color: var(--primary-color);
@@ -56,8 +56,6 @@ a {
 .grey-bg {
     background-color: var(--grey-bg) !important;
 }
-
-
 
 .w-50 {
     width: 50%;
@@ -129,6 +127,10 @@ select:focus-visible {
 
 .fs-18 {
     font-size: 18px;
+}
+
+.fs-16 {
+    font-size: 16px;
 }
 
 .fs-24 {
