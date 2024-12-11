@@ -20,17 +20,17 @@ export default function App({
         initPostHog();
     }, []);
 
-    let gtmId = null;
-    if (process.env.WEBSITE_ENV === 'production') {
+    let gtmId = "G-GDMP4HZ9CM";
+    if (process.env.NEXT_PUBLIC_ENV === 'production') {
         gtmId = "G-D8F3BZ8R4G"
     }
 
     return (
         <html lang="en">
             {gtmId &&
-                <GoogleTagManager gtmId="G-D8F3BZ8R4G" />
+                <GoogleTagManager gtmId={gtmId} />
             }
-            <HotJar/>
+            <HotJar />
             <head>
                 <link rel="icon" href="https://plantd.life/images/plantdimg/favicon.png" type="image/x-icon" sizes="300x300" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
