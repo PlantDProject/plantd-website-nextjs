@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import ProjectDetails from './ProjectDetails';
+import { fetchAPI } from '@/utils/helpers';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
     const { slug } = await params;
 
-    const data = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
-    const response = await data.json();
-    const e = response?.projectList?.items.find((proj: any) => proj.slug === slug);
+    const data = await fetchAPI(`/configurations/get_project_data`);
+    const e = data?.projectList?.items.find((proj: any) => proj.slug === slug);
 
     return {
         title: e?.metaTitle,
@@ -28,9 +28,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 export default async function Page({ params }: any) {
     const { slug } = await params;
 
-    const data = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
-    const response = await data.json();
-    const projectsList = response?.projectList?.items || [];
+    const data = await fetchAPI(`/configurations/get_project_data`);
+    const projectsList = data?.projectList?.items || [];
 
     const filtered = projectsList.find((item: any) => item.slug === slug);
 
