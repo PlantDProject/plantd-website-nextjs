@@ -22,11 +22,6 @@
     margin: auto; /* Center the sub-heading horizontally */
 }
 
-/* Dark grey background with a custom variable */
-.bg-dark-grey {
-    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
-}
-
 .home-header-subtext {
     font-size: 20px;
     color: var(--white);

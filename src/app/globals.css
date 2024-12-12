@@ -276,3 +276,8 @@ section.section-light-green {
         width: 60px;
     }
 }
+
+/* Dark grey background with a custom variable */
+.bg-dark-grey {
+    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
+}
