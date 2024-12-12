@@ -7,6 +7,7 @@ import Footer from '@/components/Navigation/Footer/Footer';
 import { poppinsMedium } from '@/utils/fonts';
 import { initMixpanel } from '@/utils/mixpanel';
 import { initPostHog } from '@/utils/posthog';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { GoogleTagManager } from '@next/third-parties/google'
 import HotJar from '@/utils/hotjar';
 
@@ -20,6 +21,7 @@ export default function App({
         initPostHog();
     }, []);
 
+    const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
     let gtmId = "G-GDMP4HZ9CM";
     if (process.env.NEXT_PUBLIC_ENV === 'production') {
         gtmId = "G-D8F3BZ8R4G"
@@ -32,14 +34,16 @@ export default function App({
             }
             <HotJar />
             <head>
-                <link rel="icon" href="https://plantd.life/images/plantdimg/favicon.png" type="image/x-icon" sizes="300x300" />
+                <link rel="icon" href="/next-images/favicon.png" type="image/x-icon" sizes="300x300" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                 <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
             </head>
             <body className={poppinsMedium.className}>
                 <Navbar />
-                {children}
+                <GoogleReCaptchaProvider reCaptchaKey={`${recaptchaKey}`}>
+                    {children}
+                </GoogleReCaptchaProvider>
                 <Footer />
             </body>
         </html>

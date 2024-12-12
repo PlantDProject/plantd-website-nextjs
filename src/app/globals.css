@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    background : var(--black);
+}
 :root {
     --primary-color: #40ba67; /* Light green */
     --primary-color-dark: #006300; /* Light green */
@@ -15,10 +18,10 @@
     --text-off-white: #f0f0f0;
     --translucent-white: #ffffff80;
     --translucent-white: #ffffff80;
-    --blue : #007bff;
-    --shadow-dark : #242424;
-    --hover-nav : #03200c91;
-    --nav-bg : #0a3d1a69
+    --blue: #007bff;
+    --shadow-dark: #242424;
+    --hover-nav: #03200c91;
+    --nav-bg: #0a3d1a69;
 }
 
 a {
@@ -34,7 +37,7 @@ a {
 }
 
 .text-light {
-    color : var(--text-off-white);
+    color: var(--text-off-white);
 }
 .text-green {
     color: var(--primary-color);
@@ -56,8 +59,6 @@ a {
 .grey-bg {
     background-color: var(--grey-bg) !important;
 }
-
-
 
 .w-50 {
     width: 50%;
@@ -129,6 +130,10 @@ select:focus-visible {
 
 .fs-18 {
     font-size: 18px;
+}
+
+.fs-16 {
+    font-size: 16px;
 }
 
 .fs-24 {
@@ -219,6 +224,10 @@ section.section-green {
     background-color: var(--primary-color-dark);
 }
 
+section.section-light-green {
+    background-color: var(--primary-color);
+}
+
 .hover-green {
     transition: 0.3s ease;
 }
@@ -266,4 +275,9 @@ section.section-green {
     100% {
         width: 60px;
     }
+}
+
+/* Dark grey background with a custom variable */
+.bg-dark-grey {
+    background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
 }

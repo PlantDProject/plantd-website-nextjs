@@ -61,7 +61,7 @@ export default function Giveaways({ onGoingEvents, completedEvents: initialCompl
                         </h3>
                     </div>
                     <h3 className="title-heading text-white text-center fw-bold">{event?.eventName}</h3>
-                    <img src={getImgUri(event?.imageUrl)} className="my-2 ty-img mx-auto" alt="Chhath Mahaparv img" />
+                    <img src={getImgUri(event?.imageUrl)} className="my-2 ty-img mx-auto" alt={event?.eventName} />
                     <div>
                         <Link href={`giveaways/${event?.eventSlug}`} className="btn btn-sm btn-soft-primary btn-rounded py-2 px-5 view-details">
                             View Details

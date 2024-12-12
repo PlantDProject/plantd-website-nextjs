@@ -55,3 +55,11 @@ export const GET_EVENT_WINNERS = `query GetWinners($eventId: String!, $searchTex
       }
   }
 }`;
+
+export const GET_TNC_AND_POLICY = `query getAllConfigurations {
+  getAllConfigurations {
+    configurationName
+    htmlValue
+    value
+  }
+}`;
