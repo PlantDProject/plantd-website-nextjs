@@ -1,0 +1,56 @@
+.about-bg-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--white);
+    height: 90vh;
+    background-image: url('/next-images/about/mainbg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Make accordion items bordered and triggers 100% width */
+.accordion-item {
+    border: 1px solid var(--primary-color-dark) !important; /* Green border */
+    border-radius: 12px !important;
+    margin-bottom: 20px;
+}
+
+/* Make accordion items bordered and triggers 100% width */
+.accordion-item > h2 {
+    margin: 0;
+}
+
+.accordion-item button {
+    width: 100%;
+    padding: 20px 0 !important;
+    display: flex;
+}
+
+.accordion-item button svg {
+    transform: rotate(-90deg);
+    transition: 0.3s ease;
+}
+
+.accordion-item button[aria-expanded='true'] svg {
+    transform: rotate(90deg);
+}
+
+.accordion-item span {
+    font-size: 20px;
+    margin-left: auto;
+    color: var(--primary-color-dark);
+}
+
+.about-img2 {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.about-plant img {
+    border-radius: 20px;
+}

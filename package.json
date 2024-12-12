@@ -20,6 +20,7 @@
     "dependencies": {
         "@next/third-parties": "^15.0.4",
         "@nextui-org/react": "^2.4.8",
+        "aos": "^2.3.4",
         "apollo-server-micro": "^3.13.0",
         "axios": "^1.7.9",
         "bootstrap": "^5.3.3",
@@ -35,6 +36,7 @@
         "swiper": "^11.1.15"
     },
     "devDependencies": {
+        "@types/aos": "^3.0.7",
         "@types/mixpanel-browser": "^2.50.2",
         "@types/node": "^20",
         "@types/react": "^18",

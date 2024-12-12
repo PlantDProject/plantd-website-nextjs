@@ -2,18 +2,14 @@
 import './Homepage.css'; // Importing CSS styles specific to this page
 import React, { useEffect, useState } from 'react'; // Importing necessary React hooks
 import { trackEvent } from '@/utils/helpers'; // Importing event tracking helper
-import { homeAboutData, homeTestimonialData, galleryImagesData } from './HomepageItems'; // Importing Homepage items
-import { ProjectsInterface, testimonialInterface, galleryInterface, aboutInterface } from './HomepageItems'; // Importing Homepage items
-import { threeCardsBreakpoints, oneCardBreakpoints, staticBreakpoints } from './HomepageItems'; // Importing Homepage items
+import { homeAboutData, galleryImagesData, threeCardsBreakpoints } from './HomepageItems'; // Importing Homepage items
+import { ProjectsInterface, galleryInterface, aboutInterface } from './HomepageItems'; // Importing Homepage items
+import { oneCardBreakpoints, staticBreakpoints } from './HomepageItems'; // Importing Homepage items
 import Link from 'next/link';
 import Loading from '../loading';
 import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-cards';
+import { Testimonials } from '@/components/Testimonials/Testimonials';
 
 // Fundraiser Component
 const Homepage = ({ projectsList }: any) => {
@@ -213,38 +209,18 @@ const Homepage = ({ projectsList }: any) => {
             </section>
 
             {/*  section */}
+
             <section className="pt-4">
                 <div className="container w-95 grey-bg">
                     <div className="row justify-content-center py-lg-5 py-4 detail-container">
                         <div className="col-12 text-center d-grid justify-content-center">
                             <h2 className="text-white mb-lg-4">What people say?</h2>
-                            <div className="col-12 mt-4 slider-div">
-                                <Swiper
-                                    spaceBetween={20} // Space between slides
-                                    slidesPerView={3.5} // How many slides to show at once
-                                    centeredSlides={true}
-                                    loop={true}
-                                    breakpoints={threeCardsBreakpoints}
-                                >
-                                    {homeTestimonialData?.map((items: testimonialInterface, index: number) => {
-                                        return (
-                                            <SwiperSlide key={index}>
-                                                <div className="ms-2 testimonial-div">
-                                                    <div className="testimonial-box">
-                                                        <p className="text-white fs-14 testimonial-desc">{items?.description}</p>
-                                                        <p className="text-green fs-20 fw-700">{items?.name}</p>
-                                                    </div>
-                                                    <img className="testimonial-image" src={items?.image} alt={items?.image} />
-                                                </div>
-                                            </SwiperSlide>
-                                        );
-                                    })}
-                                </Swiper>
-                            </div>
+                            {Testimonials()}
                         </div>
                     </div>
                 </div>
             </section>
+            
             {isLoading && <Loading />}
         </div>
     );

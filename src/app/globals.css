@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    background : var(--black);
+    background : var(--dark);
 }
 :root {
     --primary-color: #40ba67; /* Light green */
