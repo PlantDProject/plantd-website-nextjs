@@ -4,7 +4,7 @@ import React from 'react';
 import './Navbar.css';
 import { aboutUsData, solutionsData } from './DropdownItems';
 import Link from 'next/link';
-import { light } from '@/utils/helpers';
+import { fetchAPI, light } from '@/utils/helpers';
 import { usePathname } from 'next/navigation';
 import { redirect } from 'next/navigation';
 
@@ -25,9 +25,7 @@ const Navbar = () => {
 
     const getData = async () => {
         try {
-            const projectsData = await fetch(`${process.env.API_URL}/configurations/get_project_data`);
-            const projectRes = await projectsData.json();
-            console.log('PROJECT', projectRes);
+            const projectRes = await fetchAPI(`/configurations/get_project_data`);
             const firstSixProjects = projectRes?.projectList?.items?.slice(0, 6);
             setProjectList(firstSixProjects);
         } catch {
@@ -35,8 +33,7 @@ const Navbar = () => {
         }
 
         try {
-            const blogData = await fetch(`https://plantd.life/blogs/wp-json/wp/v2/posts`);
-            const blogRes = await blogData.json();
+            const blogRes = await fetchAPI(`https://plantd.life/blogs/wp-json/wp/v2/posts`, false)
             const firstSixBlogs = blogRes.slice(0, 6);
             setBlogList(firstSixBlogs);
         } catch {
@@ -152,7 +149,7 @@ const Navbar = () => {
             <nav className={`navbar navbar-expand-lg fixed-top py-0 smooth ${isAtTop ? 'custom-nav' : 'bg-black'}`}>
                 <div className="container-fluid px-lg-5 py-3 py-lg-0 px-2">
                     <Link className="navbar-brand col-3" href="/">
-                        <img className="" src={light} width="100%" />
+                        <img className="" src={light} alt='logo' width="100%" />
                     </Link>
 
                     <div className="d-flex align-items-center">

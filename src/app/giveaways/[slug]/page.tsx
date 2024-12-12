@@ -1,38 +1,23 @@
 import { Metadata } from 'next';
 import GiveawayDetails from './GiveawayDetails';
 import { GET_EVENT_BY_ID, GET_EVENT_WINNERS } from '@/utils/GRAPHQL';
-import { defaultOGImage } from '@/utils/helpers';
+import { defaultOGImage, fetchGraphQL } from '@/utils/helpers';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
     const { slug } = await params;
 
-    const response = await fetch(`${process.env.API_URL}/graphql`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            query: GET_EVENT_BY_ID,
-            variables: { eventSlug: slug },
-        }),
-    });
+    const response = await fetchGraphQL(GET_EVENT_BY_ID, { eventSlug: slug });
+    const e = response?.data?.getEventByIdForWebsite;
 
-    const data = await response.json();
-    const e = data?.data?.getEventByIdForWebsite;
+    const ogData = { title: `Plantd | ${e?.eventTitle}`, description: e?.eventTitle, images: e?.imageUrl || defaultOGImage };
 
     return {
         title: `Plantd | ${e?.eventTitle}`,
         description: e?.eventTitle,
-        openGraph: {
-            title: `Plantd | ${e?.eventTitle}`,
-            description: e?.eventTitle,
-            images: e?.eventThumbnail || defaultOGImage,
-        },
+        openGraph: ogData,
         twitter: {
-            card: e?.eventThumbnail || defaultOGImage,
-            title: `Plantd | ${e?.eventTitle}`,
-            description: e?.eventTitle,
-            images: e?.eventThumbnail || defaultOGImage,
+            card: e?.imageUrl || defaultOGImage,
+            ...ogData,
         },
     };
 }
@@ -40,31 +25,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 export default async function Page({ params }: any) {
     const { slug } = await params;
 
-    const responseEventData = await fetch(`${process.env.API_URL}/graphql`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            query: GET_EVENT_BY_ID,
-            variables: { eventSlug: slug },
-        }),
-    });
+    const responseEventData = await fetchGraphQL(GET_EVENT_BY_ID, { eventSlug: slug });
 
-    const eventData = await responseEventData.json();
+    const responseWinners = await fetchGraphQL(GET_EVENT_WINNERS, { eventId: responseEventData?.data?.getEventByIdForWebsite?.eventId, searchText: '' });
 
-    const responseWinners = await fetch(`${process.env.API_URL}/graphql`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            query: GET_EVENT_WINNERS,
-            variables: { eventId: eventData?.data?.getEventByIdForWebsite?.eventId, searchText: '' },
-        }),
-    });
-
-    const winnersList = await responseWinners.json();
-
-    return <GiveawayDetails eventData={eventData?.data?.getEventByIdForWebsite} winnersList={winnersList?.data?.websiteGetWinners} />;
+    return <GiveawayDetails eventData={responseEventData?.data?.getEventByIdForWebsite} winnersList={responseWinners?.data?.websiteGetWinners} />;
 }
