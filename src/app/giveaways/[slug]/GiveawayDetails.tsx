@@ -48,7 +48,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="text-center">
-                                        <img className="mx-auto" src={light} width="180px" />
+                                        <img className="mx-auto" src={light} alt='logo' width="180px" />
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                             {/* Giveaway Video  */}
 
                             <div className="col-lg-5 col-12">
-                                <video poster={getImgUri(eventData?.imageUrl)} controls className="videoAudioHeight">
+                                <video poster={getImgUri(eventData?.eventThumbnail)} controls className="videoAudioHeight">
                                     <source src={getImgUri(eventData?.videoUrl)} type="video/mp4" />
                                 </video>
                             </div>
@@ -133,14 +133,14 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                     </div>
                                     <div className="foot-app-icon justify-content-start d-flex mb-md-0 mb-4 mt-2">
                                         <Link className="play-store me-2" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '150px' }}>
-                                            <img src="https://plantd.life/images/plantdimg/playstore-dark.png" alt="Google Play" className="" />
+                                            <img src="/next-images/socials/play-store-colored.png" alt="Google Play" className="" />
                                         </Link>
                                         <Link className="app-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '150px' }}>
-                                            <img src="https://plantd.life/images/plantdimg/appstore-dark.png" alt="App Store" className="" />
+                                            <img src="/next-images/socials/app-store-colored.png" alt="App Store" className="" />
                                         </Link>
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="https://plantd.life/images/plantdimg/scannerimg3.png" />
+                                        <img src="/next-images/giveaways/scanner-img-1.png" />
                                     </div>
                                 </li>
                                 <li className="timeline-item ">
@@ -150,7 +150,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                         <div className="fs-22 text-green text-left pb-lg-3 pb-0">Create your account with few quick steps or Sign-in with Google or Apple.</div>
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="https://plantd.life/images/plantdimg/tour1.png" />
+                                        <img src="/next-images/giveaways/scanner-img-2.png" />
                                     </div>
                                 </li>
                                 <li className="timeline-item ">
@@ -161,7 +161,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                     </div>
                                     <div className="foot-app-icon d-flex mb-md-0 mb-4"></div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="https://plantd.life/images/plantdimg/tour3.png" />
+                                        <img src="/next-images/giveaways/scanner-img-3.png" />
                                     </div>
                                 </li>
                             </ol>
@@ -212,7 +212,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                     {winnersList?.map((e: any, i: string) => {
                                         return (
                                             <div key={i} className="col-12 col-md-4 d-flex align-items-center justify-center flex-column">
-                                                <img src="https://plantd.life/images/plantdimg/userIcon.png" width={150} alt="Winner Dummy Image"></img>
+                                                <img src="/next-images/giveaways/userIcon.png" width={150} alt="Winner Dummy Image"></img>
                                                 <p className="fs-22 text-white mt-3">
                                                     {e?.user?.firstName} {e?.user?.lastName}
                                                 </p>

@@ -56,6 +56,18 @@ export const fetchGraphQL = async (query: string, variables: object = {}) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query, variables }),
+        cache: 'no-store',
+    });
+    return response.json();
+};
+
+export const fetchAPI = async (endpoint: string, isLocal: boolean = true): Promise<any> => {
+    const uri = isLocal ? `${process.env.API_URL}${endpoint}` : endpoint;
+    console.log('URI', uri);
+    const response = await fetch(uri, {
+        method: 'GET', // Default method
+        headers: { 'Content-Type': 'application/json' },
+        cache: 'no-store',
     });
     return response.json();
 };
