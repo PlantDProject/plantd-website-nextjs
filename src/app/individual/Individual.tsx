@@ -119,7 +119,7 @@ const Individual = () => {
                                                     <div className="d-flex justify-content-between align-items-start usp-title-head">
                                                         <IFrameRenderer iframeHtml={items?.name} />
                                                         {isActive ?
-                                                            <Link href={"/sign-up"}>
+                                                            <Link href={items?.redirectTo}>
                                                                 <img className={`arrow active ${animate ? 'do-animation' : ''}`} src='next-images/individual/arrow-up-white.webp' alt="arrow-up-white img" />
                                                             </Link>
                                                             :
@@ -143,7 +143,7 @@ const Individual = () => {
                                     </div>
                                     <div className="col-lg-6 p-0 right-col">
                                         <div className="px-md-5 px-2 py-4">
-                                            <Link onClick={() => trackEvent('to-signup')} href="/sign-up" >
+                                            <Link onClick={() => trackEvent('to-signup')} href={activeCardData?.redirectTo} >
                                                 <h3 className="text-white">{activeCardData?.title}</h3>
                                             </Link>
                                             <hr className="text-white" />
@@ -178,6 +178,7 @@ const Individual = () => {
                 <div className="container w-95">
                     <div className='grey-bg individual-work-section'>
                         <div className="row justify-content-center align-items-center">
+                        <h2 className="text-white text-center mb-4">How it Works?</h2>
                             {!isMobile ? (
                                 <>
                                     <div className="col-4">
@@ -256,24 +257,6 @@ const Individual = () => {
                                     </Swiper>
                                 </div>
                             )}
-                            {/* <Swiper
-                                    spaceBetween={20}
-                                    slidesPerView={4}
-                                    loop={false}
-                                    centeredSlides={false}
-                                    breakpoints={appPerkBreakpoint}
-                                >
-                                    {appPerkData.map((items: appPerkInterface, index: number) => {
-                                        return (
-                                            <SwiperSlide key={index}>
-                                                <div className="app-div py-4 px-2">
-                                                    <img src={items?.image} alt={items?.alt} />
-                                                    <IFrameRenderer iframeHtml={items?.name} />
-                                                </div>
-                                            </SwiperSlide>
-                                        );
-                                    })}
-                                </Swiper> */}
                         </div>
                     </div>
                 </div>
