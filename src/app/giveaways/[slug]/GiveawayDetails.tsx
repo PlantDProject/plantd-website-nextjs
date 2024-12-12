@@ -48,7 +48,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="text-center">
-                                        <img className="mx-auto" src={light} width="180px" />
+                                        <img className="mx-auto" src={light} alt='logo' width="180px" />
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                             {/* Giveaway Video  */}
 
                             <div className="col-lg-5 col-12">
-                                <video poster={getImgUri(eventData?.imageUrl)} controls className="videoAudioHeight">
+                                <video poster={getImgUri(eventData?.eventThumbnail)} controls className="videoAudioHeight">
                                     <source src={getImgUri(eventData?.videoUrl)} type="video/mp4" />
                                 </video>
                             </div>

@@ -15,7 +15,5 @@ export default async function Page() {
     const dataOngoing = await fetchGraphQL(GET_ONGOING_EVENTS);
     const dataPast = await fetchGraphQL(GET_PAST_EVENTS, { page: 1, size: 10 });
 
-    console.log("oNGOING", JSON.stringify(dataOngoing))
-
     return <Giveaways onGoingEvents={dataOngoing?.data?.getOngoingEventsForWebsite?.events} completedEvents={dataPast?.data?.getPastEventsForWebsite?.events} />;
 }
