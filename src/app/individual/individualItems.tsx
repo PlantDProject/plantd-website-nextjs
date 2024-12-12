@@ -1,8 +1,8 @@
 export const uspData = [
-    {id:1, image: `next-images/individual/doo1.webp`, alt: 'objective1 img', name: '<p className="f-17 mb-0 text-white">Plant<br /> Trees</p>', title: "Plant trees to make a difference", firstPoint: "Did you know planting 30 trees helps take 12 cars off the road for 4 weeks?", secondPoint: "Track your trees in the Plantd app and see the positive impact you make." },
-    {id:2, image: `next-images/individual/doo2.webp`, alt: 'objective2 img', name: '<p className="f-17 mb-0 text-white">Offset Your<br /> Footprint</p>', title: "Offset your carbon footprint", firstPoint: "Bad News: The average person in the US has a carbon footprint equivalent to driving 30K miles in a diesel car.", secondPoint: "Good News: Taking action has never been easier. Let’s join forces to do something about it!" },
-    {id:3, image: `next-images/individual/doo3.webp`, alt: 'objective3 img', name: '<p className="f-17 mb-0 text-white">Refer<br /> and Earn</p>', title: "Going green pays off... literally!", firstPoint: "Recruit your friends to increase your impact and your earnings.", secondPoint: "Grow your network, plant more trees and earn real cash for every referral." },
-    {id:4, image: `next-images/individual/doo4.webp`, alt: 'objective4 img', name: '<p className="f-17 mb-0 text-white">Win Epic<br /> Experiences</p>', title: "Explore the planet you are saving", firstPoint: "Enter exclusive giveaways to win unique experiences.", secondPoint: "Sleeping in a jungle tree house? Sailing the deep blue ocean? Yes, please!" },
+    {id:1, image: `next-images/individual/doo1.webp`, alt: 'objective1 img', name: '<p className="f-17 mb-0 text-white">Plant<br /> Trees</p>', title: "Plant trees to make a difference", firstPoint: "Did you know planting 30 trees helps take 12 cars off the road for 4 weeks?", secondPoint: "Track your trees in the Plantd app and see the positive impact you make.", redirectTo: "/sign-up" },
+    {id:2, image: `next-images/individual/doo2.webp`, alt: 'objective2 img', name: '<p className="f-17 mb-0 text-white">Offset Your<br /> Footprint</p>', title: "Offset your carbon footprint", firstPoint: "Bad News: The average person in the US has a carbon footprint equivalent to driving 30K miles in a diesel car.", secondPoint: "Good News: Taking action has never been easier. Let’s join forces to do something about it!", redirectTo: "/sign-up" },
+    {id:3, image: `next-images/individual/doo3.webp`, alt: 'objective3 img', name: '<p className="f-17 mb-0 text-white">Refer<br /> and Earn</p>', title: "Going green pays off... literally!", firstPoint: "Recruit your friends to increase your impact and your earnings.", secondPoint: "Grow your network, plant more trees and earn real cash for every referral.", redirectTo: "/sign-up" },
+    {id:4, image: `next-images/individual/doo4.webp`, alt: 'objective4 img', name: '<p className="f-17 mb-0 text-white">Win Epic<br /> Experiences</p>', title: "Explore the planet you are saving", firstPoint: "Enter exclusive giveaways to win unique experiences.", secondPoint: "Sleeping in a jungle tree house? Sailing the deep blue ocean? Yes, please!", redirectTo: "/giveaways" },
 ];
 
 export const appPerkData = [
@@ -39,6 +39,7 @@ export interface uspInterface {
     title: string;
     firstPoint: string;
     secondPoint: string;
+    redirectTo: string;
 }
 export interface appPerkInterface {
     image: string;
