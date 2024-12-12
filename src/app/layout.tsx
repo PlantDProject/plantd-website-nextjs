@@ -2,6 +2,10 @@ import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Metadata } from 'next';
 import App from './app';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-cards';
 
 export const metadata: Metadata = {
     title: 'Tree Planting Initiative by PLANTD',
