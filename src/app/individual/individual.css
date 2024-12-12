@@ -379,10 +379,10 @@
         text-align: center;
     }
     .individual-work-section .work-div h3 {
-        font-size: 15px;
+        font-size: 17px;
     }
     .individual-work-section .work-div p {
-        font-size: 12px;
+        font-size: 15px;
     }
 }
 
@@ -420,14 +420,20 @@
     .app-div p {
         font-size: 14px !important;
     }
+    .individual-work-section .work-div h3 {
+        font-size: 15px;
+    }
+    .individual-work-section .work-div p {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 323.86px) {
     .individual-work-section .work-div h3 {
-        font-size: 12px;
+        font-size: 14px;
     }
     .individual-work-section .work-div p {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 

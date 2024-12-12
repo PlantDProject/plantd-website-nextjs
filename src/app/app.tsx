@@ -7,6 +7,7 @@ import Footer from '@/components/Navigation/Footer/Footer';
 import { poppinsMedium } from '@/utils/fonts';
 import { initMixpanel } from '@/utils/mixpanel';
 import { initPostHog } from '@/utils/posthog';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { GoogleTagManager } from '@next/third-parties/google'
 import HotJar from '@/utils/hotjar';
 
@@ -20,6 +21,7 @@ export default function App({
         initPostHog();
     }, []);
 
+    const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
     let gtmId = "G-GDMP4HZ9CM";
     if (process.env.NEXT_PUBLIC_ENV === 'production') {
         gtmId = "G-D8F3BZ8R4G"
@@ -39,7 +41,9 @@ export default function App({
             </head>
             <body className={poppinsMedium.className}>
                 <Navbar />
-                {children}
+                <GoogleReCaptchaProvider reCaptchaKey={`${recaptchaKey}`}>
+                    {children}
+                </GoogleReCaptchaProvider>
                 <Footer />
             </body>
         </html>
