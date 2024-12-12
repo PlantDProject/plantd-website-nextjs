@@ -149,7 +149,7 @@ const Navbar = () => {
             <nav className={`navbar navbar-expand-lg fixed-top py-0 smooth ${isAtTop ? 'custom-nav' : 'bg-black'}`}>
                 <div className="container-fluid px-lg-5 py-3 py-lg-0 px-2">
                     <Link className="navbar-brand col-3" href="/">
-                        <img className="" src={light} width="100%" />
+                        <img className="" src={light} alt='logo' width="100%" />
                     </Link>
 
                     <div className="d-flex align-items-center">
