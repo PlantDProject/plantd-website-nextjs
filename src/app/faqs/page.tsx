@@ -8,10 +8,10 @@ import Link from 'next/link'; // Link component for client-side navigation
 
 export default function Page() {
     return (
-        <>
+        <div className="bg-dark-grey">
             {/* Section for FAQ page header */}
-            <section className="text-white bg-home giveaway-bg-home" id="home">
-                <h1 className="mb-5 text-center fs-40">Frequently Asked Questions</h1>
+            <section className="text-white bg-home faqs-bg-home" id="home">
+                <h1 className="text-center">Frequently Asked Questions</h1>
             </section>
 
             {/* Main container for FAQ Accordion */}
@@ -31,12 +31,12 @@ export default function Page() {
                                         {/* Icon for the accordion item */}
                                         <div className="fs-16 d-flex align-items-center" dangerouslySetInnerHTML={{ __html: e?.icon }}></div>
                                         {/* Title text for the accordion item */}
-                                        <p className="mb-0 ms-2 fs-16 text-green-dark">{e?.title}</p>
+                                        <p className="mb-0 ms-2 fs-16 text-green">{e?.title}</p>
                                     </div>
                                 }
                             >
                                 {/* Description/content for the accordion item */}
-                                <div className="fs-16 pt-2 pb-3">{e?.description}</div>
+                                <div className="fs-16 pt-2 pb-3 text-green">{e?.description}</div>
                             </AccordionItem>
                         );
                     })}
@@ -44,8 +44,8 @@ export default function Page() {
             </div>
 
             {/* Container for the "Contact Us" link */}
-            <div className="container-fluid w-90 px-4 mt-4 mb-5">
-                <p>
+            <div className="container-fluid w-90 px-4 pt-4 pb-5">
+                <p className="text-white">
                     {/* Text with a link to the Contact Us page */}
                     Cant find what you are looking for?{' '}
                     <Link href="/contact-us" className="text-green f-15">
@@ -54,6 +54,6 @@ export default function Page() {
                     {' '}now!
                 </p>
             </div>
-        </>
+        </div>
     );
 }
