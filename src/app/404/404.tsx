@@ -31,7 +31,7 @@ export default async function NotFoundPage() {
                         <div className="row justify-content-center align-items-center mt-5">
                             <div className="col-lg-4 col-md-7 col-12 text-center">
                                 <Link href="/" className="btn btn-soft-primary btn-round d-flex justify-content-center my-4 mx-auto" style={{ width: '50%', padding: '10px 0px' }}>
-                                    Go To Plantd Home<i className="fa fa-long-arrow-right ms-2" aria-hidden="true"></i>
+                                    Go To Plantd Home<i className="fa fa-long-arrow-right ms-2 d-flex align-items-center" aria-hidden="true"></i>
                                 </Link>
                             </div>
                         </div>
