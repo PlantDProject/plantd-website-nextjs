@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    background : var(--dark);
+    background: var(--dark);
 }
 :root {
     --primary-color: #40ba67; /* Light green */
@@ -280,4 +280,14 @@ section.section-light-green {
 /* Dark grey background with a custom variable */
 .bg-dark-grey {
     background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
+}
+
+.grey-hr {
+    border: none;
+    height: 1px;
+    border-radius: 20px;
+    margin: 50px 0;
+    /* Set the hr color */
+    color: var(--text-off-white); /* old IE */
+    background-color: var(--text-off-white);
 }

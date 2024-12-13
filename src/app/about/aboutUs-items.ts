@@ -91,7 +91,7 @@ export const aboutUsSections: DataFormat[] = [
         away. Once signed up, you will have access to information about numerous
         projects and events around the world concerned with the Environment and
         Climate Change action. You will also see all of the giveaways you can join and try
-        to win.{'\n'}
+        to win.<br />
         At Plantd, we believe that the bigger the impact you make, the bigger you should
         be rewarded. As a Plantd Subscriber, FIVE TREES will be planted on your behalf
         every month. Not only that, you will have TEN ENTRIES into our giveaways. That

@@ -7,6 +7,7 @@ import Link from 'next/link'; // Link component for client-side navigation
 import { DataFormat, aboutUsData, aboutUsSections, settings, takeSneakPeakItems } from './aboutUs-items';
 import { isEven } from '@/utils/helpers';
 import { Testimonials } from '@/components/Testimonials/Testimonials';
+import { SocialsBar } from '@/components/Socials/SocialsSection';
 
 const About = () => {
     const SectionContainer = (data: DataFormat, index: number) => {
@@ -14,7 +15,15 @@ const About = () => {
             <div className={`pb-4 pb-lg-0 container-fluid w-90 d-flex flex-wrap px-4 my-5 ${data.source !== 'about' ? 'align-items-center' : ''}`} data-aos="zoom-in" data-aos-duration="500" data-aos-easing="linear">
                 <div className={`col-lg-6 col-12 order-0 ${isEven(index) ? 'order-lg-1 ps-4' : 'pe-4 order-0'}`}>
                     <h2>{data.title}</h2>
-                    <p className="fs-20 mt-4">{data.description}</p>
+                    {/* <p className="fs-20 mt-4">{data.description}</p> */}
+                    <p className="fs-20 mt-4">
+                        {data.description.split('<br />').map((line, index) => (
+                            <span key={index}>
+                                {line}
+                                <br />
+                            </span>
+                        ))}
+                    </p>
 
                     {data.source === 'about' && (
                         <div className="col-6 align-items-center d-flex">
@@ -110,22 +119,7 @@ const About = () => {
                 </div>
             </section>
 
-            <section className="section-green py-5 mt-5">
-                <div className="container flex-wrap align-center justify-between d-flex">
-                    <div className="col-12 col-lg-6 text-center mx-auto">
-                        <h2 className="align-items-center text-white justify-center d-flex h-100 mb-0 fw-bold">Get Started Now</h2>
-                    </div>
-
-                    <div className="col-12 col-lg-6 mt-4 mt-lg-0 align-items-center justify-center d-flex mx-auto">
-                        <Link className="app-store me-3 " href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank">
-                            <img src="/next-images/socials/app-store.png" alt="App Store" className="ms-auto" width="60%" />
-                        </Link>
-                        <Link className="play-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank">
-                            <img src="/next-images/socials/play-store.png" alt="Google Play" className="" width="60%" />
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            {SocialsBar()}
         </div>
     );
 };

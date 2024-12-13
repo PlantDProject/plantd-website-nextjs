@@ -54,3 +54,21 @@
 .about-plant img {
     border-radius: 20px;
 }
+
+.heading-top {
+    padding-top: 150px;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    opacity: 1;
+    background: var(--white);
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-color);
+}
