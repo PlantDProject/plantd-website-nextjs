@@ -5,6 +5,12 @@ export interface SubSectionInterface {
     isHeading?: boolean;
 }
 
+export interface GreenInitiativeCardInterface {
+    title: string;
+    image: string;
+    modalDescription: string;
+}
+
 export const makeAnImpact: SubSectionInterface[] = [
     {
         title: `Our Mission at Plantd`,
@@ -45,6 +51,59 @@ export const makeAnImpact: SubSectionInterface[] = [
         In urban areas, trees help reduce stormwater runoff, mitigate the impact of floods, and replenish groundwater supplies. They create green spaces for recreation and improve mental well-being, enhancing the quality of life for residents.
         <br />
         Together, these efforts fortify our planet and pave the way for a sustainable future.`,
+    },
+];
+
+export const greenInitiative: SubSectionInterface[] = [
+    {
+        title: `Sign Up for Plantd and Be Part of our Vision for a Greener Future`,
+        isHeading: true,
+        image: `/next-images/about/subPages/ogia-1.webp`,
+        description: `At Plantd, we're fueled by a vision of a greener, more sustainable planet. Our mission is simple yet profound: to cultivate a thriving ecosystem through the collective actions of individuals like you. That's why we've created the Plantd Freemium app, designed to empower everyone to take meaningful steps toward environmental change.
+        <br />
+        With just a few taps on your phone, you can join a vibrant community of users dedicated to making a positive impact. Together, let's embark on a journey towards a brighter, greener future.`,
+    },
+    {
+        title: `Exploring Plantd's Freemium-based Mobile App`,
+        image: `/next-images/about/subPages/ogia-2.webp`,
+        description: `We make it effortless for you to contribute to a greener future that's both fulfilling and impactful. You’ll immediately have a tree planted on your behalf when you sign up for Plantd, instantly kickstarting your environmental journey.
+        <br />
+        Users will also gain access to a wealth of information on diverse global projects and events focused on environmental and climate change action.`,
+    },
+];
+
+export const greenInitiativeCards: GreenInitiativeCardInterface[] = [
+    {
+        title: `Grow Your Impact with a Tree-Planting Monthly Subscription`,
+        image: `/next-images/about/subPages/ogia/card-1.png`,
+        modalDescription: `You can easily empower your environmental efforts by joining our tree-planting membership program in America. With our monthly subscription, you'll contribute to planting five trees in your name each month. This accessible and conscious choice empowers you to actively combat climate change directly from your mobile device.`,
+    },
+    {
+        title: `Exciting Opportunities with Giveaways`,
+        image: `/next-images/about/subPages/ogia/card-2.png`,
+        modalDescription: `Here, we're all about keeping things exciting for our valued app users and subscribers. Get ready for thrilling contests offering prizes and exclusive VIP experiences when you sign up for Plantd. Plus, as a Plantd subscriber, you automatically receive ten entries for our exciting giveaways.`,
+    },
+    {
+        title: `Spread the Word and Get Referral Rewards`,
+        image: `/next-images/about/subPages/ogia/card-3.png`,
+        modalDescription: `Let's grow our community together, starting with you and your circle. At Plantd, we've introduced referral rewards because we believe in the power of collaboration in environmental stewardship. You can invite your friends to join our green movement and earn rewards while making a positive impact on our`,
+    },
+    {
+        title: `Offset Your Carbon Footprint`,
+        image: `/next-images/about/subPages/ogia/card-4.png`,
+        modalDescription: `At Plantd, we're committed to offering our users and subscribers multiple avenues to effect positive change. We recognize the significance of minimizing our carbon footprint, and we're here to assist you in that endeavor. Our app offers various options to achieve this by supporting certified projects dedicated to reducing carbon emissions.`,
+    },
+    {
+        title: `Fight Climate Change with Awareness`,
+        image: `/next-images/about/subPages/ogia/card-5.png`,
+        modalDescription: `Knowledge fuels action, especially when it comes to making a positive impact on our environment. At Plantd, we keep our users and subscribers informed with a range of articles and videos covering topics like climate change and actionable steps you can take.`,
+    },
+    {
+        title: `Climb the Ranks on Leaderboards`,
+        image: `/next-images/about/subPages/ogia/card-6.png`,
+        modalDescription: `There’s nothing like friendly competition within our community as you climb the ranks on our leaderboards. When you sign up on Plantd, you can track their progress in tree planting, referrals, and carbon offsets, allowing you to showcase your commitment while making a positive impact on our planet. Let your competitive spirit thrive while nurturing Mother Earth!
+        <br />
+        At Plantd, we believe in the power of collective action to create a greener future. Join us and let's grow a sustainable future, one tree at a time.`,
     },
 ];
 
@@ -104,7 +163,7 @@ export const aboutUsSlider: SliderInterface[] = [
         alt: `Make An Impact Together`,
     },
     {
-        image: `/next-images/about/subPages/ogia-1.webp`,
+        image: `/next-images/about/subPages/ogia-0.webp`,
         redirection: `/about/our-green-initiative-app`,
         alt: `Our Green Initiative App`,
     },

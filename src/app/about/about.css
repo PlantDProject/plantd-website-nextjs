@@ -72,3 +72,17 @@
 .swiper-pagination-bullet-active {
     background: var(--primary-color);
 }
+
+.readMoreBtn {
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.greenInitiativeCard:hover img {
+    transform: rotateY(360deg);
+}
+
+.greenInitiativeCard img {
+    transition: 1s ease;
+}

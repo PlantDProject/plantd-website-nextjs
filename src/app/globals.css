@@ -291,3 +291,7 @@ section.section-light-green {
     color: var(--text-off-white); /* old IE */
     background-color: var(--text-off-white);
 }
+
+.br-12 {
+    border-radius: 12px;
+}

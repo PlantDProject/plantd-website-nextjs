@@ -1,7 +1,10 @@
-.modal-lg {
+/* .modal-lg {
     --bs-modal-width: 90vw !important;
 
-}
+} */
+ .info-modal-content{
+    border: 2px solid var(--primary-color);
+ }
 .close{
     position: absolute;
     right: 10px;
