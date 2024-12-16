@@ -19,67 +19,19 @@
     border-radius: 12px;
     margin-top: 5px;
 }
-.inputClass input.phoneNumber {
-    padding: 10px 15px;
-    border-radius: 0px 12px 12px 0px;
+.password-input input{
+    padding-right: 50px;
 }
 
-.plus-input {
-    padding: 10px 15px;
-    background-color: var(--grey-bg);
-    border: 1px solid var(--grey);
-    border-radius: 12px 0px 0px 12px;
-    margin-top: 5px;
+.eye-btn-div i {
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    transform: translateY(-160%);
 }
-
-.textarea-custom {
-    border-radius: 12px;
-    padding: 0 !important;
-    border: 1px solid var(--grey);
-    margin: 5px 0 0 0;
-}
-
-.textarea-custom,
-.custom-select {
-    border-radius: 12px;
-    padding: 10px 15px !important;
-    border: 1px solid var(--grey);
-    width: 100%;
-    height: 46px;
-}
-
-.custom-select {
-    margin: 10px 0 0 0;
-}
-
-.select-dropdown {
-    background: var(--text-off-white);
-    border-radius: 12px;
-    padding: 0px !important;
-    margin: 0 !important;
-}
-
-.select-dropdown > ul > li {
-    display: flex;
-    cursor: pointer;
-    padding: 10px 20px;
-    transition: 0.3s ease;
-    border-radius: 12px;
-}
-
-.select-dropdown > ul > li:focus-visible,
-.custom-select:focus-visible,
-.textarea-custom:focus-visible {
-    outline: none;
-}
-
-.select-dropdown > ul > li:hover {
+.eye-btn-div i{
     color: var(--primary-color);
-}
-
-.select-dropdown > ul {
-    padding-left: 0 !important;
-    margin-bottom: 0 !important;
+    font-size: 20px;
 }
 
 /* Form CSS */

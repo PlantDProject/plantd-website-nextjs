@@ -8,7 +8,7 @@ export const GET_ONGOING_EVENTS = `query getOngoingEventsForWebsite {
         imageUrl
         }
     }
-}`
+}`;
 
 export const GET_PAST_EVENTS = `query getPastEventsForWebsite(
   $page: Int!,
@@ -27,7 +27,7 @@ export const GET_PAST_EVENTS = `query getPastEventsForWebsite(
     }
     totalCount
   }
-}`
+}`;
 
 export const GET_EVENT_BY_ID = `query getEventByIdForWebsite($eventSlug: String!){
     getEventByIdForWebsite(eventSlug: $eventSlug) {
@@ -61,5 +61,13 @@ export const GET_TNC_AND_POLICY = `query getAllConfigurations {
     configurationName
     htmlValue
     value
+  }
+}`;
+
+export const CHECK_SIGNUP_EMAIL = `query isEmailIdExist($input: IsEmailIdExistArgs) {
+  isEmailIdExist(input: $input) {
+    exists
+    firstName
+    lastName
   }
 }`;

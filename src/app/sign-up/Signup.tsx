@@ -5,13 +5,61 @@ import React, { useState } from 'react';
 import CustomModal from '@/components/Navigation/Modal/modal';
 import CustomSignupForm from '@/components/SignupForm/signup-form';
 import { Input } from '@nextui-org/react';
+import { CHECK_SIGNUP_EMAIL } from '@/utils/GRAPHQL';
+import { IFrameRenderer, fetchGraphQL } from '@/utils/helpers';
+import { InfoData, InfoDataInterface } from './signupItems';
+
+const emailregex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/
 
 const Signup = () => {
    // Button component to navigate to the form section
    const [showModal, setShowModal] = useState(false);
 
-   const handleChange = () => {
+   const [signupData, setSignupData] = useState({
+      isExist: false,
+      email: "",
+      name: null,
+      referralCode: null,
+      emailError: false,
+      showEmailCheckForm: true,
+   });
 
+   const isValid = emailregex.test(signupData?.email);
+   const emailCheckInput: any = {
+      emailId: signupData?.email,
+      referralCode: signupData?.referralCode
+   };
+   const appLink = process.env.NEXT_PUBLIC_ENV !== 'production' ? 'https://app-test.plantd.life/MW/UserExist/AppDownload' : 'https://app.plantd.life/MW/UserExist/AppDownload'
+
+   const handleDiffSignup = () => {
+      setSignupData(() => {
+         return {
+            isExist: false,
+            email: "",
+            name: null,
+            referralCode: null,
+            emailError: false,
+            showEmailCheckForm: true
+         }
+      })
+   }
+
+
+   const handleChange = (e: any) => {
+      if (e.includes(' ')) {
+         return;
+      }
+      setSignupData((prev: any) => { return { ...prev, email: e.trim() } })
+   }
+
+   const emailCheckFunc = async () => {
+      if (!isValid) {
+         setSignupData((prev: any) => { return { ...prev, emailError: true } })
+         return
+      }
+      const response = await fetchGraphQL(CHECK_SIGNUP_EMAIL, { input: emailCheckInput });
+      const dataObject = response?.data?.isEmailIdExist
+      setSignupData((prev: any) => { return { ...prev, showEmailCheckForm: false, isExist: dataObject?.exists, name: dataObject?.firstName } })
    }
 
    return (
@@ -35,29 +83,74 @@ const Signup = () => {
                      <img src="next-images/contact/form-img.jpg" alt="signup page featured image" />
                   </div>
                   <div className="col-lg-6 p-0 form-div">
-                     <div className="form-container text-center mx-auto py-lg-5 px-lg-4 px-md-5 px-3">
+                     <div className="form-container mx-auto py-lg-5 px-lg-4 px-md-5 px-3">
                         {/* Custom Signup form */}
-                        <div className="row justify-content-center email-div py-5 px-xl-5 px-md-4 px-2">
-                           <h3 className="fw-600" id="form">
-                              Welcome to Plantd
-                           </h3>
-                           <p className='fs-18 mb-5'>Start your journey to a <span className='text-green'>greener</span> tomorrow</p>
-                           <div className="emailInputClass col-xl-9 col-10 p-0">
-                              <Input
-                                 classNames={{
-                                    inputWrapper: ['px-0'],
-                                 }}
-                                 type="text"
-                                 placeholder="Enter your email"
-                                 labelPlacement="inside"
-                                 onValueChange={(e) => console.log(e)}
-                              />
-                           </div>
-                           <div className='emailCheckBtn p-0 col-xxl-1 col-2 d-flex justify-content-center align-items-center'>
-                              <i className="fa fa-arrow-right"></i>
-                           </div>
+
+                        <div className='py-4'>
+                           {signupData?.showEmailCheckForm && (
+                              <>
+                                 <div className="text-center">
+                                    <h3 className="fw-600">Welcome to Plantd</h3>
+                                    <p className='fs-18 mb-4'>Start your journey to a <span className='text-green'>greener</span> tomorrow</p>
+                                 </div>
+                                 <div className='row justify-content-center text-start email-div px-xl-5 px-md-4 px-2'>
+                                    <div className="emailInputClass col-xl-9 col-10 p-0">
+                                       <Input
+                                          classNames={{
+                                             inputWrapper: ['px-0'],
+                                          }}
+                                          type="text"
+                                          placeholder="Enter your email..."
+                                          labelPlacement="inside"
+                                          maxLength={50}
+                                          onValueChange={(e) => handleChange(e)}
+                                          value={signupData?.email}
+                                       />
+                                    </div>
+                                    <div onClick={emailCheckFunc} className='emailCheckBtn p-0 col-xxl-1 col-2 d-flex justify-content-center align-items-center'>
+                                       <i className="fa fa-arrow-right"></i>
+                                    </div>
+                                    <div className="col-xl-10 col-12 pt-2 d-flex justify-content-start">
+                                       {signupData?.emailError && <small className="text-danger">{`${signupData?.email.length === 0 ? 'Field cannot be empty' : 'Invalid email address'}`}</small>}
+                                    </div>
+                                 </div>
+                              </>
+                           )}
+
+                           {!signupData?.isExist && !signupData?.showEmailCheckForm && (
+                              <>
+                                 <div className="text-center">
+                                    <p className='fs-22 font-italic'>Hello <span className='text-green'>{signupData?.email}!</span></p>
+                                    <p className='fs-22 font-italic'>Please add your name and password.</p>
+                                 </div>
+                                 <CustomSignupForm email={signupData?.email} referralCode={signupData?.referralCode} />
+
+                                 <div className="diff-signup-div mt-4" onClick={handleDiffSignup}>
+                                    <p className='fs-18'>Sign up with different email id</p>
+                                 </div>
+                              </>
+                           )}
+
+                           {signupData?.isExist && (
+                              <div className="welcomeback-div">
+                                 <h3 className="fw-600 text-center " id="form">Welcome Back <span className='text-green'>{`${signupData?.name}`}</span></h3>
+                                 <p className='fs-18 text-center mb-4'>Login on your Plarntd App to</p>
+                                    {InfoData.map((items: InfoDataInterface, index) => {
+                                       return (
+                                          <div key={index} className="d-flex align-items-center mt-2 app-perk-div">
+                                             <img src={items?.icon} alt={items?.alt} className='me-2'/>
+                                             <IFrameRenderer iframeHtml={items?.subtitle}/>
+                                          </div>
+                                       );
+                                    })}
+                                    <div className="text-center mt-4">
+                                       <a className="btn primary-btn btn-rounded custom-btn" href="">Jump in</a>
+                                    </div>
+                              </div>
+                           )}
+
                         </div>
-                        {/* <CustomSignupForm formOrigin='Signup'/> */}
+
                      </div>
                   </div>
                </div>
