@@ -8,7 +8,7 @@ import Link from 'next/link'; // Link component for client-side navigation
 
 const FAQs = () => {
     return (
-        <>
+        <div className="bg-dark-grey text-white">
             {/* Section for FAQ page header */}
             <section className="text-white bg-home giveaway-bg-home" id="home">
                 <h1 className="mb-5 text-center fs-40">Frequently Asked Questions</h1>
@@ -31,7 +31,7 @@ const FAQs = () => {
                                         {/* Icon for the accordion item */}
                                         <div className="fs-16 d-flex align-items-center" dangerouslySetInnerHTML={{ __html: e?.icon }}></div>
                                         {/* Title text for the accordion item */}
-                                        <p className="mb-0 ms-2 fs-16 text-green-dark">{e?.title}</p>
+                                        <p className="mb-0 ms-2 fs-16 text-green">{e?.title}</p>
                                     </div>
                                 }
                             >
@@ -44,7 +44,7 @@ const FAQs = () => {
             </div>
 
             {/* Container for the "Contact Us" link */}
-            <div className="container-fluid w-90 px-4 mt-4 mb-5">
+            <div className="container-fluid w-90 px-4 mt-4 pb-5">
                 <p>
                     {/* Text with a link to the Contact Us page */}
                     Cant find what you are looking for?{' '}
@@ -54,7 +54,7 @@ const FAQs = () => {
                     now!
                 </p>
             </div>
-        </>
+        </div>
     );
 };
 

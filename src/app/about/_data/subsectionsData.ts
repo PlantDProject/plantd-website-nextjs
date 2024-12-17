@@ -107,6 +107,62 @@ export const greenInitiativeCards: GreenInitiativeCardInterface[] = [
     },
 ];
 
+export const reduceYourCarbonFootprint: SubSectionInterface[] = [
+    {
+        title: `Tracking Your Impact with Plantd`,
+        isHeading: true,
+        image: `/next-images/about/subPages/rcf-1.webp`,
+        description: `You can seamlessly reduce your carbon footprint when you download Plantd. Our app acts as your eco-guide, providing valuable resources and insights to navigate this green journey.
+        <br />
+        We can help you explore the world of carbon offsetting, where each step brings us closer to a greener planet. Let Plantd empower you to make a meaningful impact in the battle against climate change.`,
+    },
+    {
+        title: `Understanding Your Carbon Footprint`,
+        image: ``,
+        description: `Understanding your carbon footprint is essential on our journey to a greener future. It measures the total amount of greenhouse gasses emitted by your actions, directly or indirectly, impacting the environment. By grasping your carbon footprint, you gain insight into your environmental impact and role in climate change. This awareness empowers you to make informed choices, like reducing energy consumption and opting for eco-friendly alternatives.
+        <br />
+        So how do you make a difference? It all starts with tracking your carbon footprint. This allows you to identify areas for improvement and implement sustainable practices. It's a crucial step in mitigating climate change, ensuring a healthier planet for future generations.
+        <br />
+        At Plantd, we're committed to helping you understand and minimize your carbon footprint, empowering you to make a positive impact on the environment.`,
+    },
+    {
+        title: `Is it Important to Calculate Carbon Emissions?`,
+        image: `/next-images/about/subPages/rcf-2.webp`,
+        description: `Yes, calculating your carbon emissions is crucial for understanding your environmental impact and taking meaningful steps towards sustainability. That’s why when you sign up for our carbon offset subscription in America we help you calculate just that. It provides insight into the activities and behaviors that contribute most significantly to greenhouse gas emissions, empowering individuals to make informed choices.
+        <br />
+        Quantifying your carbon footprint can identify areas for improvement and implement strategies to reduce emissions, ultimately contributing to the fight against climate change. Here at Plantd, we believe in the power of knowledge and accountability, helping our community members become more environmentally conscious by calculating and minimizing their carbon emissions.`,
+    },
+    {
+        title: `Simple Ways to DO MORE at home to maximize your impact`,
+        image: ``,
+        description: `It all starts with us. At Plantd, we believe in the power of individual actions to drive collective impact.`,
+    },
+];
+
+export const reduceYourCarbonFootprintBulletPoints: SubSectionInterface[] = [
+    {
+        title: `Opt for Sustainable Transportation`,
+        image: ``,
+        description: `Choose sustainable transportation like walking, biking, or public transit to cut emissions from personal vehicles. This simple step helps contribute to a greener planet with every eco-friendly commute.`,
+    },
+    {
+        title: `Conserve Energy at Home`,
+        image: ``,
+        description: `Conserve energy at home by turning off lights and appliances when not in use. It also makes a difference when you switch to energy-efficient devices and use programmable thermostats.`,
+    },
+    {
+        title: `Reduce, Reuse, Recycle`,
+        image: ``,
+        description: `This one’s an oldie, but a goodie. Opt for reusable products, recycle paper, plastic, and glass, and compost organic waste to keep it out of landfills and lower methane emissions.`,
+    },
+    {
+        title: `Purchasing Carbon Offsets`,
+        image: ``,
+        description: `By supporting projects on Plantd that reduce or capture greenhouse gases, you're effectively neutralizing your carbon footprint and contributing to a greener future.
+        <br />
+        With Plantd as your eco-guide, you can track your impact, understand your carbon footprint, and take meaningful steps to combat climate change. Let's make every action count in the fight for a greener planet.`,
+    },
+];
 export const neverUnderestimate: SubSectionInterface[] = [
     {
         title: `Download our Plant a Tree App and Make a Difference Today!`,
