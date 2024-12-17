@@ -16,7 +16,7 @@
 
 /* Make accordion items bordered and triggers 100% width */
 .accordion-item {
-    border: 1px solid var(--primary-color-dark) !important; /* Green border */
+    border: 1px solid var(--primary-color) !important; /* Green border */
     border-radius: 12px !important;
     margin-bottom: 20px;
 }

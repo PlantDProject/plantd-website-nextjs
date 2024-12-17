@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    background : var(--black);
+    background: var(--dark);
 }
 :root {
     --primary-color: #40ba67; /* Light green */
@@ -138,6 +138,10 @@ select:focus-visible {
 
 .fs-24 {
     font-size: 24px;
+}
+
+.fs-28 {
+    font-size: 28px;
 }
 
 .fs-22 {
@@ -294,4 +298,22 @@ section.section-light-green {
 /* Dark grey background with a custom variable */
 .bg-dark-grey {
     background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
+}
+
+.grey-hr {
+    border: none;
+    height: 1px;
+    border-radius: 20px;
+    margin: 50px 0;
+    /* Set the hr color */
+    color: var(--text-off-white); /* old IE */
+    background-color: var(--text-off-white);
+}
+
+.br-12 {
+    border-radius: 12px;
+}
+
+ul.bullets {
+    list-style-type: unset !important;
 }
