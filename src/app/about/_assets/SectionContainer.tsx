@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { SubSectionInterface } from '../_data/subsectionsData';
 
 const parseDescription = (desc: string) => {
@@ -41,7 +42,7 @@ export const SectionContainer = (data: SubSectionInterface, index: number) => {
         <div key={index} data-aos="zoom-in" data-aos-duration="500" data-aos-easing="linear">
             <div className="section-heading py-3">{data.isHeading ? <h1>{data.title}</h1> : <h2>{data.title}</h2>}</div>
 
-            {data.image && <img src={data.image} width="100%" alt={data.title} />}
+            {data.image && <Image src={data.image} className="w-100" alt={data.title} width={800} height={600} />}
 
             <div className={`fs-20 mb-5 ${data.image && 'mt-4'}`}>{DescriptionSection(data.description)}</div>
         </div>

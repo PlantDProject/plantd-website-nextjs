@@ -17,6 +17,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { redirect } from 'next/navigation';
 import nextConfig from '../../../next.config';
+import Image from 'next/image';
 
 const Individual = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -73,7 +74,7 @@ const Individual = () => {
                                     <h1 className="individual-title mb-4 text-white">Fight climate change with</h1>
                                     <div className='text-center'>
 
-                                        <img src="/next-images/individual/banner-logo.webp" className='banner-logo' alt="Banner logo" />
+                                        <Image src="/next-images/individual/banner-logo.webp" width={250} height={150} className='banner-logo' alt="Banner logo" />
                                     </div>
                                     <p className="individual-header-subtext text-white mb-0">
                                         Join the movement!
@@ -85,7 +86,7 @@ const Individual = () => {
                                 {/* Right Side Content */}
                                 <div className="col-lg-5 position-relative mt-lg-0 mt-4">
                                     <p className={`fs-20 text-white text-center ${cursiveNormal.className}`}>Scan to download</p>
-                                    <img src="/next-images/individual/down-arrow.png" className='m-auto' alt="Down arrow img" />
+                                    <Image src="/next-images/individual/down-arrow.png" className='m-auto' width={32} height={32} alt="Down arrow img" />
                                     <div className='scanner-div'>
                                         <video src="/next-videos/scanner.webm" className="scanweb" loop playsInline autoPlay muted webkit-playsinline="false" onClick={!isMobile ? undefined : handleVideoClick}></video>
                                     </div>
@@ -120,14 +121,14 @@ const Individual = () => {
                                                         <IFrameRenderer iframeHtml={items?.name} />
                                                         {isActive ?
                                                             <Link href={items?.redirectTo}>
-                                                                <img className={`arrow active ${animate ? 'do-animation' : ''}`} src='next-images/individual/arrow-up-white.webp' alt="arrow-up-white img" />
+                                                                <Image className={`arrow active ${animate ? 'do-animation' : ''}`} src='/next-images/individual/arrow-up-white.webp' width={75} height={75} alt="arrow-up-white img" />
                                                             </Link>
                                                             :
-                                                            <img className='arrow' src='next-images/individual/arrow-up.webp' alt="arrow-up img" />
+                                                            <Image className='arrow' src='/next-images/individual/arrow-up.webp' alt="arrow-up img" width={52} height={52}/>
                                                         }
                                                     </div>
                                                     <hr className="text-white" />
-                                                    <img src={items?.image} alt={items?.alt} className="mx-auto d-block" />
+                                                    <Image src={items?.image} alt={items?.alt} className="w-100 mx-auto d-block" width={220} height={100}/>
                                                 </div>
                                             </SwiperSlide>
                                         );
@@ -139,7 +140,7 @@ const Individual = () => {
                             {activeCardData &&
                                 <div className={`row mt-4 usp-active-div ${animate ? 'do-animation' : ''}`}>
                                     <div className="col-lg-6 p-0 left-col">
-                                        <img src={activeCardData?.image} alt="objective img" />
+                                        <Image className="w-100" width={400} height={200} src={activeCardData?.image} alt="objective img" />
                                     </div>
                                     <div className="col-lg-6 p-0 right-col">
                                         <div className="px-md-5 px-2 py-4">
@@ -201,7 +202,7 @@ const Individual = () => {
                                     </div>
                                     <div className="col-4">
                                         {activeWorkData && (
-                                            <img src={activeWorkData?.image} className='work-img' alt="hw1" />
+                                            <Image src={activeWorkData?.image} className='work-img' alt="hw1" width={250} height={550}/>
                                         )}
                                     </div>
                                     <div className="col-4">
@@ -249,7 +250,7 @@ const Individual = () => {
                                                             <hr className="text-white my-2" />
                                                             <p className="text-white mb-0">{items?.subtext}</p>
                                                         </div>
-                                                        <img className='work-img my-4' src={items?.image} alt={items?.alt} />
+                                                        <Image src={items?.image} className='work-img my-4' alt={items?.alt} width={250} height={550}/>
                                                     </div>
                                                 </SwiperSlide>
                                             );
@@ -271,7 +272,7 @@ const Individual = () => {
                             <div className="col-12 text-center py-5">
                                 <h2 className="text-white">Win with Plantd</h2>
                                 <p className="fs-20 text-white">Win epic experiences and exclusive giveaways</p>
-                                <img src="next-images/individual/plantd-mobile.webp" className='m-auto pt-2' alt="Plantd mobile image" />
+                                <Image src="/next-images/individual/plantd-mobile.webp" className='m-auto pt-2' alt="Plantd mobile image" width={600} height={300} />
                                 <Link href="/giveaways" onClick={() => trackEvent('to-giveaways')} className="btn btn-soft-primary btn-round exploreBtn mt-4">Explore our Giveaways</Link>
                             </div>
                         </div>
@@ -296,7 +297,7 @@ const Individual = () => {
                                         return (
                                             <SwiperSlide key={index}>
                                                 <div className="app-div py-4  px-2">
-                                                    <img src={items?.image} alt={items?.alt} />
+                                                    <Image src={items?.image} alt={items?.alt} width={86} height={86}/>
                                                     <IFrameRenderer iframeHtml={items?.name} />
                                                 </div>
                                             </SwiperSlide>

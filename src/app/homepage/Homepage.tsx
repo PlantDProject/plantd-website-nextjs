@@ -10,6 +10,7 @@ import Loading from '../loading';
 import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Testimonials } from '@/components/Testimonials/Testimonials';
+import Image from 'next/image';
 
 // Fundraiser Component
 const Homepage = ({ projectsList }: any) => {
@@ -49,7 +50,7 @@ const Homepage = ({ projectsList }: any) => {
                                     <a href="/contribute" onClick={() => trackEvent(`Let's Plant button clicked`)} className="btn btn-soft-primary btn-round d-flex justify-content-center mx-auto plantBtn">
                                         Let's Plant
                                     </a>
-                                    <img src="/next-images/homepage/homeprojectimg.webp" width="100%" alt="fundraiser-left-head img" />
+                                    <Image src="/next-images/homepage/homeprojectimg.webp" width={500} height={400} className='w-100' alt="fundraiser-left-head img" />
                                 </div>
                             </div>
                         </div>
@@ -196,7 +197,7 @@ const Homepage = ({ projectsList }: any) => {
                                         return (
                                             <SwiperSlide key={index}>
                                                 <div key={index}>
-                                                    <img className="gallery-images" src={items?.image} alt={items?.alt} />
+                                                    <Image className="gallery-images w-100" src={items?.image} alt={items?.alt} width={800} height={400} />
                                                 </div>
                                             </SwiperSlide>
                                         );

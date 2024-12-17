@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import './Footer.css';
 import { poppinsNormal } from '@/utils/fonts';
+import Image from 'next/image';
 
 const Footer = () => {
     return (
@@ -11,7 +12,7 @@ const Footer = () => {
             <div className="container-fluid footer text-white" data-nosnippet="true">
                 <div className="row w-90 mx-auto">
                     <div className="col-md-4 footer-info">
-                        <img src="/next-images/logo-white.png" alt="plantd featured logo" className="foot-logo" />
+                        <Image src="/next-images/logo-white.png" alt="plantd featured logo" className="foot-logo" width={200} height={100} />
                         <p className="mt-lg-4 mt-md-2 mt-4 f-15 mb-2 foot-para">Plantd is just a seedling – young, fun and exciting. We’re capturing the best of both worlds in a movement to help our members GO green to MAKE green.</p>
                     </div>
                     <div className="col-md-4 contact-info">
@@ -24,10 +25,10 @@ const Footer = () => {
                             <h4 className="f-18 mt-lg-4 mb-lg-4 mt-4">Download App</h4>
                             <div className="foot-app-icon d-flex mb-md-0 mb-4">
                                 <Link className="app-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '30%' }}>
-                                    <img src="/next-images/socials/app-store.png" alt="App Store" className="" />
+                                    <Image src="/next-images/socials/app-store.png" alt="App Store" width={150} height={50} className="w-100 ms-auto" />
                                 </Link>
                                 <Link className="play-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '30%' }}>
-                                    <img src="/next-images/socials/play-store.png" alt="Google Play" className="" />
+                                    <Image src="/next-images/socials/play-store.png" alt="Google Play" width={150} height={50} className="w-100" />
                                 </Link>
                             </div>
                         </div>

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { fetchAPI, light } from '@/utils/helpers';
 import { usePathname } from 'next/navigation';
 import { redirect } from 'next/navigation';
+import Image from 'next/image';
 
 const Navbar = () => {
     const [showAboutUsDropdown, setShowAboutUsDropdown] = React.useState<boolean>(false);
@@ -151,7 +152,7 @@ const Navbar = () => {
             <nav className={`navbar navbar-expand-lg fixed-top py-0 smooth ${isAtTop ? 'custom-nav' : 'bg-black'}`}>
                 <div className="container-fluid px-lg-5 py-3 py-lg-0 px-2">
                     <Link className="navbar-brand col-3" href="/">
-                        <img className="" src={light} alt='logo' width="100%" />
+                        <Image src={light} alt='logo' width={180} height={120} className="w-100"/>
                     </Link>
 
                     <div className="d-flex align-items-center">
@@ -179,7 +180,7 @@ const Navbar = () => {
                                         return (
                                             <Link href={`/about/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
-                                                    <img src={item?.bannerImage} alt={item?.name} width="100%" />
+                                                    <Image src={item?.bannerImage} alt={item?.name} width={180} height={120} className="w-100" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
                                                     <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.name}</p>
@@ -203,7 +204,7 @@ const Navbar = () => {
                                         return (
                                             <Link href={`/projects/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
-                                                    <img src={item?.bannerImage} alt={item?.name} width="100%" />
+                                                    <Image src={item?.bannerImage} alt={item?.name} width={180} height={120} className="w-100" /> 
                                                 </div>
                                                 <div className="col-9 col-lg-7">
                                                     <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.name}</p>
@@ -225,7 +226,7 @@ const Navbar = () => {
                                         return (
                                             <Link href={`${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
-                                                    <img src={item?.bannerImage} alt={item?.name} width="100%" />
+                                                    <Image src={item?.bannerImage} alt={item?.name} width={180} height={120} className="w-100" /> 
                                                 </div>
                                                 <div className="col-9 col-lg-7">
                                                     <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.name}</p>
@@ -247,7 +248,7 @@ const Navbar = () => {
                                         return (
                                             <Link href={`/blogs/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
-                                                    <img src={item?.yoast_head_json?.og_image[0]?.url} alt={item?.title?.rendered} width="100%" />
+                                                    <Image src={item?.yoast_head_json?.og_image[0]?.url} alt={item?.title?.rendered} width={180} height={120} className="w-100" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
                                                     <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.title?.rendered}</p>

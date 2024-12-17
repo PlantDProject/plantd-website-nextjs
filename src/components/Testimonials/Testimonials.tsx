@@ -1,6 +1,7 @@
 import { threeCardsBreakpoints } from '@/app/homepage/HomepageItems';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "./testimonials.css"
+import Image from 'next/image';
 
 export interface testimonialInterface {
     image: string;
@@ -10,7 +11,7 @@ export interface testimonialInterface {
 
 export const homeTestimonialData = [
     {
-        image: `next-images/homepage/Elissa.webp`,
+        image: `/next-images/homepage/Elissa.webp`,
         name: 'Elissa',
         description: `I joined Plantd because I wanted to
     make a positive impact on the environment while also having the chance to win
@@ -20,7 +21,7 @@ export const homeTestimonialData = [
     innovative way to be more environmentally conscious! Do your part!`,
     },
     {
-        image: `next-images/homepage/Joelle.webp`,
+        image: `/next-images/homepage/Joelle.webp`,
         name: 'Joelle',
         description: `Being a Plantd subscriber has been
     beyond rewarding knowing I’m contributing to a better future for the next
@@ -29,7 +30,7 @@ export const homeTestimonialData = [
     place and it’s such a great feeling.`,
     },
     {
-        image: `next-images/homepage/Alex.webp`,
+        image: `/next-images/homepage/Alex.webp`,
         name: 'Alex',
         description: `I have been a Plantd subscriber for
     about 6 months now and that means 30 trees have been planted on my behalf! I am
@@ -38,7 +39,7 @@ export const homeTestimonialData = [
     new MacBook Pro!`,
     },
     {
-        image: `next-images/homepage/Elissa.webp`,
+        image: `/next-images/homepage/Elissa.webp`,
         name: 'Elissa',
         description: `I joined Plantd because I wanted to
     make a positive impact on the environment while also having the chance to win
@@ -48,7 +49,7 @@ export const homeTestimonialData = [
     innovative way to be more environmentally conscious! Do your part!`,
     },
     {
-        image: `next-images/homepage/Joelle.webp`,
+        image: `/next-images/homepage/Joelle.webp`,
         name: 'Joelle',
         description: `Being a Plantd subscriber has been
     beyond rewarding knowing I’m contributing to a better future for the next
@@ -57,7 +58,7 @@ export const homeTestimonialData = [
     place and it’s such a great feeling.`,
     },
     {
-        image: `next-images/homepage/Alex.webp`,
+        image: `/next-images/homepage/Alex.webp`,
         name: 'Alex',
         description: `I have been a Plantd subscriber for
     about 6 months now and that means 30 trees have been planted on my behalf! I am
@@ -85,7 +86,7 @@ export const Testimonials = () => {
                                     <p className="text-white fs-14 testimonial-desc">{items?.description}</p>
                                     <p className="text-green fs-20 fw-700">{items?.name}</p>
                                 </div>
-                                <img className="testimonial-image" src={items?.image} alt={items?.image} />
+                                <Image className="testimonial-image" src={items?.image} alt={items?.image} width={80} height={80}/>
                             </div>
                         </SwiperSlide>
                     );
