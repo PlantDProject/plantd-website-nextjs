@@ -79,7 +79,7 @@ export const aboutUsSections: DataFormat[] = [
         around the world. By doing so, we hope to achieve our goal of planting One
         Billion Trees worldwide thus creating a path towards a greener future.`,
         asset: '/next-images/about/impact.webp',
-        redirect: '/',
+        redirect: '/about/make-an-impact-together',
     },
     {
         title: `Our Green Initiative App`,
@@ -99,7 +99,7 @@ export const aboutUsSections: DataFormat[] = [
         PLANET because of MORE TREES PLANTED.
     `,
         asset: '/next-images/about/about-gif.gif',
-        redirect: '/',
+        redirect: '/about/our-green-initiative-app',
         source: 'initiative',
     },
     {
@@ -109,7 +109,7 @@ export const aboutUsSections: DataFormat[] = [
         carbon emissions, and purchase carbon offsets from the many renewable
         projects Plantd is in full support of.`,
         asset: '/next-images/about/footprint.webp',
-        redirect: '/',
+        redirect: '/about/reduce-your-carbon-footprint',
     },
     {
         title: `Our Green Initiative App`,
@@ -119,6 +119,6 @@ export const aboutUsSections: DataFormat[] = [
         with you as we work together to make an impact! Join the Movement, Spread the
         Word, and help us make our way to #OneBillionTrees.`,
         asset: '/next-images/about/seed.webp',
-        redirect: '/',
+        redirect: '/about/never-underestimate-the-power-of-a-seed',
     },
 ];

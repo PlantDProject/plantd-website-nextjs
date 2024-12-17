@@ -36,7 +36,7 @@ export const makeAnImpact: SubSectionInterface[] = [
         title: `The Importance of Reforestration`,
         image: `/next-images/about/subPages/mac-2.webp`,
         description: `
-        The urgency of reforestation cannot be overstated, especially in light of the alarming loss of 3.7 million hectares of tropical primary forests in 2023. This underscores the critical need to act swiftly. That’s why reforestation is vital in restoring balance to our planet's ecosystems. At Plantd, we understand the need to combat climate change. Trees are nature's carbon-capturing champions, absorbing CO2 and releasing oxygen. 
+        The urgency of reforestation cannot be overstated, especially in light of the {link:https://research.wri.org/gfr/latest-analysis-deforestation-trends|alarming loss of 3.7 million hectares of tropical primary forests in 2023}. This underscores the critical need to act swiftly. That’s why reforestation is vital in restoring balance to our planet's ecosystems. At Plantd, we understand the need to combat climate change. Trees are nature's carbon-capturing champions, absorbing CO2 and releasing oxygen. 
         <br />
         By planting trees, we not only restore habitats but also sequester carbon, mitigating adverse effects of excess carbon emissions and fostering biodiversity. Reforestation enhances soil health, prevents erosion, and provides livelihoods for communities. It's a powerful tool in our arsenal for creating a greener, more sustainable world for generations to come.`,
     },
@@ -168,7 +168,7 @@ export const neverUnderestimate: SubSectionInterface[] = [
         title: `Download our Plant a Tree App and Make a Difference Today!`,
         isHeading: true,
         image: `/next-images/about/subPages/nu-1.webp`,
-        description: `Forests worldwide face an unprecedented threat: deforestation. In 2022, a staggering 16 million acres of forests vanished, as reported by the 2023 Forest Declaration Assessment. Logging, construction, and livestock grazing are among the culprits.
+        description: `Forests worldwide face an unprecedented threat: deforestation. In 2022, a staggering 16 million acres of forests vanished, as reported by the {link:https://www.worldwildlife.org/threats/deforestation-and-forest-degradation#:~:text=In%202022%2C%20the%20world%20lost,and%20the%20construction%20of%20roads|2023 Forest Declaration Assessment}. Logging, construction, and livestock grazing are among the culprits.
         <br />
         At Plantd, we recognize the urgency of this global crisis. Plantd empowers you to take action with just a few taps on your mobile device and have trees planted on your behalf. Together, we can restore our planet's greenery and combat deforestation. Join us in the movement to make a lasting difference for future generations.`,
     },
@@ -186,7 +186,7 @@ export const neverUnderestimate: SubSectionInterface[] = [
         image: `/next-images/about/subPages/nu-2.webp`,
         description: `At Plantd, we embrace a bold vision: #OneBillionTrees. We understand the daunting nature of global crises, but we're here to empower you to #DoYourPart. Like a seedling, we're growing alongside you, committed to making a meaningful impact together. That’s why we launched Plantd.
         <br />
-        We invite everyone to join our movement and spread the word about tree planting. When you sign up, you immediately get a tree planted in your name and five trees if you decide to continue your contribution on a monthly basis! Together, we can combat deforestation, mitigate climate change, and restore balance to our planet's ecosystems. Every action counts, and with your help, we can turn this vision into reality, creating a greener, healthier world for generations to come.`,
+        We invite everyone to join our movement and spread the word about tree planting. {link:/sign-up|When you sign up}, you immediately get a tree planted in your name and five trees if you decide to continue your contribution on a monthly basis! Together, we can combat deforestation, mitigate climate change, and restore balance to our planet's ecosystems. Every action counts, and with your help, we can turn this vision into reality, creating a greener, healthier world for generations to come.`,
     },
     {
         title: `The Importance of Community in Reforestation`,
