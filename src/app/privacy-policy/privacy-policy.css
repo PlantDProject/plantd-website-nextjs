@@ -20,9 +20,26 @@
 .policy-section a {
     color: var(--primary-color);
 }
+.policy-section ul {
+   list-style: unset !important;
+}
 /* Mobile-specific styles for screen widths below 992px */
 @media (max-width: 991.89px) {
     .policy-bg-home {
         padding: 20rem 0 16rem 0;
+    }
+}
+
+@media (max-width: 768.89px) {
+    .policy-bg-home {
+        padding: 15rem 0 10rem 0;
+    }
+}
+@media (max-width: 768.89px) {
+    .policy-bg-home {
+        padding: 15rem 0 10rem 0;
+    }
+    .policy-title {
+        font-size : 30px
     }
 }

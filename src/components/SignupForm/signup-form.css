@@ -1,0 +1,47 @@
+/* Form CSS */
+
+.inputClass label {
+    font-size: 16px;
+    color: var(--dark-grey);
+}
+
+.inputClass {
+    margin-bottom: 20px;
+}
+
+.inputClass input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: var(--grey-bg);
+    border: 1px solid var(--grey);
+    padding: 10px 15px;
+    border-radius: 12px;
+    margin-top: 5px;
+}
+.password-input input{
+    padding-right: 50px;
+}
+
+.eye-btn-div i {
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    transform: translateY(-160%);
+}
+.eye-btn-div i{
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+/* Form CSS */
+
+.btn-disabled {
+    cursor: default !important;
+    opacity: 0.3;
+}
+
+.btn-disabled:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--whtie);
+}

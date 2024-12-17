@@ -75,7 +75,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="https://ambassador.plantd.life/" className="text-white f-15">
+                                    <Link href="/ambassador" className="text-white f-15">
                                         Become an ambassador
                                     </Link>
                                 </li>

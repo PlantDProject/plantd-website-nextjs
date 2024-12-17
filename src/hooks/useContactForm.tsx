@@ -108,7 +108,14 @@ function useCustomForm(formOrigin: string) {
             delete dataObject['form_origin']
             delete dataObject['organization']
         }
-        const API_URL = 'https://d0f1vjnskd.execute-api.ap-south-1.amazonaws.com/main/contact-us';
+        //for qa: emails will go to plantd.club
+        let API_URL = 'https://d0f1vjnskd.execute-api.ap-south-1.amazonaws.com/main/contact-us'
+        let API_KEY = '07wfSmwpsL2ed5eH2XvjZ29VjPk7f0ha8s7TGcDm'
+        //for prod: emails will go to info@plantd.life
+        if (process.env.NEXT_PUBLIC_ENV === 'production') {
+            API_URL = 'https://3cvc1ybydj.execute-api.us-east-1.amazonaws.com/prod/contact-us'
+            API_KEY = 'WKcoxIjC3o6KQCurtTbmVauz4zyR89Zi4ntItZKe'
+        }
 
         setIsSubmitting(true);
 
@@ -117,7 +124,7 @@ function useCustomForm(formOrigin: string) {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
-                    'x-api-key': '07wfSmwpsL2ed5eH2XvjZ29VjPk7f0ha8s7TGcDm',
+                    'x-api-key': `${API_KEY}`,
                 },
                 body: JSON.stringify(dataObject),
             });

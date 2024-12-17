@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    background : var(--black);
+    background: var(--dark);
 }
 :root {
     --primary-color: #40ba67; /* Light green */
@@ -140,6 +140,10 @@ select:focus-visible {
     font-size: 24px;
 }
 
+.fs-28 {
+    font-size: 28px;
+}
+
 .fs-22 {
     font-size: 22px;
 }
@@ -161,6 +165,9 @@ select:focus-visible {
 .position-relative {
     position: relative;
 }
+.font-italic{
+    font-style: italic;
+}
 @media (max-width: 991px) {
     .fs-20 {
         font-size: 17px;
@@ -176,6 +183,17 @@ select:focus-visible {
     }
     .fs-20 {
         font-size: 15px;
+    }
+}
+@media (max-width: 370.86px) {
+    .fs-22 {
+        font-size: 20px;
+    }
+    .fs-20 {
+        font-size: 15px;
+    }
+    .btn-rounded {
+        padding: 20px 70px !important;
     }
 }
 
@@ -280,4 +298,22 @@ section.section-light-green {
 /* Dark grey background with a custom variable */
 .bg-dark-grey {
     background-color: var(--dark) !important; /* Use a custom CSS variable for dark grey */
+}
+
+.grey-hr {
+    border: none;
+    height: 1px;
+    border-radius: 20px;
+    margin: 50px 0;
+    /* Set the hr color */
+    color: var(--text-off-white); /* old IE */
+    background-color: var(--text-off-white);
+}
+
+.br-12 {
+    border-radius: 12px;
+}
+
+ul.bullets {
+    list-style-type: unset !important;
 }
