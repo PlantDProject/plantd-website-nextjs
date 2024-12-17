@@ -161,6 +161,9 @@ select:focus-visible {
 .position-relative {
     position: relative;
 }
+.font-italic{
+    font-style: italic;
+}
 @media (max-width: 991px) {
     .fs-20 {
         font-size: 17px;
@@ -176,6 +179,17 @@ select:focus-visible {
     }
     .fs-20 {
         font-size: 15px;
+    }
+}
+@media (max-width: 370.86px) {
+    .fs-22 {
+        font-size: 20px;
+    }
+    .fs-20 {
+        font-size: 15px;
+    }
+    .btn-rounded {
+        padding: 20px 70px !important;
     }
 }
 

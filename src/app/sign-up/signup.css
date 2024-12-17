@@ -1,0 +1,109 @@
+/* Main background section for the homepage */
+.welcomeback-div p {
+    margin: 0;
+}
+.signup-bg-home {
+    background-image: url('/next-images/configuration/config-head.jpg');
+    padding: 16rem 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Title styling */
+.signup-title {
+    font-size: 45px; /* Set font size */
+    font-weight: bold; /* Make the font bold */
+    text-align: center;
+}
+
+.signup-section img {
+    height: 100%;
+    border-radius: 12px 0 0 12px;
+}
+.signup-section .form-div {
+    background-color: var(--grey-bg);
+    border-radius: 0 12px 12px 0;
+}
+/*Email input */
+.emailInputClass input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: var(--grey-bg);
+    border: 1px solid var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.emailCheckBtn {
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color);
+    border-radius: 0px 50px 50px 0px;
+    cursor: pointer;
+}
+.emailCheckBtn:hover {
+    opacity: 0.9;
+}
+.diff-signup-div {
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+.app-perk-div {
+    width: 80%;
+    margin-left: auto;
+}
+
+@media (max-width: 1140.98px) {
+    .app-perk-div {
+        width: 90%;
+    }
+}
+
+/* Mobile-specific styles for screen widths below 992px */
+@media (max-width: 991.89px) {
+    /* Reverse row order for smaller screens */
+    .reverseRow {
+        display: flex;
+        flex-direction: column-reverse !important;
+    }
+    .signup-bg-home {
+        padding: 20rem 0 16rem 0;
+    }
+
+    .signup-section img {
+        border-radius: 12px 12px 0 0px;
+    }
+    .signup-section .form-div {
+        background-color: var(--grey-bg);
+        border-radius: 0 0px 12px 12px !important;
+    }
+    .app-perk-div {
+        width: 80%;
+    }
+}
+
+/* Mobile-specific styles for screen widths below 768px */
+@media (max-width: 768.89px) {
+    .signup-bg-home {
+        padding: 15rem 0 10rem 0;
+    }
+    .signup-title {
+        font-size: 30px;
+    }
+}
+/* Custom styles for very small screens (below 600px) */
+@media (max-width: 600px) {
+    .app-perk-div {
+        width: 90%;
+    }
+    /* No custom changes at this size */
+}
+
+/* Custom styles for extra small screens (below 372px) */
+@media (max-width: 372px) {
+    .app-perk-div {
+        width: 100%;
+    }
+}
