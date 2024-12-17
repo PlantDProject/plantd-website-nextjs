@@ -6,11 +6,9 @@ import CustomModal from '@/components/Navigation/Modal/modal';
 import CustomSignupForm from '@/components/SignupForm/signup-form';
 import { Input } from '@nextui-org/react';
 import { CHECK_SIGNUP_EMAIL } from '@/utils/GRAPHQL';
-import { IFrameRenderer, fetchGraphQL } from '@/utils/helpers';
+import { IFrameRenderer, fetchGraphQL, isEmailValid } from '@/utils/helpers';
 import { InfoData, InfoDataInterface } from './signupItems';
 import Link from 'next/link';
-
-const emailregex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/
 
 const Signup = () => {
    // Button component to navigate to the form section
@@ -25,7 +23,7 @@ const Signup = () => {
       showEmailCheckForm: true,
    });
 
-   const isValid = emailregex.test(signupData?.email);
+   const isValid = isEmailValid(signupData?.email);
    const emailCheckInput: any = {
       emailId: signupData?.email,
       referralCode: signupData?.referralCode

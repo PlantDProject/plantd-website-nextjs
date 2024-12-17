@@ -6,7 +6,7 @@ interface ContactRequest {
   captchaToken: string;
 }
 
-const SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY as string;
+const SECRET_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY as string;
 
 const verifyCaptcha = async (token: string) => {
   const res = await fetch('https://www.google.com/recaptcha/api/siteverify', {

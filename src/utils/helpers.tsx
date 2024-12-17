@@ -4,12 +4,14 @@ import { trackPosthogEvent } from './posthog';
 const regexPhoneNumber = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
 const regexEmail = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
 const regexName = /^[a-zA-Z.]+(?: [a-zA-Z.]+)*$/;
+const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@?#%&])(?=.{8,})/;
 
 // Validators (implement these according to your needs)
 export const isNameValid = (name: string) => {
     return name && name.trim().length > 0 && regexName.test(name.trim());
 };
 export const isEmailValid = (email: string) => regexEmail.test(email);
+export const isPasswordValid = (password: string) => regexPassword.test(password);
 
 export const isPhoneNumberValid = (e: string) => {
     return regexPhoneNumber.test(e);

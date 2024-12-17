@@ -11,6 +11,7 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { GoogleTagManager } from '@next/third-parties/google';
 import HotJar from '@/utils/hotjar';
 import AOS from 'aos';
+import { HomePageSchema } from '@/utils/structured-data';
 
 export default function App({
     children,
@@ -22,10 +23,10 @@ export default function App({
         initPostHog();
         AOS.init();
     }, []);
-
+    const websiteEnv = process.env.NEXT_PUBLIC_ENV
     const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
     let gtmId = 'G-GDMP4HZ9CM';
-    if (process.env.NEXT_PUBLIC_ENV === 'production') {
+    if (websiteEnv === 'production') {
         gtmId = 'G-D8F3BZ8R4G';
     }
 
@@ -39,6 +40,7 @@ export default function App({
                 <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
                 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+                {websiteEnv === 'production' && <HomePageSchema />}
             </head>
             <body className={poppinsMedium.className}>
                 <Navbar />

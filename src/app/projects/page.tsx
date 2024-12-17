@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Projects from './Projects';
 import { defaultOGImage, fetchAPI } from '@/utils/helpers';
+import Head from 'next/head';
+import { ProjectsSchema } from '@/utils/structured-data';
 
 const description = 'See our Projects all over the world in our journey as we plant 1 Billion Trees through our Reforestation Contribution App';
 
@@ -14,5 +16,12 @@ export default async function Page() {
     const data = await fetchAPI(`/configurations/get_project_data`);
     const projectsList = data?.projectList?.items || [];
 
-    return <Projects projectsList={projectsList} />;
+    return (
+        <>
+            <Head>
+                {ProjectsSchema()}
+            </Head>
+            <Projects projectsList={projectsList} />
+        </>
+    );
 }
