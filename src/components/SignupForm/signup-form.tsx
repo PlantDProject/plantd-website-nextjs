@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Input } from '@nextui-org/react';
 import './signup-form.css';
-import { trackEvent } from '@/utils/helpers';
+import { isPasswordValid, trackEvent } from '@/utils/helpers';
 import Link from 'next/link';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -19,8 +19,6 @@ const formDataFormat = {
     password: '',
     isChecked: false
 };
-
-const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@?#%&])(?=.{8,})/;
 
 function CustomSignupForm({ email, referralCode }: SignupFormProps) {
 
@@ -106,7 +104,7 @@ function CustomSignupForm({ email, referralCode }: SignupFormProps) {
         const errors = {
             first_name: !first_name,
             last_name: !last_name,
-            password: !password || !passwordPattern.test(formData.password),
+            password: !password || !isPasswordValid(formData.password),
             isChecked: !isChecked,
         };
         trackEvent("Failed Validation Fields", { errorFields: errors })
@@ -114,28 +112,24 @@ function CustomSignupForm({ email, referralCode }: SignupFormProps) {
         setFormDataErr(errors);
         return Object.values(errors).every((err) => !err); // Returns true if no errors
     };
-
+ 
     const submitForm = async () => {
         if (!validateForm()) return;
         const { isChecked, ...restData } = formData;
         const dataObject: any = { ...restData, email: email, referralCode: referralCode, is_checked: isChecked };
 
         delete dataObject['is_checked']
-
-        let API_URL = 'https://d0f1vjnskd.execute-api.ap-south-1.amazonaws.com/main/qa-signup'
-
-        if (process.env.NEXT_PUBLIC_ENV === 'production') {
-            API_URL = 'https://d0f1vjnskd.execute-api.ap-south-1.amazonaws.com/main/prod-signup'
-        }
-
         setIsSubmitting(true);
+
+        const API_URL:any = process.env.NEXT_PUBLIC_SIGNUP_API_URL;
+        const API_KEY:any = process.env.NEXT_PUBLIC_SIGNUP_API_KEY;
 
         try {
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
-                    'x-api-key': '07wfSmwpsL2ed5eH2XvjZ29VjPk7f0ha8s7TGcDm',
+                    'x-api-key': API_KEY,
                 },
                 body: JSON.stringify(dataObject),
             });
@@ -149,7 +143,7 @@ function CustomSignupForm({ email, referralCode }: SignupFormProps) {
             setFormData(formDataFormat);
             trackEvent('Redirect to thank you page');
             // redirect('/thankyou')
-            window.location.href = '/thankyou';
+            window.location.href = '/thank-you';
         } catch (error: any) {
             trackEvent('Error In Form Submission Api', error);
             console.error('Error submitting form:', error);
