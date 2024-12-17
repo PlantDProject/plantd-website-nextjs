@@ -8,6 +8,7 @@ import { AboutUsSwiper } from '../_assets/SwiperComponent';
 import { SectionContainer } from '../_assets/SectionContainer';
 import CustomModal, { DataObj } from '@/components/Navigation/Modal/modal';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const defaultModalData = { title: '', description: '' };
 
@@ -19,7 +20,7 @@ const infoCards = (setData: any) => {
                     return (
                         <div key={index} className="col-lg-4 col-md-6 mb-4 aos-init aos-animate greenInitiativeCard" data-aos="zoom-in" data-aos-duration="500" data-aos-easing="linear">
                             <div className="bg-dark-grey py-4 br-12 d-flex flex-column h-100 justify-content-start text-center">
-                                <img width="75px" src={e.image} className="d-flex mx-auto" alt={e.title} />
+                                <Image width={75} height={75} src={e.image} className="d-flex mx-auto" alt={e.title} />
                                 <h5 className="f-18 text-white mt-3 mx-2 mb-4">{e.title}</h5>
                                 <p onClick={() => setData(e)} className="f-17 mt-auto mb-0 readMoreBtn">
                                     Read More

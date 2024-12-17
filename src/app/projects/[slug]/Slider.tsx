@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import Slider from 'react-slick';
 
@@ -17,7 +18,7 @@ export default function SimpleSlider({ assets }: any) {
             {assets?.map((uri: string, index: number) => {
                 return (
                     <div key={index} className="d-flex justify-center align-items-center">
-                        <img src={uri} className="carousel-img-width" alt={`slider-image-${index}`} style={{ borderRadius: 22 }} />
+                        <Image src={uri} className="carousel-img-width" alt={`slider-image-${index}`} style={{ borderRadius: 22 }} width={348} height={300} />
                     </div>
                 );
             })}

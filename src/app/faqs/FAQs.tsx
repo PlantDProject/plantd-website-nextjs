@@ -10,7 +10,7 @@ const FAQs = () => {
     return (
         <div className="bg-dark-grey text-white">
             {/* Section for FAQ page header */}
-            <section className="text-white bg-home giveaway-bg-home" id="home">
+            <section className="text-white bg-home faqs-bg-home" id="home">
                 <h1 className="mb-5 text-center fs-40">Frequently Asked Questions</h1>
             </section>
 

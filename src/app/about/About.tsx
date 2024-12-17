@@ -8,6 +8,7 @@ import { DataFormat, aboutUsData, aboutUsSections, settings, takeSneakPeakItems 
 import { isEven } from '@/utils/helpers';
 import { Testimonials } from '@/components/Testimonials/Testimonials';
 import { SocialsBar } from '@/components/Socials/SocialsSection';
+import Image from 'next/image';
 
 const About = () => {
     const SectionContainer = (data: DataFormat, index: number) => {
@@ -26,18 +27,18 @@ const About = () => {
                     </p>
 
                     {data.source === 'about' && (
-                        <div className="col-6 align-items-center d-flex">
+                        <div className="col-12 col-md-6 align-items-center d-flex">
                             <Link className="play-store me-4" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank">
-                                <img src="/next-images/socials/play-store.png" alt="Google Play" className="" width="100%" />
+                                <Image src="/next-images/socials/play-store.png" alt="Google Play" width={150} height={50} className="w-100" />
                             </Link>
                             <Link className="app-store " href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank">
-                                <img src="/next-images/socials/app-store.png" alt="App Store" className="ms-auto" width="100%" />
+                                <Image src="/next-images/socials/app-store.png" alt="App Store" width={150} height={50} className="w-100 ms-auto" />
                             </Link>
                         </div>
                     )}
                 </div>
                 <div className="mt-4 mt-lg-0 col-lg-6 col-12 justify-center d-flex">
-                    {data.source === 'about' ? <video width="100%" src={data.asset} loop autoPlay controls muted playsInline webkit-playsinline="false" style={{ borderRadius: '20px' }}></video> : <img src={data.asset} alt={data.title} className="" style={{ width: data.source === 'initiative' ? 'auto' : '100%', height: data.source === 'initiative' ? '600px' : '100%' }} />}
+                    {data.source === 'about' ? <video width="100%" src={data.asset} loop autoPlay controls muted playsInline webkit-playsinline="false" style={{ borderRadius: '20px' }}></video> : <Image src={data.asset} alt={data.title} width={560} height={300} style={{ width: data.source === 'initiative' ? 'auto' : '100%', height: data.source === 'initiative' ? '600px' : '100%' }} />}
                 </div>
             </div>
         );
@@ -71,7 +72,7 @@ const About = () => {
                         {takeSneakPeakItems?.map((items: any, index: number) => {
                             return (
                                 <div key={index} className="d-flex align-items-center justify-center flex-column">
-                                    <img src={items?.image} alt={items?.text} width="80%" />
+                                    <Image src={items?.image} alt={items?.text} width={180} height={400} className="w-80" />
                                     <div className="text-center mt-3">
                                         <p className="fs-20 text-white text-center fw-800 mb-1">{items?.text}</p>
                                     </div>
@@ -84,7 +85,11 @@ const About = () => {
 
             <section className="py-5">
                 {aboutUsSections.map((e: DataFormat, index: number) => {
-                    return <Link className="text-white cards-hover" href={e.redirect || '/'} key={index}>{SectionContainer(e, index)}</Link>;
+                    return (
+                        <Link className="text-white cards-hover" href={e.redirect || '/'} key={index}>
+                            {SectionContainer(e, index)}
+                        </Link>
+                    );
                 })}
             </section>
 
@@ -103,8 +108,8 @@ const About = () => {
                 <div className="container-fluid w-90 pt-5">
                     <div className="row justify-content-center">
                         <div className="col-md-6 about-plant relative">
-                            <img className="aboutmain-img1" src="/next-images/about/hiw-1.jpeg" width="60%" alt="planting-img" />
-                            <img className="about-img2" src="/next-images/about/hiw-2.webp" loading="lazy" alt="plantd-mature-tree img" />
+                            <Image className="aboutmain-img1 w-60" src="/next-images/about/hiw-1.jpeg" alt="planting-img" width={400} height={500}/>
+                            <Image className="about-img2" src="/next-images/about/hiw-2.webp" loading="lazy" alt="plantd-mature-tree img" width={280} height={280}/>
                         </div>
                         <div className="col-md-6 mt-4 ps-lg-5 ms-0">
                             <h2>How It Works?</h2>

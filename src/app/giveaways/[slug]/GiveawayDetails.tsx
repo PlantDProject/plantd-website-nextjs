@@ -6,6 +6,7 @@ import CountdownTimer from './CountdownTimer';
 import Link from 'next/link';
 import CustomModal from '@/components/Navigation/Modal/modal';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const GiveawayDetail = ({ eventData, winnersList }: any) => {
     const eventdate = new Date(eventData?.eventDate);
@@ -48,7 +49,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                             <div className="row align-items-center">
                                 <div className="col-12">
                                     <div className="text-center">
-                                        <img className="mx-auto" src={light} alt='logo' width="180px" />
+                                        <Image className="mx-auto" src={light} alt='logo' width={180} height={90} />
                                     </div>
                                 </div>
                             </div>
@@ -133,14 +134,14 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                     </div>
                                     <div className="foot-app-icon justify-content-start d-flex mb-md-0 mb-4 mt-2">
                                         <Link className="play-store me-2" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '150px' }}>
-                                            <img src="/next-images/socials/play-store-colored.png" alt="Google Play" className="" />
+                                            <Image className="w-100 "src="/next-images/socials/play-store-colored.png" alt="Google Play" width={150} height={50} />
                                         </Link>
                                         <Link className="app-store" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank" style={{ width: '150px' }}>
-                                            <img src="/next-images/socials/app-store-colored.png" alt="App Store" className="" />
+                                            <Image className="w-100 "src="/next-images/socials/app-store-colored.png" alt="App Store" width={150} height={50} />
                                         </Link>
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="/next-images/giveaways/scanner-img-1.png" />
+                                        <Image width={240} height={455} src="/next-images/giveaways/scanner-img-1.png" alt="Scan to download app"/>
                                     </div>
                                 </li>
                                 <li className="timeline-item ">
@@ -150,7 +151,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                         <div className="fs-22 text-green text-left pb-lg-3 pb-0">Create your account with few quick steps or Sign-in with Google or Apple.</div>
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="/next-images/giveaways/scanner-img-2.png" />
+                                        <Image width={240} height={455} src="/next-images/giveaways/scanner-img-2.png" alt="Create your account"/>
                                     </div>
                                 </li>
                                 <li className="timeline-item ">
@@ -161,7 +162,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                     </div>
                                     <div className="foot-app-icon d-flex mb-md-0 mb-4"></div>
                                     <div className="d-flex justify-content-center mt-4 px-5 py-3 px-lg-0 py-lg-0">
-                                        <img src="/next-images/giveaways/scanner-img-3.png" />
+                                        <Image width={240} height={455} src="/next-images/giveaways/scanner-img-3.png" alt="Submit 10x entries"/>
                                     </div>
                                 </li>
                             </ol>
@@ -212,7 +213,7 @@ const GiveawayDetail = ({ eventData, winnersList }: any) => {
                                     {winnersList?.map((e: any, i: string) => {
                                         return (
                                             <div key={i} className="col-12 col-md-4 d-flex align-items-center justify-center flex-column">
-                                                <img src="/next-images/giveaways/userIcon.png" width={150} alt="Winner Dummy Image"></img>
+                                                <Image src="/next-images/giveaways/userIcon.png" width={150} height={140} alt="Winner Dummy Image" />
                                                 <p className="fs-22 text-white mt-3">
                                                     {e?.user?.firstName} {e?.user?.lastName}
                                                 </p>

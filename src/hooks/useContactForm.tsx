@@ -108,14 +108,9 @@ function useCustomForm(formOrigin: string) {
             delete dataObject['form_origin']
             delete dataObject['organization']
         }
-        //for qa: emails will go to plantd.club
-        let API_URL = 'https://d0f1vjnskd.execute-api.ap-south-1.amazonaws.com/main/contact-us'
-        let API_KEY = '07wfSmwpsL2ed5eH2XvjZ29VjPk7f0ha8s7TGcDm'
-        //for prod: emails will go to info@plantd.life
-        if (process.env.NEXT_PUBLIC_ENV === 'production') {
-            API_URL = 'https://3cvc1ybydj.execute-api.us-east-1.amazonaws.com/prod/contact-us'
-            API_KEY = 'WKcoxIjC3o6KQCurtTbmVauz4zyR89Zi4ntItZKe'
-        }
+        
+        const API_URL:any = process.env.NEXT_PUBLIC_CONTACT_US_API_URL
+        const API_KEY:any = process.env.NEXT_PUBLIC_CONTACT_US_API_KEY
 
         setIsSubmitting(true);
 

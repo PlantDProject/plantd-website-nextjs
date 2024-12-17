@@ -1,4 +1,5 @@
 // components/Modal.js
+import Image from 'next/image';
 import './modal.css';
 
 export interface DataObj {
@@ -38,7 +39,7 @@ const CustomModal: React.FC<Props> = ({ isOpen, modalType, onClose, sweepData, d
                     <div className="modal-content" style={{ backgroundColor: 'rgba(0, 0, 0)', borderRadius: 40 }}>
                         <div className="modal-body px-4 text-center ">
                             <div className="d-flex justify-content-center">
-                                <img src="/next-images/Modal/success.png" alt="success img" />
+                                <Image src="/next-images/Modal/success.png" alt="success img" width={100} height={100}/>
                             </div>
                             <p className="mb-0 mt-2 text-white fs-20" style={{ fontWeight: 700, letterSpacing: 1.1 }}>
                                 Submission Successful

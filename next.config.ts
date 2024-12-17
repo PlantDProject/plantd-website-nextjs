@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
         WEBSITE_URL: process.env.NEXT_PUBLIC_WEBSITE_URL,
         WEBSITE_ENV: process.env.NEXT_PUBLIC_ENV
       },
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'plantd.life',
+        },
+        {
+          protocol: 'https',
+          hostname: 'qa.getplantd.com',
+        },
+      ],
+    },
 };
 
 export default nextConfig;
