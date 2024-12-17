@@ -13,7 +13,7 @@ const About = () => {
     const SectionContainer = (data: DataFormat, index: number) => {
         return (
             <div className={`pb-4 pb-lg-0 container-fluid w-90 d-flex flex-wrap px-4 my-5 ${data.source !== 'about' ? 'align-items-center' : ''}`} data-aos="zoom-in" data-aos-duration="500" data-aos-easing="linear">
-                <div className={`col-lg-6 col-12 order-0 ${isEven(index) ? 'order-lg-1 ps-4' : 'pe-4 order-0'}`}>
+                <div className={`col-lg-6 col-12 order-0 ${isEven(index) ? 'order-lg-1 ps-lg-4' : 'pe-lg-4 order-0'}`}>
                     <h2>{data.title}</h2>
                     {/* <p className="fs-20 mt-4">{data.description}</p> */}
                     <p className="fs-20 mt-4">
@@ -84,7 +84,7 @@ const About = () => {
 
             <section className="py-5">
                 {aboutUsSections.map((e: DataFormat, index: number) => {
-                    return <div key={index}>{SectionContainer(e, index)}</div>;
+                    return <Link className="text-white cards-hover" href={e.redirect || '/'} key={index}>{SectionContainer(e, index)}</Link>;
                 })}
             </section>
 

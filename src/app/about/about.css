@@ -86,3 +86,15 @@
 .greenInitiativeCard img {
     transition: 1s ease;
 }
+
+.cards-hover h2, .cards-hover img {
+    transition: 0.3s ease;
+}
+
+.cards-hover h2:hover {
+    color: var(--primary-color);
+}
+
+.cards-hover img:hover {
+    transform : scale(1.02)
+}
