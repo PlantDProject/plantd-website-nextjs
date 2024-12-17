@@ -8,6 +8,7 @@ import { Input } from '@nextui-org/react';
 import { CHECK_SIGNUP_EMAIL } from '@/utils/GRAPHQL';
 import { IFrameRenderer, fetchGraphQL } from '@/utils/helpers';
 import { InfoData, InfoDataInterface } from './signupItems';
+import Link from 'next/link';
 
 const emailregex = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/
 
@@ -144,7 +145,7 @@ const Signup = () => {
                                        );
                                     })}
                                     <div className="text-center mt-4">
-                                       <a className="btn primary-btn btn-rounded custom-btn" href="">Jump in</a>
+                                       <Link className="btn primary-btn btn-rounded custom-btn" href={appLink}>Jump in</Link>
                                     </div>
                               </div>
                            )}

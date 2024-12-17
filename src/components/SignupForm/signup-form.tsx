@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
-import useCustomForm from '@/hooks/useContactForm';
-import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
+import { useState } from 'react';
+import { Input } from '@nextui-org/react';
 import './signup-form.css';
 import { trackEvent } from '@/utils/helpers';
 import Link from 'next/link';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import { redirect } from 'next/navigation';
 
 // import Recaptcha from './Recaptcha';
 // Define props type
@@ -22,7 +20,7 @@ const formDataFormat = {
     isChecked: false
 };
 
-const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@?#\$%\^&\*])(?=.{8,})/;
+const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@?#%&])(?=.{8,})/;
 
 function CustomSignupForm({ email, referralCode }: SignupFormProps) {
 
@@ -141,8 +139,6 @@ function CustomSignupForm({ email, referralCode }: SignupFormProps) {
                 },
                 body: JSON.stringify(dataObject),
             });
-
-            console.log("RESPONSE",response)
             if (!response.ok) {
                 const errorData = await response.json();
                 trackEvent('Form Submission Failed');
