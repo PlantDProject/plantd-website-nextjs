@@ -91,12 +91,12 @@ const Ambassador = () => {
             <section className="section-light-green">
                 <div className="container d-flex py-lg-5 py-4 flex-wrap align-items-center justify-center contact-section">
                     <div className="col-lg-4 col-8 mb-4 mb-lg-0 mx-3">
-                        <Link className="btn primary-btn btn-rounded transparent-bg custom-btn py-2 w-100" href="https://sldr.page.link/xG6w">
+                        <Link className="px-0 btn primary-btn btn-rounded transparent-bg custom-btn py-2 w-100" href="https://sldr.page.link/xG6w">
                             Apply Now
                         </Link>
                     </div>
                     <div className="col-lg-4 col-8 mx-3">
-                        <Link className="btn primary-btn btn-rounded transparent-bg custom-btn py-2 w-100" href="https://socialladder.rkiapps.com/ambdash?areaGuid=B5CB4C9C-F1EF-41FF-AAFB-B2A2368B0602">
+                        <Link className="px-0 btn primary-btn btn-rounded transparent-bg custom-btn py-2 w-100" href="https://socialladder.rkiapps.com/ambdash?areaGuid=B5CB4C9C-F1EF-41FF-AAFB-B2A2368B0602">
                             Login
                         </Link>
                     </div>
