@@ -4,6 +4,7 @@ import { isEven } from '@/utils/helpers';
 import './projects.css';
 import { redirect } from 'next/navigation';
 import { SocialsBar } from '@/components/Socials/SocialsSection';
+import Image from 'next/image';
 
 interface ProjectsInterface {
     title: string;
@@ -72,7 +73,7 @@ const Projects = ({ projectsList }: any) => {
                                         })}
                                     </div>
                                     <div className={`col-6 d-none d-lg-block ${isEven(index) ? 'order-1' : 'order-0'}`}>
-                                        <img className="project-image mx-auto" src={items?.image} alt={items?.name} />
+                                        <Image className="project-image mx-auto" src={items?.image} alt={items?.name} width={400} height={400}/>
                                     </div>
                                 </div>
                             </div>

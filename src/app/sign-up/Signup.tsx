@@ -9,6 +9,7 @@ import { CHECK_SIGNUP_EMAIL } from '@/utils/GRAPHQL';
 import { IFrameRenderer, fetchGraphQL, isEmailValid } from '@/utils/helpers';
 import { InfoData, InfoDataInterface } from './signupItems';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Signup = () => {
    // Button component to navigate to the form section
@@ -79,7 +80,7 @@ const Signup = () => {
             <div className="w-90 mx-auto p-3 p-md-5 mt-0 text-white">
                <div className="row">
                   <div className="col-lg-6 p-0">
-                     <img src="next-images/contact/form-img.jpg" alt="signup page featured image" />
+                     <Image className="w-100" src="/next-images/contact/form-img.jpg" alt="signup page featured image" width={400} height={250}/>
                   </div>
                   <div className="col-lg-6 p-0 form-div">
                      <div className="form-container mx-auto py-lg-5 px-lg-4 px-md-5 px-3">
@@ -137,7 +138,7 @@ const Signup = () => {
                                     {InfoData.map((items: InfoDataInterface, index) => {
                                        return (
                                           <div key={index} className="d-flex align-items-center mt-2 app-perk-div">
-                                             <img src={items?.icon} alt={items?.alt} className='me-2'/>
+                                             <Image src={items?.icon} alt={items?.alt} className='me-2' width={50} height={50}/>
                                              <IFrameRenderer iframeHtml={items?.subtitle}/>
                                           </div>
                                        );

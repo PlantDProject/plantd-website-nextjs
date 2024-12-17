@@ -4,6 +4,7 @@ import { defaultOGImage } from '@/utils/helpers';
 import Link from 'next/link';
 import './ambassador.css';
 import { CardsData, cardsData } from './cards-data';
+import Image from 'next/image';
 
 const title = 'Ambassador | Plantd';
 const description = 'Plantd Brand Ambassador Program.';
@@ -44,7 +45,7 @@ const Ambassador = () => {
                         <p>We want you on our team to share our mission and join our cause. Together, we can make a greater impact and inspire so many to do the same.</p>
                     </div>
                     <div className="order-lg-1 order-0 col-12 col-lg-6 amb-section-image">
-                        <img src="/next-images/ambassador/ambassador1.jpg" className="first-section-img" />
+                        <Image alt="Become a Plantd Ambassador" src="/next-images/ambassador/ambassador1.jpg" className="first-section-img w-100" width={450} height={350} />
                     </div>
                 </div>
             </section>
@@ -52,10 +53,10 @@ const Ambassador = () => {
             <section>
                 <div className="container d-flex py-5 flex-wrap">
                     <div className="col-12 col-lg-6 amb-section-image">
-                        <img src="/next-images/ambassador/ambassador2.jpg" className="first-section-img" />
+                        <Image alt="The Perks" src="/next-images/ambassador/ambassador2.jpg" className="first-section-img w-100" width={450} height={350} />
                     </div>
                     <div className="col-12 col-lg-6 amb-section pt-3 ps-3 mt-4 mt-lg-0">
-                        <h2 className="amb-subheading">THE PERKS:</h2>
+                        <h2 className="amb-subheading">The Perks:</h2>
                         <p>You’ll receive a personalized link to share with your friends, family, and followers. For every person who subscribes through your link, you’ll be rewarded with commission.</p>
                         <p>You will have access to challenges where you can participate to earn cash.</p>
                     </div>
@@ -67,7 +68,7 @@ const Ambassador = () => {
                     {cardsData?.map((e: CardsData, index: number) => {
                         return (
                             <div className="dark-bg col-lg-4 col-md-6 col-12 amb-cards my-3" key={index}>
-                                <img src={e?.image} alt={e?.alt} />
+                                <Image src={e?.image} alt={e?.alt} width={100} height={100} />
                                 <p className="pt-3 px-3 text-white text-center">{e?.text}</p>
                             </div>
                         );
@@ -83,7 +84,7 @@ const Ambassador = () => {
                         <p>If you're already an Ambassador and want to login to your Social Ladder Ambassador Dashboard, click on the 'LOGIN' button below.</p>
                     </div>
                     <div className="order-lg-1 order-0 col-12 col-lg-6 amb-section-image">
-                        <img src="/next-images/ambassador/ambassador3.jpg" className="first-section-img" />
+                        <Image alt="How do i sign up" src="/next-images/ambassador/ambassador3.jpg" className="first-section-img w-100" width={450} height={350} />
                     </div>
                 </div>
             </section>

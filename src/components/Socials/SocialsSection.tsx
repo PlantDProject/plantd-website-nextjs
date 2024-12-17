@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export const SocialsBar = () => {
     return (
@@ -10,10 +11,10 @@ export const SocialsBar = () => {
 
                 <div className="col-12 col-lg-6 mt-4 mt-lg-0 align-items-center justify-center d-flex mx-auto">
                     <Link className="app-store me-3 w-25" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank">
-                        <img src="/next-images/socials/app-store.png" alt="App Store" className="ms-auto" />
+                        <Image src="/next-images/socials/app-store.png" alt="App Store" className="ms-auto w-100" width={150} height={50} />
                     </Link>
                     <Link className="play-store w-25" href="https://app.plantd.life/MW/Footer/AppDownload" target="_blank">
-                        <img src="/next-images/socials/play-store.png" alt="Google Play" />
+                        <Image src="/next-images/socials/play-store.png" alt="Google Play" className="w-100" width={150} height={50} />
                     </Link>
                 </div>
             </div>

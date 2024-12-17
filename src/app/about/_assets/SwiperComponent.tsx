@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SliderInterface, aboutUsSlider, sliderBreakpoints } from '../_data/subsectionsData';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 export const AboutUsSwiper = () => {
     const pagination = {
@@ -13,8 +14,6 @@ export const AboutUsSwiper = () => {
     };
 
     const path = usePathname();
-
-    console.log('PATH > ', path);
 
     const sliderItems = aboutUsSlider.filter((e : SliderInterface) => e.redirection !== path)
 
@@ -35,7 +34,7 @@ export const AboutUsSwiper = () => {
                     return (
                         <SwiperSlide key={index}>
                             <Link href={items.redirection} key={index}>
-                                <img className="gallery-images" src={items?.image} alt={items?.alt} width="90%" />
+                                <Image className="gallery-images w-90" src={items?.image} alt={items?.alt} width={240} height={150} />
                                 <p className="text-white mb-5 fw-bold fs-20 text-center mt-3">{items.alt}</p>
                             </Link>
                         </SwiperSlide>

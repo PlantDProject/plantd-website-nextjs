@@ -82,6 +82,18 @@ a {
     width: 100% !important;
 }
 
+.w-90 {
+    width: 90% !important;
+}
+
+.w-80 {
+    width: 80% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
 .fw-normal {
     font-weight: 400;
 }

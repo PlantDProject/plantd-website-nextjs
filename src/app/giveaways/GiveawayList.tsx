@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { fetchGraphQL, getDate, getDay, getImgUri, isEven } from '@/utils/helpers';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 import { GET_PAST_EVENTS } from '@/utils/GRAPHQL';
+import Image from 'next/image';
 
 export default function Giveaways({ onGoingEvents, completedEvents: initialCompleted }: any) {
     const [completedEvents, setCompletedEvents] = useState(initialCompleted);
@@ -61,7 +62,7 @@ export default function Giveaways({ onGoingEvents, completedEvents: initialCompl
                         </h3>
                     </div>
                     <h3 className="title-heading text-white text-center fw-bold">{event?.eventName}</h3>
-                    <img src={getImgUri(event?.imageUrl)} className="my-2 ty-img mx-auto" alt={event?.eventName} />
+                    <Image src={getImgUri(event?.imageUrl)} className="my-2 ty-img mx-auto" alt={event?.eventName} width={230} height={260}/>
                     <div>
                         <Link href={`giveaways/${event?.eventSlug}`} className="btn btn-sm btn-soft-primary btn-rounded py-2 px-5 view-details">
                             View Details
