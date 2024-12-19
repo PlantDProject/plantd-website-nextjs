@@ -4,7 +4,7 @@ import React from 'react';
 import './Navbar.css';
 import { aboutUsData, solutionsData } from './DropdownItems';
 import Link from 'next/link';
-import { fetchAPI, light } from '@/utils/helpers';
+import { defaultOGImage, fetchAPI, light } from '@/utils/helpers';
 import { usePathname } from 'next/navigation';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
@@ -212,7 +212,7 @@ const Navbar = () => {
                                             </Link>
                                         );
                                     })}
-                                    {projectList.length > 6 && getBtn('/projects', 'Projects')}
+                                    {projectList?.length > 6 && getBtn('/projects', 'Projects')}
                                 </ul>
                             </li>
 
@@ -244,11 +244,12 @@ const Navbar = () => {
                                     <i className="fa fa-angle-down" style={{ marginLeft: 5 }} aria-hidden="true" />
                                 </Link>
                                 <ul className={`p-lg-4 mt-2 mt-lg-0 dropdown-menu center-dropdown ${showBlogsDropdown ? 'show d-flex flex-wrap align-items-center' : ''}`} id="blogsDropdown">
-                                    {blogList?.map((item: any, index: number) => {
+                                    {blogList && blogList?.map((item: any, index: number) => {
+                                        const imgArr = item?.yoast_head_json?.og_image
                                         return (
                                             <Link href={`/blogs/${item?.slug}`} className="p-lg-3 p-2 col-12 col-lg-4 d-flex align-items-center justify-content-lg-between justify-content-evenly" key={index}>
                                                 <div className="col-2 col-lg-5 dropdown-img">
-                                                    <Image src={item?.yoast_head_json?.og_image[0]?.url} alt={item?.title?.rendered} width={180} height={120} className="w-100" />
+                                                    <Image src={imgArr ? imgArr[0]?.url : defaultOGImage} alt={item?.title?.rendered} width={180} height={120} className="w-100" />
                                                 </div>
                                                 <div className="col-9 col-lg-7">
                                                     <p className="text-white dropdown-item m-0 ms-0 fw-300">{item?.title?.rendered}</p>
